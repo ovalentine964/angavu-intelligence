@@ -12,7 +12,7 @@ window.SwahiliContent = {
   'nav.download': 'Pata App',
 
   // ── Hero ──
-  'hero.badge': '🇰🇪 Nairobi, Kenya — Tujenga mustakabali wa data ya kiuchumi',
+  'hero.badge': '🇰🇪 Migori, Kenya — Tujenga mustakabali wa data ya kiuchumi',
   'hero.title.line1': 'Kufanya Uchumi',
   'hero.title.line2': 'Usioonekana wa Afrika',
   'hero.title.line3': 'Uonekane.',
@@ -106,28 +106,27 @@ window.SwahiliContent = {
   'buyers.cta.whatsapp': 'Omba Demo kupitia WhatsApp',
   'buyers.cta.email': 'Tutumie Barua Pepe',
 
-  // ── Testimonials ──
-  'testimonials.label': 'Ushahidi',
-  'testimonials.title': 'Inaaminiwa na wafanyakazi kote Afrika Mashariki',
-  'testimonials.t1.quote': '"Sasa najua faida yangu kila siku. Kabla, nilikuwa natadhani tu. Msaidizi imebadilisha jinsi ninaendesha duka langu."',
-  'testimonials.t1.name': 'Mama Amina',
-  'testimonials.t1.role': 'Mmiliki wa Duka, Kariakoo',
-  'testimonials.t2.quote': '"Ninapenda kwamba inafanya kazi bila internet. Soko langu halina WiFi lakini Msaidizi bado inafanya kazi kikamilifu."',
-  'testimonials.t2.name': 'Juma',
-  'testimonials.t2.role': 'Muuzaji wa Chakula, Gikomba',
-  'testimonials.t3.quote': '"Watoto wangu walinishawishi kupakua. Sasa ninaona biashara yangu kwenye simu yangu. Ni rahisi sana."',
-  'testimonials.t3.name': 'Mama Njeri',
-  'testimonials.t3.role': 'Mama Ntilie, Kawangware',
+  // ── Pilot Program ──
+  'pilot.label': 'Programu ya Majaribio',
+  'pilot.title': 'Kuwa Miongoni mwa Watumiaji Wetu wa Kwanza',
+  'pilot.desc': 'Msaidizi inaanza na programu ya majaribio katika masoko ya Migori. Tuanza polepole — wafanyakazi halisi, biashara halisi, data halisi. Hakuna ukaguzi wa bandia. Hakuna nambari zilizopindishwa. Tu teknolojia ya uaminifu iliyotengenezwa kwa watu wanaoihitaji.',
+  'pilot.card1.title': 'Tuanza na Gikomba',
+  'pilot.card1.desc': 'Watumiaji wetu wa kwanza ni wauzaji wa soko Gikomba, Migori. Wadukawallahs na mama mbogas halisi wanaajaribu Msaidizi na miamala yao ya kila siku.',
+  'pilot.card2.title': 'Data ya Ukweli Tu',
+  'pilot.card2.desc': 'Kila nambari kwenye tovuti hii inatoka kwenye miamala halisi. Hakuna miradi iliyofichwa kama ukweli. Tutachapisha vipimo halisi kadiri programu yetu ya majaribio inavyoendelea.',
+  'pilot.card3.title': 'Jiunge na Majaribio',
+  'pilot.card3.desc': 'Wewe ni muuzaji wa soko Migori? Pakua Msaidizi na uunge mkono kikundi cha kwanza kuona data yao ya biashara kwa wakati halisi.',
+  'pilot.join': 'Jiunge na Majaribio',
 
   // ── About ──
   'about.label': 'Kutuhusu',
-  'about.title': 'Biashara AI Ltd — Nairobi, Kenya',
+  'about.title': 'Biashara Intelligence — Migori, Kenya',
   'about.mission.title': 'Dhamira Yetu',
   'about.mission.text': 'Kufanya uchumi usioonekana wa Afrika uonekane, muamala mmoja kwa wakati.',
   'about.story.title': 'Hadithi Yetu',
   'about.story.p1': 'Ilianza na swali moja: <strong>Kwa nini biashara ya mama yangu haina data?</strong>',
   'about.story.p2': 'Anauza mandazi Gikomba. Anafanya kazi kwa bidii zaidi kuliko CEO yeyote. Lakini hakuna benki inayemwona. Hakuna serikali inayemhesabu. Hakuna kampuni inayechunguza soko lake.',
-  'about.story.p3': 'Biashara AI inabadilisha hilo. Tunajenga miundombinu ya data kwa uchumi usio rasmi wa Afrika — tukianza na wafanyakazi wenyewe.',
+  'about.story.p3': 'Biashara Intelligence inabadilisha hilo. Tunajenga miundombinu ya data kwa uchumi usio rasmi wa Afrika — tukianza na wafanyakazi wenyewe.',
   'about.team.title': 'Timu',
   'about.team.valentine.role': 'Msanzu & CEO',
   'about.team.valentine.bio': 'BSc Uchumi na Takwimu. Ana shauku ya kutumia data kuwawezesha uchumi usio rasmi wa Afrika.',
@@ -140,10 +139,10 @@ window.SwahiliContent = {
   'contact.title': 'Tuzungumze',
   'contact.desc': 'Iwe wewe ni mfanyakazi, biashara, mwekezaji, au mwandishi — tungependa kusikia kutoka kwako.',
   'contact.email.title': 'Barua Pepe',
-  'contact.location': 'Nairobi, Kenya',
+  'contact.location': 'Migori, Kenya',
 
   // ── Footer ──
-  'footer.desc': 'Kufanya uchumi usioonekana wa Afrika uonekane. Ilijengwa Nairobi kwa wafanyakazi milioni 200 wasio rasmi wa Afrika.',
+  'footer.desc': 'Kufanya uchumi usioonekana wa Afrika uonekane. Ilijengwa Migori kwa wafanyakazi milioni 200 wasio rasmi wa Afrika.',
   'footer.product': 'Bidhaa',
   'footer.app': 'App ya Msaidizi',
   'footer.intelligence': 'Bidhaa za Ujasusi',
@@ -155,5 +154,5 @@ window.SwahiliContent = {
   'footer.connect': 'Unganisha',
   'footer.whatsapp': 'Jumuiya ya WhatsApp',
   'footer.rights': 'Haki zote zimehifadhiwa.',
-  'footer.made': 'Ilijengwa Nairobi kwa wafanyakazi milioni 200 wasio rasmi wa Afrika 🌍'
+  'footer.made': 'Ilijengwa Migori kwa wafanyakazi milioni 200 wasio rasmi wa Afrika 🌍'
 };

@@ -19,7 +19,7 @@
             'nav.download': 'Download Msaidizi',
 
             // Hero
-            'hero.badge': 'Nairobi, Kenya — Serving All of Africa',
+            'hero.badge': 'Migori, Kenya — Serving All of Africa',
             'hero.title1': 'Biashara Intelligence',
             'hero.subtitle': 'The Economic Nervous System of Africa\'s Informal Economy',
             'hero.description': '200 million informal workers. $1.3 trillion in output. We make it visible, measurable, and actionable.',
@@ -143,7 +143,7 @@
 
             // About
             'about.tag': 'About Us',
-            'about.title': 'Biashara Intelligence',
+            'about.title': 'Biashara Intelligence — Migori, Kenya',
             'about.mission.label': 'Our Mission',
             'about.mission': 'To make Africa\'s invisible economy visible, intelligent, and actionable.',
             'about.story.label': 'Our Story',
@@ -213,7 +213,7 @@
             'nav.download': 'Pakua Msaidizi',
 
             // Hero
-            'hero.badge': 'Nairobi, Kenya — Tunahudumia Afrika Yote',
+            'hero.badge': 'Migori, Kenya — Tunahudumia Afrika Yote',
             'hero.title1': 'Biashara Intelligence',
             'hero.subtitle': 'Mfumo wa Fashira wa Uchumi wa Afrika Usio Rasmi',
             'hero.description': 'Wafanyakazi milioni 200 wasio rasmi. Pato la dola trilioni 1.3. Tunafanya ionekane, ipimike, na itumike.',
@@ -397,6 +397,11 @@
             'footer.terms': 'Masharti ya Huduma'
         }
     };
+
+    // Merge comprehensive Swahili translations from external file
+    if (window.SwahiliContent) {
+        Object.assign(translations.sw, window.SwahiliContent);
+    }
 
     let currentLang = 'en';
 

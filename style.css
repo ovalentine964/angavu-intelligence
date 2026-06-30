@@ -2397,3 +2397,270 @@ h1, h2, h3, h4, h5, h6 {
 ::-webkit-scrollbar-thumb:hover {
     background: var(--text-muted);
 }
+
+/* ========== HOW MSAIDIZI THINKS ========== */
+.thinking__demo {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: start;
+}
+
+.thinking__phone {
+    background: var(--navy-card);
+    border: 1px solid var(--border-light);
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: var(--shadow-lg);
+}
+
+.thinking__phone-header {
+    padding: 1rem 1.5rem;
+    background: var(--gold-dim);
+    border-bottom: 1px solid var(--border);
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+.thinking__conversation {
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+
+.thinking__msg {
+    border-radius: 12px;
+    padding: 1rem;
+}
+
+.thinking__msg--user {
+    background: var(--blue-dim);
+    border: 1px solid rgba(59, 130, 246, 0.2);
+    margin-right: 2rem;
+}
+
+.thinking__msg--ai {
+    background: var(--green-dim);
+    border: 1px solid rgba(16, 185, 129, 0.2);
+    margin-left: 1rem;
+}
+
+.thinking__msg-label {
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    display: block;
+    margin-bottom: 0.5rem;
+    opacity: 0.7;
+}
+
+.thinking__msg p {
+    margin: 0;
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+.thinking__msg-translation {
+    display: block;
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    margin-top: 0.25rem;
+    font-style: italic;
+}
+
+.thinking__reasoning {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    margin-bottom: 0.75rem;
+    padding: 0.75rem;
+    background: rgba(0,0,0,0.2);
+    border-radius: 8px;
+}
+
+.thinking__reasoning-step {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+}
+
+.thinking__reasoning-icon {
+    font-size: 0.9rem;
+}
+
+.thinking__answer {
+    padding-top: 0.5rem;
+    border-top: 1px solid rgba(255,255,255,0.1);
+}
+
+.thinking__answer p {
+    margin: 0;
+    font-size: 0.9rem;
+    line-height: 1.6;
+}
+
+.thinking__answer-translation {
+    display: block;
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    margin-top: 0.5rem;
+    font-style: italic;
+}
+
+.thinking__features {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.thinking__feature {
+    padding: 1.25rem;
+    background: var(--navy-card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+}
+
+.thinking__feature-icon {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.thinking__feature h4 {
+    margin: 0 0 0.5rem;
+    font-size: 1rem;
+}
+
+.thinking__feature p {
+    margin: 0;
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    line-height: 1.5;
+}
+
+/* ========== COMPARISON TABLE ========== */
+.comparison__table {
+    overflow-x: auto;
+}
+
+.comparison__table table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.9rem;
+}
+
+.comparison__table th,
+.comparison__table td {
+    padding: 1rem;
+    text-align: left;
+    border-bottom: 1px solid var(--border);
+}
+
+.comparison__table thead th {
+    font-weight: 700;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--text-secondary);
+}
+
+.comparison__highlight {
+    background: var(--gold-dim) !important;
+    color: var(--gold) !important;
+    font-weight: 600 !important;
+}
+
+.comparison__table thead .comparison__highlight {
+    color: var(--gold) !important;
+    font-size: 0.9rem !important;
+}
+
+.comparison__table tbody tr:hover {
+    background: var(--glass);
+}
+
+/* ========== FAQ ========== */
+.faq__grid {
+    max-width: 800px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.faq__item {
+    background: var(--navy-card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    overflow: hidden;
+    transition: var(--transition);
+}
+
+.faq__item:hover {
+    border-color: var(--border-light);
+}
+
+.faq__question {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.25rem 1.5rem;
+    cursor: pointer;
+    user-select: none;
+}
+
+.faq__question h4 {
+    margin: 0;
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.faq__toggle {
+    font-size: 1.5rem;
+    color: var(--gold);
+    font-weight: 300;
+    transition: var(--transition);
+    flex-shrink: 0;
+    margin-left: 1rem;
+}
+
+.faq__item--open .faq__toggle {
+    transform: rotate(45deg);
+}
+
+.faq__answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+}
+
+.faq__item--open .faq__answer {
+    max-height: 300px;
+}
+
+.faq__answer p {
+    padding: 0 1.5rem 1.25rem;
+    margin: 0;
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    line-height: 1.7;
+}
+
+/* ========== RESPONSIVE FOR NEW SECTIONS ========== */
+@media (max-width: 768px) {
+    .thinking__demo {
+        grid-template-columns: 1fr;
+    }
+
+    .comparison__table {
+        font-size: 0.8rem;
+    }
+
+    .comparison__table th,
+    .comparison__table td {
+        padding: 0.75rem 0.5rem;
+    }
+}

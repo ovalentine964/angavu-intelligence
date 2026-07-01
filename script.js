@@ -124,8 +124,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 btn.disabled = false;
             }, 3000);
 
-            // Log for future integration
-            console.log('Newsletter signup:', email);
+            // Log for future integration (do not log email in production)
+            // console.log('Newsletter signup:', email);
         });
     };
 
@@ -178,6 +178,13 @@ document.addEventListener('DOMContentLoaded', () => {
             hero.style.transform = `translateY(${offset}px)`;
         }
     }, { passive: true });
+
+    // --- Service Worker Registration ---
+    if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('/biashara-intelligence/sw.js')
+            .then(reg => console.log('SW registered:', reg.scope))
+            .catch(err => console.log('SW registration failed:', err));
+    }
 
     console.log('Biashara Intelligence — Website loaded successfully.');
 });

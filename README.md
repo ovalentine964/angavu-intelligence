@@ -1,3 +1,5 @@
+![Biashara Intelligence](assets/logo-banner.svg)
+
 # Msaidizi — Website
 
 **Landing page for Msaidizi/Biashara AI.**

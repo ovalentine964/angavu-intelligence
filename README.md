@@ -20,22 +20,34 @@ Africa's economic nervous system — the platform that forces good governance th
 
 ### For Workers
 - **Msaidizi** — Voice-based, offline-first mobile app for tracking business finances
+  - 🎤 Voice-first: speak in your language (14 dialects supported)
+  - 📴 Offline-first: works without internet
+  - 🎮 Gamification: points, levels, streaks, badges
+  - 💰 Wealth Mindset: daily habit tracking
+  - 🤲 Tithe & Giving: track charitable giving
+  - 🎯 Goals & Loans: savings goals and loan tracking
 
 ### For Businesses
 - **Soko Pulse** — FMCG demand forecasting from informal markets (Beta)
 - **Alama Score** — Alternative credit scoring for the unbanked (Beta)
 - **Distribution Intelligence** — Route optimization for last-mile delivery
 - **Risk Intelligence** — Default probability for informal borrowers
+- **FMCG Intelligence** — Informal channel tracking (Pwani Oil pilot)
+- **Supply Chain** — Agricultural supply optimization
 
 ### For Government
 - **Biashara Pulse** — MSME Activity Index (Beta)
 - **Employment Intelligence** — Real-time labor market data
 - **Tax Base Mapping** — Identify untaxed economic activity
+- **GDP Estimator** — Real-time informal GDP by county
+- **Inflation Tracker** — Daily price indices from informal markets
 
 ### For NGOs
 - **Jamii Insights** — Financial inclusion metrics (Beta)
 - **Impact Measurement** — Track intervention effectiveness
 - **Poverty Mapping** — Community-level economic indicators
+- **SDG Tracker** — SDG progress from real economic data
+- **Gender Intelligence** — Women's economic participation
 
 ### For Researchers
 - **Data API** — Raw anonymized transaction data
@@ -66,10 +78,12 @@ Africa's economic nervous system — the platform that forces good governance th
 biashara-intelligence/
 ├── index.html          # Main landing page
 ├── style.css           # All styles (mobile-first)
+├── style.min.css       # Minified CSS (22KB)
 ├── script.js           # Interactions, language toggle
+├── script.min.js       # Minified JS (4KB)
 ├── sw.js               # Service worker (offline support)
 ├── manifest.json       # PWA manifest
-├── assets/             # Images, icons
+├── assets/             # Images, icons, logo SVGs
 ├── sitemap.xml         # SEO sitemap
 ├── robots.txt          # SEO robots
 └── .nojekyll           # Bypass Jekyll on GitHub Pages

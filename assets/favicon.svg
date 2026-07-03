@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32" role="img" aria-label="Angavu Intelligence favicon">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1B4965"/>
+      <stop offset="100%" stop-color="#0F2D42"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="32" height="32" rx="6" ry="6" fill="url(#bg)"/>
+
+  <!-- Eye icon centered -->
+  <g transform="translate(16, 14)">
+    <!-- Outer arc -->
+    <path d="M-11,0 A11,8.5 0 0 1 11,0" fill="none" stroke="#E8A838" stroke-width="1.2" opacity="0.4"/>
+    <!-- Middle arc -->
+    <path d="M-8,0 A8,6.2 0 0 1 8,0" fill="none" stroke="#E8A838" stroke-width="1.4" opacity="0.7"/>
+    <!-- Inner arc -->
+    <path d="M-5.5,0 A5.5,4.2 0 0 1 5.5,0" fill="none" stroke="#E8A838" stroke-width="1.5" opacity="0.9"/>
+
+    <!-- Iris -->
+    <circle cx="0" cy="0" r="2.5" fill="none" stroke="#E8A838" stroke-width="1.2"/>
+
+    <!-- Pupil -->
+    <circle cx="0" cy="0" r="1.2" fill="#E8A838"/>
+  </g>
+
+  <!-- A letter below -->
+  <text x="16" y="27" text-anchor="middle" font-family="'Segoe UI',Arial,sans-serif" font-size="8" font-weight="700" fill="#FFFFFF" letter-spacing="0.5">A</text>
+</svg>

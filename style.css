@@ -1143,7 +1143,7 @@ p {
 
 .contact-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: 24px;
     margin-bottom: 48px;
 }
@@ -1187,6 +1187,68 @@ p {
     text-align: center;
     font-size: 1rem;
     color: var(--text-secondary);
+}
+
+/* WhatsApp Primary Button */
+.contact-whatsapp-primary {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.btn-whatsapp {
+    display: inline-flex;
+    align-items: center;
+    gap: 16px;
+    background: #25D366;
+    color: #fff;
+    padding: 20px 40px;
+    border-radius: var(--radius-md);
+    text-decoration: none;
+    transition: all var(--transition-base);
+    box-shadow: 0 4px 24px rgba(37, 211, 102, 0.3);
+}
+
+.btn-whatsapp:hover {
+    background: #1ebe57;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 32px rgba(37, 211, 102, 0.4);
+}
+
+.btn-whatsapp-icon {
+    font-size: 2rem;
+}
+
+.btn-whatsapp-text {
+    text-align: left;
+    line-height: 1.4;
+}
+
+.btn-whatsapp-text strong {
+    display: block;
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+.btn-whatsapp-text small {
+    font-size: 0.85rem;
+    opacity: 0.9;
+}
+
+/* Coming Soon Cards */
+.contact-coming-soon {
+    opacity: 0.7;
+}
+
+.coming-soon-badge {
+    display: inline-block;
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-subtle);
+    border-radius: 999px;
+    padding: 4px 16px;
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
 }
 
 /* ============================================

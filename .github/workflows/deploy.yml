@@ -1,0 +1,69 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Cache busting — inject build hash into assets
+        run: |
+          BUILD_HASH=$(git rev-parse --short HEAD)
+          TIMESTAMP=$(date +%s)
+
+          # Inject cache-busting query params into index.html references
+          sed -i "s/\(style\.css\)?v=[0-9]*/\1?v=${TIMESTAMP}/g" index.html 2>/dev/null || true
+          sed -i "s/\(script\.js\)?v=[0-9]*/\1?v=${TIMESTAMP}/g" index.html 2>/dev/null || true
+          sed -i "s/\(style\.min\.css\)?v=[0-9]*/\1?v=${TIMESTAMP}/g" index.html 2>/dev/null || true
+          sed -i "s/\(script\.min\.js\)?v=[0-9]*/\1?v=${TIMESTAMP}/g" index.html 2>/dev/null || true
+
+          # If no existing version params, add them
+          if ! grep -q 'style\.css?v=' index.html; then
+            sed -i "s/style\.css/style.css?v=${TIMESTAMP}/g" index.html
+          fi
+          if ! grep -q 'script\.js?v=' index.html; then
+            sed -i "s/script\.js/script.js?v=${TIMESTAMP}/g" index.html
+          fi
+          if ! grep -q 'style\.min\.css?v=' index.html; then
+            sed -i "s/style\.min\.css/style.min.css?v=${TIMESTAMP}/g" index.html
+          fi
+          if ! grep -q 'script\.min\.js?v=' index.html; then
+            sed -i "s/script\.min\.js/script.min.js?v=${TIMESTAMP}/g" index.html
+          fi
+
+          echo "✅ Cache busting applied with timestamp ${TIMESTAMP} (commit ${BUILD_HASH})"
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: .
+
+  deploy:
+    name: Deploy
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

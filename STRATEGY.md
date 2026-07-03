@@ -1,4 +1,4 @@
-# Biashara Intelligence — Strategic Framework
+# Angavu Intelligence — Strategic Framework
 
 **Classification:** Internal — Founder Level
 **Date:** July 2, 2026
@@ -8,7 +8,7 @@
 
 ## The One-Line Strategy
 
-> **"Biashara Intelligence: Not competing. Just operating."**
+> **"Angavu Intelligence: Not competing. Just operating."**
 
 ---
 
@@ -23,15 +23,15 @@ Thiel's central thesis: **competition is for losers.** Great companies create mo
 | **Proprietary Technology** | ✅ 10x+ | AI CFO for informal workers — no substitute exists anywhere on Earth |
 | **Network Effects** | ✅ Strong | Cross-side effects: workers ↔ enterprise clients ↔ data ↔ AI models |
 | **Economies of Scale** | ✅ Exceptional | On-device LLM = near-zero marginal cost per user at scale |
-| **Branding** | ✅ Cultural lock-in | "Biashara" = "Business" in Swahili. The name IS the category. |
+| **Branding** | ✅ Cultural lock-in | "Angavu" = "Clarity" in Swahili. The name IS the category. |
 
-**Conclusion: Biashara Intelligence meets all four Thiel monopoly criteria. It is not competing — it is operating in empty space.**
+**Conclusion: Angavu Intelligence meets all four Thiel monopoly criteria. It is not competing — it is operating in empty space.**
 
 ### Why No One Can Compete
 
 | Barrier | Description |
 |---|---|
-| **Data Moat** | Every transaction trains the AI. By the time a competitor launches, Biashara has years of proprietary data. |
+| **Data Moat** | Every transaction trains the AI. By the time a competitor launches, Angavu has years of proprietary data. |
 | **Trust Moat** | Informal workers don't trust easily. Msaidizi earns trust through daily voice interaction in Swahili. |
 | **Architecture Moat** | On-device LLM + federated learning + multi-agent swarms + data center pipeline = a system, not a product. |
 | **Language Moat** | Real Swahili with regional dialects, cultural idioms, and informal commerce vocabulary. |
@@ -55,7 +55,7 @@ The economics have flipped. Open-source models now outperform rented API access.
 3. **Fine-tune on own data** → Custom models on proprietary data
 4. **Full ownership** → Control inference, eliminate data leakage
 
-### Biashara's Position — Already Ahead
+### Angavu's Position — Already Ahead
 
 | Capability | Status | Advantage |
 |---|---|---|
@@ -64,7 +64,7 @@ The economics have flipped. Open-source models now outperform rented API access.
 | Federated learning framework | ✅ Built | Data never leaves device |
 | Privacy-first architecture | ✅ Core design | GDPR/Kenya DPA compliant by default |
 
-While Western enterprises are *moving toward* in-house AI, Biashara is *already there.*
+While Western enterprises are *moving toward* in-house AI, Angavu is *already there.*
 
 ### The Cost Advantage
 
@@ -110,7 +110,7 @@ More Revenue → Better Infrastructure → More Workers
 
 Msaidizi users generate economic data. That data trains better agents. Better agents build better intelligence products. Better products attract more users. More users generate more data.
 
-**Biashara becomes the intelligence layer between informal workers and the formal economy.**
+**Angavu becomes the intelligence layer between informal workers and the formal economy.**
 
 ### Flywheel Economics
 
@@ -146,7 +146,7 @@ Msaidizi users generate economic data. That data trains better agents. Better ag
 
 ## 6. Africa's Answer to China's AI Factories
 
-| China's AI Factories | Biashara's AI Platform |
+| China's AI Factories | Angavu's AI Platform |
 |---|---|
 | 1.4B population data | 600M+ informal worker data |
 | Government-backed DCs | Phased self-funded DCs |
@@ -154,7 +154,7 @@ Msaidizi users generate economic data. That data trains better agents. Better ag
 | Coal + hydro power | Solar + geothermal (cheaper, cleaner) |
 | National AI strategy | Pan-African informal economy focus |
 
-China proved that a nation can build world-class AI by controlling data, infrastructure, and models vertically. Biashara is doing the same thing — for Africa's informal economy, from Kenya, on solar power, using ARM servers.
+China proved that a nation can build world-class AI by controlling data, infrastructure, and models vertically. Angavu is doing the same thing — for Africa's informal economy, from Kenya, on solar power, using ARM servers.
 
 ---
 
@@ -162,7 +162,7 @@ China proved that a nation can build world-class AI by controlling data, infrast
 
 ```
 ┌─────────────────────────────────────────────────────┐
-│              BIASHARA INTELLIGENCE 2030              │
+│              ANGAVU INTELLIGENCE 2030              │
 ├─────────────────────────────────────────────────────┤
 │  DATA LAYER: 200M+ workers, federated behavioral   │
 │  data across 15+ African countries                  │
@@ -184,4 +184,4 @@ China proved that a nation can build world-class AI by controlling data, infrast
 
 *This document is a living strategic asset. Review quarterly. Update as the monopoly deepens.*
 
-**Biashara Intelligence © 2026**
+**Angavu Intelligence © 2026**

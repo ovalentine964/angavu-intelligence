@@ -1,12 +1,12 @@
-![Biashara Intelligence](assets/logo-banner.svg)
+![Angavu Intelligence](assets/logo-banner.svg)
 
-# Biashara Intelligence — Website
+# Angavu Intelligence — Website
 
 **Making 200 million invisible workers visible through data.**
 
 ## Live
 
-https://ovalentine964.github.io/biashara-intelligence/
+https://ovalentine964.github.io/angavu-intelligence/
 
 ## Mission
 
@@ -36,7 +36,7 @@ Africa's economic nervous system — the platform that forces good governance th
 - **Supply Chain** — Agricultural supply optimization
 
 ### For Government
-- **Biashara Pulse** — MSME Activity Index (Beta)
+- **Angavu Pulse** — MSME Activity Index (Beta)
 - **Employment Intelligence** — Real-time labor market data
 - **Tax Base Mapping** — Identify untaxed economic activity
 - **GDP Estimator** — Real-time informal GDP by county
@@ -75,7 +75,7 @@ Africa's economic nervous system — the platform that forces good governance th
 ## Website Structure
 
 ```
-biashara-intelligence/
+angavu-intelligence/
 ├── index.html          # Main landing page
 ├── style.css           # All styles (mobile-first)
 ├── style.min.css       # Minified CSS (22KB)
@@ -114,7 +114,7 @@ python3 -m http.server 8000
 
 ## License
 
-Proprietary — Biashara Intelligence
+Proprietary — Angavu Intelligence
 
 ---
 

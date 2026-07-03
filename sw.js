@@ -4,11 +4,11 @@
  */
 const CACHE_NAME = 'msaidizi-v1';
 const SHELL_ASSETS = [
-  '/biashara-intelligence/',
-  '/biashara-intelligence/index.html',
-  '/biashara-intelligence/style.css',
-'/biashara-intelligence/script.js',
-  '/biashara-intelligence/manifest.json'
+  '/angavu-intelligence/',
+  '/angavu-intelligence/index.html',
+  '/angavu-intelligence/style.css',
+  '/angavu-intelligence/script.js',
+  '/angavu-intelligence/manifest.json'
 ];
 
 // Install — cache app shell
@@ -70,7 +70,7 @@ self.addEventListener('fetch', function (event) {
       }).catch(function () {
         // Offline fallback for navigation
         if (event.request.mode === 'navigate') {
-          return caches.match('/biashara-intelligence/index.html');
+          return caches.match('/angavu-intelligence/index.html');
         }
       });
     })

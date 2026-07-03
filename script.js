@@ -1,5 +1,5 @@
 /* ============================================
-   BIASHARA INTELLIGENCE — Script
+   ANGAVU INTELLIGENCE — Script
    ============================================ */
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -181,10 +181,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // --- Service Worker Registration ---
     if ('serviceWorker' in navigator) {
-        navigator.serviceWorker.register('/biashara-intelligence/sw.js')
+        navigator.serviceWorker.register('/angavu-intelligence/sw.js')
             .then(reg => console.log('SW registered:', reg.scope))
             .catch(err => console.log('SW registration failed:', err));
     }
 
-    console.log('Biashara Intelligence — Website loaded successfully.');
+    console.log('Angavu Intelligence — Website loaded successfully.');
 });

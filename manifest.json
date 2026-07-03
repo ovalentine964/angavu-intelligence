@@ -1,9 +1,9 @@
 {
-    "name": "Biashara Intelligence",
-    "short_name": "Biashara",
+    "name": "Angavu Intelligence",
+    "short_name": "Angavu",
     "description": "Economic Intelligence for Africa's Informal Economy",
-    "start_url": "/biashara-intelligence/",
-    "scope": "/biashara-intelligence/",
+    "start_url": "/angavu-intelligence/",
+    "scope": "/angavu-intelligence/",
     "display": "standalone",
     "orientation": "portrait",
     "categories": ["finance", "business", "productivity"],

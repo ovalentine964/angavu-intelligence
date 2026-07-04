@@ -1,14 +1,13 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512" role="img" aria-label="Angavu Intelligence logo — abstracted eye with concentric arcs">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512" role="img" aria-label="Angavu Intelligence icon — eye with Africa silhouette">
   <defs>
     <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" stop-color="#1B4965"/>
       <stop offset="100%" stop-color="#0F2D42"/>
     </linearGradient>
-    <linearGradient id="arcGrad" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" stop-color="#E8A838" stop-opacity="0.2"/>
-      <stop offset="50%" stop-color="#E8A838" stop-opacity="1"/>
-      <stop offset="100%" stop-color="#E8A838" stop-opacity="0.2"/>
-    </linearGradient>
+    <radialGradient id="glow" cx="50%" cy="45%" r="35%">
+      <stop offset="0%" stop-color="#E8A838" stop-opacity="0.08"/>
+      <stop offset="100%" stop-color="#E8A838" stop-opacity="0"/>
+    </radialGradient>
     <clipPath id="roundClip">
       <rect width="512" height="512" rx="72" ry="72"/>
     </clipPath>
@@ -17,13 +16,29 @@
   <g clip-path="url(#roundClip)">
     <!-- Background -->
     <rect width="512" height="512" fill="url(#bgGrad)"/>
-
-    <!-- Subtle radial glow behind eye -->
-    <radialGradient id="glow" cx="50%" cy="45%" r="35%">
-      <stop offset="0%" stop-color="#E8A838" stop-opacity="0.08"/>
-      <stop offset="100%" stop-color="#E8A838" stop-opacity="0"/>
-    </radialGradient>
     <rect width="512" height="512" fill="url(#glow)"/>
+
+    <!-- Subtle grid pattern -->
+    <pattern id="grid" x="0" y="0" width="40" height="40" patternUnits="userSpaceOnUse">
+      <rect width="40" height="40" fill="none"/>
+      <path d="M40 0 L0 0 0 40" fill="none" stroke="#1E5577" stroke-width="0.3" opacity="0.2"/>
+    </pattern>
+    <rect width="512" height="512" fill="url(#grid)"/>
+
+    <!-- Africa continent silhouette centered -->
+    <g transform="translate(256, 228) scale(2.2)" opacity="0.2">
+      <path d="M-8,-90 C2,-95 12,-93 20,-88 C28,-82 32,-72 34,-62
+               C36,-50 38,-40 42,-30 C46,-18 52,-8 56,2
+               C59,10 58,18 54,26 C50,34 46,40 44,48
+               C42,56 38,64 32,72 C26,78 18,82 10,84
+               C4,85 -2,84 -8,80 C-14,74 -18,66 -22,56
+               C-26,46 -30,36 -34,24 C-38,14 -42,4 -44,-6
+               C-46,-16 -46,-26 -42,-36 C-38,-46 -32,-54 -26,-64
+               C-20,-72 -14,-80 -8,-86 Z"
+           fill="#E8A838"/>
+      <!-- Madagascar -->
+      <ellipse cx="52" cy="42" rx="4" ry="10" fill="#E8A838" transform="rotate(12,52,42)"/>
+    </g>
 
     <!-- Eye centered at 256, 228 -->
     <g transform="translate(256, 228)">
@@ -44,7 +59,7 @@
       <!-- Pupil -->
       <circle cx="0" cy="0" r="14" fill="#E8A838"/>
 
-      <!-- Highlight -->
+      <!-- Highlights -->
       <circle cx="8" cy="-8" r="5" fill="#FFFFFF" opacity="0.5"/>
       <circle cx="-4" cy="4" r="2.5" fill="#FFFFFF" opacity="0.25"/>
 
@@ -62,6 +77,9 @@
 
     <!-- Divider line -->
     <line x1="156" y1="420" x2="356" y2="420" stroke="#E8A838" stroke-width="1" opacity="0.3"/>
+
+    <!-- Tagline -->
+    <text x="256" y="445" text-anchor="middle" font-family="'Segoe UI','Helvetica Neue',Arial,sans-serif" font-size="11" font-weight="300" fill="#FFFFFF" letter-spacing="2" opacity="0.45">Clarity for Africa's Invisible Economy</text>
   </g>
 
   <!-- Rounded border -->

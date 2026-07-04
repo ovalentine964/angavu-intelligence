@@ -5,23 +5,23 @@
 
 /* --- CSS Custom Properties --- */
 :root {
-    /* Colors — Dark theme with gold accents */
-    --bg-primary: #0a0a0f;
-    --bg-secondary: #111118;
-    --bg-card: #16161f;
-    --bg-card-hover: #1c1c28;
-    --bg-accent: #1a1510;
+    /* Colors — Deep Blue + Golden Hour brand */
+    --bg-primary: #1B4965;
+    --bg-secondary: #163d55;
+    --bg-card: #1E4F6B;
+    --bg-card-hover: #245A78;
+    --bg-accent: #2A6F99;
 
     --text-primary: #f0ece4;
-    --text-secondary: #a09888;
-    --text-muted: #999;
-    --text-inverse: #0a0a0f;
+    --text-secondary: #b8ccd8;
+    --text-muted: #8aa3b5;
+    --text-inverse: #0F2D42;
 
-    --accent-gold: #c8a44e;
-    --accent-gold-light: #dbb960;
-    --accent-gold-dark: #a08030;
-    --accent-gold-glow: rgba(200, 164, 78, 0.15);
-    --accent-gold-border: rgba(200, 164, 78, 0.25);
+    --accent-gold: #E8A838;
+    --accent-gold-light: #F0C060;
+    --accent-gold-dark: #D4942E;
+    --accent-gold-glow: rgba(232, 168, 56, 0.15);
+    --accent-gold-border: rgba(232, 168, 56, 0.25);
 
     --border-subtle: rgba(255, 255, 255, 0.06);
     --border-light: rgba(255, 255, 255, 0.1);
@@ -141,7 +141,7 @@ p {
     background: var(--accent-gold-light);
     color: var(--text-inverse);
     transform: translateY(-2px);
-    box-shadow: 0 8px 30px rgba(200, 164, 78, 0.3);
+    box-shadow: 0 8px 30px rgba(232, 168, 56, 0.3);
 }
 
 .btn-outline {
@@ -388,9 +388,9 @@ p {
     position: absolute;
     inset: 0;
     background:
-        radial-gradient(ellipse at 20% 50%, rgba(200, 164, 78, 0.06) 0%, transparent 50%),
-        radial-gradient(ellipse at 80% 20%, rgba(200, 164, 78, 0.04) 0%, transparent 50%),
-        radial-gradient(circle at 50% 100%, rgba(200, 164, 78, 0.03) 0%, transparent 40%);
+        radial-gradient(ellipse at 20% 50%, rgba(232, 168, 56, 0.06) 0%, transparent 50%),
+        radial-gradient(ellipse at 80% 20%, rgba(232, 168, 56, 0.04) 0%, transparent 50%),
+        radial-gradient(circle at 50% 100%, rgba(232, 168, 56, 0.03) 0%, transparent 40%);
     pointer-events: none;
 }
 
@@ -742,7 +742,7 @@ p {
     top: 16px;
     right: 24px;
     line-height: 1;
-    color: rgba(200, 164, 78, 0.1);
+    color: rgba(232, 168, 56, 0.1);
 }
 
 .pillar-icon {
@@ -1381,9 +1381,9 @@ p {
 }
 
 @keyframes pulse {
-    0% { box-shadow: 0 0 0 0 rgba(200, 164, 78, 0.3); }
-    70% { box-shadow: 0 0 0 12px rgba(200, 164, 78, 0); }
-    100% { box-shadow: 0 0 0 0 rgba(200, 164, 78, 0); }
+    0% { box-shadow: 0 0 0 0 rgba(232, 168, 56, 0.3); }
+    70% { box-shadow: 0 0 0 12px rgba(232, 168, 56, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(232, 168, 56, 0); }
 }
 
 /* --- Accessibility --- */
@@ -1395,7 +1395,7 @@ p {
 .btn:focus-visible {
     outline: 2px solid var(--accent-gold);
     outline-offset: 3px;
-    box-shadow: 0 0 0 4px rgba(200, 164, 78, 0.3);
+    box-shadow: 0 0 0 4px rgba(232, 168, 56, 0.3);
 }
 
 .skip-link {
@@ -1612,7 +1612,7 @@ p {
    ═══════════════════════════════════════════════════════════════ */
 
 .ai-agents {
-    background: linear-gradient(180deg, #0a0a0a 0%, #0d1117 100%);
+    background: linear-gradient(180deg, #1B4965 0%, #163d55 100%);
 }
 
 .agents-architecture {
@@ -1626,7 +1626,7 @@ p {
     border: 1px solid rgba(255, 255, 255, 0.08);
     border-radius: 16px;
     padding: 2rem;
-    background: rgba(255, 255, 255, 0.02);
+    background: rgba(255, 255, 255, 0.04);
 }
 
 .tier-header {
@@ -1682,8 +1682,8 @@ p {
 }
 
 .agent-card {
-    background: rgba(255, 255, 255, 0.04);
-    border: 1px solid rgba(255, 255, 255, 0.06);
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.08);
     border-radius: 12px;
     padding: 1.25rem;
     transition: transform 0.2s, border-color 0.2s;
@@ -1742,7 +1742,7 @@ p {
     width: 48px;
     height: 48px;
     border-radius: 50%;
-    background: linear-gradient(135deg, #3b82f6, #10b981);
+    background: linear-gradient(135deg, #E8A838, #2A6F99);
     color: #fff;
     font-size: 1.25rem;
     font-weight: 700;

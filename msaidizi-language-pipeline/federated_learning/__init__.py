@@ -91,11 +91,33 @@ class DifferentialPrivacy:
     Differential privacy mechanism for gradient sanitization.
 
     Uses Gaussian mechanism: adds calibrated noise to gradients.
+
+    Privacy budget:
+    - ε=0.1 (strong privacy): research-recommended for financial data
+    - δ=10⁻⁵: probability of privacy breach
+    - clip_norm=1.0: gradient clipping bound
+
+    The noise scale σ = clip_norm * sqrt(2 * ln(1.25/δ)) / ε
+    With ε=0.1: σ ≈ 34.6 * clip_norm (strong noise, strong privacy)
+    With ε=1.0: σ ≈ 3.46 * clip_norm (moderate noise, moderate privacy)
     """
 
-    epsilon: float = 1.0
-    delta: float = 1e-5
-    clip_norm: float = 1.0
+    def __init__(
+        self,
+        epsilon: float = 0.1,
+        delta: float = 1e-5,
+        clip_norm: float = 1.0,
+    ):
+        if epsilon <= 0:
+            raise ValueError(f"epsilon must be positive, got {epsilon}")
+        if delta <= 0 or delta >= 1:
+            raise ValueError(f"delta must be in (0, 1), got {delta}")
+        if clip_norm <= 0:
+            raise ValueError(f"clip_norm must be positive, got {clip_norm}")
+
+        self.epsilon = epsilon
+        self.delta = delta
+        self.clip_norm = clip_norm
 
     def add_noise(self, gradient: Dict[str, Any]) -> Dict[str, Any]:
         """

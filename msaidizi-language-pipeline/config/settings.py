@@ -91,7 +91,8 @@ class FederatedLearningConfig:
     # Server endpoint for gradient upload
     server_endpoint: str = "https://api.angavu.ai/federated/v1"
     # Differential privacy epsilon (lower = more private)
-    dp_epsilon: float = 1.0
+    # Research recommends ε=0.1 for strong privacy with financial data
+    dp_epsilon: float = 0.1
     # Differential privacy delta
     dp_delta: float = 1e-5
     # Gradient clipping norm

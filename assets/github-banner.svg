@@ -1,0 +1,143 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 640" width="1280" height="640">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0A1628"/>
+      <stop offset="50%" stop-color="#0F2D42"/>
+      <stop offset="100%" stop-color="#1B4965"/>
+    </linearGradient>
+    <linearGradient id="gold" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#E8A838"/>
+      <stop offset="100%" stop-color="#F0C060"/>
+    </linearGradient>
+    <linearGradient id="goldVert" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#F0C060"/>
+      <stop offset="100%" stop-color="#E8A838"/>
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1280" height="640" fill="url(#bg)"/>
+  
+  <!-- Subtle grid -->
+  <pattern id="grid" x="0" y="0" width="40" height="40" patternUnits="userSpaceOnUse">
+    <path d="M40 0 L0 0 0 40" fill="none" stroke="#1E5577" stroke-width="0.3" opacity="0.2"/>
+  </pattern>
+  <rect width="1280" height="640" fill="url(#grid)"/>
+
+  <!-- Top accent line -->
+  <rect x="0" y="0" width="1280" height="3" fill="url(#gold)" opacity="0.8"/>
+
+  <!-- Left: Africa Eye Symbol -->
+  <g transform="translate(200, 280)">
+    <!-- Africa silhouette -->
+    <g transform="scale(2.2)" opacity="0.2">
+      <path d="M-8,-90 C2,-95 12,-93 20,-88 C28,-82 32,-72 34,-62
+               C36,-50 38,-40 42,-30 C46,-18 52,-8 56,2
+               C59,10 58,18 54,26 C50,34 46,40 44,48
+               C42,56 38,64 32,72 C26,78 18,82 10,84
+               C4,85 -2,84 -8,80 C-14,74 -18,66 -22,56
+               C-26,46 -30,36 -34,24 C-38,14 -42,4 -44,-6
+               C-46,-16 -46,-26 -42,-36 C-38,-46 -32,-54 -26,-64
+               C-20,-72 -14,-80 -8,-86 Z"
+           fill="#E8A838"/>
+    </g>
+    <!-- Eye arcs -->
+    <path d="M-120,0 A120,96 0 0 1 120,0" fill="none" stroke="#E8A838" stroke-width="2" opacity="0.2"/>
+    <path d="M-90,0 A90,72 0 0 1 90,0" fill="none" stroke="#E8A838" stroke-width="2.5" opacity="0.4"/>
+    <path d="M-60,0 A60,48 0 0 1 60,0" fill="none" stroke="#E8A838" stroke-width="3" opacity="0.7"/>
+    <path d="M-36,0 A36,28 0 0 1 36,0" fill="none" stroke="#E8A838" stroke-width="3.5" opacity="0.9"/>
+    <circle cx="0" cy="0" r="20" fill="none" stroke="#E8A838" stroke-width="3"/>
+    <circle cx="0" cy="0" r="9" fill="#E8A838"/>
+    <circle cx="4" cy="-4" r="3" fill="#FFFFFF" opacity="0.6"/>
+    <!-- Lower arcs -->
+    <path d="M-120,0 A120,96 0 0 0 120,0" fill="none" stroke="#E8A838" stroke-width="1.5" opacity="0.1"/>
+    <path d="M-90,0 A90,72 0 0 0 90,0" fill="none" stroke="#E8A838" stroke-width="1.5" opacity="0.15"/>
+  </g>
+
+  <!-- Separator -->
+  <line x1="380" y1="120" x2="380" y2="520" stroke="#E8A838" stroke-width="1" opacity="0.2"/>
+
+  <!-- Right: Text Content -->
+  <g transform="translate(440, 0)">
+    <!-- ANGAVU -->
+    <text x="0" y="200" font-family="'Segoe UI','Helvetica Neue',Arial,sans-serif" font-size="96" font-weight="700" fill="#FFFFFF" letter-spacing="8">ANGAVU</text>
+    
+    <!-- INTELLIGENCE -->
+    <text x="2" y="250" font-family="'Segoe UI','Helvetica Neue',Arial,sans-serif" font-size="36" font-weight="300" fill="#E8A838" letter-spacing="12">INTELLIGENCE</text>
+    
+    <!-- Divider -->
+    <line x1="2" y1="275" x2="600" y2="275" stroke="#E8A838" stroke-width="1" opacity="0.3"/>
+    
+    <!-- Tagline -->
+    <text x="2" y="310" font-family="'Segoe UI','Helvetica Neue',Arial,sans-serif" font-size="20" font-weight="300" fill="#FFFFFF" letter-spacing="4" opacity="0.6">Clarity for Africa's Invisible Economy</text>
+
+    <!-- Stats Row -->
+    <g transform="translate(0, 360)">
+      <!-- Stat 1 -->
+      <g>
+        <text x="0" y="0" font-family="'Segoe UI',sans-serif" font-size="28" font-weight="700" fill="#E8A838">600M+</text>
+        <text x="0" y="22" font-family="'Segoe UI',sans-serif" font-size="12" font-weight="300" fill="#FFFFFF" opacity="0.5">Informal Workers</text>
+      </g>
+      <!-- Stat 2 -->
+      <g transform="translate(180, 0)">
+        <text x="0" y="0" font-family="'Segoe UI',sans-serif" font-size="28" font-weight="700" fill="#E8A838">14</text>
+        <text x="0" y="22" font-family="'Segoe UI',sans-serif" font-size="12" font-weight="300" fill="#FFFFFF" opacity="0.5">African Dialects</text>
+      </g>
+      <!-- Stat 3 -->
+      <g transform="translate(320, 0)">
+        <text x="0" y="0" font-family="'Segoe UI',sans-serif" font-size="28" font-weight="700" fill="#E8A838">4</text>
+        <text x="0" y="22" font-family="'Segoe UI',sans-serif" font-size="12" font-weight="300" fill="#FFFFFF" opacity="0.5">AI Products</text>
+      </g>
+      <!-- Stat 4 -->
+      <g transform="translate(440, 0)">
+        <text x="0" y="0" font-family="'Segoe UI',sans-serif" font-size="28" font-weight="700" fill="#E8A838">33</text>
+        <text x="0" y="22" font-family="'Segoe UI',sans-serif" font-size="12" font-weight="300" fill="#FFFFFF" opacity="0.5">AI Agents</text>
+      </g>
+    </g>
+
+    <!-- Products Row -->
+    <g transform="translate(0, 430)">
+      <g>
+        <rect x="0" y="0" width="140" height="50" rx="8" fill="#E8A838" opacity="0.15" stroke="#E8A838" stroke-width="1" opacity="0.3"/>
+        <text x="70" y="22" font-family="'Segoe UI',sans-serif" font-size="11" font-weight="600" fill="#E8A838" text-anchor="middle">SOKO PULSE</text>
+        <text x="70" y="38" font-family="'Segoe UI',sans-serif" font-size="9" font-weight="300" fill="#FFFFFF" opacity="0.5" text-anchor="middle">Market Intelligence</text>
+      </g>
+      <g transform="translate(160, 0)">
+        <rect x="0" y="0" width="140" height="50" rx="8" fill="#E8A838" opacity="0.15" stroke="#E8A838" stroke-width="1" opacity="0.3"/>
+        <text x="70" y="22" font-family="'Segoe UI',sans-serif" font-size="11" font-weight="600" fill="#E8A838" text-anchor="middle">BISHARA PULSE</text>
+        <text x="70" y="38" font-family="'Segoe UI',sans-serif" font-size="9" font-weight="300" fill="#FFFFFF" opacity="0.5" text-anchor="middle">Business Intelligence</text>
+      </g>
+      <g transform="translate(320, 0)">
+        <rect x="0" y="0" width="140" height="50" rx="8" fill="#E8A838" opacity="0.15" stroke="#E8A838" stroke-width="1" opacity="0.3"/>
+        <text x="70" y="22" font-family="'Segoe UI',sans-serif" font-size="11" font-weight="600" fill="#E8A838" text-anchor="middle">ALAMA SCORE</text>
+        <text x="70" y="38" font-family="'Segoe UI',sans-serif" font-size="9" font-weight="300" fill="#FFFFFF" opacity="0.5" text-anchor="middle">Credit Scoring</text>
+      </g>
+      <g transform="translate(480, 0)">
+        <rect x="0" y="0" width="140" height="50" rx="8" fill="#E8A838" opacity="0.15" stroke="#E8A838" stroke-width="1" opacity="0.3"/>
+        <text x="70" y="22" font-family="'Segoe UI',sans-serif" font-size="11" font-weight="600" fill="#E8A838" text-anchor="middle">JAMII INSIGHTS</text>
+        <text x="70" y="38" font-family="'Segoe UI',sans-serif" font-size="9" font-weight="300" fill="#FFFFFF" opacity="0.5" text-anchor="middle">Community Intelligence</text>
+      </g>
+    </g>
+
+    <!-- Tech Stack -->
+    <g transform="translate(0, 510)">
+      <text x="0" y="0" font-family="'Segoe UI',sans-serif" font-size="11" font-weight="300" fill="#FFFFFF" opacity="0.3">On-Device AI • Federated Learning • Voice-First • Offline-First • 14 Dialects • Kotlin + Python</text>
+    </g>
+  </g>
+
+  <!-- Bottom accent -->
+  <rect x="0" y="637" width="1280" height="3" fill="url(#gold)" opacity="0.8"/>
+
+  <!-- Corner dots -->
+  <circle cx="20" cy="20" r="3" fill="#E8A838" opacity="0.4"/>
+  <circle cx="1260" cy="20" r="3" fill="#E8A838" opacity="0.4"/>
+  <circle cx="20" cy="620" r="3" fill="#E8A838" opacity="0.4"/>
+  <circle cx="1260" cy="620" r="3" fill="#E8A838" opacity="0.4"/>
+</svg>

@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Network Security Configuration — Angavu Intelligence
+
+  FIX 3: Network Security Policy
+  --------------------------------
+  PREVIOUS (VULNERABLE): No network_security_config.xml existed.
+  Android defaults allow cleartext (HTTP) traffic. A MITM attacker
+  on public WiFi (common in East African markets) could intercept
+  API keys, OTP codes, and financial data.
+
+  FIX: This configuration:
+  1. Blocks ALL cleartext (HTTP) traffic — HTTPS only
+  2. Pins certificates for api.angavu.ai — prevents CA compromise attacks
+  3. Configures custom trust anchors for the backend CA
+  4. Disables user-installed certificates (prevents proxy interception)
+
+  Certificate Pinning Notes:
+  - Backup pins are included to prevent bricking during cert rotation
+  - Pin rotation schedule: every 90 days, with 30-day overlap
+  - Pins should be updated via remote config for emergency rotation
+  - The sha256 values below are PLACEHOLDER — must be replaced with
+    actual certificate fingerprints before production deployment
+-->
+<network-security-config>
+    <!-- Block ALL cleartext traffic globally -->
+    <base-config cleartextTrafficPermitted="false">
+        <trust-anchors>
+            <!-- Only trust system CA store, NOT user-installed certificates -->
+            <certificates src="system" />
+        </trust-anchors>
+    </base-config>
+
+    <!-- API server with certificate pinning -->
+    <domain-config>
+        <domain includeSubdomains="true">api.angavu.ai</domain>
+
+        <!-- Double-ensure cleartext is blocked for API -->
+        <domain-config cleartextTrafficPermitted="false">
+            <domain includeSubdomains="true">api.angavu.ai</domain>
+        </domain-config>
+
+        <!--
+          Certificate pins (SHA-256 of Subject Public Key Info).
+
+          PRIMARY: Current production certificate
+          BACKUP:  Pre-generated backup key for rotation
+          ROOT:    CA root pin as last resort
+
+          ⚠️  THESE ARE PLACEHOLDER VALUES — MUST BE REPLACED IN PRODUCTION
+          Generate real pins with:
+            openssl x509 -in cert.pem -pubkey -noout | \
+              openssl pkey -pubin -outform DER | \
+              openssl dgst -sha256 -binary | base64
+        -->
+        <pin-set expiration="2027-01-01">
+            <!-- Primary pin: production certificate -->
+            <pin digest="SHA-256">PLACEHOLDER_PRIMARY_PIN_must_be_replaced_with_real_sha256=</pin>
+            <!-- Backup pin: pre-generated backup key -->
+            <pin digest="SHA-256">PLACEHOLDER_BACKUP_PIN_must_be_replaced_with_real_sha256=</pin>
+        </pin-set>
+
+        <!-- Trust system CAs plus our own CA if using private PKI -->
+        <trust-anchors>
+            <certificates src="system" />
+            <!-- Uncomment if using a custom CA:
+            <certificates src="@raw/angavu_ca" />
+            -->
+        </trust-anchors>
+    </domain-config>
+
+    <!-- Federated learning upload endpoint -->
+    <domain-config>
+        <domain includeSubdomains="true">federated.angavu.ai</domain>
+        <domain-config cleartextTrafficPermitted="false">
+            <domain includeSubdomains="true">federated.angavu.ai</domain>
+        </domain-config>
+        <pin-set expiration="2027-01-01">
+            <pin digest="SHA-256">PLACEHOLDER_FEDERATED_PIN_must_be_replaced_with_real_sha256=</pin>
+            <pin digest="SHA-256">PLACEHOLDER_BACKUP_PIN_must_be_replaced_with_real_sha256=</pin>
+        </pin-set>
+        <trust-anchors>
+            <certificates src="system" />
+        </trust-anchors>
+    </domain-config>
+
+    <!-- Debug overrides (only applies to debug builds) -->
+    <debug-overrides>
+        <trust-anchors>
+            <certificates src="system" />
+            <certificates src="user" />
+        </trust-anchors>
+    </debug-overrides>
+</network-security-config>

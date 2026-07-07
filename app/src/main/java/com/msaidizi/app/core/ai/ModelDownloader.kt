@@ -59,25 +59,86 @@ class ModelDownloader(private val application: Application) {
         val fileName: String,
         val downloadUrl: String,
         val approximateSizeBytes: Long,
-        val priority: Int  // Lower = higher priority
+        val priority: Int,  // Lower = higher priority
+        val tier: ModelTier = ModelTier.MID
     ) {
-        WISPER(
+        // ── Voice Models (Priority 1-2) ────────────────────────────
+        WHISPER_SMALL(
+            fileName = "whisper-small-multilingual.bin",
+            downloadUrl = "https://huggingface.co/ggerganov/whisper.cpp/resolve/main/ggml-small.bin",
+            approximateSizeBytes = 466_000_000,  // ~466MB — better dialect coverage than base
+            priority = 1,
+            tier = ModelTier.HIGH
+        ),
+        WHISPER_BASE(
             fileName = "whisper-base-multilingual.bin",
             downloadUrl = "https://huggingface.co/ggerganov/whisper.cpp/resolve/main/ggml-base.bin",
             approximateSizeBytes = 150_000_000,  // ~150MB
-            priority = 1  // Highest priority — voice input is critical
+            priority = 1,
+            tier = ModelTier.LOW
         ),
-        QWEN_0_5B(
-            fileName = "qwen-0.5b-q4_0.gguf",
-            downloadUrl = "https://huggingface.co/Qwen/Qwen2-0.5B-Instruct-GGUF/resolve/main/qwen2-0_5b-instruct-q4_0.gguf",
-            approximateSizeBytes = 300_000_000,  // ~300MB
-            priority = 2  // Second priority — reasoning capability
+        PAZA_ASR(
+            fileName = "paza-asr-swahili.onnx",
+            downloadUrl = "https://huggingface.co/microsoft/paza/resolve/main/paza-swahili-v1.onnx",
+            approximateSizeBytes = 200_000_000,  // ~200MB — Microsoft Paza for Swahili+African languages
+            priority = 1,
+            tier = ModelTier.MID
         ),
         PIPER_TTS(
             fileName = "piper-swahili.onnx",
             downloadUrl = "https://huggingface.co/rhasspy/piper-voices/resolve/main/sw/sw-KE/medium/sw-KE-medium.onnx",
             approximateSizeBytes = 50_000_000,  // ~50MB
-            priority = 3  // Third priority — voice output
+            priority = 2,
+            tier = ModelTier.LOW
+        ),
+        PIPER_TTS_ARABIC(
+            fileName = "piper-arabic.onnx",
+            downloadUrl = "https://huggingface.co/rhasspy/piper-voices/resolve/main/ar/medium/ar-medium.onnx",
+            approximateSizeBytes = 55_000_000,  // ~55MB — Arabic voice for North/East Africa
+            priority = 2,
+            tier = ModelTier.MID
+        ),
+
+        // ── Reasoning Models (Priority 3-4) ───────────────────────
+        // LOW tier: Qwen3.5-0.8B — mobile-optimized, ~0.5GB (4-bit)
+        QWEN3_5_0_8B(
+            fileName = "qwen3.5-0.8b-q4_k_m.gguf",
+            downloadUrl = "https://huggingface.co/Qwen/Qwen3.5-0.8B-Instruct-GGUF/resolve/main/qwen3.5-0.8b-instruct-q4_k_m.gguf",
+            approximateSizeBytes = 500_000_000,  // ~500MB
+            priority = 3,
+            tier = ModelTier.LOW
+        ),
+        // MID tier: Qwen3-1.7B — thinking mode, strong reasoning
+        QWEN3_1_7B(
+            fileName = "qwen3-1.7b-q4_k_m.gguf",
+            downloadUrl = "https://huggingface.co/Qwen/Qwen3-1.7B-Instruct-GGUF/resolve/main/qwen3-1.7b-instruct-q4_k_m.gguf",
+            approximateSizeBytes = 1_100_000_000,  // ~1.1GB
+            priority = 3,
+            tier = ModelTier.MID
+        ),
+        // HIGH tier: Qwen3.5-2B — edge-optimized, ~1.2GB (4-bit)
+        QWEN3_5_2B(
+            fileName = "qwen3.5-2b-q4_k_m.gguf",
+            downloadUrl = "https://huggingface.co/Qwen/Qwen3.5-2B-Instruct-GGUF/resolve/main/qwen3.5-2b-instruct-q4_k_m.gguf",
+            approximateSizeBytes = 1_200_000_000,  // ~1.2GB
+            priority = 3,
+            tier = ModelTier.HIGH
+        ),
+
+        // ── Legacy (kept for migration) ───────────────────────────
+        WISPER(
+            fileName = "whisper-base-multilingual.bin",
+            downloadUrl = "https://huggingface.co/ggerganov/whisper.cpp/resolve/main/ggml-base.bin",
+            approximateSizeBytes = 150_000_000,
+            priority = 1,
+            tier = ModelTier.LOW
+        ),
+        QWEN_0_5B(
+            fileName = "qwen-0.5b-q4_0.gguf",
+            downloadUrl = "https://huggingface.co/Qwen/Qwen2-0.5B-Instruct-GGUF/resolve/main/qwen2-0_5b-instruct-q4_0.gguf",
+            approximateSizeBytes = 300_000_000,
+            priority = 3,
+            tier = ModelTier.LOW
         )
     }
 
@@ -307,6 +368,15 @@ class ModelDownloader(private val application: Application) {
         modelsDir.listFiles()?.forEach { it.delete() }
         Log.d(TAG, "Deleted all models")
     }
+}
+
+/**
+ * Model tier — determines which model set to download based on device capability.
+ */
+enum class ModelTier {
+    LOW,    // Basic devices — smallest models
+    MID,    // Standard devices — balanced quality/size
+    HIGH    // Flagship devices — best quality
 }
 
 // ── Connection Info ────────────────────────────────────────────

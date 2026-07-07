@@ -1,0 +1,340 @@
+{
+  "_meta": {
+    "version": "2.0.0",
+    "description": "Intent classification patterns for Msaidizi. Update this file to add/modify intents without code changes.",
+    "author": "Angavu Intelligence — Architecture Fix Team 4",
+    "updated": "2026-07-07"
+  },
+  "settings": {
+    "case_sensitive": false,
+    "sheng_weight_boost": 1.3,
+    "min_confidence_threshold": 0.4,
+    "fallback_intent": "UNKNOWN"
+  },
+  "intents": {
+    "SALE_RECORD": {
+      "description": "User wants to record a sale",
+      "priority": 10,
+      "patterns": [
+        "nimesha.*?(?:uza|sell|record)",
+        "record.*?(?:sale|uzo)",
+        "nimeuza\\s+\\d+",
+        "nimemuuza",
+        "nimetengeneza.*?pesa",
+        "sale.*?(?:made|done|recorded)",
+        "sold\\s+\\d+",
+        "nimesha.*?record",
+        "nimepata.*?mteja",
+        "nimempatia.*?goods"
+      ],
+      "sheng_patterns": [
+        "nimeshasepa",
+        "nimepusha",
+        "nimemove",
+        "nimesha.*?kuja.*?customer",
+        "nimelipa.*?goods",
+        "nika.*?sell"
+      ],
+      "keywords": ["uza", "sell", "sale", "record", "nimeuza", "nimemuuza"],
+      "response_hints": ["confirm_sale", "ask_amount", "ask_item"]
+    },
+    "EXPENSE_RECORD": {
+      "description": "User wants to record an expense",
+      "priority": 10,
+      "patterns": [
+        "nimesha.*?(?:nunua|buy|purchase)",
+        "nimetumia.*?pesa",
+        "record.*?(?:expense|gharama)",
+        "nimenunua\\s+",
+        "nimelipia",
+        "expense.*?(?:made|incurred|recorded)",
+        "spent\\s+\\d+",
+        "nimetumia\\s+\\d+",
+        "gharama.*?(?:ya|za|imekuja)",
+        "nimepoteza.*?pesa"
+      ],
+      "sheng_patterns": [
+        "nimeshabuy",
+        "nimedrop.*?pesa",
+        "nika.*?nunua",
+        "nimelipa.*?bei",
+        "nimesha.*?spend"
+      ],
+      "keywords": ["nunua", "buy", "expense", "gharama", "spent", "nimetumia"],
+      "response_hints": ["confirm_expense", "ask_category", "suggest_savings"]
+    },
+    "BALANCE_CHECK": {
+      "description": "User wants to check their balance or financial summary",
+      "priority": 8,
+      "patterns": [
+        "balance.*?(?:yangu|yako|check|ngapi)",
+        "nina.*?pesa.*?ngapi",
+        "ngapi.*?(?:nimesha|nimetengeneza)",
+        "faida.*?(?:yangu|ngapi|je)",
+        "profit.*?(?:check|how much|ngapi)",
+        "je.*?nimesha.*?(?:pata|gani)",
+        "how much.*?(?:made|earned|profit)",
+        "check.*?(?:balance|account|profits?)",
+        "summary.*?(?:ya|za|financial)",
+        "jumla.*?(?:ya|pesa|sales)"
+      ],
+      "sheng_patterns": [
+        "ngapi.*?nimeshasepa",
+        "ni.*?ngapi.*?kwa.*?leo",
+        "nina.*?ngapi",
+        "balance.*?yangu"
+      ],
+      "keywords": ["balance", "faida", "profit", "ngapi", "jumla", "summary"],
+      "response_hints": ["show_balance", "show_summary", "show_profit"]
+    },
+    "STOCK_CHECK": {
+      "description": "User wants to check inventory/stock levels",
+      "priority": 7,
+      "patterns": [
+        "stock.*?(?:yangu|ngapi|check|level)",
+        "inventory.*?(?:check|status|level)",
+        "bidhaa.*?(?:ngapi|zimebaki|zimesalia)",
+        "nina.*?(?:stock|bidhaa).*?ngapi",
+        "zimebaki.*?ngapi",
+        "reorder.*?(?:level|point|needed)",
+        "check.*?(?:stock|inventory|goods)",
+        "goods.*?(?:remaining|left|available)",
+        "nina.*?ngapi.*?(?:stocks?|bidhaa)",
+        "vipande.*?ngapi"
+      ],
+      "sheng_patterns": [
+        "stock.*?ngapi",
+        "nina.*?ngapi.*?goods",
+        "bidhaa.*?ngapi.*?baki"
+      ],
+      "keywords": ["stock", "inventory", "bidhaa", "zimebaki", "reorder", "goods"],
+      "response_hints": ["show_stock", "suggest_reorder", "low_stock_warning"]
+    },
+    "PRICE_INQUIRY": {
+      "description": "User is asking about pricing — current or suggested",
+      "priority": 6,
+      "patterns": [
+        "bei.*?(?:ya|ngapi|gani|sahihi)",
+        "price.*?(?:of|for|check|suggested)",
+        "nini.*?bei",
+        "ngapi.*?bei",
+        "how much.*?(?:should|to charge|for)",
+        "bei.*?(?:ya soko|market|sasa)",
+        "suggested.*?price",
+        "compare.*?bei",
+        "bei.*?(?:wengine|competitors?|washindani)"
+      ],
+      "sheng_patterns": [
+        "bei.*?ngapi",
+        "ngapi.*?bei.*?soko",
+        "bei.*?sasa"
+      ],
+      "keywords": ["bei", "price", "ngapi", "charge", "soko", "market"],
+      "response_hints": ["show_price", "compare_prices", "suggest_price"]
+    },
+    "GREETING": {
+      "description": "User is greeting or starting a conversation",
+      "priority": 3,
+      "patterns": [
+        "^(?:habari|hujambo|jambo|salam|salaa|mambo|vipi|niaje)",
+        "^(?:hi|hello|hey|good morning|good evening|good afternoon)",
+        "^(?:sasa|leo|mambo|poa)",
+        "^(?:shikamoo|mheshimiwa)",
+        "^(?:yo|sup|wassup|what'?s? up)"
+      ],
+      "sheng_patterns": [
+        "^(?:sasa|niaje|mambo|vipi|poa|fiti|safi)",
+        "^(?:yo|sup|wassup)"
+      ],
+      "keywords": ["habari", "hello", "hi", "sasa", "mambo", "jambo"],
+      "response_hints": ["greet_back", "ask_how_can_help"]
+    },
+    "HELP_REQUEST": {
+      "description": "User is asking for help or guidance",
+      "priority": 5,
+      "patterns": [
+        "msaada.*?(?:wangu|please|need)",
+        "help.*?(?:me|please|need)",
+        "sijui.*?(?:jinsi|namna|how)",
+        "nifanye.*?(?:nini|je|gani)",
+        "what.*?(?:should|can|do).*?(?:i|to)",
+        "how.*?(?:do|can|to).*?(?:i|we)",
+        "tafadhali.*?(?:help|msaada|nisaidie)",
+        "nisaidie",
+        "nijuze",
+        "eleza.*?(?:jinsi|namna)"
+      ],
+      "sheng_patterns": [
+        "niaje.*?nifanye",
+        "sijui.*?nika.*?fanye",
+        "help.*?brathe"
+      ],
+      "keywords": ["msaada", "help", "sijui", "nifanye", "nisaidie", "eleza"],
+      "response_hints": ["offer_help", "suggest_action", "explain_feature"]
+    },
+    "GOAL_SETTING": {
+      "description": "User wants to set or update a financial goal",
+      "priority": 6,
+      "patterns": [
+        "nataka.*?(?:kuweka|kuhifadhi|kubaki|goal|lengo)",
+        "set.*?(?:goal|target|savings|lengo)",
+        "goal.*?(?:ya|set|create|new|mpya)",
+        "nahitaji.*?(?:kuhifadhi|kuweka|save)",
+        "save.*?(?:for|towards|pesa|target)",
+        "nataka.*?kuhifadhi.*?pesa",
+        "lengo.*?(?:langu|jipya|set)",
+        "target.*?(?:ya|set|new|mpya)",
+        "nianze.*?(?:kuhifadhi|kubaki|savings)"
+      ],
+      "sheng_patterns": [
+        "nataka.*?kuweka.*?goal",
+        "set.*?target.*?yangu",
+        "save.*?pesa.*?goal"
+      ],
+      "keywords": ["goal", "lengo", "save", "target", "kuhifadhi", "kuweka"],
+      "response_hints": ["ask_goal_details", "suggest_amount", "confirm_goal"]
+    },
+    "LOAN_INQUIRY": {
+      "description": "User is asking about loans or credit",
+      "priority": 7,
+      "patterns": [
+        "mkopo.*?(?:wa|ngapi|gani|nipate)",
+        "loan.*?(?:check|apply|get|available|options)",
+        "nipate.*?mkopo",
+        "omba.*?mkopo",
+        "apply.*?(?:for|loan|credit)",
+        "credit.*?(?:score|check|history|options)",
+        "fuliza.*?(?:yangu|check|limit)",
+        "kcb.*?mpesa.*?loan",
+        "mshwari.*?(?:loan|limit|check)"
+      ],
+      "sheng_patterns": [
+        "nipate.*?mkopo",
+        "loan.*?ngapi",
+        "fuliza.*?ngapi"
+      ],
+      "keywords": ["mkopo", "loan", "credit", "fuliza", "omba", "apply"],
+      "response_hints": ["check_eligibility", "show_loan_options", "explain_requirements"]
+    },
+    "TITHE_TRACKING": {
+      "description": "User wants to track tithe/giving",
+      "priority": 4,
+      "patterns": [
+        "zakat.*?(?:yangu|track|record|check)",
+        "tithe.*?(?:track|record|check|ya)",
+        "sadaka.*?(?:yangu|track|record|check)",
+        "giving.*?(?:track|record|check)",
+        "nimesha.*?(?:tolea|lipa.*?zakat|sadaka)",
+        "record.*?(?:tithe|zakat|sadaka|giving)"
+      ],
+      "sheng_patterns": [
+        "zakat.*?ngapi",
+        "sadaka.*?ngapi",
+        "nimesha.*?tolea"
+      ],
+      "keywords": ["zakat", "tithe", "sadaka", "giving", "tolea"],
+      "response_hints": ["show_tithe_summary", "record_tithe", "show_giving_history"]
+    },
+    "REPORT_REQUEST": {
+      "description": "User wants a business report or analysis",
+      "priority": 6,
+      "patterns": [
+        "report.*?(?:ya|za|generate|create|show)",
+        "ripoti.*?(?:ya|za|generate|tengeneza)",
+        "analysis.*?(?:ya|business|biashara)",
+        "trends?.*?(?:ya|za|show|check)",
+        "performance.*?(?:ya|check|show)",
+        "weekly.*?(?:report|summary)",
+        "monthly.*?(?:report|summary)",
+        "show.*?(?:report|analysis|trends?|performance)"
+      ],
+      "sheng_patterns": [
+        "report.*?yangu",
+        "show.*?trends",
+        "analysis.*?biashara"
+      ],
+      "keywords": ["report", "ripoti", "analysis", "trends", "performance", "weekly", "monthly"],
+      "response_hints": ["generate_report", "show_charts", "offer_insights"]
+    },
+    "RESTOCK_ALERT": {
+      "description": "User is responding to or asking about restock alerts",
+      "priority": 7,
+      "patterns": [
+        "restock.*?(?:alert|needed|now|check)",
+        "stock.*?(?:low|empty|isha|nimeisha)",
+        "nimesha.*?(?:isha|maliza).*?(?:stock|bidhaa)",
+        "bidhaa.*?(?:zimeisha|zimepungua|hazina)",
+        "zimeisha.*?(?:bidhaa|stock|goods)",
+        "order.*?(?:more|stock|bidhaa|supply)",
+        "supply.*?(?:chain|order|restock)"
+      ],
+      "sheng_patterns": [
+        "stock.*?isha",
+        "bidhaa.*?isha",
+        "nataka.*?order.*?more"
+      ],
+      "keywords": ["restock", "stock", "isha", "order", "supply", "bidhaa"],
+      "response_hints": ["suggest_reorder", "show_suppliers", "compare_prices"]
+    },
+    "BRIEFING_REQUEST": {
+      "description": "User wants their daily briefing",
+      "priority": 5,
+      "patterns": [
+        "briefing.*?(?:ya|yangu|leo|daily|today)",
+        "leo.*?(?:nini|gani|habari|news)",
+        "daily.*?(?:briefing|summary|update|news)",
+        "habari.*?(?:ya|za|leo|biashara)",
+        "update.*?(?:ya|leo|daily|today)",
+        "nini.*?(?:kinaendelea|mpya|leo)",
+        "mambo.*?(?:ya|leo|biashara)"
+      ],
+      "sheng_patterns": [
+        "leo.*?nini",
+        "mambo.*?gani.*?leo",
+        "niaje.*?leo"
+      ],
+      "keywords": ["briefing", "leo", "daily", "habari", "update", "news"],
+      "response_hints": ["show_briefing", "show_weather", "show_alerts"]
+    },
+    "FEEDBACK": {
+      "description": "User is giving feedback or rating",
+      "priority": 3,
+      "patterns": [
+        "(?:rating|review|feedback|maoni)",
+        "(?:good|bad|great|poor|excellent).*?(?:job|response|help|app)",
+        "(?:sawa|poa|nzuri|mbaya).*?(?:sana|sisi)",
+        "(?:like|love|hate|dislike).*?(?:this|app|feature)",
+        "suggest(?:ion)?s?.*?(?:for|to|improve)"
+      ],
+      "sheng_patterns": [
+        "poa.*?sana",
+        "fiti.*?sana",
+        "mbaya.*?sana"
+      ],
+      "keywords": ["rating", "feedback", "maoni", "sawa", "poa", "nzuri"],
+      "response_hints": ["thank_feedback", "ask_details", "log_feedback"]
+    },
+    "GOODBYE": {
+      "description": "User is ending the conversation",
+      "priority": 2,
+      "patterns": [
+        "^(?:kwaheri|bye|tutaonana|baadaye|goodbye|see you|good night)",
+        "^(?:salaam|peace|nashukuru|asante.*?(?:sana|sisi))",
+        "^(?:nitakupa.*?habari|tutaonana.*?baadaye)"
+      ],
+      "sheng_patterns": [
+        "^(?:bye|peace|catch you|later|niache)"
+      ],
+      "keywords": ["kwaheri", "bye", "tutaonana", "asante", "goodbye"],
+      "response_hints": ["say_goodbye", "remind_next_briefing"]
+    },
+    "UNKNOWN": {
+      "description": "Fallback intent when no pattern matches",
+      "priority": 0,
+      "patterns": [],
+      "sheng_patterns": [],
+      "keywords": [],
+      "response_hints": ["ask_clarification", "suggest_commands"]
+    }
+  }
+}

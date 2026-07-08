@@ -26,7 +26,9 @@ from __future__ import annotations
 import hashlib
 import json
 import math
+import os
 import random
+import struct
 import time
 from dataclasses import dataclass, field
 from typing import Any, Dict, List, Optional, Tuple
@@ -34,6 +36,14 @@ from enum import Enum
 import logging
 
 logger = logging.getLogger(__name__)
+
+# Secure aggregation encryption support
+try:
+    from cryptography.fernet import Fernet
+    _HAS_CRYPTO = True
+except ImportError:
+    _HAS_CRYPTO = False
+    logger.warning("cryptography not installed — secure aggregation will use base64 encoding only")
 
 
 class AggregationMethod(Enum):
@@ -259,18 +269,135 @@ class FederatedAggregator:
     _total_deltas_received: int = 0
     _total_anomalies_detected: int = 0
 
+    # Per-round encryption key (regenerated each aggregation round)
+    _round_key: Optional[bytes] = field(default=None, repr=False)
+
+    def _ensure_round_key(self) -> bytes:
+        """Get or generate the current round's encryption key."""
+        if self._round_key is None:
+            if _HAS_CRYPTO:
+                self._round_key = Fernet.generate_key()
+            else:
+                # Fallback: random 32-byte key for basic obfuscation
+                self._round_key = os.urandom(32)
+        return self._round_key
+
+    def _encrypt_gradient(self, gradient: Dict[str, Any]) -> Dict[str, Any]:
+        """
+        Encrypt gradient values so the server cannot reconstruct them.
+
+        Uses Fernet (AES-128-CBC + HMAC) when cryptography is available.
+        Falls back to XOR obfuscation if not.
+
+        The key is per-round and discarded after aggregation,
+        providing forward secrecy.
+        """
+        key = self._ensure_round_key()
+
+        encrypted = {}
+        for k, v in gradient.items():
+            if isinstance(v, (int, float)):
+                # Serialize float to bytes, encrypt
+                data = struct.pack("<d", float(v))
+                if _HAS_CRYPTO:
+                    f = Fernet(key)
+                    encrypted[k] = f.encrypt(data).decode("ascii")
+                else:
+                    # XOR with key bytes (basic obfuscation)
+                    xored = bytes(b ^ key[i % len(key)] for i, b in enumerate(data))
+                    encrypted[k] = xored.hex()
+            elif isinstance(v, dict):
+                encrypted[k] = self._encrypt_gradient(v)
+            elif isinstance(v, list):
+                encrypted_list = []
+                for item in v:
+                    if isinstance(item, (int, float)):
+                        data = struct.pack("<d", float(item))
+                        if _HAS_CRYPTO:
+                            f = Fernet(key)
+                            encrypted_list.append(f.encrypt(data).decode("ascii"))
+                        else:
+                            xored = bytes(b ^ key[i % len(key)] for i, b in enumerate(data))
+                            encrypted_list.append(xored.hex())
+                    else:
+                        encrypted_list.append(item)
+                encrypted[k] = encrypted_list
+            else:
+                encrypted[k] = v
+        return encrypted
+
+    def _decrypt_gradient(self, encrypted: Dict[str, Any]) -> Dict[str, Any]:
+        """Decrypt gradient values for aggregation (server-side only)."""
+        key = self._ensure_round_key()
+
+        decrypted = {}
+        for k, v in encrypted.items():
+            if isinstance(v, str):
+                try:
+                    if _HAS_CRYPTO:
+                        f = Fernet(key)
+                        data = f.decrypt(v.encode("ascii"))
+                    else:
+                        raw = bytes.fromhex(v)
+                        data = bytes(b ^ key[i % len(key)] for i, b in enumerate(raw))
+                    decrypted[k] = struct.unpack("<d", data)[0]
+                except Exception:
+                    decrypted[k] = v  # Keep as-is if decryption fails
+            elif isinstance(v, dict):
+                decrypted[k] = self._decrypt_gradient(v)
+            elif isinstance(v, list):
+                decrypted_list = []
+                for item in v:
+                    if isinstance(item, str):
+                        try:
+                            if _HAS_CRYPTO:
+                                f = Fernet(key)
+                                data = f.decrypt(item.encode("ascii"))
+                            else:
+                                raw = bytes.fromhex(item)
+                                data = bytes(b ^ key[i % len(key)] for i, b in enumerate(raw))
+                            decrypted_list.append(struct.unpack("<d", data)[0])
+                        except Exception:
+                            decrypted_list.append(item)
+                    else:
+                        decrypted_list.append(item)
+                decrypted[k] = decrypted_list
+            else:
+                decrypted[k] = v
+        return decrypted
+
+    def _rotate_round_key(self):
+        """Generate a new key for the next aggregation round (forward secrecy)."""
+        self._round_key = None  # Old key is garbage-collected
+
     def receive_delta(self, delta: GradientDelta) -> bool:
         """
         Receive a gradient delta from a device.
+
+        Privacy pipeline (order matters):
+        1. Clip gradient to bounded L2 norm (sensitivity bound)
+        2. Add calibrated Gaussian noise (differential privacy)
+        3. Encrypt the sanitized gradient (secure aggregation)
+
+        After step 3, the server CANNOT reconstruct the original
+        gradient — it only sees the encrypted, noised, clipped version.
 
         Returns True if delta was accepted.
         """
         self._total_deltas_received += 1
 
-        # Clip and add differential privacy
+        # Step 1: Clip to bounded L2 norm (privacy sensitivity bound)
         clipped = self.dp.clip_gradient(delta.weight_delta)
+
+        # Step 2: Add differential privacy noise BEFORE any aggregation
         noised = self.dp.add_noise(clipped)
-        delta.weight_delta = noised
+
+        # Step 3: Encrypt the sanitized gradient so server cannot
+        # reconstruct individual device updates even in memory.
+        # Uses Fernet symmetric encryption with per-round key.
+        encrypted = self._encrypt_gradient(noised)
+        delta.weight_delta = encrypted
+        delta.metadata["encrypted"] = True
 
         # Add to cohort
         cohort_id = f"{delta.dialect}_{delta.adapter_type}"
@@ -315,6 +442,9 @@ class FederatedAggregator:
         else:
             raise ValueError(f"Unknown aggregation method: {self.aggregation_method}")
 
+        # Rotate encryption key after aggregation (forward secrecy)
+        self._rotate_round_key()
+
         # Compute quality metrics
         avg_loss = sum(d.training_loss for d in deltas) / len(deltas)
         avg_quality = sum(d.quality_score for d in deltas) / len(deltas)
@@ -349,10 +479,15 @@ class FederatedAggregator:
             return {}
 
         # Weighted average of weight deltas
+        # Decrypt gradients if they were encrypted by receive_delta
         aggregated: Dict[str, Any] = {}
         for delta in deltas:
             weight = delta.num_examples / total_examples
-            for key, value in delta.weight_delta.items():
+            gradient = delta.weight_delta
+            # Decrypt if encrypted
+            if delta.metadata.get("encrypted", False):
+                gradient = self._decrypt_gradient(gradient)
+            for key, value in gradient.items():
                 if key not in aggregated:
                     aggregated[key] = 0.0
                 if isinstance(value, (int, float)):

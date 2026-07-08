@@ -9,11 +9,11 @@
 
 ## Executive Summary
 
-**Recommended Cloud Model: Qwen3-14B** (dense, Apache 2.0)
+**Recommended Cloud Model: AfriqueQwen-14B** (fine-tuned from Qwen3-14B, Apache 2.0)
 
-Qwen3-14B is the clear winner for Angavu's cloud inference layer. It checks every box:
+AfriqueQwen-14B is the clear winner for Angavu's cloud inference layer. Fine-tuned from Qwen3-14B with enhanced African language support, it checks every box:
 
-| Requirement | Qwen3-14B |
+| Requirement | AfriqueQwen-14B |
 |---|---|
 | License | Apache 2.0 — full commercial use, no restrictions |
 | Swahili support | ✅ Native — trained on 119 languages including Swahili |

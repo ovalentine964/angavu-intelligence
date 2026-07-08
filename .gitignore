@@ -1,21 +1,58 @@
-# OS
+# ═══════════════════════════════════════════════════════════════
+# Angavu Intelligence — .gitignore
+# ═══════════════════════════════════════════════════════════════
+
+# === OS ===
 .DS_Store
 Thumbs.db
+ehthumbs.db
+Desktop.ini
+.AppleDouble
+.LSOverride
+.Spotlight-V100
+.Trashes
 
-# Dependencies
+# === Python ===
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# === Node.js ===
 node_modules/
-
-# Logs
-*.log
 npm-debug.log*
+yarn-error.log*
+.pnp/
+.pnp.js
 
-# Editor
+# === Editor / IDE ===
 .vscode/
 .idea/
 *.swp
 *.swo
 *~
+*.sublime-project
+*.sublime-workspace
 
-# Build
+# === Build ===
 dist/
+build/
 .cache/
+*.min.js
+*.min.css
+
+# === Logs ===
+*.log
+logs/
+
+# === Environment ===
+.env
+.env.local
+.env.production
+
+# === Generated Assets ===
+assets/og-image.png

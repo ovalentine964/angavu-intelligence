@@ -112,13 +112,20 @@ Msaidizi users generate economic data. That data trains better agents. Better ag
 
 **Angavu becomes the intelligence layer between informal workers and the formal economy.**
 
-### Flywheel Economics
+### Flywheel Economics (Corrected — July 2026)
 
 | Metric | Year 1 | Year 2 | Year 3 |
 |---|---|---|---|
-| Daily Active Workers | 10,000 | 100,000 | 500,000 |
-| Intelligence Product Revenue | $50K/mo | $250K/mo | $1.2M/mo |
+| Daily Active Workers | 5,000-10,000 | 50,000-100,000 | 200,000-500,000 |
+| B2B Clients | 3-5 | 7-15 | 20-40 |
+| Intelligence Product Revenue | $90K-$260K/yr | $400K-$1.2M/yr | $1.5M-$4M/yr |
+| Monthly Operating Cost | $15K-$25K | $25K-$45K | $40K-$70K |
 | Data Center Phase | 1 → 2 | 2 → 3 | 3 → 4 |
+| Break-Even | ❌ Not yet | ⚠️ Approaching (7-15 clients) | ✅ Achieved |
+
+**Key insight:** Break-even is a function of B2B client count, not worker count. 50,000 workers with zero B2B clients = bankruptcy. 1,000 workers with 10 enterprise clients = profitable.
+
+**Year 1 correction note:** The original $1.18M Year 1 target assumed 15+ enterprise clients. B2B sales cycles in Africa are 6-18 months. A realistic Year 1 has 3-5 clients generating $90K-$260K. The unit economics are sound — the timeline was aggressive.
 
 ---
 

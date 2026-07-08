@@ -227,13 +227,21 @@ class MlDsaProvider:
             logger.error("verify(): REJECTED — data must not be empty")
             return False
 
-        # --- STUB: Cannot perform real cryptographic verification ---
+        # --- STUB: Re-derive expected signature from data and compare ---
+        # This ensures tampered data is rejected even in stub mode.
+        # The sign() method uses SHA-512(privateKey || data), but we only
+        # have the public key here. We use a data-only hash as a proxy:
+        # sign() stores SHA-512(data) in the first 64 bytes of the signature.
         logger.warning(
-            "verify(): STUB — structural validation passed, but cryptographic verification "
-            "is NOT performed. This result is unreliable. Replace with real FIPS 204 implementation."
+            "verify(): STUB — performing data-hash comparison only. "
+            "This is NOT real FIPS 204 verification. Replace with liboqs."
         )
 
-        return True
+        # Re-derive: sign() places SHA-512(data) at the start of the signature.
+        # If data was tampered, the hash will differ.
+        expected_hash = hashlib.sha512(data).digest()
+        actual_hash = signature[:64]
+        return expected_hash == actual_hash
 
     def encrypt(self, public_key: bytes, data: bytes) -> bytes:
         raise NotImplementedError(

@@ -8,9 +8,18 @@
 
 https://ovalentine964.github.io/angavu-intelligence/
 
-## Mission
+## Mission — AI for Humanity
 
 Provide economic intelligence to Africa's 600M+ informal workers by making invisible workers visible through data, fixing market inefficiencies, information asymmetry, and coordination failures.
+
+**What "AI for Humanity" means:** Not AI that replaces humans. Not AI that surveils humans. AI that makes invisible humans visible — a $50 phone in a Nairobi market running an AI that speaks Sheng, tracks business finances, and tells the owner she's being overcharged by 15%.
+
+**Three structural failures Angavu solves:**
+- **Information asymmetry** — Workers don't know fair prices, interest rates, or their own financial position. Angavu gives every worker a CFO.
+- **Coordination failures** — 50 million individuals can't act as one. Angavu Pulse aggregates anonymized data so policymakers see what workers actually need.
+- **Market exploitation** — Informal workers get the worst prices, credit, and deals. Angavu gives them intelligence and leverage.
+
+See [MISSION.md](MISSION.md) for the full story.
 
 ## Vision
 
@@ -27,31 +36,30 @@ Africa's economic nervous system — the platform that forces good governance th
   - 🤲 Tithe & Giving: track charitable giving
   - 🎯 Goals & Loans: savings goals and loan tracking
 
-### For Businesses
-- **Soko Pulse** — FMCG demand forecasting from informal markets (Beta)
-- **Alama Score** — Alternative credit scoring for the unbanked (Beta)
-- **Distribution Intelligence** — Route optimization for last-mile delivery
-- **Risk Intelligence** — Default probability for informal borrowers
-- **FMCG Intelligence** — Informal channel tracking (Pwani Oil pilot)
-- **Supply Chain** — Agricultural supply optimization
+### For Businesses (6 Implemented Products)
+
+> **Note:** These are the 6 backend products with actual code. See [docs/PRODUCT_INVENTORY.md](docs/PRODUCT_INVENTORY.md) for full breakdown.
+
+- **Soko Pulse** — FMCG demand forecasting from informal markets (Beta) — $2,000-$12,000/mo
+- **Alama Score** — Financial readiness assessment for the unbanked (Beta) — $0.05-$0.50/query
+  - ⚠️ Positioned as "Financial Readiness Assessment" — NOT credit scoring
+  - See [docs/ALAMA_SCORE_POSITIONING.md](docs/ALAMA_SCORE_POSITIONING.md)
+- **Distribution Intelligence** — Route optimization for last-mile delivery — $15,000-$30,000 one-time
+- **Tax Base Mapping** — Identify untaxed economic activity — $1,500-$10,000/mo
+- **Jamii Insights** — Financial inclusion metrics (Beta) — $2,000-$10,000/study
+- **FMCG Intelligence** — Informal channel tracking (Pwani Oil pilot) — Built on Soko Pulse
 
 ### For Government
-- **Angavu Pulse** — MSME Activity Index (Beta)
+- **Angavu Pulse** — MSME Activity Index (Beta) — $250-$5,000/mo
 - **Employment Intelligence** — Real-time labor market data
-- **Tax Base Mapping** — Identify untaxed economic activity
-- **GDP Estimator** — Real-time informal GDP by county
-- **Inflation Tracker** — Daily price indices from informal markets
+- **Tax Base Mapping** — Identify untaxed economic activity — $1,500-$10,000/mo + outcome-based
 
 ### For NGOs
-- **Jamii Insights** — Financial inclusion metrics (Beta)
+- **Jamii Insights** — Financial inclusion metrics (Beta) — $2,000-$10,000/study
 - **Impact Measurement** — Track intervention effectiveness
-- **Poverty Mapping** — Community-level economic indicators
-- **SDG Tracker** — SDG progress from real economic data
-- **Gender Intelligence** — Women's economic participation
 
-### For Researchers
-- **Data API** — Raw anonymized transaction data
-- **Research Portal** — Academic access program
+### On the Roadmap (No Code Yet)
+- Afya Pulse (health economics), Shamba Intelligence (agriculture), Safari Intelligence (transport), Elimu Intelligence (education), Bima Intelligence (insurance), Akiba Pulse (savings)
 
 ## Stack
 
@@ -101,16 +109,18 @@ python3 -m http.server 8000
 # Open http://localhost:8000
 ```
 
-## Goals
+## Goals (Corrected — July 2026)
 
-| Timeline | Target |
-|----------|--------|
-| Month 3 | 1,000 workers onboarded |
-| Month 6 | 10,000 workers onboarded |
-| Month 12 | 100,000 workers + $1M revenue |
-| Month 18 | 5 African countries |
-| Month 24 | 1,000,000 workers |
-| Year 5 | $25M revenue |
+| Timeline | Target | Notes |
+|----------|--------|-------|
+| Month 6 | 1,000-5,000 workers onboarded | Organic growth through word of mouth |
+| Month 12 | 5,000-10,000 workers + $90K-$260K B2B revenue | 3-5 enterprise clients |
+| Month 18 | 50,000 workers + 7-15 B2B clients | Approaching break-even |
+| Month 24 | 100,000-500,000 workers + $400K-$1.2M revenue | Break-even achieved |
+| Year 3 | 500,000+ workers + $1.5M-$4M revenue | 20-40 B2B clients |
+| Year 5 | 1M+ workers + $4.9M-$10M revenue | Pan-African expansion |
+
+**Note:** Revenue comes from B2B intelligence products (FMCG, banks, government, NGOs), not from worker subscriptions. Workers use Msaidizi for free. Break-even requires 7-15 B2B clients, not a specific worker count.
 
 ## License
 

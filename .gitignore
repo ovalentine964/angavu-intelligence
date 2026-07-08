@@ -56,3 +56,11 @@ logs/
 
 # === Generated Assets ===
 assets/og-image.png
+
+# === Temp/Review files ===
+*.tmp
+*.bak
+*.orig
+REVIEW_*
+FINAL_REVIEW*
+*_REVIEW_*

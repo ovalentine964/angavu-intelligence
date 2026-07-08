@@ -50,21 +50,21 @@ Before evaluating options, let's establish actual achievable sizes:
 
 ---
 
-### Option 2: Small APK + WiFi Download
+### Option 2: Small APK + mobile data Download
 
 | Criterion | Assessment |
 |-----------|------------|
 | Download size | ✅ 43.5MB APK (code only) |
 | First-launch time | ✅ Fast install, but app is useless until models download |
-| Mobile data | ✅ No data cost (WiFi only) |
-| Works offline | ⚠️ Only after WiFi download completes |
-| User experience | ❌ App installed but doesn't work. "Download on WiFi" = "maybe never" for most users |
+| Mobile data | ✅ No data cost (mobile data) |
+| Works offline | ⚠️ Only after mobile data download completes |
+| User experience | ❌ App installed but doesn't work. "Download on mobile data" = "maybe never" for most users |
 | Technical complexity | ⚠️ Medium — needs download manager, resume logic, storage management |
 | Distribution | ✅ Standard Play Store |
 
-**Verdict: ELIMINATE as primary strategy.** The fatal flaw: most target users don't have reliable WiFi. Telling Valentine's mum "find WiFi" means the app sits dead on her phone. Dead apps get uninstalled.
+**Verdict: ELIMINATE as primary strategy.** The fatal flaw: most target users don't have reliable mobile data. Telling Valentine's mum "find mobile data" means the app sits dead on her phone. Dead apps get uninstalled.
 
-However: WiFi download should be *offered* as an option within any strategy.
+However: mobile data download should be *offered* as an option within any strategy.
 
 ---
 
@@ -102,7 +102,7 @@ However: WiFi download should be *offered* as an option within any strategy.
 1. She downloads Msaidizi (55MB) — costs ~5 KSh ($0.04). Done in 2-3 minutes.
 2. She opens the app. It greets her in Swahili. She speaks, it listens (Whisper). It talks back (Piper).
 3. The app says: "Ninaweza kukusaidia zaidi! Download smart brain? (150MB, ~12 KSh)" — with a clear cost estimate.
-4. She can say yes (if she has data), say no (app still works for voice), or wait for WiFi.
+4. She can say yes (if she has data), say no (app still works for voice), or wait for mobile data.
 5. When Qwen downloads, the app gains reasoning — answers questions, helps with tasks.
 
 **The Qwen download strategy — give users control:**
@@ -117,7 +117,7 @@ However: WiFi download should be *offered* as an option within any strategy.
 │                                     │
 │  ▓▓▓▓▓▓░░░░░░░░ 34% — 120MB left   │
 │                                     │
-│  [Pause] [WiFi Only] [Cancel]       │
+│  [Pause] [mobile data Only] [Cancel]       │
 │                                     │
 │  Estimated cost: ~12 KSh on data    │
 │  Estimated time: ~8 minutes         │
@@ -174,7 +174,7 @@ This is runtime adaptation, not split APKs. Same APK, different behavior.
 |-----------|------------|
 | Download size | ✅ 0 data cost |
 | First-launch time | ⚠️ Depends on finding someone with the model |
-| Mobile data | ✅ Zero — Bluetooth/WiFi Direct |
+| Mobile data | ✅ Zero — Bluetooth/mobile data Direct |
 | Works offline | ✅ After transfer |
 | User experience | ✅ Familiar pattern in Africa |
 | Technical complexity | ⚠️ Medium — need secure model verification |
@@ -238,7 +238,7 @@ Layer 1: INSTANT (bundled in APK, ~55MB)
 
 Layer 2: SMART (downloaded, ~450MB)
 ├── Qwen 0.8B (Q4_K_M GGUF) — reasoning
-└── Downloaded via: mobile data / WiFi / P2P / SD card
+└── Downloaded via: mobile data / mobile data / P2P / SD card
 
 Layer 3: EXTENDED (future, optional)
 ├── Additional languages
@@ -266,18 +266,18 @@ Layer 1 + 2 + 3    | ✅       | ✅        | ✅+       | Variable
 class ModelDownloadManager {
 
     fun suggestDownloadStrategy(context: Context): DownloadStrategy {
-        val hasWiFi = isOnWiFi()
+        val hasmobile data = isOnmobile data()
         val dataBalance = estimateDataBalance() // Check Safaricom/Airtel
         val storageFree = getFreeStorageMB()
         val timeOfDay = LocalTime.now()
 
         return when {
-            // Best case: WiFi available, just download
-            hasWiFi && storageFree > 600 ->
+            // Best case: mobile data download
+            hasmobile data && storageFree > 600 ->
                 DownloadStrategy.WIFI_NOW
 
             // Night time: offer scheduled download (Safaricom has cheaper night bundles)
-            !hasWiFi && timeOfDay in 0..5 ->
+            !hasmobile data && timeOfDay in 0..5 ->
                 DownloadStrategy.SCHEDULED_NIGHT
 
             // Low data: offer P2P transfer
@@ -285,14 +285,14 @@ class ModelDownloadManager {
                 DownloadStrategy.P2P_TRANSFER
 
             // Has data but cautious: show cost estimate
-            !hasWiFi && dataBalance in 200..1000 ->
+            !hasmobile data && dataBalance in 200..1000 ->
                 DownloadStrategy.MOBILE_WITH_CONSENT
 
             // Has plenty of data
-            !hasWiFi && dataBalance > 1000 ->
+            !hasmobile data && dataBalance > 1000 ->
                 DownloadStrategy.MOBILE_NOW
 
-            // Default: suggest WiFi or P2P
+            // Default: suggest mobile data or P2P
             else ->
                 DownloadStrategy.WAIT_FOR_WIFI
         }
@@ -326,7 +326,7 @@ Safaricom and Airtel offer cheaper "night bundles" (typically 12AM-6AM). Smart m
 
 ### Tertiary: Peer-to-Peer
 - "Share Msaidizi" feature built into app
-- Bluetooth / WiFi Direct / ShareIt
+- Bluetooth / mobile data Direct / ShareIt
 - Export APK + model files as a single package
 - Verify integrity on import
 
@@ -388,11 +388,11 @@ Background:  Nothing loaded = 0MB RAM ✅
 | Download APK | 4-5 KSh (~$0.04) | 2-3 min | ✅ Quick, cheap |
 | Use voice features | 0 KSh | Instant | ✅ Works immediately |
 | Download Qwen (mobile) | 40-50 KSh (~$0.40) | 8-12 min | ⚠️ Acceptable if she opts in |
-| Download Qwen (WiFi) | 0 KSh | 5-8 min | ✅ Best case |
+| Download Qwen (mobile data) | 0 KSh | 5-8 min | ✅ Best case |
 | Download Qwen (P2P) | 0 KSh | 3-5 min | ✅ No cost |
 | Use full app | 0 KSh | Instant | ✅ Offline forever |
 
-**Total cost to get fully working:** 45-55 KSh (~$0.40-0.50) on mobile data, or 4-5 KSh ($0.04) with WiFi/P2P for Qwen.
+**Total cost to get fully working:** 45-55 KSh (~$0.40-0.50) on mobile data, or 4-5 KSh ($0.04) with mobile data/P2P for Qwen.
 
 Compare to: A daily matatu ride costs 50-100 KSh. This is affordable.
 
@@ -417,7 +417,7 @@ Compare to: A daily matatu ride costs 50-100 KSh. This is affordable.
 ### Phase 1: MVP (Week 1-4)
 - [ ] Bundle Whisper tiny (INT8) + Piper small in APK
 - [ ] Implement graceful degradation (voice works without Qwen)
-- [ ] Basic download manager for Qwen (mobile data + WiFi)
+- [ ] Basic download manager for Qwen (mobile data + mobile data)
 - [ ] Progress UI with cost estimate
 
 ### Phase 2: Smart Downloads (Week 5-8)
@@ -445,7 +445,7 @@ Compare to: A daily matatu ride costs 50-100 KSh. This is affordable.
 | Option | Size | Launch | Data | Offline | UX | Complexity | Distribution | **Total** |
 |--------|------|--------|------|---------|-----|------------|--------------|-----------|
 | 1. Full bundle | 1 | 1 | 1 | 5 | 2 | 5 | 2 | **17** |
-| 2. WiFi only | 5 | 4 | 5 | 3 | 2 | 3 | 4 | **26** |
+| 2. mobile data | 5 | 4 | 5 | 3 | 2 | 3 | 4 | **26** |
 | 3. Mobile data | 3 | 2 | 2 | 4 | 2 | 3 | 4 | **20** |
 | **4. Tiered** | **4** | **5** | **5** | **4** | **5** | **3** | **5** | **31** |
 | 5. Split APK | 4 | 4 | 4 | 4 | 3 | 2 | 3 | **24** |
@@ -465,7 +465,7 @@ This is how you make Msaidizi work for Valentine's mum:
 
 1. **She downloads a 55MB app** — costs less than a text message.
 2. **It talks to her immediately** — in Swahili, in her voice, on her $50 phone.
-3. **When she's ready, the brain arrives** — via data, WiFi, or a friend's Bluetooth.
+3. **When she's ready, the brain arrives** — via data, mobile data, or a friend's Bluetooth.
 4. **It never leaves her stranded** — every feature works offline, at every stage.
 5. **She can share it** — one mum to another, no data needed.
 

@@ -1030,6 +1030,89 @@ p {
     line-height: 1.8;
 }
 
+/* --- APK Integrity Verification --- */
+.install-verify {
+    max-width: 700px;
+    margin: 48px auto 0;
+    padding: 32px;
+    background: var(--bg-card);
+    border: 1px solid var(--accent-gold-border);
+    border-radius: var(--radius-lg);
+}
+
+.install-verify h3 {
+    font-size: 1.1rem;
+    margin-bottom: 12px;
+    color: var(--text-primary);
+}
+
+.install-verify > p {
+    font-size: 0.95rem;
+    line-height: 1.7;
+    margin-bottom: 20px;
+}
+
+.verify-steps {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-bottom: 20px;
+}
+
+.verify-step {
+    padding: 16px;
+    background: var(--bg-secondary);
+    border-radius: var(--radius-md);
+    border: 1px solid var(--border-light);
+}
+
+.verify-step strong {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 0.95rem;
+    color: var(--text-primary);
+}
+
+.verify-step code,
+.checksum-code {
+    display: block;
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    word-break: break-all;
+    line-height: 1.6;
+}
+
+.verify-step code a,
+.checksum-code a {
+    color: var(--accent-gold);
+    text-decoration: underline;
+}
+
+.badge-pqc {
+    display: inline-block;
+    font-size: 0.7rem;
+    font-weight: 600;
+    padding: 2px 8px;
+    background: var(--accent-gold-glow);
+    border: 1px solid var(--accent-gold-border);
+    border-radius: 999px;
+    color: var(--accent-gold);
+    vertical-align: middle;
+    margin-left: 6px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.verify-note {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    padding: 12px 16px;
+    background: rgba(208, 144, 48, 0.08);
+    border-left: 3px solid var(--accent-gold-border);
+    border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+    line-height: 1.6;
+}
+
 /* ============================================
    INSIGHTS / NEWS
    ============================================ */

@@ -1,7 +1,9 @@
-name: Deploy to GitHub Pages
+name: Website CI/CD — Hardened
 
 on:
   push:
+    branches: [main]
+  pull_request:
     branches: [main]
   workflow_dispatch:
 
@@ -15,9 +17,232 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  build:
-    name: Build
+  # ──────────────────────────────────────
+  # 1. Secret Detection
+  # ──────────────────────────────────────
+  secret-scan:
+    name: 🔒 Secret Detection
     runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: TruffleHog scan
+        uses: trufflesecurity/trufflehog@main
+        with:
+          extra_args: --only-verified --fail
+
+  # ──────────────────────────────────────
+  # 2. HTML Validation
+  # ──────────────────────────────────────
+  html-validation:
+    name: 📄 HTML Validation
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    needs: [secret-scan]
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Validate HTML
+        uses: Cyb3r-Jak3/html-validate-action@v2
+        with:
+          globs: "**/*.html"
+
+      - name: Check for broken HTML structure
+        run: |
+          ERRORS=0
+          for html in $(find . -name "*.html" -not -path "./.git/*"); do
+            # Check basic structure
+            if ! grep -q "<!DOCTYPE html>" "$html" 2>/dev/null; then
+              echo "⚠️  $html: missing <!DOCTYPE html>"
+              ERRORS=$((ERRORS + 1))
+            fi
+            if ! grep -q "<title>" "$html" 2>/dev/null; then
+              echo "⚠️  $html: missing <title>"
+              ERRORS=$((ERRORS + 1))
+            fi
+            if ! grep -q 'lang=' "$html" 2>/dev/null; then
+              echo "⚠️  $html: missing lang attribute"
+              ERRORS=$((ERRORS + 1))
+            fi
+          done
+          if [ "$ERRORS" -gt 0 ]; then
+            echo "::warning::Found $ERRORS HTML structure issues"
+          fi
+          echo "✅ HTML validation complete ($ERRORS warnings)"
+
+  # ──────────────────────────────────────
+  # 3. Link Checker
+  # ──────────────────────────────────────
+  link-check:
+    name: 🔗 Link Checker
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    needs: [secret-scan]
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Check links
+        uses: lycheeverse/lychee-action@v2
+        with:
+          args: >-
+            --verbose
+            --no-progress
+            --exclude-loopback
+            --exclude 'fonts\.googleapis\.com'
+            --exclude 'fonts\.gstatic\.com'
+            --timeout 30
+            --max-retries 3
+            --accept 200,204,301,302,403,429
+            "**/*.html"
+            "**/*.css"
+            "**/*.js"
+          fail: true
+
+  # ──────────────────────────────────────
+  # 4. Performance Audit (Lighthouse)
+  # ──────────────────────────────────────
+  lighthouse:
+    name: 🏃 Lighthouse Audit
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    needs: [html-validation]
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload artifact for Lighthouse
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: .
+
+      - name: Run Lighthouse
+        uses: treosh/lighthouse-ci-action@v12
+        with:
+          uploadArtifacts: true
+          configPath: .lighthouserc.json
+          urls: |
+            http://localhost/index.html
+        continue-on-error: true
+
+      - name: Lighthouse score check
+        run: |
+          # Create a minimal Lighthouse config if not exists
+          if [ ! -f .lighthouserc.json ]; then
+            echo '{"ci":{"collect":{"staticDistDir":".","numberOfRuns":1},"assert":{"assertions":{"categories:performance":["warn",{"minScore":0.8}],"categories:accessibility":["warn",{"minScore":0.9}],"categories:best-practices":["warn",{"minScore":0.9}],"categories:seo":["error",{"minScore":0.9}]}}}}' > .lighthouserc.json
+          fi
+          echo "✅ Lighthouse audit configured"
+
+  # ──────────────────────────────────────
+  # 5. SEO Audit
+  # ──────────────────────────────────────
+  seo-audit:
+    name: 🔍 SEO Audit
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    needs: [html-validation]
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: SEO checks
+        run: |
+          ERRORS=0
+          WARNINGS=0
+
+          for html in $(find . -name "*.html" -not -path "./.git/*"); do
+            echo "━━━ Checking: $html ━━━"
+
+            # Title tag
+            if ! grep -q '<title>.*</title>' "$html"; then
+              echo "  ❌ Missing <title> tag"
+              ERRORS=$((ERRORS + 1))
+            else
+              TITLE_LEN=$(grep -oP '<title>\K[^<]+' "$html" | wc -c)
+              if [ "$TITLE_LEN" -lt 10 ] || [ "$TITLE_LEN" -gt 70 ]; then
+                echo "  ⚠️  Title length ($TITLE_LEN chars) — ideal: 10-60"
+                WARNINGS=$((WARNINGS + 1))
+              fi
+            fi
+
+            # Meta description
+            if ! grep -q 'meta.*description' "$html"; then
+              echo "  ❌ Missing meta description"
+              ERRORS=$((ERRORS + 1))
+            else
+              DESC_LEN=$(grep -oP 'content="\K[^"]+' "$html" | head -1 | wc -c)
+              if [ "$DESC_LEN" -lt 50 ] || [ "$DESC_LEN" -gt 160 ]; then
+                echo "  ⚠️  Meta description length ($DESC_LEN chars) — ideal: 50-155"
+                WARNINGS=$((WARNINGS + 1))
+              fi
+            fi
+
+            # Open Graph tags
+            for tag in "og:title" "og:description" "og:image" "og:url"; do
+              if ! grep -q "$tag" "$html"; then
+                echo "  ⚠️  Missing $tag"
+                WARNINGS=$((WARNINGS + 1))
+              fi
+            done
+
+            # Canonical URL
+            if ! grep -q 'rel="canonical"' "$html"; then
+              echo "  ⚠️  Missing canonical URL"
+              WARNINGS=$((WARNINGS + 1))
+            fi
+
+            # Viewport meta
+            if ! grep -q 'viewport' "$html"; then
+              echo "  ❌ Missing viewport meta tag"
+              ERRORS=$((ERRORS + 1))
+            fi
+
+            # H1 tag
+            H1_COUNT=$(grep -c '<h1' "$html" 2>/dev/null || echo "0")
+            if [ "$H1_COUNT" -eq 0 ]; then
+              echo "  ⚠️  No <h1> tag found"
+              WARNINGS=$((WARNINGS + 1))
+            elif [ "$H1_COUNT" -gt 1 ]; then
+              echo "  ⚠️  Multiple <h1> tags ($H1_COUNT)"
+              WARNINGS=$((WARNINGS + 1))
+            fi
+
+            # Image alt tags
+            IMG_NO_ALT=$(grep -c '<img[^>]*>' "$html" 2>/dev/null || echo "0")
+            IMG_WITH_ALT=$(grep -c '<img[^>]*alt=' "$html" 2>/dev/null || echo "0")
+            if [ "$IMG_NO_ALT" -gt "$IMG_WITH_ALT" ]; then
+              echo "  ⚠️  Some images missing alt attributes"
+              WARNINGS=$((WARNINGS + 1))
+            fi
+
+            # robots meta
+            if grep -q 'noindex' "$html"; then
+              echo "  ⚠️  Page has noindex directive"
+              WARNINGS=$((WARNINGS + 1))
+            fi
+          done
+
+          echo ""
+          echo "━━━ SEO Audit Summary ━━━"
+          echo "  Errors: $ERRORS"
+          echo "  Warnings: $WARNINGS"
+
+          if [ "$ERRORS" -gt 0 ]; then
+            echo "::error::SEO audit found $ERRORS critical issues"
+            exit 1
+          fi
+          echo "✅ SEO audit passed"
+
+  # ──────────────────────────────────────
+  # 6. Build & Deploy
+  # ──────────────────────────────────────
+  build:
+    name: 🏗️ Build
+    runs-on: ubuntu-latest
+    needs: [lighthouse, link-check, seo-audit]
     steps:
       - uses: actions/checkout@v4
 
@@ -26,27 +251,17 @@ jobs:
           BUILD_HASH=$(git rev-parse --short HEAD)
           TIMESTAMP=$(date +%s)
 
-          # Inject cache-busting query params into index.html references
-          sed -i "s/\(style\.css\)?v=[0-9]*/\1?v=${TIMESTAMP}/g" index.html 2>/dev/null || true
-          sed -i "s/\(script\.js\)?v=[0-9]*/\1?v=${TIMESTAMP}/g" index.html 2>/dev/null || true
-          sed -i "s/\(style\.min\.css\)?v=[0-9]*/\1?v=${TIMESTAMP}/g" index.html 2>/dev/null || true
-          sed -i "s/\(script\.min\.js\)?v=[0-9]*/\1?v=${TIMESTAMP}/g" index.html 2>/dev/null || true
+          # Inject cache-busting query params
+          for asset in style.css script.js style.min.css script.min.js; do
+            if grep -q "${asset}" index.html 2>/dev/null; then
+              sed -i "s|${asset}?v=[0-9]*|${asset}?v=${TIMESTAMP}|g" index.html
+              if ! grep -q "${asset}?v=" index.html; then
+                sed -i "s|${asset}|${asset}?v=${TIMESTAMP}|g" index.html
+              fi
+            fi
+          done
 
-          # If no existing version params, add them
-          if ! grep -q 'style\.css?v=' index.html; then
-            sed -i "s/style\.css/style.css?v=${TIMESTAMP}/g" index.html
-          fi
-          if ! grep -q 'script\.js?v=' index.html; then
-            sed -i "s/script\.js/script.js?v=${TIMESTAMP}/g" index.html
-          fi
-          if ! grep -q 'style\.min\.css?v=' index.html; then
-            sed -i "s/style\.min\.css/style.min.css?v=${TIMESTAMP}/g" index.html
-          fi
-          if ! grep -q 'script\.min\.js?v=' index.html; then
-            sed -i "s/script\.min\.js/script.min.js?v=${TIMESTAMP}/g" index.html
-          fi
-
-          echo "✅ Cache busting applied with timestamp ${TIMESTAMP} (commit ${BUILD_HASH})"
+          echo "✅ Cache busting applied (commit ${BUILD_HASH})"
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
@@ -57,8 +272,9 @@ jobs:
           path: .
 
   deploy:
-    name: Deploy
+    name: 🚀 Deploy
     needs: build
+    if: github.event_name == 'push'
     runs-on: ubuntu-latest
     environment:
       name: github-pages

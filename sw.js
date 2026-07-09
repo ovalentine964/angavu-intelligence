@@ -6,8 +6,8 @@ const CACHE_NAME = 'msaidizi-v1';
 const SHELL_ASSETS = [
   '/angavu-intelligence/',
   '/angavu-intelligence/index.html',
-  '/angavu-intelligence/style.css',
-  '/angavu-intelligence/script.js',
+  '/angavu-intelligence/style.min.css',
+  '/angavu-intelligence/script.min.js',
   '/angavu-intelligence/manifest.json'
 ];
 

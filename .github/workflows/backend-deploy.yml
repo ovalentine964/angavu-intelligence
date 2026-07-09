@@ -40,7 +40,7 @@ jobs:
           fetch-depth: 0
 
       - name: TruffleHog scan
-        uses: trufflesecurity/trufflehog@main
+        uses: trufflesecurity/trufflehog@33d9daddb1f521c32e89aeb2ca5fce45e9980aac  # main
         with:
           extra_args: --only-verified --fail
 
@@ -173,7 +173,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Run Trivy on pushed image
-        uses: aquasecurity/trivy-action@master
+        uses: aquasecurity/trivy-action@c07df6fec6fa692e6fd1200d50aaa1fdd66f03c8  # master
         with:
           image-ref: ${{ needs.build.outputs.image-tag }}
           format: 'sarif'
@@ -207,10 +207,11 @@ jobs:
           DEPLOY_KEY: ${{ secrets.DEPLOY_KEY }}
           IMAGE_TAG: ${{ needs.build.outputs.image-digest }}
         run: |
-          # Configure SSH
+          # Configure SSH — trap ensures key cleanup even on failure
           mkdir -p ~/.ssh
           echo "$DEPLOY_KEY" > ~/.ssh/deploy_key
           chmod 600 ~/.ssh/deploy_key
+          trap 'rm -f ~/.ssh/deploy_key' EXIT
           ssh-keyscan -H "$DEPLOY_HOST" >> ~/.ssh/known_hosts 2>/dev/null
 
           # Deploy with rolling update
@@ -219,8 +220,7 @@ jobs:
              docker compose -f /opt/angavu/docker-compose.yml up -d --force-recreate --no-deps backend && \
              echo '✅ Deployed successfully'"
 
-          # Cleanup
-          rm -f ~/.ssh/deploy_key
+          echo '✅ Deploy step complete (key auto-cleaned via trap)'
 
       - name: Health check
         run: |

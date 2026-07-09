@@ -30,7 +30,7 @@ jobs:
         with:
           fetch-depth: 0
       - name: TruffleHog scan
-        uses: trufflesecurity/trufflehog@main
+        uses: trufflesecurity/trufflehog@33d9daddb1f521c32e89aeb2ca5fce45e9980aac  # main
         with:
           extra_args: --only-verified --fail
 
@@ -43,7 +43,7 @@ jobs:
           fetch-depth: 0
           path: backend
       - name: TruffleHog scan
-        uses: trufflesecurity/trufflehog@main
+        uses: trufflesecurity/trufflehog@33d9daddb1f521c32e89aeb2ca5fce45e9980aac  # main
         with:
           path: backend
           extra_args: --only-verified --fail
@@ -78,7 +78,7 @@ jobs:
       - uses: actions/checkout@v4
 
       - name: Run Trivy (filesystem mode)
-        uses: aquasecurity/trivy-action@master
+        uses: aquasecurity/trivy-action@c07df6fec6fa692e6fd1200d50aaa1fdd66f03c8  # master
         with:
           scan-type: 'fs'
           scan-ref: '.'

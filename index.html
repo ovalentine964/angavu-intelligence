@@ -61,9 +61,9 @@
     }
     .hero-kicker {
         display: inline-block;
-        background: rgba(34,197,94,0.12);
-        border: 1px solid rgba(34,197,94,0.25);
-        color: #4ade80;
+        background: rgba(245,158,11,0.12);
+        border: 1px solid rgba(245,158,11,0.25);
+        color: #F59E0B;
         font-size: 0.8rem;
         font-weight: 600;
         padding: 6px 16px;
@@ -80,7 +80,7 @@
         color: #fff;
         margin-bottom: 1.25rem;
     }
-    .hero-rewrite h1 .accent { color: #4ade80; }
+    .hero-rewrite h1 .accent { color: #F59E0B; }
     .hero-rewrite .hero-desc {
         font-size: 1.15rem;
         line-height: 1.7;
@@ -99,20 +99,20 @@
         display: inline-flex;
         align-items: center;
         gap: 10px;
-        background: linear-gradient(135deg, #22c55e, #16a34a);
-        color: #fff;
+        background: linear-gradient(135deg, #F59E0B, #D97706);
+        color: #1a1a1a;
         font-size: 1.1rem;
         font-weight: 700;
         padding: 16px 36px;
         border-radius: 14px;
         text-decoration: none;
-        box-shadow: 0 6px 30px rgba(34,197,94,0.35);
+        box-shadow: 0 6px 30px rgba(245,158,11,0.35);
         transition: all 0.3s ease;
     }
     .btn-hero:hover {
         transform: translateY(-2px);
-        box-shadow: 0 10px 40px rgba(34,197,94,0.45);
-        color: #fff;
+        box-shadow: 0 10px 40px rgba(245,158,11,0.45);
+        color: #1a1a1a;
     }
     .btn-hero-outline {
         display: inline-flex;
@@ -187,6 +187,15 @@
         color: #4ade80;
         margin-bottom: 0.75rem;
     }
+    .section-rewrite .section-head::after {
+        content: '';
+        display: block;
+        width: 60px;
+        height: 3px;
+        background: linear-gradient(90deg, #F59E0B, #D97706);
+        border-radius: 2px;
+        margin: 1rem auto 0;
+    }
     .section-rewrite .section-head h2 {
         font-family: 'Playfair Display', serif;
         font-size: clamp(1.8rem, 3.5vw, 2.5rem);
@@ -194,7 +203,7 @@
         color: #fff;
         margin-bottom: 0.75rem;
     }
-    .section-rewrite .section-head h2 .accent { color: #4ade80; }
+    .section-rewrite .section-head h2 .accent { color: #F59E0B; }
     .section-rewrite .section-head p {
         font-size: 1.05rem;
         color: rgba(255,255,255,0.6);
@@ -220,7 +229,7 @@
         left: 15%;
         right: 15%;
         height: 2px;
-        background: linear-gradient(90deg, transparent, rgba(34,197,94,0.3), transparent);
+        background: linear-gradient(90deg, transparent, rgba(245,158,11,0.3), transparent);
         z-index: 0;
     }
     .step-card {
@@ -232,8 +241,8 @@
         width: 80px;
         height: 80px;
         border-radius: 50%;
-        background: rgba(34,197,94,0.1);
-        border: 2px solid rgba(34,197,94,0.3);
+        background: rgba(245,158,11,0.1);
+        border: 2px solid rgba(245,158,11,0.3);
         display: flex;
         align-items: center;
         justify-content: center;
@@ -248,7 +257,7 @@
     }
     .step-card .step-kiswahili {
         font-size: 0.85rem;
-        color: #4ade80;
+        color: #F59E0B;
         font-weight: 600;
         margin-bottom: 0.5rem;
     }
@@ -282,11 +291,12 @@
     }
     .feature-card:hover {
         transform: translateY(-3px);
-        border-color: rgba(34,197,94,0.25);
+        border-color: rgba(245,158,11,0.25);
     }
     .feature-card .feature-icon {
         font-size: 2.2rem;
         margin-bottom: 1rem;
+        color: #F59E0B;
     }
     .feature-card h3 {
         font-size: 1.15rem;
@@ -314,7 +324,7 @@
         content: '';
         position: absolute;
         inset: 0;
-        background: radial-gradient(ellipse at 50% 0%, rgba(34,197,94,0.12) 0%, transparent 60%);
+        background: radial-gradient(ellipse at 50% 0%, rgba(245,158,11,0.08) 0%, transparent 60%);
         pointer-events: none;
     }
     .download-content {
@@ -325,28 +335,28 @@
         display: inline-flex;
         align-items: center;
         gap: 12px;
-        background: linear-gradient(135deg, #22c55e, #16a34a);
-        color: #fff;
+        background: linear-gradient(135deg, #F59E0B, #D97706);
+        color: #1a1a1a;
         font-size: 1.25rem;
         font-weight: 700;
         padding: 20px 48px;
         border-radius: 16px;
         text-decoration: none;
-        box-shadow: 0 8px 40px rgba(34,197,94,0.4), 0 0 0 3px rgba(34,197,94,0.2);
+        box-shadow: 0 8px 40px rgba(245,158,11,0.4), 0 0 0 3px rgba(245,158,11,0.2);
         transition: all 0.3s ease;
         animation: pulse-cta 2.5s infinite;
         margin-bottom: 1.5rem;
     }
     .download-btn-main:hover {
-        background: linear-gradient(135deg, #16a34a, #15803d);
+        background: linear-gradient(135deg, #D97706, #B45309);
         transform: translateY(-3px) scale(1.02);
-        box-shadow: 0 12px 50px rgba(34,197,94,0.5);
-        color: #fff;
+        box-shadow: 0 12px 50px rgba(245,158,11,0.5);
+        color: #1a1a1a;
     }
     .download-btn-main .dl-icon { font-size: 1.6rem; }
     @keyframes pulse-cta {
-        0%, 100% { box-shadow: 0 8px 40px rgba(34,197,94,0.4), 0 0 0 3px rgba(34,197,94,0.2); }
-        50% { box-shadow: 0 8px 40px rgba(34,197,94,0.55), 0 0 0 8px rgba(34,197,94,0.08); }
+        0%, 100% { box-shadow: 0 8px 40px rgba(245,158,11,0.4), 0 0 0 3px rgba(245,158,11,0.2); }
+        50% { box-shadow: 0 8px 40px rgba(245,158,11,0.55), 0 0 0 8px rgba(245,158,11,0.08); }
     }
     .download-meta-row {
         display: flex;
@@ -463,8 +473,8 @@
         margin-top: 2rem;
     }
     .about-rewrite .about-badge {
-        background: rgba(34,197,94,0.08);
-        border: 1px solid rgba(34,197,94,0.2);
+        background: rgba(245,158,11,0.08);
+        border: 1px solid rgba(245,158,11,0.2);
         border-radius: 10px;
         padding: 8px 18px;
         font-size: 0.85rem;
@@ -501,7 +511,7 @@
     .contact-form input:focus,
     .contact-form textarea:focus {
         outline: none;
-        border-color: rgba(34,197,94,0.5);
+        border-color: rgba(245,158,11,0.5);
     }
     .contact-form input::placeholder,
     .contact-form textarea::placeholder {
@@ -533,7 +543,7 @@
         gap: 6px;
         transition: color 0.3s;
     }
-    .contact-other a:hover { color: #4ade80; }
+    .contact-other a:hover { color: #F59E0B; }
 
     /* --- Footer rewrite --- */
     .footer-rewrite {
@@ -571,7 +581,7 @@
         font-size: 0.85rem;
         transition: color 0.3s;
     }
-    .footer-rewrite .footer-links a:hover { color: #4ade80; }
+    .footer-rewrite .footer-links a:hover { color: #F59E0B; }
     .footer-rewrite .footer-bottom {
         border-top: 1px solid rgba(255,255,255,0.05);
         padding-top: 1.25rem;
@@ -601,13 +611,13 @@
         padding: 12px 16px;
         z-index: 1000;
         display: none;
-        border-top: 1px solid rgba(34,197,94,0.2);
+        border-top: 1px solid rgba(245,158,11,0.3);
     }
     .mobile-download-bar a {
         display: block;
         text-align: center;
-        background: linear-gradient(135deg, #22c55e, #16a34a);
-        color: #fff;
+        background: linear-gradient(135deg, #F59E0B, #D97706);
+        color: #1a1a1a;
         font-weight: 700;
         padding: 14px;
         border-radius: 12px;
@@ -713,14 +723,14 @@
         border: none;
     }
     .btn-primary {
-        background: linear-gradient(135deg, #22c55e, #16a34a);
-        color: #fff;
-        box-shadow: 0 4px 20px rgba(34,197,94,0.3);
+        background: linear-gradient(135deg, #F59E0B, #D97706);
+        color: #1a1a1a;
+        box-shadow: 0 4px 20px rgba(245,158,11,0.3);
     }
     .btn-primary:hover {
         transform: translateY(-2px);
-        box-shadow: 0 6px 30px rgba(34,197,94,0.4);
-        color: #fff;
+        box-shadow: 0 6px 30px rgba(245,158,11,0.4);
+        color: #1a1a1a;
     }
     </style>
     <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self'; frame-ancestors 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests">

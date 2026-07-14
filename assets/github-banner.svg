@@ -5,160 +5,165 @@
       <stop offset="50%" stop-color="#0F2D42"/>
       <stop offset="100%" stop-color="#1B4965"/>
     </linearGradient>
-    <linearGradient id="gold" x1="0%" y1="0%" x2="100%" y2="0%">
+    <linearGradient id="goldBar" x1="0" y1="0" x2="1" y2="0">
       <stop offset="0%" stop-color="#E8A838"/>
       <stop offset="100%" stop-color="#F0C060"/>
     </linearGradient>
+    <radialGradient id="nairobiGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#F0C060" stop-opacity="0.6"/>
+      <stop offset="50%" stop-color="#E8A838" stop-opacity="0.15"/>
+      <stop offset="100%" stop-color="#E8A838" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="ambientGlow" cx="22%" cy="50%" r="35%">
+      <stop offset="0%" stop-color="#E8A838" stop-opacity="0.06"/>
+      <stop offset="100%" stop-color="#E8A838" stop-opacity="0"/>
+    </radialGradient>
     <filter id="glow">
-      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feGaussianBlur stdDeviation="5" result="coloredBlur"/>
       <feMerge><feMergeNode in="coloredBlur"/><feMergeNode in="SourceGraphic"/></feMerge>
     </filter>
+    <linearGradient id="goldLine" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#E8A838" stop-opacity="0"/>
+      <stop offset="15%" stop-color="#E8A838" stop-opacity="0.6"/>
+      <stop offset="85%" stop-color="#E8A838" stop-opacity="0.6"/>
+      <stop offset="100%" stop-color="#E8A838" stop-opacity="0"/>
+    </linearGradient>
   </defs>
 
+  <!-- Background -->
   <rect width="1280" height="640" fill="url(#bg)"/>
+  <rect width="1280" height="640" fill="url(#ambientGlow)"/>
+
+  <!-- Grid pattern -->
   <pattern id="grid" x="0" y="0" width="40" height="40" patternUnits="userSpaceOnUse">
-    <path d="M40 0 L0 0 0 40" fill="none" stroke="#1E5577" stroke-width="0.3" opacity="0.2"/>
+    <path d="M40 0 L0 0 0 40" fill="none" stroke="#1E5577" stroke-width="0.3" opacity="0.15"/>
   </pattern>
   <rect width="1280" height="640" fill="url(#grid)"/>
-  <rect x="0" y="0" width="1280" height="3" fill="url(#gold)" opacity="0.8"/>
 
-  <!-- Neural Network Africa Icon (left) -->
-  <g transform="translate(200, 280)" filter="url(#glow)">
-    <g stroke="#E8A838" stroke-width="1.2" opacity="0.35" fill="none">
-      <line x1="0" y1="-120" x2="-24" y2="-95"/>
-      <line x1="0" y1="-120" x2="22" y2="-97"/>
-      <line x1="-24" y1="-95" x2="22" y2="-97"/>
-      <line x1="-24" y1="-95" x2="-42" y2="-68"/>
-      <line x1="22" y1="-97" x2="36" y2="-70"/>
-      <line x1="-24" y1="-95" x2="0" y2="-72"/>
-      <line x1="22" y1="-97" x2="0" y2="-72"/>
-      <line x1="-42" y1="-68" x2="0" y2="-72"/>
-      <line x1="36" y1="-70" x2="0" y2="-72"/>
-      <line x1="-42" y1="-68" x2="-48" y2="-35"/>
-      <line x1="36" y1="-70" x2="45" y2="-38"/>
-      <line x1="0" y1="-72" x2="-48" y2="-35"/>
-      <line x1="0" y1="-72" x2="45" y2="-38"/>
-      <line x1="-42" y1="-68" x2="45" y2="-38"/>
-      <line x1="-48" y1="-35" x2="45" y2="-38"/>
-      <line x1="-48" y1="-35" x2="-36" y2="0"/>
-      <line x1="45" y1="-38" x2="42" y2="0"/>
-      <line x1="-48" y1="-35" x2="-21" y2="6"/>
-      <line x1="45" y1="-38" x2="21" y2="6"/>
-      <line x1="-36" y1="0" x2="-21" y2="6"/>
-      <line x1="42" y1="0" x2="21" y2="6"/>
-      <line x1="-21" y1="6" x2="21" y2="6"/>
-      <line x1="-36" y1="0" x2="21" y2="6"/>
-      <line x1="42" y1="0" x2="-21" y2="6"/>
-      <line x1="-21" y1="6" x2="-26" y2="42"/>
-      <line x1="21" y1="6" x2="26" y2="36"/>
-      <line x1="-36" y1="0" x2="-26" y2="42"/>
-      <line x1="42" y1="0" x2="26" y2="36"/>
-      <line x1="-26" y1="42" x2="26" y2="36"/>
-      <line x1="-26" y1="42" x2="-15" y2="60"/>
-      <line x1="26" y1="36" x2="15" y2="54"/>
-      <line x1="-26" y1="42" x2="15" y2="54"/>
-      <line x1="26" y1="36" x2="-15" y2="60"/>
-      <line x1="-15" y1="60" x2="15" y2="54"/>
-      <line x1="-15" y1="60" x2="0" y2="78"/>
-      <line x1="15" y1="54" x2="0" y2="78"/>
-      <line x1="-15" y1="60" x2="6" y2="90"/>
-      <line x1="15" y1="54" x2="6" y2="90"/>
-      <line x1="0" y1="78" x2="6" y2="90"/>
-      <line x1="42" y1="0" x2="60" y2="22"/>
-      <line x1="26" y1="36" x2="60" y2="22"/>
-      <line x1="0" y1="-120" x2="-42" y2="-68"/>
-      <line x1="-42" y1="-68" x2="-36" y2="0"/>
-      <line x1="-48" y1="-35" x2="-66" y2="-12"/>
-      <line x1="-66" y1="-12" x2="-36" y2="0"/>
-      <line x1="-66" y1="-12" x2="-48" y2="-35"/>
+  <!-- Top gold accent bar -->
+  <rect x="0" y="0" width="1280" height="3" fill="url(#goldBar)" opacity="0.8"/>
+
+  <!-- Left: Bold Angavu Icon (Neural Network Africa, scaled up) -->
+  <g transform="translate(280, 300)">
+    <!-- Africa outline — bold, unmistakable -->
+    <path d="M-110,-180 L-57,-188 L-15,-192 L22,-195 L52,-190 L82,-180 L102,-165
+             L112,-142 L117,-120 L123,-97 L120,-78 L127,-52 L122,-27 L117,-7
+             L122,12 L115,30 L127,45 L124,63 L117,82 L105,93 L90,102
+             L67,117 L45,127 L18,142 L0,153 L-12,162
+             L-27,150 L-33,132 L-42,117 L-48,97
+             L-52,75 L-57,52 L-60,27 L-63,0
+             L-67,-22 L-78,-42 L-93,-57 L-114,-75
+             L-120,-90 L-125,-112 L-120,-135 L-110,-157 L-110,-180Z"
+      fill="#E8A838" fill-opacity="0.05" stroke="#E8A838" stroke-width="3.5" stroke-linejoin="round"/>
+
+    <!-- Madagascar -->
+    <ellipse cx="132" cy="72" rx="10" ry="24" fill="#E8A838" fill-opacity="0.04" stroke="#E8A838" stroke-width="2" transform="rotate(12,132,72)"/>
+
+    <!-- Thick connection lines from Nairobi HQ -->
+    <g stroke="#E8A838" stroke-linecap="round" opacity="0.4">
+      <line x1="30" y1="40" x2="-12" y2="-165" stroke-width="3"/>
+      <line x1="30" y1="40" x2="-87" y2="0" stroke-width="3"/>
+      <line x1="30" y1="40" x2="-30" y2="75" stroke-width="3"/>
+      <line x1="30" y1="40" x2="82" y2="-37" stroke-width="3"/>
+      <line x1="30" y1="40" x2="-37" y2="120" stroke-width="3"/>
+      <line x1="30" y1="40" x2="30" y2="135" stroke-width="3"/>
+      <line x1="30" y1="40" x2="-75" y2="-90" stroke-width="3"/>
+      <line x1="30" y1="40" x2="90" y2="30" stroke-width="3"/>
+      <!-- Regional cross-connections -->
+      <line x1="-12" y1="-165" x2="-87" y2="0" stroke-width="2"/>
+      <line x1="-12" y1="-165" x2="-75" y2="-90" stroke-width="2"/>
+      <line x1="-87" y1="0" x2="-30" y2="75" stroke-width="2"/>
+      <line x1="-30" y1="75" x2="-37" y2="120" stroke-width="2"/>
+      <line x1="82" y1="-37" x2="90" y2="30" stroke-width="2"/>
+      <line x1="30" y1="135" x2="-37" y2="120" stroke-width="2"/>
     </g>
 
-    <!-- 18 Nodes as Africa -->
-    <circle cx="0" cy="-120" r="6" fill="#E8A838"/>
-    <circle cx="-24" cy="-95" r="5.5" fill="#E8A838"/>
-    <circle cx="22" cy="-97" r="5.5" fill="#E8A838"/>
-    <circle cx="-66" cy="-12" r="5" fill="#E8A838"/>
-    <circle cx="-48" cy="-35" r="5.5" fill="#E8A838"/>
-    <circle cx="-42" cy="-68" r="5" fill="#E8A838"/>
-    <circle cx="36" cy="-70" r="5" fill="#E8A838"/>
-    <circle cx="0" cy="-72" r="7" fill="#E8A838"/>
-    <circle cx="-36" cy="0" r="6" fill="#E8A838"/>
-    <circle cx="45" cy="-38" r="5.5" fill="#E8A838"/>
-    <circle cx="-21" cy="6" r="6.5" fill="#E8A838"/>
-    <!-- ★ KENYA HQ -->
-    <circle cx="21" cy="6" r="9" fill="#F0C060" stroke="#FFFFFF" stroke-width="2"/>
-    <circle cx="-26" cy="42" r="5.5" fill="#E8A838"/>
-    <circle cx="26" cy="36" r="5.5" fill="#E8A838"/>
-    <circle cx="60" cy="22" r="4.5" fill="#E8A838"/>
-    <circle cx="-15" cy="60" r="5.5" fill="#E8A838"/>
-    <circle cx="15" cy="54" r="5.5" fill="#E8A838"/>
-    <circle cx="0" cy="78" r="6" fill="#E8A838"/>
-    <circle cx="6" cy="90" r="5" fill="#E8A838"/>
+    <!-- 8 Large City Nodes -->
+    <circle cx="-12" cy="-165" r="10" fill="#E8A838"/>       <!-- Cairo -->
+    <circle cx="-75" cy="-90" r="9" fill="#E8A838"/>         <!-- Casablanca -->
+    <circle cx="-87" cy="0" r="10" fill="#E8A838"/>          <!-- Lagos -->
+    <circle cx="-30" cy="75" r="9" fill="#E8A838"/>          <!-- Addis Ababa -->
+    <circle cx="82" cy="-37" r="9" fill="#E8A838"/>          <!-- Dar es Salaam -->
+    <circle cx="-37" cy="120" r="10" fill="#E8A838"/>        <!-- Kinshasa -->
+    <circle cx="30" cy="135" r="10" fill="#E8A838"/>         <!-- Johannesburg -->
+    <circle cx="90" cy="30" r="9" fill="#E8A838"/>           <!-- Cape Town -->
 
-    <text x="21" y="-12" text-anchor="middle" font-family="'Segoe UI',Arial,sans-serif" font-size="10" font-weight="700" fill="#FFFFFF" letter-spacing="0.5">KENYA</text>
-    <text x="21" y="-1" text-anchor="middle" font-family="'Segoe UI',Arial,sans-serif" font-size="7" fill="#FFFFFF" opacity="0.7">HQ</text>
+    <!-- NAIROBI HQ — glowing, prominent -->
+    <circle cx="30" cy="40" r="30" fill="url(#nairobiGlow)" filter="url(#glow)"/>
+    <circle cx="30" cy="40" r="18" fill="#F0C060" stroke="#FFFFFF" stroke-width="3"/>
+
+    <!-- KENYA HQ label -->
+    <text x="30" y="5" text-anchor="middle" font-family="'Segoe UI',Arial,sans-serif" font-size="12" font-weight="700" fill="#FFFFFF" letter-spacing="1.5">KENYA</text>
+    <text x="30" y="18" text-anchor="middle" font-family="'Segoe UI',Arial,sans-serif" font-size="9" fill="#FFFFFF" opacity="0.7">HQ</text>
   </g>
 
-  <line x1="380" y1="120" x2="380" y2="520" stroke="#E8A838" stroke-width="1" opacity="0.2"/>
+  <!-- Gold accent line separator -->
+  <line x1="520" y1="60" x2="520" y2="580" stroke="url(#goldLine)" stroke-width="2"/>
 
   <!-- Right: Text Content -->
-  <g transform="translate(440, 0)">
-    <text x="0" y="200" font-family="'Segoe UI','Helvetica Neue',Arial,sans-serif" font-size="96" font-weight="700" fill="#FFFFFF" letter-spacing="8">ANGAVU</text>
-    <text x="2" y="250" font-family="'Segoe UI','Helvetica Neue',Arial,sans-serif" font-size="36" font-weight="300" fill="#E8A838" letter-spacing="12">INTELLIGENCE</text>
-    <line x1="2" y1="275" x2="600" y2="275" stroke="#E8A838" stroke-width="1" opacity="0.3"/>
-    <text x="2" y="310" font-family="'Segoe UI','Helvetica Neue',Arial,sans-serif" font-size="20" font-weight="300" fill="#FFFFFF" letter-spacing="4" opacity="0.6">Clarity for Africa's Invisible Economy</text>
+  <g transform="translate(580, 0)">
+    <!-- ANGAVU -->
+    <text x="0" y="220" font-family="'Segoe UI','Helvetica Neue',Arial,sans-serif" font-size="96" font-weight="900" fill="#FFFFFF" letter-spacing="10">ANGAVU</text>
 
-    <g transform="translate(0, 360)">
+    <!-- Intelligence -->
+    <text x="4" y="275" font-family="'Segoe UI','Helvetica Neue',Arial,sans-serif" font-size="36" font-weight="300" fill="#E8A838" letter-spacing="14" opacity="0.9">Intelligence</text>
+
+    <!-- Tagline separator -->
+    <line x1="4" y1="300" x2="580" y2="300" stroke="#E8A838" stroke-width="1" opacity="0.2"/>
+
+    <!-- Tagline -->
+    <text x="4" y="340" font-family="'Segoe UI','Helvetica Neue',Arial,sans-serif" font-size="20" font-weight="400" fill="#FFFFFF" opacity="0.6" letter-spacing="1.5">Africa's Operating System for the Informal Economy</text>
+
+    <!-- Stats row -->
+    <g transform="translate(0, 380)">
       <g>
-        <text x="0" y="0" font-family="'Segoe UI',sans-serif" font-size="28" font-weight="700" fill="#E8A838">600M+</text>
-        <text x="0" y="22" font-family="'Segoe UI',sans-serif" font-size="12" font-weight="300" fill="#FFFFFF" opacity="0.5">Informal Workers</text>
+        <text x="0" y="0" font-family="'Segoe UI',sans-serif" font-size="32" font-weight="700" fill="#E8A838">600M+</text>
+        <text x="0" y="24" font-family="'Segoe UI',sans-serif" font-size="13" font-weight="300" fill="#FFFFFF" opacity="0.45">Informal Workers</text>
       </g>
-      <g transform="translate(180, 0)">
-        <text x="0" y="0" font-family="'Segoe UI',sans-serif" font-size="28" font-weight="700" fill="#E8A838">14</text>
-        <text x="0" y="22" font-family="'Segoe UI',sans-serif" font-size="12" font-weight="300" fill="#FFFFFF" opacity="0.5">African Dialects</text>
+      <g transform="translate(200, 0)">
+        <text x="0" y="0" font-family="'Segoe UI',sans-serif" font-size="32" font-weight="700" fill="#E8A838">14</text>
+        <text x="0" y="24" font-family="'Segoe UI',sans-serif" font-size="13" font-weight="300" fill="#FFFFFF" opacity="0.45">African Dialects</text>
       </g>
-      <g transform="translate(320, 0)">
-        <text x="0" y="0" font-family="'Segoe UI',sans-serif" font-size="28" font-weight="700" fill="#E8A838">4</text>
-        <text x="0" y="22" font-family="'Segoe UI',sans-serif" font-size="12" font-weight="300" fill="#FFFFFF" opacity="0.5">AI Products</text>
-      </g>
-      <g transform="translate(440, 0)">
-        <text x="0" y="0" font-family="'Segoe UI',sans-serif" font-size="28" font-weight="700" fill="#E8A838">33</text>
-        <text x="0" y="22" font-family="'Segoe UI',sans-serif" font-size="12" font-weight="300" fill="#FFFFFF" opacity="0.5">AI Agents</text>
+      <g transform="translate(360, 0)">
+        <text x="0" y="0" font-family="'Segoe UI',sans-serif" font-size="32" font-weight="700" fill="#E8A838">4</text>
+        <text x="0" y="24" font-family="'Segoe UI',sans-serif" font-size="13" font-weight="300" fill="#FFFFFF" opacity="0.45">AI Products</text>
       </g>
     </g>
 
-    <g transform="translate(0, 430)">
+    <!-- Product badges -->
+    <g transform="translate(0, 440)">
       <g>
-        <rect x="0" y="0" width="140" height="50" rx="8" fill="#E8A838" opacity="0.15" stroke="#E8A838" stroke-width="1"/>
-        <text x="70" y="22" font-family="'Segoe UI',sans-serif" font-size="11" font-weight="600" fill="#E8A838" text-anchor="middle">SOKO PULSE</text>
-        <text x="70" y="38" font-family="'Segoe UI',sans-serif" font-size="9" font-weight="300" fill="#FFFFFF" opacity="0.5" text-anchor="middle">Market Intelligence</text>
+        <rect x="0" y="0" width="130" height="45" rx="7" fill="#E8A838" opacity="0.12" stroke="#E8A838" stroke-width="1"/>
+        <text x="65" y="20" font-family="'Segoe UI',sans-serif" font-size="11" font-weight="600" fill="#E8A838" text-anchor="middle">SOKO PULSE</text>
+        <text x="65" y="35" font-family="'Segoe UI',sans-serif" font-size="9" font-weight="300" fill="#FFFFFF" opacity="0.45" text-anchor="middle">Market Intelligence</text>
       </g>
-      <g transform="translate(160, 0)">
-        <rect x="0" y="0" width="140" height="50" rx="8" fill="#E8A838" opacity="0.15" stroke="#E8A838" stroke-width="1"/>
-        <text x="70" y="22" font-family="'Segoe UI',sans-serif" font-size="11" font-weight="600" fill="#E8A838" text-anchor="middle">BIASHARA PULSE</text>
-        <text x="70" y="38" font-family="'Segoe UI',sans-serif" font-size="9" font-weight="300" fill="#FFFFFF" opacity="0.5" text-anchor="middle">Business Intelligence</text>
+      <g transform="translate(148, 0)">
+        <rect x="0" y="0" width="130" height="45" rx="7" fill="#E8A838" opacity="0.12" stroke="#E8A838" stroke-width="1"/>
+        <text x="65" y="20" font-family="'Segoe UI',sans-serif" font-size="11" font-weight="600" fill="#E8A838" text-anchor="middle">BIASHARA PULSE</text>
+        <text x="65" y="35" font-family="'Segoe UI',sans-serif" font-size="9" font-weight="300" fill="#FFFFFF" opacity="0.45" text-anchor="middle">Business Intelligence</text>
       </g>
-      <g transform="translate(320, 0)">
-        <rect x="0" y="0" width="140" height="50" rx="8" fill="#E8A838" opacity="0.15" stroke="#E8A838" stroke-width="1"/>
-        <text x="70" y="22" font-family="'Segoe UI',sans-serif" font-size="11" font-weight="600" fill="#E8A838" text-anchor="middle">ALAMA SCORE</text>
-        <text x="70" y="38" font-family="'Segoe UI',sans-serif" font-size="9" font-weight="300" fill="#FFFFFF" opacity="0.5" text-anchor="middle">Credit Scoring</text>
+      <g transform="translate(296, 0)">
+        <rect x="0" y="0" width="130" height="45" rx="7" fill="#E8A838" opacity="0.12" stroke="#E8A838" stroke-width="1"/>
+        <text x="65" y="20" font-family="'Segoe UI',sans-serif" font-size="11" font-weight="600" fill="#E8A838" text-anchor="middle">ALAMA SCORE</text>
+        <text x="65" y="35" font-family="'Segoe UI',sans-serif" font-size="9" font-weight="300" fill="#FFFFFF" opacity="0.45" text-anchor="middle">Credit Scoring</text>
       </g>
-      <g transform="translate(480, 0)">
-        <rect x="0" y="0" width="140" height="50" rx="8" fill="#E8A838" opacity="0.15" stroke="#E8A838" stroke-width="1"/>
-        <text x="70" y="22" font-family="'Segoe UI',sans-serif" font-size="11" font-weight="600" fill="#E8A838" text-anchor="middle">JAMII INSIGHTS</text>
-        <text x="70" y="38" font-family="'Segoe UI',sans-serif" font-size="9" font-weight="300" fill="#FFFFFF" opacity="0.5" text-anchor="middle">Community Intelligence</text>
+      <g transform="translate(444, 0)">
+        <rect x="0" y="0" width="130" height="45" rx="7" fill="#E8A838" opacity="0.12" stroke="#E8A838" stroke-width="1"/>
+        <text x="65" y="20" font-family="'Segoe UI',sans-serif" font-size="11" font-weight="600" fill="#E8A838" text-anchor="middle">JAMII INSIGHTS</text>
+        <text x="65" y="35" font-family="'Segoe UI',sans-serif" font-size="9" font-weight="300" fill="#FFFFFF" opacity="0.45" text-anchor="middle">Community Intelligence</text>
       </g>
     </g>
 
-    <g transform="translate(0, 510)">
-      <text x="0" y="0" font-family="'Segoe UI',sans-serif" font-size="11" font-weight="300" fill="#FFFFFF" opacity="0.3">On-Device AI • Federated Learning • Voice-First • Offline-First • 14 Dialects • Kotlin + Python</text>
-    </g>
+    <!-- Tech stack -->
+    <text x="4" y="530" font-family="'Segoe UI',sans-serif" font-size="12" font-weight="300" fill="#FFFFFF" opacity="0.25" letter-spacing="1.5">On-Device AI · Federated Learning · Voice-First · Offline-First · Kotlin + Python</text>
   </g>
 
-  <rect x="0" y="637" width="1280" height="3" fill="url(#gold)" opacity="0.8"/>
+  <!-- Bottom gold accent bar -->
+  <rect x="0" y="637" width="1280" height="3" fill="url(#goldBar)" opacity="0.8"/>
 
-  <circle cx="20" cy="20" r="3" fill="#E8A838" opacity="0.4"/>
-  <circle cx="1260" cy="20" r="3" fill="#E8A838" opacity="0.4"/>
-  <circle cx="20" cy="620" r="3" fill="#E8A838" opacity="0.4"/>
-  <circle cx="1260" cy="620" r="3" fill="#E8A838" opacity="0.4"/>
+  <!-- Corner accents -->
+  <circle cx="25" cy="25" r="3" fill="#E8A838" opacity="0.3"/>
+  <circle cx="1255" cy="25" r="3" fill="#E8A838" opacity="0.3"/>
+  <circle cx="25" cy="615" r="3" fill="#E8A838" opacity="0.3"/>
+  <circle cx="1255" cy="615" r="3" fill="#E8A838" opacity="0.3"/>
 </svg>

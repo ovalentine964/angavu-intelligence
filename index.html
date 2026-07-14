@@ -15,13 +15,168 @@
     <meta property="og:locale" content="en_KE">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Angavu Intelligence — The Operating System for Africa's Informal Economy">
-    <meta name="twitter:description" content="PhD-grade economics powering 17 AI agents for 600M+ informal workers. On-device inference, zero API cost, privacy-preserving."
+    <meta name="twitter:description" content="PhD-grade economics powering 17 AI agents for 600M+ informal workers. On-device inference, zero API cost, privacy-preserving.">
     <meta name="twitter:image" content="https://angavuintelligence.com/assets/og-image.png">
     <title>Angavu Intelligence — The Operating System for Africa's Informal Economy</title>
     <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
     <link rel="apple-touch-icon" href="assets/icon-192.png">
     <link rel="stylesheet" href="style.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
+    <!-- Download Section Styles -->
+    <style>
+    /* Download Hero Section */
+    .download-hero {
+        background: linear-gradient(135deg, #0a3d1a 0%, #1a5c2e 50%, #0d4420 100%);
+        padding: 80px 0;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+    }
+    .download-hero::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: radial-gradient(ellipse at 50% 0%, rgba(34,197,94,0.15) 0%, transparent 60%);
+        pointer-events: none;
+    }
+    .download-hero .section-header { margin-bottom: 2rem; }
+    .download-hero .section-eyebrow { color: #4ade80; }
+    .download-hero .section-title .text-accent { color: #4ade80; }
+    .download-btn-hero {
+        display: inline-flex;
+        align-items: center;
+        gap: 12px;
+        background: linear-gradient(135deg, #22c55e, #16a34a);
+        color: #fff;
+        font-size: 1.25rem;
+        font-weight: 700;
+        padding: 20px 48px;
+        border-radius: 16px;
+        text-decoration: none;
+        box-shadow: 0 8px 40px rgba(34,197,94,0.4), 0 0 0 3px rgba(34,197,94,0.2);
+        transition: all 0.3s ease;
+        animation: pulse-green 2s infinite;
+        margin-bottom: 1.5rem;
+    }
+    .download-btn-hero:hover {
+        background: linear-gradient(135deg, #16a34a, #15803d);
+        transform: translateY(-3px) scale(1.02);
+        box-shadow: 0 12px 50px rgba(34,197,94,0.5), 0 0 0 4px rgba(34,197,94,0.3);
+        color: #fff;
+    }
+    .download-btn-hero .dl-icon { font-size: 1.8rem; }
+    @keyframes pulse-green {
+        0% { box-shadow: 0 8px 40px rgba(34,197,94,0.4), 0 0 0 3px rgba(34,197,94,0.2); }
+        50% { box-shadow: 0 8px 40px rgba(34,197,94,0.6), 0 0 0 8px rgba(34,197,94,0.1); }
+        100% { box-shadow: 0 8px 40px rgba(34,197,94,0.4), 0 0 0 3px rgba(34,197,94,0.2); }
+    }
+    .download-meta {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 24px;
+        margin: 2rem auto;
+        max-width: 700px;
+    }
+    .download-meta-item {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        color: rgba(255,255,255,0.8);
+        font-size: 0.9rem;
+    }
+    .download-meta-item .meta-icon { font-size: 1.2rem; }
+    .download-qr-section {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 12px;
+        margin-top: 2rem;
+    }
+    .download-qr-section img {
+        background: #fff;
+        padding: 12px;
+        border-radius: 12px;
+        box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+    }
+    .download-qr-label {
+        color: rgba(255,255,255,0.7);
+        font-size: 0.85rem;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+    }
+    .download-requirements {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 12px;
+        margin-top: 1.5rem;
+    }
+    .download-req-badge {
+        background: rgba(255,255,255,0.08);
+        border: 1px solid rgba(255,255,255,0.15);
+        border-radius: 8px;
+        padding: 8px 16px;
+        font-size: 0.8rem;
+        color: rgba(255,255,255,0.8);
+    }
+
+    /* What's New Section */
+    .whats-new {
+        background: var(--bg-primary);
+    }
+    .whats-new-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        gap: 1.5rem;
+    }
+    .whats-new-card {
+        background: var(--bg-card);
+        border: 1px solid var(--border-subtle);
+        border-radius: var(--radius-md);
+        padding: 1.5rem;
+        transition: transform 0.3s, border-color 0.3s;
+    }
+    .whats-new-card:hover {
+        transform: translateY(-3px);
+        border-color: rgba(34,197,94,0.3);
+    }
+    .whats-new-card .wn-icon {
+        font-size: 2rem;
+        margin-bottom: 0.75rem;
+    }
+    .whats-new-card h4 {
+        color: var(--text-primary);
+        font-size: 1.05rem;
+        margin-bottom: 0.5rem;
+    }
+    .whats-new-card p {
+        color: var(--text-secondary);
+        font-size: 0.9rem;
+        line-height: 1.6;
+    }
+    .whats-new-card .wn-badge {
+        display: inline-block;
+        background: rgba(34,197,94,0.15);
+        color: #22c55e;
+        border: 1px solid rgba(34,197,94,0.3);
+        border-radius: 999px;
+        padding: 2px 10px;
+        font-size: 0.7rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        margin-top: 0.5rem;
+    }
+    @media (max-width: 768px) {
+        .download-hero { padding: 60px 0; }
+        .download-btn-hero {
+            font-size: 1.1rem;
+            padding: 16px 32px;
+        }
+        .download-meta { gap: 16px; }
+    }
+    </style>
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
     <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self'; frame-ancestors 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests">
@@ -104,6 +259,7 @@
                 <li><a href="#tech-stack" data-en="Tech Stack" data-sw="Teknolojia">Tech Stack</a></li>
                 <li><a href="#ai-agents" data-en="AI Agents" data-sw="Mawakala wa AI">AI Agents</a></li>
                 <li><a href="#privacy" data-en="Privacy" data-sw="Faragha">Privacy</a></li>
+                <li><a href="#download" data-en="⬇ Download" data-sw="⬇ Pakua">⬇ Download</a></li>
                 <li><a href="#install" data-en="Install Guide" data-sw="Mwongozo wa Usakinishaji">Install Guide</a></li>
                 <li><a href="#community" data-en="Community" data-sw="Jamii">Community</a></li>
                 <li><a href="#contact" data-en="Contact" data-sw="Wasiliana">Contact</a></li>
@@ -129,7 +285,7 @@
                     PhD-grade economics. On-device AI. 17 intelligent agents. <strong>Every informal worker has an AI CFO.</strong>
                 </p>
                 <div class="hero-ctas">
-                    <a href="https://github.com/ovalentine964/angavu-intelligence/releases/download/v0.1.0/msaidizi.apk" class="btn btn-download" rel="noopener" data-en="⬇ Download Msaidizi — Free" data-sw="⬇ Pakua Msaidizi — Bure">⬇ Download Msaidizi — Free</a>
+                    <a href="https://github.com/ovalentine964/angavu-intelligence/releases" class="btn btn-download" rel="noopener" target="_blank" data-en="⬇ Download Msaidizi — Free" data-sw="⬇ Pakua Msaidizi — Bure">⬇ Download Msaidizi — Free</a>
                     <a href="#products" class="btn btn-outline" data-en="Explore Intelligence Products" data-sw="Chunguza Bidhaa za Ufahamu">Explore Intelligence Products</a>
                 </div>
                 <p class="hero-trust" data-en="Built in Migori, Kenya · BSc Economics & Statistics · Voice-First · Offline-First · Privacy-Preserving" data-sw="Imejengwa Migori, Kenya · BSc Uchumi & Takwimu · Sauti Kwanza · Nje ya Mtandao Kwanza · Faragha Inalindwa">Built in Migori, Kenya · BSc Economics & Statistics · Voice-First · Offline-First · Privacy-Preserving</p>
@@ -899,13 +1055,13 @@
                         <li data-en="📴 Works offline — no internet needed" data-sw="📴 Inafanya kazi nje ya mtandao — hakuna mtandao unaohitajika">📴 Works offline — no internet needed</li>
                         <li data-en="🆓 Free forever — no hidden charges" data-sw="🆓 Bure milele — hakuna ada zilizofichwa">🆓 Free forever — no hidden charges</li>
                     </ul>
-                    <a href="https://github.com/ovalentine964/angavu-intelligence/releases/download/v0.1.0/msaidizi.apk" class="btn btn-download" rel="noopener" data-en="⬇ Download Msaidizi — Free" data-sw="⬇ Pakua Msaidizi — Bure">⬇ Download Msaidizi — Free</a>
+                    <a href="https://github.com/ovalentine964/angavu-intelligence/releases" class="btn btn-download" rel="noopener" target="_blank" data-en="⬇ Download Msaidizi — Free" data-sw="⬇ Pakua Msaidizi — Bure">⬇ Download Msaidizi — Free</a>
                     <!-- QR Code linking to GitHub Releases -->
                     <div class="qr-code-wrapper">
                         <img src="assets/qr-download.svg" alt="QR code to download Msaidizi" class="qr-code" width="120" height="120">
                         <span class="qr-label" data-en="Scan to download" data-sw="Changanua kupakua">Scan to download</span>
                     </div>
-                    <p class="download-note" data-en="Free forever · Android 8.0+ · ~500MB all-in-one with AI models · Works offline instantly · No account needed" data-sw="Bure milele · Android 8.0+ · ~500MB yote pamoja na mifano ya AI · Inafanya kazi nje ya mtandao mara moja · Hakuna akaunti inayohitajika">Free forever · Android 8.0+ · ~500MB all-in-one with AI models · Works offline instantly · No account needed</p>
+                    <p class="download-note" data-en="Free forever · Android 8.0+ · 2GB RAM · ~500MB all-in-one with AI models · Works offline instantly · No account needed" data-sw="Bure milele · Android 8.0+ · RAM 2GB · ~500MB yote pamoja na mifano ya AI · Inafanya kazi nje ya mtandao mara moja · Hakuna akaunti inayohitajika">Free forever · Android 8.0+ · 2GB RAM · ~500MB all-in-one with AI models · Works offline instantly · No account needed</p>
                 </div>
                 <div class="msaidizi-visual">
                     <div class="phone-mockup" role="img" aria-label="Msaidizi app screenshot showing voice-based business tracking with daily sales and expense recording">
@@ -933,6 +1089,87 @@
         </div>
     </section>
 
+    <!-- Download Msaidizi Section (Prominent) -->
+    <section class="download-hero" id="download">
+        <div class="container">
+            <div class="section-header">
+                <p class="section-eyebrow" data-en="Free Download" data-sw="Upakuaji Bure">Free Download</p>
+                <h2 class="section-title" data-en="Download Msaidizi Now" data-sw="Pakua Msaidizi Sasa">Download <span class="text-accent">Msaidizi</span> Now</h2>
+                <p class="section-desc" data-en="Your AI business assistant. Voice-powered, offline-first, free forever. Built for Mama Mboga, boda boda riders, and every informal worker in Africa." data-sw="Msaidizi wako wa AI wa biashara. Unaotumia sauti, unafanya kazi nje ya mtandao, bure milele. Imejengwa kwa Mama Mboga, waendesha boda boda, na kila mfanyakazi asiye rasmi Afrika.">Your AI business assistant. Voice-powered, offline-first, free forever. Built for Mama Mboga, boda boda riders, and every informal worker in Africa.</p>
+            </div>
+            <a href="https://github.com/ovalentine964/angavu-intelligence/releases" class="download-btn-hero" rel="noopener" target="_blank">
+                <span class="dl-icon">⬇</span>
+                <span data-en="Download Msaidizi APK — Free" data-sw="Pakua Msaidizi APK — Bure">Download Msaidizi APK — Free</span>
+            </a>
+            <div class="download-meta">
+                <div class="download-meta-item"><span class="meta-icon">📱</span> <span data-en="Android 8.0+" data-sw="Android 8.0+">Android 8.0+</span></div>
+                <div class="download-meta-item"><span class="meta-icon">💾</span> <span data-en="~500MB" data-sw="~500MB">~500MB</span></div>
+                <div class="download-meta-item"><span class="meta-icon">🧠</span> <span data-en="2GB RAM minimum" data-sw="RAM 2GB kiwango cha chini">2GB RAM minimum</span></div>
+                <div class="download-meta-item"><span class="meta-icon">📴</span> <span data-en="Works Offline" data-sw="Inafanya Kazi Nje ya Mtandao">Works Offline</span></div>
+                <div class="download-meta-item"><span class="meta-icon">🆓</span> <span data-en="No Account Needed" data-sw="Hakuna Akaunti Inayohitajika">No Account Needed</span></div>
+            </div>
+            <div class="download-requirements">
+                <div class="download-req-badge">📱 Android 8.0+</div>
+                <div class="download-req-badge">🧠 2GB RAM</div>
+                <div class="download-req-badge">💾 500MB Storage</div>
+                <div class="download-req-badge">🎤 Microphone</div>
+            </div>
+            <div class="download-qr-section">
+                <img src="assets/qr-download.svg" alt="QR code to download Msaidizi" width="140" height="140">
+                <span class="download-qr-label" data-en="Scan with your phone camera to download" data-sw="Piga picha na kamera ya simu yako kupakua">Scan with your phone camera to download</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- What's New Section -->
+    <section class="section whats-new" id="whats-new">
+        <div class="container">
+            <div class="section-header">
+                <p class="section-eyebrow" data-en="What's New" data-sw="Kipi Kipya">What's New</p>
+                <h2 class="section-title" data-en="Current Features" data-sw="Vipengele vya Sasa">Current <span class="text-accent">Features</span></h2>
+                <p class="section-desc" data-en="Everything included in the current release — no extra downloads, no in-app purchases." data-sw="Kila kitu kimejumuishwa katika toleo la sasa — hakuna upakuaji wa ziada, hakuna manunuzi ndani ya programu.">Everything included in the current release — no extra downloads, no in-app purchases.</p>
+            </div>
+            <div class="whats-new-grid">
+                <div class="whats-new-card">
+                    <div class="wn-icon">🎤</div>
+                    <h4 data-en="Voice Input in Swahili & English" data-sw="Uingizaji wa Sauti kwa Kiswahili & Kiingereza">Voice Input in Swahili & English</h4>
+                    <p data-en="Speak your sales, expenses, and inventory — no typing needed. Supports Swahili, English, and Sheng." data-sw="Zungumza mauzo yako, gharama, na hesabu — hakuna kuchapa kunahitajika. Inasaidia Kiswahili, Kiingereza, na Sheng.">Speak your sales, expenses, and inventory — no typing needed. Supports Swahili, English, and Sheng.</p>
+                    <span class="wn-badge" data-en="Included" data-sw="Imejumuishwa">Included</span>
+                </div>
+                <div class="whats-new-card">
+                    <div class="wn-icon">📊</div>
+                    <h4 data-en="Business Dashboard" data-sw="Dashibodi ya Biashara">Business Dashboard</h4>
+                    <p data-en="See your daily profit or loss at a glance. Track sales, expenses, and inventory in real-time." data-sw="Ona faida au hasara yako ya kila siku kwa haraka. Fuatilia mauzo, gharama, na hesabu kwa wakati halisi.">See your daily profit or loss at a glance. Track sales, expenses, and inventory in real-time.</p>
+                    <span class="wn-badge" data-en="Included" data-sw="Imejumuishwa">Included</span>
+                </div>
+                <div class="whats-new-card">
+                    <div class="wn-icon">🧠</div>
+                    <h4 data-en="On-Device AI Assistant" data-sw="Msaidizi wa AI Kwenye Kifaa">On-Device AI Assistant</h4>
+                    <p data-en="Qwen3.5-0.8B model runs directly on your phone. Get business advice, forecasts, and insights — no internet needed for AI." data-sw="Muundo wa Qwen3.5-0.8B unafanya kazi moja kwa moja kwenye simu yako. Pata ushauri wa biashara, utabiri, na ufahamu — hakuna mtandao unahitajika.">Qwen3.5-0.8B model runs directly on your phone. Get business advice and insights — no internet needed for AI.</p>
+                    <span class="wn-badge" data-en="Included" data-sw="Imejumuishwa">Included</span>
+                </div>
+                <div class="whats-new-card">
+                    <div class="wn-icon">📴</div>
+                    <h4 data-en="Full Offline Mode" data-sw="Hali Kamili ya Nje ya Mtandao">Full Offline Mode</h4>
+                    <p data-en="Works completely without internet. All your data stays on your phone. Sync when you're ready." data-sw="Inafanya kazi kabisa bila mtandao. Data yako yote inabaki kwenye simu yako. Sawisha ukiwa tayari.">Works completely without internet. All your data stays on your phone. Sync when you're ready.</p>
+                    <span class="wn-badge" data-en="Included" data-sw="Imejumuishwa">Included</span>
+                </div>
+                <div class="whats-new-card">
+                    <div class="wn-icon">🔐</div>
+                    <h4 data-en="Quantum-Safe Encryption" data-sw="Uimbaji Salama wa Quantum">Quantum-Safe Encryption</h4>
+                    <p data-en="ML-KEM-768 and ML-DSA-65 post-quantum cryptography. Your financial data is protected against future threats." data-sw="ML-KEM-768 na ML-DSA-65 usimbuaji wa baada ya quantum. Data yako ya kifedha inalindwa dhidi ya vitisho vya baadaye.">ML-KEM-768 and ML-DSA-65 post-quantum cryptography. Your data is protected against future threats.</p>
+                    <span class="wn-badge" data-en="Included" data-sw="Imejumuishwa">Included</span>
+                </div>
+                <div class="whats-new-card">
+                    <div class="wn-icon">🗣️</div>
+                    <h4 data-en="Text-to-Speech Output" data-sw="Pato la Maandishi-kwa-Sauti">Text-to-Speech Output</h4>
+                    <p data-en="Msaidizi speaks back to you. Hear your business summary, alerts, and advice read aloud in your language." data-sw="Msaidizi inakujibu kwa sauti. Sikia muhtasari wa biashara yako, tahadhari, na ushauri ukisomwa kwa sauti.">Msaidizi speaks back to you. Hear your business summary, alerts, and advice in your language.</p>
+                    <span class="wn-badge" data-en="Included" data-sw="Imejumuishwa">Included</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Installation Guide Section -->
     <section class="section install-guide" id="install">
         <div class="container">
@@ -944,7 +1181,7 @@
 
             <!-- Quick Download CTA -->
             <div class="install-cta">
-                <a href="https://github.com/ovalentine964/angavu-intelligence/releases/download/v0.1.0/msaidizi.apk" class="btn btn-download btn-lg" rel="noopener" data-en="⬇ Download Msaidizi Now — Free" data-sw="⬇ Pakua Msaidizi Sasa — Bure">⬇ Download Msaidizi Now — Free</a>
+                <a href="https://github.com/ovalentine964/angavu-intelligence/releases" class="btn btn-download btn-lg" rel="noopener" target="_blank" data-en="⬇ Download Msaidizi Now — Free" data-sw="⬇ Pakua Msaidizi Sasa — Bure">⬇ Download Msaidizi Now — Free</a>
                 <p class="install-cta-sub" data-en="~500MB · One file · Everything included" data-sw="~500MB · Faili moja · Kila kitu kimejumuishwa">~500MB · One file · Everything included</p>
             </div>
 
@@ -960,7 +1197,7 @@
                     <div class="step-number">2</div>
                     <div class="step-content">
                         <h3 data-en="Install" data-sw="Sakinisha">Install</h3>
-                        <p data-en="When the download finishes, Android will ask: 'Do you want to install this app?' Just tap <strong>Install</strong>. That's it — no Settings, no extra steps." data-sw="Unapomaliza kupakua, Android itauliza: 'Je, unataka kusakinisha programu hii?' Gusa tu <strong>Sakinisha</strong>. Ndio hapo — hakuna Mipangilio, hakuna hatua za ziada.">When the download finishes, Android will ask: &quot;Do you want to install this app?&quot; Just tap <strong>Install</strong>. That&apos;s it — no Settings, no extra steps.</p>
+                        <p data-en="When the download finishes, your phone may ask: 'Allow installation from this source?' Tap <strong>Allow</strong>, then tap <strong>Install</strong>. That's it." data-sw="Unapomaliza kupakua, simu yako inaweza kuuliza: 'Ruhusu usakinishaji kutoka chanzo hiki?' Gusa <strong>Ruhusu</strong>, kisha gusa <strong>Sakinisha</strong>. Ndio hapo.">When the download finishes, your phone may ask: &quot;Allow installation from this source?&quot; Tap <strong>Allow</strong>, then tap <strong>Install</strong>. That&apos;s it.</p>
                     </div>
                 </div>
                 <div class="install-step">
@@ -979,7 +1216,7 @@
                 <div class="verify-steps">
                     <div class="verify-step">
                         <strong data-en="SHA-256 Checksum" data-sw="Checksum ya SHA-256">SHA-256 Checksum</strong>
-                        <code class="checksum-code" data-en="Check the release page for the .sha256 file" data-sw="Angalia ukurasa wa kutolea kwa faili ya .sha256">See <a href="https://github.com/ovalentine964/angavu-intelligence/releases/tag/v0.1.0" rel="noopener" target="_blank">GitHub Release v0.1.0</a> for the SHA-256 checksum file</code>
+                        <code class="checksum-code" data-en="Check the release page for the .sha256 file" data-sw="Angalia ukurasa wa kutolea kwa faili ya .sha256">See <a href="https://github.com/ovalentine964/angavu-intelligence/releases" rel="noopener" target="_blank">GitHub Releases</a> for the SHA-256 checksum file</code>
                     </div>
                     <div class="verify-step">
                         <strong data-en="ML-DSA-65 Signature (Post-Quantum)" data-sw="Sahihi ya ML-DSA-65 (Baada ya Quantum)">ML-DSA-65 Signature <span class="badge-pqc">Post-Quantum</span></strong>
@@ -1029,7 +1266,8 @@
                 <h3 data-en="System Requirements" data-sw="Mahitaji ya Mfumo">System Requirements</h3>
                 <ul class="requirements-list">
                     <li data-en="📱 Android 8.0 or newer" data-sw="📱 Android 8.0 au mpya zaidi">📱 Android 8.0 or newer</li>
-                    <li data-en="💾 100MB free storage space" data-sw="💾 100MB ya nafasi ya uhifadhi">💾 100MB free storage space</li>
+                    <li data-en="🧠 2GB RAM minimum" data-sw="🧠 RAM 2GB kiwango cha chini">🧠 2GB RAM minimum</li>
+                    <li data-en="💾 500MB free storage space" data-sw="💾 500MB ya nafasi ya uhifadhi">💾 500MB free storage space</li>
                     <li data-en="🎤 Microphone (for voice features)" data-sw="🎤 Maikrofoni (kwa vipengele vya sauti)">🎤 Microphone (for voice features)</li>
                     <li data-en="📶 WiFi optional — works offline after install" data-sw="📶 WiFi si lazima — inafanya kazi nje ya mtandao baada ya kusakinisha">📶 WiFi optional — works offline after install</li>
                 </ul>
@@ -1199,6 +1437,8 @@
                         <li><a href="#tech-stack" data-en="Tech Stack" data-sw="Teknolojia">Tech Stack</a></li>
                         <li><a href="#ai-inhouse" data-en="AI In-House" data-sw="AI Ndani">AI In-House</a></li>
                         <li><a href="#privacy" data-en="Privacy" data-sw="Faragha">Privacy</a></li>
+                        <li><a href="#download" data-en="⬇ Download" data-sw="⬇ Pakua">⬇ Download</a></li>
+                        <li><a href="#whats-new" data-en="What's New" data-sw="Kipi Kipya">What's New</a></li>
                         <li><a href="#insights" data-en="Insights" data-sw="Ufahamu">Insights</a></li>
                         <li><a href="#community" data-en="Community" data-sw="Jamii">Community</a></li>
                         <li><a href="#contact" data-en="Contact" data-sw="Wasiliana">Contact</a></li>
@@ -1233,7 +1473,7 @@
 
     <!-- Mobile Sticky Download Bar -->
     <div class="mobile-download-bar">
-        <a href="https://github.com/ovalentine964/angavu-intelligence/releases/download/v0.1.0/msaidizi.apk" class="btn btn-download" rel="noopener">⬇ Download Msaidizi — Free</a>
+        <a href="https://github.com/ovalentine964/angavu-intelligence/releases" class="btn btn-download" rel="noopener" target="_blank">⬇ Download Msaidizi — Free</a>
     </div>
 
     <script src="script.min.js"></script>

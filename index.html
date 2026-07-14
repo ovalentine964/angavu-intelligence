@@ -675,6 +675,19 @@
         transition: color 0.3s;
     }
     .nav-menu a:hover { color: #4ade80; }
+    .lang-toggle {
+        background: rgba(255,255,255,0.1);
+        border: 1px solid rgba(255,255,255,0.2);
+        color: #fff;
+        padding: 6px 14px;
+        border-radius: 20px;
+        cursor: pointer;
+        font-size: 13px;
+        font-weight: 600;
+        transition: background 0.2s;
+        letter-spacing: 0.5px;
+    }
+    .lang-toggle:hover { background: rgba(255,255,255,0.2); }
     .nav-toggle {
         display: none;
         background: none;
@@ -750,12 +763,13 @@
                 <span></span><span></span><span></span>
             </button>
             <ul class="nav-menu" id="navMenu">
-                <li><a href="#how">Jinsi Inavyofanya Kazi</a></li>
-                <li><a href="#features">Vipengele</a></li>
-                <li><a href="#download">Pakua</a></li>
-                <li><a href="#trust">Faragha</a></li>
-                <li><a href="#about">Kuhusu</a></li>
-                <li><a href="#contact">Wasiliana</a></li>
+                <li><a href="#how" data-sw="Jinsi Inavyofanya Kazi" data-en="How It Works">Jinsi Inavyofanya Kazi</a></li>
+                <li><a href="#features" data-sw="Vipengele" data-en="Features">Vipengele</a></li>
+                <li><a href="#download" data-sw="Pakua" data-en="Download">Pakua</a></li>
+                <li><a href="#trust" data-sw="Faragha" data-en="Privacy">Faragha</a></li>
+                <li><a href="#about" data-sw="Kuhusu" data-en="About">Kuhusu</a></li>
+                <li><a href="#contact" data-sw="Wasiliana" data-en="Contact">Wasiliana</a></li>
+                <li><button class="lang-toggle" id="langToggle" aria-label="Switch language">🇰🇪 EN</button></li>
             </ul>
         </div>
     </nav>
@@ -764,15 +778,15 @@
     <header class="hero-rewrite" id="hero">
         <div class="hero-inner">
             <div class="hero-text">
-                <div class="hero-kicker">🇰🇪 Imejengwa Migori, Kenya</div>
-                <h1>Biashara Yako.<br><span class="accent">Sauti Yako.</span></h1>
-                <p class="hero-desc">
+                <div class="hero-kicker" data-sw="🇰🇪 Imejengwa Migori, Kenya" data-en="🇰🇪 Built in Migori, Kenya">🇰🇪 Imejengwa Migori, Kenya</div>
+                <h1 data-sw="Biashara Yako.<br><span class=\"accent\">Sauti Yako.</span>" data-en="Your Business.<br><span class=\"accent\">Your Voice.</span>">Biashara Yako.<br><span class="accent">Sauti Yako.</span></h1>
+                <p class="hero-desc" data-sw="Ongea na simu yako kuhusu biashara yako. Msaidizi anafuatilia kila kitu — mauzo, gharama, faida. Hakuna kuchapa. Hakuna mtandao. Bure milele." data-en="Speak to your phone about your business. Msaidizi tracks everything — sales, expenses, profit. No typing. No internet. Free forever.">
                     Ongea na simu yako kuhusu biashara yako. Msaidizi anafuatilia kila kitu —
                     mauzo, gharama, faida. Hakuna kuchapa. Hakuna mtandao. Bure milele.
                 </p>
                 <div class="hero-cta-group">
                     <a href="https://github.com/ovalentine964/msaidizi-app/releases/latest/download/msaidizi.apk" class="btn-hero" download="msaidizi.apk" rel="noopener">
-                        <span class="dl-icon">⬇</span> Pakua Msaidizi — Bure
+                        <span class="dl-icon">⬇</span> <span data-sw="Pakua Msaidizi — Bure" data-en="Download Msaidizi — Free">Pakua Msaidizi — Bure</span>
                     </a>
                     <a href="#how" class="btn-hero-outline">Jinsi Inavyofanya Kazi →</a>
                 </div>
@@ -816,26 +830,26 @@
         <div class="container">
             <div class="section-head">
                 <div class="kicker">Jinsi Inavyofanya Kazi</div>
-                <h2>Hatua Tatu. <span class="accent">Rahisi Sana.</span></h2>
-                <p>Hakuna usumbufu. Hakuna changamoto. Ongea na simu yako, na Msaidizi anafanya kazi yote.</p>
+                <h2 data-sw="Hatua Tatu. <span class=\"accent\">Rahisi Sana.</span>" data-en="Three Steps. <span class=\"accent\">Super Simple.</span>">Hatua Tatu. <span class="accent">Rahisi Sana.</span></h2>
+                <p data-sw="Hakuna usumbufu. Hakuna changamoto. Ongea na simu yako, na Msaidizi anafanya kazi yote." data-en="No hassle. No complexity. Speak to your phone, and Msaidizi does all the work.">Hakuna usumbufu. Hakuna changamoto. Ongea na simu yako, na Msaidizi anafanya kazi yote.</p>
             </div>
             <div class="steps-grid">
                 <div class="step-card">
                     <div class="step-circle">🎤</div>
                     <h3>Speak</h3>
-                    <div class="step-kiswahili">Ongea</div>
+                    <div class="step-kiswahili" data-sw="Ongea" data-en="Speak">Ongea</div>
                     <p>Mwambia Msaidizi ulichouza leo — kwa sauti yako, kwa lugha yako. Hakuna kuchapa, hakuna fomu.</p>
                 </div>
                 <div class="step-card">
                     <div class="step-circle">📊</div>
                     <h3>Track</h3>
-                    <div class="step-kiswahili">Fuatilia</div>
+                    <div class="step-kiswahili" data-sw="Fuatilia" data-en="Track">Fuatilia</div>
                     <p>Msaidizi anahesabu mauzo, gharama, na faida yako. Ona pesa yako kwa wakati halisi — kila siku.</p>
                 </div>
                 <div class="step-card">
                     <div class="step-circle">🌱</div>
                     <h3>Grow</h3>
-                    <div class="step-kiswahili">Kua</div>
+                    <div class="step-kiswahili" data-sw="Kua" data-en="Grow">Kua</div>
                     <p>Pata ushauri wa biashara — bei bora, bidhaa za kununua, jinsi ya kuweka akiba. Biashara yako inakua.</p>
                 </div>
             </div>
@@ -1020,6 +1034,28 @@
     </div>
 
     <script src="script.min.js"></script>
+    <script>
+    // Language toggle — Kiswahili (default) ↔ English
+    (function() {
+        const toggle = document.getElementById('langToggle');
+        if (!toggle) return;
+        let currentLang = localStorage.getItem('lang') || 'sw';
+        function applyLang(lang) {
+            document.querySelectorAll('[data-' + lang + ']').forEach(el => {
+                const text = el.getAttribute('data-' + lang);
+                if (text !== null) el.innerHTML = text;
+            });
+            toggle.textContent = lang === 'sw' ? '🇰🇪 EN' : '🇬🇪 SW';
+            document.documentElement.lang = lang;
+        }
+        applyLang(currentLang);
+        toggle.addEventListener('click', function() {
+            currentLang = currentLang === 'sw' ? 'en' : 'sw';
+            localStorage.setItem('lang', currentLang);
+            applyLang(currentLang);
+        });
+    })();
+    </script>
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",

@@ -1,30 +1,22 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32" role="img" aria-label="Angavu Intelligence favicon">
-  <defs>
-    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#1B4965"/>
-      <stop offset="100%" stop-color="#0F2D42"/>
-    </linearGradient>
-  </defs>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32">
+  <rect width="32" height="32" rx="6" fill="#0F172A"/>
 
-  <!-- Background -->
-  <rect width="32" height="32" rx="6" ry="6" fill="url(#bg)"/>
-
-  <!-- Eye icon centered -->
-  <g transform="translate(16, 14)">
-    <!-- Outer arc -->
-    <path d="M-11,0 A11,8.5 0 0 1 11,0" fill="none" stroke="#E8A838" stroke-width="1.2" opacity="0.4"/>
-    <!-- Middle arc -->
-    <path d="M-8,0 A8,6.2 0 0 1 8,0" fill="none" stroke="#E8A838" stroke-width="1.4" opacity="0.7"/>
-    <!-- Inner arc -->
-    <path d="M-5.5,0 A5.5,4.2 0 0 1 5.5,0" fill="none" stroke="#E8A838" stroke-width="1.5" opacity="0.9"/>
-
-    <!-- Iris -->
-    <circle cx="0" cy="0" r="2.5" fill="none" stroke="#E8A838" stroke-width="1.2"/>
-
-    <!-- Pupil -->
-    <circle cx="0" cy="0" r="1.2" fill="#E8A838"/>
+  <!-- Minimal neural network -->
+  <g stroke="#F59E0B" stroke-width="0.8" opacity="0.7" fill="none">
+    <line x1="16" y1="5" x2="10" y2="12"/>
+    <line x1="16" y1="5" x2="22" y2="11"/>
+    <line x1="10" y1="12" x2="22" y2="11"/>
+    <line x1="10" y1="12" x2="16" y2="20"/>
+    <line x1="22" y1="11" x2="16" y2="20"/>
+    <line x1="16" y1="20" x2="15" y2="27"/>
+    <line x1="22" y1="11" x2="25" y2="19"/>
+    <line x1="25" y1="19" x2="16" y2="20"/>
   </g>
 
-  <!-- A letter below -->
-  <text x="16" y="27" text-anchor="middle" font-family="'Segoe UI',Arial,sans-serif" font-size="8" font-weight="700" fill="#FFFFFF" letter-spacing="0.5">A</text>
+  <circle cx="16" cy="5" r="2" fill="#22C55E"/>
+  <circle cx="10" cy="12" r="1.8" fill="#22C55E"/>
+  <circle cx="22" cy="11" r="1.8" fill="#22C55E"/>
+  <circle cx="16" cy="20" r="2" fill="#22C55E"/>
+  <circle cx="15" cy="27" r="1.8" fill="#22C55E"/>
+  <circle cx="25" cy="19" r="1.4" fill="#F59E0B"/>
 </svg>

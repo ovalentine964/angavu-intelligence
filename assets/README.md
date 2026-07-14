@@ -1,48 +1,60 @@
-# Assets — Images to Create
+# Angavu Intelligence — Brand Assets
 
-## Required Images
+> Neural network icon system for Africa's operating system for the $1.3T informal economy.
 
-### icon-192.png & icon-512.png — App Icon
-- **Size:** 192×192px and 512×512px
-- **Design:** Rounded square with warm orange (#E8772E) background
-- **Center:** White stylized "M" letter or speech bubble + chart icon
-- **Style:** Modern, clean, works at small sizes
-- **Maskable variant:** Keep icon centered with safe zone padding
+## Files
 
-### og-image.png — Social Share Image
-- **Size:** 1200×630px
-- **Content:**
-  - Msaidizi logo + app name
-  - Tagline: "Your Business Assistant. Works Offline. Speaks Swahili."
-  - Warm gradient background (orange to green)
-  - Phone mockup showing chat interface
-- **Use:** Open Graph / WhatsApp / Twitter card preview
+| File | Size | Purpose |
+|------|------|---------|
+| `angavu-logo-512.svg` | 512×512 | Full-detail neural network mark — hero usage, print |
+| `angavu-logo-192.svg` | 192×192 | Simplified mark — app icons, medium contexts |
+| `angavu-logo-48.svg` | 48×48 | Minimal favicon — small UI, browser tabs |
+| `angavu-wordmark.svg` | 800×160 | "Angavu Intelligence" text + mini icon + tagline |
+| `angavu-banner.svg` | 1280×640 | Hero banner — GitHub readme, website header |
+| `angavu-og-image.svg` | 1200×630 | Open Graph social sharing image |
+| `favicon.svg` | 32×32 | Browser favicon |
 
-### screenshot.png — App Screenshot
-- **Size:** 1080×1920px (phone portrait)
-- **Content:** Chat-style interface showing:
-  - User: "Nimeuza vitu 5 kwa elfu kumi"
-  - Msaidizi: "Sawa! Mauzo: 50,000. Gharama: 30,000. Faida: 20,000 🎉"
-- **Style:** Clean, matches website design
+## Design System
 
-### hero-phone.png — Hero Mockup (optional)
-- **Size:** ~500×1000px
-- **Content:** Realistic phone frame with app UI
-- **Use:** Replace CSS phone mockup in hero section
+### Colors
 
-## Placeholder Strategy
+| Name | Hex | Usage |
+|------|-----|-------|
+| Deep Green | `#22C55E` | Primary — nodes, brand text |
+| Gold | `#F59E0B` | Accent — connections, highlights |
+| Deep Blue | `#1E40AF` | Tertiary — data/stats |
+| Dark | `#0F172A` | Background |
 
-Until real images are created:
-- Use CSS-based phone mockup (already in HTML)
-- Use emoji as icon fallback (📱)
-- OG image: Create a simple SVG or use a tool like Canva
+### Icon Concept: "The Neural Network"
 
-## Color Reference
+The mark represents interconnected nodes arranged in a pattern that subtly evokes the African continent. Green nodes represent data points / workers; gold lines represent connections / intelligence flowing between them. The network suggests:
 
-| Color | Hex | Use |
-|-------|-----|-----|
-| Orange | #E8772E | Primary CTA, accents |
-| Green | #2D6A4F | Trust, growth |
-| Dark Green | #1B4332 | Headers, footer |
-| Sand | #FDF6EC | Background |
-| Cream | #FFFBF3 | Page background |
+- **Intelligence** — neural/AI data processing
+- **Connection** — linking Africa's informal economy
+- **Scale** — many nodes → many workers → continent-wide impact
+- **Visibility** — making invisible workers visible through data
+
+### Typography
+
+- Headings: Inter / Segoe UI / Helvetica Neue, bold
+- Body: Inter / Segoe UI / Helvetica Neue, light/regular
+- Tagline: Uppercase, letter-spacing 4-6px
+
+## Usage Guidelines
+
+- Always use on dark backgrounds (`#0F172A` or darker)
+- Minimum clear space: 1× icon width on all sides
+- Never stretch, rotate, or recolor the icon nodes
+- Gold connections may be reduced in simplified versions
+- The 48px version drops the continent silhouette — acceptable for small sizes
+
+## Products
+
+- **Msaidizi** — Worker empowerment platform
+- **Soko Pulse** — Market intelligence
+- **Alama Score** — Economic identity / credit scoring
+- **Distribution Intelligence** — Supply chain visibility
+
+---
+
+*Generated 2026-07-15 · Angavu Intelligence · Migori, Kenya*

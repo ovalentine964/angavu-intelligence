@@ -51,7 +51,6 @@
     <circle cx="89" cy="128" r="4.5" fill="#E8A838"/>
     <circle cx="104" cy="87" r="14" fill="url(#ng)"/>
     <circle cx="104" cy="87" r="8" fill="#F0C060" stroke="#FFFFFF" stroke-width="2"/>
-    <!-- Logo: text-only below, no "INTELLIGENCE" -->
     <text x="96" y="158" text-anchor="middle" font-family="'Segoe UI','Helvetica Neue',Arial,sans-serif" font-size="22" font-weight="700" fill="#FFFFFF" letter-spacing="3">ANGAVU</text>
     <text x="96" y="175" text-anchor="middle" font-family="'Segoe UI','Helvetica Neue',Arial,sans-serif" font-size="10" font-weight="300" fill="#E8A838" letter-spacing="5" opacity="0.85">INTELLIGENCE</text>
   </g>

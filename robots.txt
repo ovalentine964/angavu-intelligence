@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://angavuintelligence.com/sitemap.xml
+Sitemap: https://ovalentine964.github.io/angavu-intelligence/sitemap.xml

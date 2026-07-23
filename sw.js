@@ -5,11 +5,14 @@
  * Security: cache entries expire after CACHE_TTL_MS to prevent
  * indefinitely stale content from being served after deploys.
  */
-const CACHE_NAME = 'msaidizi-v2';
+const CACHE_NAME = 'msaidizi-v3';
 const CACHE_TTL_MS = 24 * 60 * 60 * 1000; // 24 hours
 const SHELL_ASSETS = [
   '/angavu-intelligence/',
   '/angavu-intelligence/index.html',
+  '/angavu-intelligence/download.html',
+  '/angavu-intelligence/vision.html',
+  '/angavu-intelligence/api.html',
   '/angavu-intelligence/style.min.css',
   '/angavu-intelligence/script.min.js',
   '/angavu-intelligence/manifest.json'

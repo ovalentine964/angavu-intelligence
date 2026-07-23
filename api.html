@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Angavu Intelligence API — Backend services for Soko Pulse, Alama Score, and Angavu Pulse. Developer documentation.">
+    <meta name="keywords" content="Angavu API, Soko Pulse API, Alama Score API, developer docs, Africa fintech API">
+    <meta name="author" content="Angavu Intelligence">
+    <meta property="og:title" content="Angavu API — Developer Documentation">
+    <meta property="og:description" content="Backend services for economic intelligence. Soko Pulse, Alama Score, Angavu Pulse APIs.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://ovalentine964.github.io/angavu-intelligence/api.html">
+    <meta property="og:image" content="https://ovalentine964.github.io/angavu-intelligence/assets/og-image.svg">
+    <title>Angavu API — Developer Documentation</title>
+    <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+    <link rel="apple-touch-icon" href="assets/icon-192.png">
+    <link rel="canonical" href="https://ovalentine964.github.io/angavu-intelligence/api.html">
+    <link rel="preload" href="style.min.css" as="style">
+    <link rel="preload" href="script.min.js" as="script">
+    <link rel="stylesheet" href="style.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
+    <link rel="manifest" href="manifest.json">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self'; frame-ancestors 'none'; base-uri 'self'; form-action 'self' mailto:; upgrade-insecure-requests">
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <style>
+    .skip-link { position: absolute; top: -100%; left: 50%; transform: translateX(-50%); background: #F59E0B; color: #1a1a1a; padding: 12px 24px; border-radius: 0 0 10px 10px; font-weight: 700; font-size: 0.95rem; text-decoration: none; z-index: 10000; transition: top 0.2s ease; }
+    .skip-link:focus { top: 0; outline: 3px solid #4ade80; outline-offset: 2px; }
+    .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
+    *:focus-visible { outline: 3px solid #4ade80; outline-offset: 3px; border-radius: 4px; }
+    @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; scroll-behavior: auto !important; } }
+    </style>
+</head>
+<body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar" role="navigation" aria-label="Main navigation">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">
+                <span class="logo-icon">◆</span>
+                <span>Angavu<span class="logo-accent"> Intelligence</span></span>
+            </a>
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+                <span></span><span></span><span></span>
+            </button>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html" data-sw="Nyumbani" data-en="Home">Nyumbani</a></li>
+                <li><a href="download.html" data-sw="Pakua" data-en="Download">Pakua</a></li>
+                <li><a href="vision.html" data-sw="Dhamira" data-en="Vision">Dhamira</a></li>
+                <li><a href="api.html" aria-current="page">API</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main id="main-content" role="main">
+
+    <!-- ======== API HERO ======== -->
+    <section class="section-rewrite api-hero" aria-labelledby="api-hero-heading">
+        <div class="container">
+            <div class="section-head">
+                <div class="kicker">Developer API</div>
+                <h1 id="api-hero-heading">Angavu <span class="accent">API</span></h1>
+                <p>Backend services for economic intelligence. Access Soko Pulse market data, Alama Score assessments, and Angavu Pulse activity indices.</p>
+            </div>
+            <div class="api-base-url">
+                <span class="api-label">Base URL</span>
+                <code>https://api.angavu.ai</code>
+                <span class="api-status" id="apiStatus">⏳ Checking...</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- ======== ENDPOINTS ======== -->
+    <section class="section-rewrite api-endpoints" aria-labelledby="endpoints-heading">
+        <div class="container">
+            <div class="section-head">
+                <div class="kicker">Endpoints</div>
+                <h2 id="endpoints-heading">API <span class="accent">Reference</span></h2>
+            </div>
+
+            <!-- Health Check -->
+            <div class="api-endpoint-group">
+                <h3 class="api-group-title">Health & Status</h3>
+                <div class="api-endpoint">
+                    <div class="api-endpoint-header">
+                        <span class="api-method api-method-get">GET</span>
+                        <code class="api-path">/health</code>
+                    </div>
+                    <p class="api-desc">Check API health and version information.</p>
+                    <div class="api-example">
+                        <div class="api-example-label">Response</div>
+                        <pre class="api-code"><code>{
+  "status": "ok",
+  "version": "1.0.0",
+  "timestamp": "2026-07-24T06:00:00Z",
+  "services": {
+    "soko_pulse": "operational",
+    "alama_score": "operational",
+    "angavu_pulse": "operational"
+  }
+}</code></pre>
+                    </div>
+                </div>
+                <div class="api-endpoint">
+                    <div class="api-endpoint-header">
+                        <span class="api-method api-method-get">GET</span>
+                        <code class="api-path">/version</code>
+                    </div>
+                    <p class="api-desc">Get latest Msaidizi app version information.</p>
+                    <div class="api-example">
+                        <div class="api-example-label">Response</div>
+                        <pre class="api-code"><code>{
+  "latest": "2.1.0",
+  "min_supported": "1.5.0",
+  "url": "https://github.com/.../msaidizi-release.apk",
+  "changelog": "Improved voice recognition..."
+}</code></pre>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Soko Pulse -->
+            <div class="api-endpoint-group">
+                <h3 class="api-group-title">📈 Soko Pulse — Market Intelligence</h3>
+                <div class="api-endpoint">
+                    <div class="api-endpoint-header">
+                        <span class="api-method api-method-get">GET</span>
+                        <code class="api-path">/v1/soko/prices</code>
+                    </div>
+                    <p class="api-desc">Get current market prices for common goods across informal markets.</p>
+                    <div class="api-example">
+                        <div class="api-example-label">Parameters</div>
+                        <pre class="api-code"><code>market    — Market name (e.g., "gikomba", "toi")
+category  — Item category (e.g., "vegetables", "grains")
+date      — Date (YYYY-MM-DD, default: today)</code></pre>
+                    </div>
+                </div>
+                <div class="api-endpoint">
+                    <div class="api-endpoint-header">
+                        <span class="api-method api-method-get">GET</span>
+                        <code class="api-path">/v1/soko/trends</code>
+                    </div>
+                    <p class="api-desc">Get price trends and movement patterns for a specific commodity.</p>
+                </div>
+            </div>
+
+            <!-- Alama Score -->
+            <div class="api-endpoint-group">
+                <h3 class="api-group-title">📊 Alama Score — Financial Readiness</h3>
+                <div class="api-endpoint">
+                    <div class="api-endpoint-header">
+                        <span class="api-method api-method-post">POST</span>
+                        <code class="api-path">/v1/alama/assess</code>
+                    </div>
+                    <p class="api-desc">Submit transaction data for financial readiness assessment. Uses Bayesian inference to build credit readiness without formal credit history.</p>
+                    <div class="api-example">
+                        <div class="api-example-label">Request Body</div>
+                        <pre class="api-code"><code>{
+  "transactions": [...],
+  "business_type": "retail",
+  "duration_months": 12
+}</code></pre>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Angavu Pulse -->
+            <div class="api-endpoint-group">
+                <h3 class="api-group-title">🏛️ Angavu Pulse — MSME Activity Index</h3>
+                <div class="api-endpoint">
+                    <div class="api-endpoint-header">
+                        <span class="api-method api-method-get">GET</span>
+                        <code class="api-path">/v1/pulse/index</code>
+                    </div>
+                    <p class="api-desc">Get aggregated MSME activity index for a region. Data is anonymized and differentially private.</p>
+                    <div class="api-example">
+                        <div class="api-example-label">Parameters</div>
+                        <pre class="api-code"><code>region   — Region code (e.g., "ke-47" for Migori)
+period   — "daily", "weekly", "monthly"</code></pre>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Federated Learning -->
+            <div class="api-endpoint-group">
+                <h3 class="api-group-title">🧠 Federated Learning</h3>
+                <div class="api-endpoint">
+                    <div class="api-endpoint-header">
+                        <span class="api-method api-method-post">POST</span>
+                        <code class="api-path">/v1/federated/submit</code>
+                    </div>
+                    <p class="api-desc">Submit encrypted gradient deltas from on-device training. Uses differential privacy (ε=0.1, δ=10⁻⁵) and Byzantine-robust aggregation.</p>
+                </div>
+                <div class="api-endpoint">
+                    <div class="api-endpoint-header">
+                        <span class="api-method api-method-get">GET</span>
+                        <code class="api-path">/v1/federated/model</code>
+                    </div>
+                    <p class="api-desc">Get latest global model version and download URL.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ======== AUTH ======== -->
+    <section class="section-rewrite api-auth-section" aria-labelledby="auth-heading">
+        <div class="container">
+            <div class="section-head">
+                <div class="kicker">Authentication</div>
+                <h2 id="auth-heading">API <span class="accent">Authentication</span></h2>
+            </div>
+            <div class="auth-content">
+                <div class="auth-card">
+                    <h3>API Key</h3>
+                    <p>Include your API key in the <code>Authorization</code> header:</p>
+                    <pre class="api-code"><code>Authorization: Bearer YOUR_API_KEY</code></pre>
+                    <p>API keys are issued per-partner. Contact <a href="mailto:partners@angavuintelligence.com">partners@angavuintelligence.com</a> to request access.</p>
+                </div>
+                <div class="auth-card">
+                    <h3>Rate Limits</h3>
+                    <ul>
+                        <li><strong>Free tier:</strong> 100 requests/hour</li>
+                        <li><strong>Partner tier:</strong> 10,000 requests/hour</li>
+                        <li><strong>Enterprise:</strong> Custom limits</li>
+                    </ul>
+                    <p>Rate limit headers are included in every response:</p>
+                    <pre class="api-code"><code>X-RateLimit-Limit: 100
+X-RateLimit-Remaining: 95
+X-RateLimit-Reset: 1690176000</code></pre>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ======== CONTACT ======== -->
+    <section class="section-rewrite api-contact-section" aria-labelledby="api-contact-heading">
+        <div class="container">
+            <div class="section-head">
+                <div class="kicker">Get Started</div>
+                <h2 id="api-contact-heading">Start <span class="accent">Building</span></h2>
+                <p>Ready to integrate Angavu's economic intelligence into your application?</p>
+            </div>
+            <div class="api-contact-cards">
+                <div class="api-contact-card">
+                    <div class="api-contact-icon">🤝</div>
+                    <h3>Partners</h3>
+                    <p>Integrate Soko Pulse or Alama Score into your fintech product.</p>
+                    <a href="mailto:partners@angavuintelligence.com" class="btn btn-primary">partners@angavuintelligence.com</a>
+                </div>
+                <div class="api-contact-card">
+                    <div class="api-contact-icon">🏛️</div>
+                    <h3>Government</h3>
+                    <p>Access Angavu Pulse for policy intelligence and MSME monitoring.</p>
+                    <a href="mailto:gov@angavuintelligence.com" class="btn btn-primary">gov@angavuintelligence.com</a>
+                </div>
+                <div class="api-contact-card">
+                    <div class="api-contact-icon">💻</div>
+                    <h3>Developers</h3>
+                    <p>Contribute to the open-source Msaidizi app or language pipeline.</p>
+                    <a href="https://github.com/ovalentine964/angavu-intelligence" target="_blank" rel="noopener" class="btn btn-primary">GitHub →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer-rewrite" role="contentinfo">
+        <div class="container">
+            <div class="footer-top">
+                <div class="footer-brand">
+                    <a href="index.html" class="nav-logo">
+                        <span class="logo-icon">◆</span>
+                        <span>Angavu<span class="logo-accent"> Intelligence</span></span>
+                    </a>
+                    <p>Tunajenga msaidizi wa biashara kwa kila mfanyakazi wa biashara ndogo Afrika. Sauti kwanza. Faragha kwanza. Bure milele.</p>
+                </div>
+                <div class="footer-links">
+                    <a href="index.html">Nyumbani</a>
+                    <a href="download.html">Pakua</a>
+                    <a href="vision.html">Dhamira</a>
+                    <a href="api.html">API</a>
+                    <a href="index.html#contact">Wasiliana</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2026 Angavu Intelligence. Haki zote zimehifadhiwa.</p>
+                <p>📍 Migori, Kenya</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.min.js"></script>
+    <script>
+    // API status check
+    (function() {
+        var statusEl = document.getElementById('apiStatus');
+        if (!statusEl) return;
+        fetch('https://api.angavu.ai/health', { method: 'GET', mode: 'no-cors', signal: AbortSignal.timeout(5000) })
+            .then(function() {
+                statusEl.textContent = '🟢 Online';
+                statusEl.style.color = '#4ade80';
+            })
+            .catch(function() {
+                statusEl.textContent = '🔴 Offline / Coming Soon';
+                statusEl.style.color = '#f87171';
+            });
+    })();
+    // Mobile nav toggle
+    (function() {
+        var navToggle = document.getElementById('navToggle');
+        var navMenu = document.getElementById('navMenu');
+        if (!navToggle || !navMenu) return;
+        navToggle.addEventListener('click', function() {
+            navToggle.classList.toggle('active');
+            navMenu.classList.toggle('active');
+            document.body.style.overflow = navMenu.classList.contains('active') ? 'hidden' : '';
+        });
+        navMenu.querySelectorAll('a').forEach(function(link) {
+            link.addEventListener('click', function() {
+                navToggle.classList.remove('active');
+                navMenu.classList.remove('active');
+                document.body.style.overflow = '';
+            });
+        });
+    })();
+    // Navbar scroll
+    (function() {
+        var navbar = document.getElementById('navbar');
+        if (!navbar) return;
+        window.addEventListener('scroll', function() {
+            navbar.classList.toggle('scrolled', window.scrollY > 50);
+        }, { passive: true });
+    })();
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebAPI",
+        "name": "Angavu API",
+        "description": "Backend services for economic intelligence. Soko Pulse, Alama Score, and Angavu Pulse APIs.",
+        "documentation": "https://ovalentine964.github.io/angavu-intelligence/api.html",
+        "provider": {
+            "@type": "Organization",
+            "name": "Angavu Intelligence"
+        }
+    }
+    </script>
+    <script>if("serviceWorker" in navigator){navigator.serviceWorker.register("sw.js")}</script>
+</body>
+</html>

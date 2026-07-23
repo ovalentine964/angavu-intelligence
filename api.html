@@ -18,6 +18,7 @@
     <link rel="preload" href="style.min.css" as="style">
     <link rel="preload" href="script.min.js" as="script">
     <link rel="stylesheet" href="style.min.css">
+    <link rel="stylesheet" href="design-tokens.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
@@ -31,6 +32,14 @@
     .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
     *:focus-visible { outline: 3px solid #4ade80; outline-offset: 3px; border-radius: 4px; }
     @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; scroll-behavior: auto !important; } }
+    /* Language toggle */
+    .lang-toggle { display: inline-flex; gap: 0; border-radius: 8px; overflow: hidden; border: 2px solid var(--accent, #F59E0B); }
+    .lang-toggle button { padding: 6px 14px; border: none; cursor: pointer; font-weight: 600; font-size: 0.85rem; transition: all 0.2s; background: transparent; color: #a0a0a0; }
+    .lang-toggle button.active { background: var(--accent, #F59E0B); color: #1a1a1a; }
+    [data-sw] { display: inline; }
+    [data-en] { display: none; }
+    body.lang-en [data-sw] { display: none; }
+    body.lang-en [data-en] { display: inline; }
     </style>
 </head>
 <body>
@@ -51,6 +60,12 @@
                 <li><a href="download.html" data-sw="Pakua" data-en="Download">Pakua</a></li>
                 <li><a href="vision.html" data-sw="Dhamira" data-en="Vision">Dhamira</a></li>
                 <li><a href="api.html" aria-current="page">API</a></li>
+                <li>
+                    <div class="lang-toggle" aria-label="Language">
+                        <button id="btnSw" class="active" onclick="setLang('sw')">SW</button>
+                        <button id="btnEn" onclick="setLang('en')">EN</button>
+                    </div>
+                </li>
             </ul>
         </div>
     </nav>
@@ -61,14 +76,23 @@
     <section class="section-rewrite api-hero" aria-labelledby="api-hero-heading">
         <div class="container">
             <div class="section-head">
-                <div class="kicker">Developer API</div>
-                <h1 id="api-hero-heading">Angavu <span class="accent">API</span></h1>
-                <p>Backend services for economic intelligence. Access Soko Pulse market data, Alama Score assessments, and Angavu Pulse activity indices.</p>
+                <div class="kicker">
+                    <span data-sw="API ya Wasanidi Programu" data-en="Developer API">API ya Wasanidi Programu</span>
+                </div>
+                <h1 id="api-hero-heading">
+                    <span data-sw="API ya Angavu" data-en="Angavu API">API ya Angavu</span> <span class="accent">API</span>
+                </h1>
+                <p data-sw="Huduma za nyuma za uchumi wa akili. Pata data ya Soko Pulse, ukadiriaji wa Alama Score, na fahirisi za Angavu Pulse."
+                   data-en="Backend services for economic intelligence. Access Soko Pulse market data, Alama Score assessments, and Angavu Pulse activity indices.">
+                    Huduma za nyuma za uchumi wa akili. Pata data ya Soko Pulse, ukadiriaji wa Alama Score, na fahirisi za Angavu Pulse.
+                </p>
             </div>
             <div class="api-base-url">
-                <span class="api-label">Base URL</span>
+                <span class="api-label">
+                    <span data-sw="URL ya Msingi" data-en="Base URL">URL ya Msingi</span>
+                </span>
                 <code>https://api.angavu.ai</code>
-                <span class="api-status" id="apiStatus">⏳ Checking...</span>
+                <span class="api-status" id="apiStatus">⏳ Inakagua...</span>
             </div>
         </div>
     </section>
@@ -77,21 +101,32 @@
     <section class="section-rewrite api-endpoints" aria-labelledby="endpoints-heading">
         <div class="container">
             <div class="section-head">
-                <div class="kicker">Endpoints</div>
-                <h2 id="endpoints-heading">API <span class="accent">Reference</span></h2>
+                <div class="kicker">
+                    <span data-sw="Vipengele" data-en="Endpoints">Vipengele</span>
+                </div>
+                <h2 id="endpoints-heading">
+                    <span data-sw="Marejeleo ya" data-en="API">Marejeleo ya</span> <span class="accent">API</span>
+                </h2>
             </div>
 
             <!-- Health Check -->
             <div class="api-endpoint-group">
-                <h3 class="api-group-title">Health & Status</h3>
+                <h3 class="api-group-title">
+                    <span data-sw="Afya na Hali" data-en="Health & Status">Afya na Hali</span>
+                </h3>
                 <div class="api-endpoint">
                     <div class="api-endpoint-header">
                         <span class="api-method api-method-get">GET</span>
                         <code class="api-path">/health</code>
                     </div>
-                    <p class="api-desc">Check API health and version information.</p>
+                    <p class="api-desc" data-sw="Angalia afya ya API na taarifa za toleo."
+                       data-en="Check API health and version information.">
+                        Angalia afya ya API na taarifa za toleo.
+                    </p>
                     <div class="api-example">
-                        <div class="api-example-label">Response</div>
+                        <div class="api-example-label">
+                            <span data-sw="Jibu" data-en="Response">Jibu</span>
+                        </div>
                         <pre class="api-code"><code>{
   "status": "ok",
   "version": "1.0.0",
@@ -109,9 +144,14 @@
                         <span class="api-method api-method-get">GET</span>
                         <code class="api-path">/version</code>
                     </div>
-                    <p class="api-desc">Get latest Msaidizi app version information.</p>
+                    <p class="api-desc" data-sw="Pata taarifa za toleo jipya zaidi la programu ya Msaidizi."
+                       data-en="Get latest Msaidizi app version information.">
+                        Pata taarifa za toleo jipya zaidi la programu ya Msaidizi.
+                    </p>
                     <div class="api-example">
-                        <div class="api-example-label">Response</div>
+                        <div class="api-example-label">
+                            <span data-sw="Jibu" data-en="Response">Jibu</span>
+                        </div>
                         <pre class="api-code"><code>{
   "latest": "2.1.0",
   "min_supported": "1.5.0",
@@ -124,18 +164,23 @@
 
             <!-- Soko Pulse -->
             <div class="api-endpoint-group">
-                <h3 class="api-group-title">📈 Soko Pulse — Market Intelligence</h3>
+                <h3 class="api-group-title">📈 <span data-sw="Soko Pulse — Uchumi wa Soko" data-en="Soko Pulse — Market Intelligence">Soko Pulse — Uchumi wa Soko</span></h3>
                 <div class="api-endpoint">
                     <div class="api-endpoint-header">
                         <span class="api-method api-method-get">GET</span>
                         <code class="api-path">/v1/soko/prices</code>
                     </div>
-                    <p class="api-desc">Get current market prices for common goods across informal markets.</p>
+                    <p class="api-desc" data-sw="Pata bei za soko za bidhaa za kawaida katika masoko ya jumla."
+                       data-en="Get current market prices for common goods across informal markets.">
+                        Pata bei za soko za bidhaa za kawaida katika masoko ya jumla.
+                    </p>
                     <div class="api-example">
-                        <div class="api-example-label">Parameters</div>
-                        <pre class="api-code"><code>market    — Market name (e.g., "gikomba", "toi")
-category  — Item category (e.g., "vegetables", "grains")
-date      — Date (YYYY-MM-DD, default: today)</code></pre>
+                        <div class="api-example-label">
+                            <span data-sw="Vigezo" data-en="Parameters">Vigezo</span>
+                        </div>
+                        <pre class="api-code"><code>market    — Jina la soko (k.m., "gikomba", "toi")
+category  — Aina ya bidhaa (k.m., "mboga", "nafaka")
+date      — Tarehe (YYYY-MM-DD, default: leo)</code></pre>
                     </div>
                 </div>
                 <div class="api-endpoint">
@@ -143,21 +188,29 @@ date      — Date (YYYY-MM-DD, default: today)</code></pre>
                         <span class="api-method api-method-get">GET</span>
                         <code class="api-path">/v1/soko/trends</code>
                     </div>
-                    <p class="api-desc">Get price trends and movement patterns for a specific commodity.</p>
+                    <p class="api-desc" data-sw="Pata mwenendo wa bei na mifumo ya harakati kwa bidhaa maalum."
+                       data-en="Get price trends and movement patterns for a specific commodity.">
+                        Pata mwenendo wa bei na mifumo ya harakati kwa bidhaa maalum.
+                    </p>
                 </div>
             </div>
 
             <!-- Alama Score -->
             <div class="api-endpoint-group">
-                <h3 class="api-group-title">📊 Alama Score — Financial Readiness</h3>
+                <h3 class="api-group-title">📊 <span data-sw="Alama Score — Utayari wa Kifedha" data-en="Alama Score — Financial Readiness">Alama Score — Utayari wa Kifedha</span></h3>
                 <div class="api-endpoint">
                     <div class="api-endpoint-header">
                         <span class="api-method api-method-post">POST</span>
                         <code class="api-path">/v1/alama/assess</code>
                     </div>
-                    <p class="api-desc">Submit transaction data for financial readiness assessment. Uses Bayesian inference to build credit readiness without formal credit history.</p>
+                    <p class="api-desc" data-sw="Tuma data ya miamala kwa ukadiriaji wa utayari wa kifedha. Inatumia uchambuzi wa Bayesian bila historia rasmi ya mikopo."
+                       data-en="Submit transaction data for financial readiness assessment. Uses Bayesian inference to build credit readiness without formal credit history.">
+                        Tuma data ya miamala kwa ukadiriaji wa utayari wa kifedha. Inatumia uchambuzi wa Bayesian bila historia rasmi ya mikopo.
+                    </p>
                     <div class="api-example">
-                        <div class="api-example-label">Request Body</div>
+                        <div class="api-example-label">
+                            <span data-sw="Mwili wa Ombi" data-en="Request Body">Mwili wa Ombi</span>
+                        </div>
                         <pre class="api-code"><code>{
   "transactions": [...],
   "business_type": "retail",
@@ -169,16 +222,21 @@ date      — Date (YYYY-MM-DD, default: today)</code></pre>
 
             <!-- Angavu Pulse -->
             <div class="api-endpoint-group">
-                <h3 class="api-group-title">🏛️ Angavu Pulse — MSME Activity Index</h3>
+                <h3 class="api-group-title">🏛️ <span data-sw="Angavu Pulse — Fahirisi ya Shughuli za MSME" data-en="Angavu Pulse — MSME Activity Index">Angavu Pulse — Fahirisi ya Shughuli za MSME</span></h3>
                 <div class="api-endpoint">
                     <div class="api-endpoint-header">
                         <span class="api-method api-method-get">GET</span>
                         <code class="api-path">/v1/pulse/index</code>
                     </div>
-                    <p class="api-desc">Get aggregated MSME activity index for a region. Data is anonymized and differentially private.</p>
+                    <p class="api-desc" data-sw="Pata fahirisi ya shughuli za MSME kwa mkoa. Data ni ya siri na ina faragha tofauti."
+                       data-en="Get aggregated MSME activity index for a region. Data is anonymized and differentially private.">
+                        Pata fahirisi ya shughuli za MSME kwa mkoa. Data ni ya siri na ina faragha tofauti.
+                    </p>
                     <div class="api-example">
-                        <div class="api-example-label">Parameters</div>
-                        <pre class="api-code"><code>region   — Region code (e.g., "ke-47" for Migori)
+                        <div class="api-example-label">
+                            <span data-sw="Vigezo" data-en="Parameters">Vigezo</span>
+                        </div>
+                        <pre class="api-code"><code>region   — Msimbo wa mkoa (k.m., "ke-47" kwa Migori)
 period   — "daily", "weekly", "monthly"</code></pre>
                     </div>
                 </div>
@@ -186,20 +244,26 @@ period   — "daily", "weekly", "monthly"</code></pre>
 
             <!-- Federated Learning -->
             <div class="api-endpoint-group">
-                <h3 class="api-group-title">🧠 Federated Learning</h3>
+                <h3 class="api-group-title">🧠 <span data-sw="Kujifunza Shirikishi" data-en="Federated Learning">Kujifunza Shirikishi</span></h3>
                 <div class="api-endpoint">
                     <div class="api-endpoint-header">
                         <span class="api-method api-method-post">POST</span>
                         <code class="api-path">/v1/federated/submit</code>
                     </div>
-                    <p class="api-desc">Submit encrypted gradient deltas from on-device training. Uses differential privacy (ε=0.1, δ=10⁻⁵) and Byzantine-robust aggregation.</p>
+                    <p class="api-desc" data-sw="Tuma mabadiliko ya gradient yaliyosimbwa kutoka kwa kifaa. Inatumia faragha tofauti (ε=0.1, δ=10⁻⁵) na mkusanyiko wa Byzantine."
+                       data-en="Submit encrypted gradient deltas from on-device training. Uses differential privacy (ε=0.1, δ=10⁻⁵) and Byzantine-robust aggregation.">
+                        Tuma mabadiliko ya gradient yaliyosimbwa kutoka kwa kifaa. Inatumia faragha tofauti (ε=0.1, δ=10⁻⁵) na mkusanyiko wa Byzantine.
+                    </p>
                 </div>
                 <div class="api-endpoint">
                     <div class="api-endpoint-header">
                         <span class="api-method api-method-get">GET</span>
                         <code class="api-path">/v1/federated/model</code>
                     </div>
-                    <p class="api-desc">Get latest global model version and download URL.</p>
+                    <p class="api-desc" data-sw="Pata toleo jipya zaidi la modeli ya kimataifa na URL ya kupakua."
+                       data-en="Get latest global model version and download URL.">
+                        Pata toleo jipya zaidi la modeli ya kimataifa na URL ya kupakua.
+                    </p>
                 </div>
             </div>
         </div>
@@ -209,24 +273,41 @@ period   — "daily", "weekly", "monthly"</code></pre>
     <section class="section-rewrite api-auth-section" aria-labelledby="auth-heading">
         <div class="container">
             <div class="section-head">
-                <div class="kicker">Authentication</div>
-                <h2 id="auth-heading">API <span class="accent">Authentication</span></h2>
+                <div class="kicker">
+                    <span data-sw="Uthibitisho" data-en="Authentication">Uthibitisho</span>
+                </div>
+                <h2 id="auth-heading">
+                    <span data-sw="Uthibitisho wa" data-en="API">Uthibitisho wa</span> <span class="accent">API</span>
+                </h2>
             </div>
             <div class="auth-content">
                 <div class="auth-card">
-                    <h3>API Key</h3>
-                    <p>Include your API key in the <code>Authorization</code> header:</p>
+                    <h3>
+                        <span data-sw="Ufunguo wa API" data-en="API Key">Ufunguo wa API</span>
+                    </h3>
+                    <p data-sw="Weka ufunguo wako wa API katika kichwa cha `Authorization`:"
+                       data-en="Include your API key in the `Authorization` header:">
+                        Weka ufunguo wako wa API katika kichwa cha <code>Authorization</code>:
+                    </p>
                     <pre class="api-code"><code>Authorization: Bearer YOUR_API_KEY</code></pre>
-                    <p>API keys are issued per-partner. Contact <a href="mailto:partners@angavuintelligence.com">partners@angavuintelligence.com</a> to request access.</p>
+                    <p data-sw="Ufunguo wa API unatolewa kwa kila mshiriki. Wasiliana na <a href='mailto:partners@angavuintelligence.com'>partners@angavuintelligence.com</a> kuomba ufikiaji."
+                       data-en="API keys are issued per-partner. Contact <a href='mailto:partners@angavuintelligence.com'>partners@angavuintelligence.com</a> to request access.">
+                        Ufunguo wa API unatolewa kwa kila mshiriki. Wasiliana na <a href="mailto:partners@angavuintelligence.com">partners@angavuintelligence.com</a> kuomba ufikiaji.
+                    </p>
                 </div>
                 <div class="auth-card">
-                    <h3>Rate Limits</h3>
+                    <h3>
+                        <span data-sw="Vikwazo vya Kiwango" data-en="Rate Limits">Vikwazo vya Kiwango</span>
+                    </h3>
                     <ul>
-                        <li><strong>Free tier:</strong> 100 requests/hour</li>
-                        <li><strong>Partner tier:</strong> 10,000 requests/hour</li>
-                        <li><strong>Enterprise:</strong> Custom limits</li>
+                        <li><strong data-sw="Kiwango cha bure:" data-en="Free tier:">Kiwango cha bure:</strong> <span data-sw="maombi 100 kwa saa" data-en="100 requests/hour">maombi 100 kwa saa</span></li>
+                        <li><strong data-sw="Kiwango cha mshiriki:" data-en="Partner tier:">Kiwango cha mshiriki:</strong> <span data-sw="maombi 10,000 kwa saa" data-en="10,000 requests/hour">maombi 10,000 kwa saa</span></li>
+                        <li><strong data-sw="Biashara:" data-en="Enterprise:">Biashara:</strong> <span data-sw="Vikwazo maalum" data-en="Custom limits">Vikwazo maalum</span></li>
                     </ul>
-                    <p>Rate limit headers are included in every response:</p>
+                    <p data-sw="Vichwa vya kikwazo vimejumuishwa katika kila jibu:"
+                       data-en="Rate limit headers are included in every response:">
+                        Vichwa vya kikwazo vimejumuishwa katika kila jibu:
+                    </p>
                     <pre class="api-code"><code>X-RateLimit-Limit: 100
 X-RateLimit-Remaining: 95
 X-RateLimit-Reset: 1690176000</code></pre>
@@ -239,27 +320,43 @@ X-RateLimit-Reset: 1690176000</code></pre>
     <section class="section-rewrite api-contact-section" aria-labelledby="api-contact-heading">
         <div class="container">
             <div class="section-head">
-                <div class="kicker">Get Started</div>
-                <h2 id="api-contact-heading">Start <span class="accent">Building</span></h2>
-                <p>Ready to integrate Angavu's economic intelligence into your application?</p>
+                <div class="kicker">
+                    <span data-sw="Anza" data-en="Get Started">Anza</span>
+                </div>
+                <h2 id="api-contact-heading">
+                    <span data-sw="Anza Kujenga" data-en="Start Building">Anza Kujenga</span>
+                </h2>
+                <p data-sw="Uko tayari kuingiza uchumi wa akili wa Angavu katika programu yako?"
+                   data-en="Ready to integrate Angavu's economic intelligence into your application?">
+                    Uko tayari kuingiza uchumi wa akili wa Angavu katika programu yako?
+                </p>
             </div>
             <div class="api-contact-cards">
                 <div class="api-contact-card">
                     <div class="api-contact-icon">🤝</div>
-                    <h3>Partners</h3>
-                    <p>Integrate Soko Pulse or Alama Score into your fintech product.</p>
+                    <h3 data-sw="Washirika" data-en="Partners">Washirika</h3>
+                    <p data-sw="Ingiza Soko Pulse au Alama Score katika bidhaa yako ya fintech."
+                       data-en="Integrate Soko Pulse or Alama Score into your fintech product.">
+                        Ingiza Soko Pulse au Alama Score katika bidhaa yako ya fintech.
+                    </p>
                     <a href="mailto:partners@angavuintelligence.com" class="btn btn-primary">partners@angavuintelligence.com</a>
                 </div>
                 <div class="api-contact-card">
                     <div class="api-contact-icon">🏛️</div>
-                    <h3>Government</h3>
-                    <p>Access Angavu Pulse for policy intelligence and MSME monitoring.</p>
+                    <h3 data-sw="Serikali" data-en="Government">Serikali</h3>
+                    <p data-sw="Pata Angavu Pulse kwa uchumi wa sera na ufuatiliaji wa MSME."
+                       data-en="Access Angavu Pulse for policy intelligence and MSME monitoring.">
+                        Pata Angavu Pulse kwa uchumi wa sera na ufuatiliaji wa MSME.
+                    </p>
                     <a href="mailto:gov@angavuintelligence.com" class="btn btn-primary">gov@angavuintelligence.com</a>
                 </div>
                 <div class="api-contact-card">
                     <div class="api-contact-icon">💻</div>
-                    <h3>Developers</h3>
-                    <p>Contribute to the open-source Msaidizi app or language pipeline.</p>
+                    <h3 data-sw="Wasanidi Programu" data-en="Developers">Wasanidi Programu</h3>
+                    <p data-sw="Changia programu ya Msaidizi au bomba la lugha wazi."
+                       data-en="Contribute to the open-source Msaidizi app or language pipeline.">
+                        Changia programu ya Msaidizi au bomba la lugha wazi.
+                    </p>
                     <a href="https://github.com/ovalentine964/angavu-intelligence" target="_blank" rel="noopener" class="btn btn-primary">GitHub →</a>
                 </div>
             </div>
@@ -296,17 +393,33 @@ X-RateLimit-Reset: 1690176000</code></pre>
 
     <script src="script.min.js"></script>
     <script>
+    // Language toggle
+    function setLang(lang) {
+        document.body.classList.toggle('lang-en', lang === 'en');
+        document.body.classList.toggle('lang-sw', lang === 'sw');
+        document.getElementById('btnSw').classList.toggle('active', lang === 'sw');
+        document.getElementById('btnEn').classList.toggle('active', lang === 'en');
+        localStorage.setItem('angavu-lang', lang);
+    }
+    // Restore saved language
+    (function() {
+        var saved = localStorage.getItem('angavu-lang') || 'sw';
+        setLang(saved);
+    })();
+
     // API status check
     (function() {
         var statusEl = document.getElementById('apiStatus');
         if (!statusEl) return;
         fetch('https://api.angavu.ai/health', { method: 'GET', mode: 'no-cors', signal: AbortSignal.timeout(5000) })
             .then(function() {
-                statusEl.textContent = '🟢 Online';
+                var isEn = document.body.classList.contains('lang-en');
+                statusEl.textContent = isEn ? '🟢 Online' : '🟢 Inatumika';
                 statusEl.style.color = '#4ade80';
             })
             .catch(function() {
-                statusEl.textContent = '🔴 Offline / Coming Soon';
+                var isEn = document.body.classList.contains('lang-en');
+                statusEl.textContent = isEn ? '🔴 Offline / Coming Soon' : '🔴 Haijafunguliwa / Inakuja Hivi Karibuni';
                 statusEl.style.color = '#f87171';
             });
     })();

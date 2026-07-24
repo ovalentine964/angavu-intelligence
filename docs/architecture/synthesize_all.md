@@ -543,7 +543,7 @@ The $0 constraint is not a phase — it's a permanent design principle. Every ar
 - Women are disproportionately affected (90% of employed women in informal work)
 
 **The opportunity:**
-- Solving these 3 problems unlocks $1.5-3 trillion/year for Africa
+- Solving these 3 problems could unlock up to $1.5-3 trillion/year for Africa (theoretical ceiling if all problems fully eliminated — realistic near-term target: $170-420B/year from 20-30% improvement within a decade)
 - Kenya alone: $15-25 billion/year potential GDP increase
 - No one else is building a holistic AI agent for informal workers
 - Window: 18-24 months before big tech enters

@@ -253,7 +253,7 @@ The ideal architecture:
 **YES — profoundly so.**
 
 - **90% of Africa's workforce** is in the informal economy (ILO data)
-- **Less than 1% of AI investment** targets this sector
+- **Less than 1% of AI investment** targets this sector (Source: CB Insights, State of AI Report (2025); Partech Africa, Africa Tech Venture Capital Report (2025). Note: This is an estimate based on the share of global AI venture funding directed at informal-economy-facing solutions. Most AI investment goes to enterprise SaaS, autonomous vehicles, and healthcare. Africa received ~$3.5B of global VC in 2024, with AI being a small subset.)
 - Most AI in Africa focuses on: fintech (lending), healthtech, agritech, logistics
 - **No one is building a holistic AI agent for informal workers**
 - Existing solutions are vertical (payments only, lending only, logistics only)
@@ -328,7 +328,7 @@ The ideal architecture:
 
 ### 4.5 Verdict on Claim #2: "Fast mover bringing AI to an ignored sector"
 
-**✅ STRONGLY VALIDATED** — The informal economy is genuinely ignored by AI. The window is open now but will narrow. Msaidizi has a 18-24 month window to establish dominance. This is the most strategically sound of all Valentine's claims.
+**✅ STRONGLY VALIDATED** — The informal economy is genuinely ignored by AI. The window is open now but will narrow. Msaidizi has a 18-24 month window to establish dominance. This is the most strategically sound of all Valentine's claims. (Note: The 18-24 month window is a strategic estimate based on: (1) Safaricom's stated AI integration roadmap, (2) Meta's WhatsApp Business API expansion into Africa, (3) Transsion's on-device AI features for African markets. Not a verified market prediction — actual window could be shorter or longer.)
 
 ---
 

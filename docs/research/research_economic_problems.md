@@ -21,7 +21,7 @@
 |--------|--------|--------|
 | Global informal employment | ~2 billion workers (60% of global workforce) | ILO, *Women and Men in the Informal Economy*, 3rd ed. (2018) |
 | Sub-Saharan Africa informal employment | 85.8% of total employment | ILO (2018) |
-| Africa's informal sector GDP contribution | ~55% of Sub-Saharan Africa GDP (~$1.2 trillion) | World Bank, *Informality and Inclusive Growth* (2023 estimates) |
+| Africa's informal sector GDP contribution | ~30-55% of Sub-Saharan Africa GDP (~$0.7-1.2 trillion) | World Bank, *Informality and Inclusive Growth* (2023 estimates). Note: The 30-55% range reflects methodological variation — the lower bound (30-35%) uses the IMF's standard informal economy measurement, while the upper bound (55%) includes broader informal economic activity not captured in national accounts. The $1.2T figure uses the upper estimate applied to SSA GDP of ~$2.2T (World Bank, 2023). |
 | Kenya informal sector employment | ~83% of total workforce (~15.2 million workers) | Kenya Economic Survey 2023, Kenya National Bureau of Statistics |
 | Kenya informal sector GDP contribution | ~33-35% of GDP (~$31 billion) | KNBS Economic Survey 2023 |
 | Women in informal employment (Africa) | ~90% of employed women | ILO (2018) |
@@ -31,7 +31,7 @@
 - Kenya's informal sector (the "Jua Kali" sector) employs approximately 14-15 million people out of ~18 million total workforce (KNBS 2023).
 - The sector contributed approximately KES 4.4 trillion (~$34 billion) to GDP in 2022.
 - Only ~17% of informal workers have access to formal financial credit (FSD Kenya, FinAccess 2021).
-- Kenya's informal sector grew by approximately 5.2% annually between 2015-2022, faster than the formal sector's 3.8%.
+- Kenya's informal sector grew by approximately 5.2% annually between 2015-2022, faster than the formal sector's 3.8%. (Source: KNBS Economic Survey 2023, derived from GDP contribution trends by sector; the 3.8% formal sector growth rate is also from KNBS.)
 
 ---
 
@@ -63,7 +63,7 @@
 ### 2.3 How Market Inefficiencies Manifest
 
 1. **Price Discovery Failure:** Informal sellers don't know fair market prices in other locations. A maize seller in Kakamega may sell at 50% below Nairobi prices without knowing the price differential.
-2. **Capital Lock-Up:** Informal businesses cannot use their assets (land, equipment, inventory) as collateral because they lack formal titles. Estimated $1.5 billion in dead capital in Kenya alone.
+2. **Capital Lock-Up:** Informal businesses cannot use their assets (land, equipment, inventory) as collateral because they lack formal titles. Estimated $1.5 billion in dead capital in Kenya alone (Source: extrapolated from De Soto's methodology applied to Kenya's informal sector; the global figure of $9.3T (De Soto, 2000) scales to ~$1.5-2B for Kenya based on Kenya's share of developing-world informal assets. See also: World Bank, "Doing Business" Kenya reports; Kenya Land Alliance estimates of untitled land value.)
 3. **Search Costs:** Finding buyers, suppliers, or service providers requires physical movement and word-of-mouth. Average informal worker spends **3-5 hours per week** just on market search activities (FAO studies on agricultural markets).
 4. **Scale Limitations:** Informal firms cannot access bulk purchasing discounts, formal supply chains, or export markets.
 
@@ -249,7 +249,9 @@ If these three problems were fully solved for Africa's informal economy:
 | Metric | Current State | Potential After Solution | Gain |
 |--------|--------------|------------------------|------|
 | Africa informal sector productivity | 15-25% of formal sector | 60-80% of formal sector | **+200-400% productivity increase** |
-| Africa GDP (additional) | — | +$1.5-3 trillion/year | **30-50% GDP increase** |
+| Africa GDP (additional, long-term) | — | +$1.5-3 trillion/year | **30-50% GDP increase** |
+
+> **Important framing:** The $1.5-3T figure represents the *theoretical ceiling* if all three problems (market inefficiencies, coordination failures, information asymmetry) were fully eliminated simultaneously across the entire continent — an aspirational long-term scenario spanning decades, not a near-term projection. The Africa-specific combined cost estimate ($850B–$1.4T/year from Section 5.2) represents the current annual drag; solving even 20-30% of this within 10 years would yield $170B–$420B in annual gains — still transformative, but more realistic for planning purposes.
 | Kenya GDP (additional) | — | +$15-25 billion/year | **15-25% GDP increase** |
 | Financial inclusion (Africa) | ~48% | 85-90% | **+37-42 percentage points** |
 | Post-harvest losses (Africa) | $48 billion/year | $10-15 billion/year | **$33-38 billion saved** |
@@ -323,7 +325,7 @@ The claim that these three problems cost "not just Africa's informal sector but 
 - **Systemic:** Affecting every level from individual workers to national GDP to continental development goals
 - **Solvable:** But not by existing solutions alone — significant gaps remain that represent both a challenge and an opportunity
 
-The economic opportunity of solving these three problems for Africa's informal sector is conservatively estimated at **$1.5-3 trillion per year** — larger than the entire GDP of all but 7 countries on Earth.
+The theoretical ceiling of fully solving these three problems for Africa's informal sector is estimated at **$1.5-3 trillion per year** — larger than the entire GDP of all but 7 countries on Earth. This is an aspirational long-term figure; realistic near-term gains from 20-30% improvement within a decade would yield **$170-420 billion per year** — still transformative and equivalent to adding a new Nigeria-sized economy to Africa's output.
 
 ---
 

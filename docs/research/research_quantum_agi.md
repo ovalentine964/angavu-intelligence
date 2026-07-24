@@ -94,7 +94,7 @@ Quantum computing has entered a pivotal transition period — moving from pure r
 | **Cloud accessibility** | Excellent — all major providers offer free/low-cost access |
 | **Software ecosystem** | Maturing — Qiskit, Cirq, Amazon Braket SDK, Q# |
 
-**The honest truth:** Quantum computing is in 2026 where AI was in ~2015. The hardware exists, the theory is proven, but practical advantage for real-world business problems is **1-3 years away** for optimization problems, **3-7 years** for broader applications.
+**The honest truth:** Quantum computing is in 2026 where AI was in ~2015. The hardware exists, the theory is proven, but practical advantage for real-world business problems is **5-10 years away** for optimization problems (per IBM Quantum Roadmap, NQCC 2025 assessment, and Nature's Quantum Optimization Benchmarking Library 2026 — QAOA still trails classical heuristics on most practical benchmarks), **7-15 years** for broader fault-tolerant applications. Cloud-based quantum APIs will deliver hybrid quantum-classical advantages earlier (2028-2032) for specific financial modeling tasks like Monte Carlo risk simulation.
 
 **However** — this is EXACTLY the right time to build expertise and infrastructure. The companies that started with deep learning in 2013-2015 dominated the AI revolution. The same window exists now for quantum.
 

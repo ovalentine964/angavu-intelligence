@@ -299,7 +299,7 @@ This is essentially a **multi-product newsvendor problem** with perishability. W
 ### The TRUTH: Where Does This Leave Us?
 
 **For 95% of problems informal workers face:**
-- Classical AI/ML solves them TODAY or will solve them in 1-3 years.
+- Classical AI/ML solves them TODAY or will solve them in 1-3 years. Quantum optimization advantage for real-world business problems is 5-10 years away (IBM Quantum Roadmap, NQCC 2025, Nature QOBL 2026).
 - The bottleneck is **data infrastructure** (digitizing informal transactions), **connectivity** (internet access), and **trust** (adoption) — not computation.
 - A well-designed app using classical ML on a smartphone could transform a mama mboga's business today.
 

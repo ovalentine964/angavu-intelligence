@@ -462,7 +462,7 @@ That's not just a product. That's a paradigm shift.
 
 ## Sources Referenced
 
-1. Frontiers in Behavioral Economics (2026) — "Formalising informal trade: redefining Kenya's MSME standards"
+1. Frontiers in Behavioral Economics (2026) — "Formalising informal trade: redefining Kenya's MSME standards" (Note: Verify exact publication details — this paper may be under review or published under a slightly different title. The research findings described are consistent with known literature on Kenya's MSME regulatory environment.)
 2. ACM (2022) — "An Android Mobile Application with Business Intelligence for Retail Micro and Small Enterprises"
 3. IJSSMR Vol. 11 No. 5 (2025) — "AI-Enabled Dashboards for Micro-Enterprise Profitability Optimization"
 4. ResearchGate (2025) — "Financial literacy as a driver of micro-enterprise growth: Nairobi City County"

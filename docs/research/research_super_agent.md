@@ -68,7 +68,7 @@ LangChain (Jan 2026) identified four multi-agent patterns:
 
 **Critical insight from LangChain:** "Many agentic tasks are best handled by a single agent with well-designed tools. You should start here."
 
-**Anthropic's multi-agent research system** (2026): Lead agent (Claude Opus 4) + subagents (Claude Sonnet 4) outperformed single-agent by 90.2% on internal research evaluations. The architecture distributed work across agents with separate context windows.
+**Anthropic's multi-agent research system** (2026): Lead agent (Claude Opus 4) + subagents (Claude Sonnet 4) outperformed single-agent by 90.2% on internal research evaluations. The architecture distributed work across agents with separate context windows. (Source: Anthropic research blog, "Building Effective Agents" (2025) and subsequent multi-agent evaluations. Note: The 90.2% figure is from Anthropic's internal benchmarks; external replication is pending.)
 
 #### Agent Protocol Stack (2025-2026)
 
@@ -81,6 +81,8 @@ Four protocols enable the "Agentic Internet":
 **For Msaidizi:** MCP is most relevant (connecting the agent to M-Pesa, WhatsApp, financial tools). A2A becomes relevant when Msaidizi agents need to communicate with external agents (lenders, suppliers).
 
 #### Arxiv: "From Prompt-Response to Goal-Directed Systems" (Feb 2026)
+
+> **Note:** Verify exact arXiv ID and author list. The concept of goal-directed AI systems is well-established in the literature (Russell, 2019; Levine et al., 2020), but this specific paper title may need confirmation against arXiv's February 2026 submissions.
 
 This paper establishes the reference architecture for production-grade agentic AI:
 - **Cognitive kernel** (LLM) separated from **execution layer** (typed tool interfaces)

@@ -251,9 +251,9 @@
 ### 2.2 Quantum Advantage vs Classical — Honest Assessment (July 2026)
 
 **Where quantum HAS advantage TODAY:**
-- **Combinatorial optimization** (50-1000+ variables) — D-Wave annealing
-- **Quantum simulation** of molecular/chemical systems
+- **Quantum simulation** of molecular/chemical systems (most proven; Q-CTRL demonstrated 3,000× speedup in materials simulation, May 2026)
 - **Specific sampling problems** where quantum randomness helps
+- **Combinatorial optimization** — D-Wave annealing shows advantage on certain problem structures (not variable count alone); advantage depends on constraint density, problem topology, and embedding efficiency. The 50-1000+ variable range is where D-Wave *can* compete, but classical heuristics (simulated annealing, tabu search) still match or beat QAOA on most standard benchmarks (Nature, Quantum Optimization Benchmarking Library, 2026)
 
 **Where quantum MIGHT help (experimental):**
 - **Portfolio optimization** — promising for large portfolios with many constraints

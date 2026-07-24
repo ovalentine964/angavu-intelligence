@@ -28,8 +28,9 @@
     --bg-card-hover:  #245A78;
     --bg-accent:      #2A6F99;
     --bg-dark:        #0F2D42;
-    --bg-light:       #FFFFFF;
-    --bg-light-alt:   #F8F9FA;
+    --bg-light:       #FDF8F0;  /* Warm ivory — not cold white */
+    --bg-light-alt:   #FAF5EB;  /* Warm sand — not cold gray */
+    --bg-card-light:  #FFFCF7;  /* Warm white for cards */
 
     /* ── Text ── */
     --text-primary:   #F0ECE4;

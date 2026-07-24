@@ -81,7 +81,7 @@ body {
   font-size: 16px;
   line-height: 1.6;
   color: var(--gray-800);
-  background: var(--white);
+  background: var(--bg-light);
   overflow-x: hidden;
 }
 
@@ -373,7 +373,7 @@ body {
   left: 0;
   right: 0;
   bottom: 0;
-  background: var(--white);
+  background: var(--bg-light);
   padding: 2rem;
   z-index: 999;
   flex-direction: column;
@@ -513,21 +513,22 @@ body {
   align-items: center;
   gap: 0.625rem;
   padding: 0.875rem 2rem;
-  background: var(--gold-500);
-  color: var(--navy-900);
+  background: var(--african-orange);  /* Orange CTAs — energetic, action-oriented */
+  color: #FFFFFF;
   border-radius: var(--radius-full);
   font-weight: 700;
-  font-size: 1rem;
+  font-size: 1.125rem;  /* Larger for mobile thumbs */
   text-decoration: none;
   transition: all var(--transition-base);
   border: none;
   cursor: pointer;
+  box-shadow: 0 4px 14px rgba(232, 133, 61, 0.3);
 }
 
 .btn-primary:hover {
-  background: var(--gold-400);
+  background: var(--orange-light);
   transform: translateY(-2px);
-  box-shadow: var(--shadow-gold);
+  box-shadow: 0 6px 20px rgba(232, 133, 61, 0.4);
 }
 
 .btn-secondary {
@@ -625,16 +626,16 @@ body {
 .card-grid-4 { grid-template-columns: repeat(4, 1fr); }
 
 .card {
-  background: var(--white);
+  background: var(--bg-card-light);  /* Warm white, not cold */
   border-radius: var(--radius-xl);
   padding: 2rem;
-  border: 1px solid var(--gray-200);
+  border: 1px solid rgba(232, 168, 56, 0.15);  /* Subtle gold border */
   transition: all var(--transition-base);
 }
 
 .card:hover {
-  border-color: var(--gold-300);
-  box-shadow: var(--shadow-lg);
+  border-color: var(--gold);
+  box-shadow: 0 8px 25px rgba(232, 168, 56, 0.15);
   transform: translateY(-4px);
 }
 
@@ -693,7 +694,7 @@ body {
 
 /* --- Pricing Cards --- */
 .pricing-card {
-  background: var(--white);
+  background: var(--bg-light);
   border-radius: var(--radius-xl);
   padding: 2.5rem;
   border: 1px solid var(--gray-200);
@@ -817,7 +818,7 @@ body {
 
 /* --- Testimonial --- */
 .testimonial {
-  background: var(--white);
+  background: var(--bg-light);
   border-radius: var(--radius-xl);
   padding: 2rem;
   border: 1px solid var(--gray-200);

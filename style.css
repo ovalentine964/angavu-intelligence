@@ -34,7 +34,7 @@
   --gray-300: #d1d5db;
   --gray-200: #e5e7eb;
   --gray-100: #f3f4f6;
-  --gray-50: #f9fafb;
+  --gray-50: #FAF5EB;  /* Warm sand — not cold gray */
 
   --white: #ffffff;
   --black: #000000;
@@ -563,6 +563,7 @@ body {
 /* --- Section Styles --- */
 .section {
   padding: 6rem 2rem;
+  background: var(--bg-light);
 }
 
 .section-dark {

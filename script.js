@@ -1,201 +1,205 @@
-/* ============================================
-   ANGAVU INTELLIGENCE — Main Script v2.0
-   Download logic, WhatsApp share, language toggle
-   Optimized for 2G/3G — minimal JS, no deps
-   ============================================ */
+/* ================================================================
+   ANGAVU INTELLIGENCE — Enterprise Interactions
+   ================================================================ */
 
-(function() {
-    'use strict';
+(function () {
+  'use strict';
 
-    // ── Constants ──
-    var APK_URL = 'https://github.com/ovalentine964/msaidizi-app/releases/download/latest/msaidizi-release.apk';
-    var APK_FILENAME = 'msaidizi-v2.1.0.apk';
-    var APK_SIZE = '500MB';
-    var SITE_URL = 'https://ovalentine964.github.io/angavu-intelligence/';
+  // --- Navigation Scroll Effect ---
+  const nav = document.querySelector('.nav');
+  if (nav) {
+    let lastScroll = 0;
+    const handleScroll = () => {
+      const currentScroll = window.scrollY;
+      if (currentScroll > 50) {
+        nav.classList.add('scrolled');
+      } else {
+        nav.classList.remove('scrolled');
+      }
+      lastScroll = currentScroll;
+    };
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    handleScroll();
+  }
 
-    // ── Navbar scroll ──
-    var navbar = document.getElementById('navbar');
-    if (navbar) {
-        var onScroll = function() {
-            if (window.scrollY > 50) {
-                navbar.classList.add('scrolled');
-            } else {
-                navbar.classList.remove('scrolled');
-            }
-        };
-        window.addEventListener('scroll', onScroll, { passive: true });
-        onScroll();
-    }
-
-    // ── Mobile nav toggle ──
-    var navToggle = document.getElementById('navToggle');
-    var navMenu = document.getElementById('navMenu');
-    if (navToggle && navMenu) {
-        navToggle.addEventListener('click', function() {
-            var isActive = navMenu.classList.toggle('active');
-            navToggle.classList.toggle('active');
-            document.body.style.overflow = isActive ? 'hidden' : '';
-            navToggle.setAttribute('aria-expanded', isActive);
-        });
-        // Close on link click
-        navMenu.querySelectorAll('a').forEach(function(link) {
-            link.addEventListener('click', function() {
-                navMenu.classList.remove('active');
-                navToggle.classList.remove('active');
-                document.body.style.overflow = '';
-            });
-        });
-    }
-
-    // ── Smooth scroll for anchors ──
-    document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
-        anchor.addEventListener('click', function(e) {
-            var href = this.getAttribute('href');
-            if (href === '#') return;
-            var target = document.querySelector(href);
-            if (target) {
-                e.preventDefault();
-                var offset = navbar ? navbar.offsetHeight + 20 : 80;
-                var top = target.getBoundingClientRect().top + window.scrollY - offset;
-                window.scrollTo({ top: top, behavior: 'smooth' });
-            }
-        });
+  // --- Mobile Menu ---
+  const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+  const mobileMenu = document.querySelector('.mobile-menu');
+  if (mobileMenuBtn && mobileMenu) {
+    mobileMenuBtn.addEventListener('click', () => {
+      const isOpen = mobileMenu.classList.toggle('open');
+      mobileMenuBtn.setAttribute('aria-expanded', isOpen);
+      // Toggle icon
+      const icon = mobileMenuBtn.querySelector('svg');
+      if (icon) {
+        icon.innerHTML = isOpen
+          ? '<line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>'
+          : '<line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/>';
+      }
     });
-
-    // ── Active nav link ──
-    var sections = document.querySelectorAll('section[id]');
-    var navLinks = document.querySelectorAll('.nav-menu a[href^="#"]');
-    if (sections.length && navLinks.length) {
-        window.addEventListener('scroll', function() {
-            var scrollPos = window.scrollY + 200;
-            sections.forEach(function(section) {
-                var top = section.offsetTop;
-                var height = section.offsetHeight;
-                var id = section.getAttribute('id');
-                if (scrollPos >= top && scrollPos < top + height) {
-                    navLinks.forEach(function(link) {
-                        link.style.color = '';
-                        if (link.getAttribute('href') === '#' + id) {
-                            link.style.color = '#E8A838';
-                        }
-                    });
-                }
-            });
-        }, { passive: true });
-    }
-
-    // ── Language Toggle (data-sw / data-en attributes) ──
-    var langToggle = document.getElementById('langToggle');
-    var announcement = document.getElementById('lang-announcement');
-    var currentLang = localStorage.getItem('angavu-lang') || 'sw';
-
-    function applyLang(lang) {
-        document.querySelectorAll('[data-' + lang + ']').forEach(function(el) {
-            var text = el.getAttribute('data-' + lang);
-            if (text !== null) el.innerHTML = text;
-        });
-        if (langToggle) {
-            langToggle.textContent = lang === 'sw' ? '\u{1F1F8}\u{1F1F3} EN' : '\u{1F1EC}\u{1F1E7} SW';
-            langToggle.setAttribute('aria-label', lang === 'sw' ? 'Switch to English' : 'Badilisha Kiswahili');
-        }
-        document.documentElement.lang = lang;
-        // Update meta OG locale
-        var ogLocale = document.querySelector('meta[property="og:locale"]');
-        if (ogLocale) ogLocale.setAttribute('content', lang === 'sw' ? 'sw_KE' : 'en_KE');
-    }
-
-    applyLang(currentLang);
-
-    if (langToggle) {
-        langToggle.addEventListener('click', function() {
-            currentLang = currentLang === 'sw' ? 'en' : 'sw';
-            localStorage.setItem('angavu-lang', currentLang);
-            applyLang(currentLang);
-            if (announcement) {
-                announcement.textContent = currentLang === 'en' ? 'Language changed to English' : 'Lugha imebadilishwa Kiswahili';
-            }
-        });
-    }
-
-    // ── Auto-download APK ──
-    window.downloadAPK = function(e) {
-        if (e) e.preventDefault();
-        // Trigger download
-        var link = document.createElement('a');
-        link.href = APK_URL;
-        link.download = APK_FILENAME;
-        link.setAttribute('rel', 'noopener');
-        document.body.appendChild(link);
-        link.click();
-        document.body.removeChild(link);
-        // Track if analytics available
-        if (typeof gtag === 'function') {
-            gtag('event', 'download', { 'event_category': 'APK', 'event_label': APK_FILENAME });
-        }
-    };
-
-    // ── WhatsApp Share ──
-    window.shareWhatsApp = function(customText) {
-        var text = customText || 'Pakua Msaidizi \u2014 Msaidizi wako wa biashara! Sauti kwanza. Bure milele.\n\n' + SITE_URL + 'download.html';
-        var url = 'https://wa.me/?text=' + encodeURIComponent(text);
-        window.open(url, '_blank', 'noopener');
-    };
-
-    // ── QR Code Generator (inline, no external lib) ──
-    window.generateQR = function(containerId, data, size) {
-        var container = document.getElementById(containerId);
-        if (!container) return;
-        size = size || 140;
-        // Use Google Charts QR API as fallback (lightweight)
-        var img = document.createElement('img');
-        img.src = 'https://api.qrserver.com/v1/create-qr-code/?size=' + size + 'x' + size + '&data=' + encodeURIComponent(data);
-        img.alt = 'QR Code';
-        img.width = size;
-        img.height = size;
-        img.loading = 'lazy';
-        img.style.borderRadius = '12px';
-        img.style.background = '#fff';
-        img.style.padding = '8px';
-        container.appendChild(img);
-    };
-
-    // ── FAQ Accordion ──
-    document.querySelectorAll('.faq-question').forEach(function(btn) {
-        btn.addEventListener('click', function() {
-            var expanded = btn.getAttribute('aria-expanded') === 'true';
-            var answer = document.getElementById(btn.getAttribute('aria-controls'));
-            btn.setAttribute('aria-expanded', !expanded);
-            if (answer) answer.hidden = expanded;
-            var icon = btn.querySelector('.faq-icon');
-            if (icon) icon.textContent = expanded ? '+' : '\u2212';
-        });
+    // Close on link click
+    mobileMenu.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.remove('open');
+        mobileMenuBtn.setAttribute('aria-expanded', 'false');
+      });
     });
+  }
 
-    // ── Contact Form ──
-    var contactForm = document.getElementById('contactForm');
-    if (contactForm) {
-        contactForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            var btn = contactForm.querySelector('button[type="submit"]');
-            var originalText = btn.textContent;
-            btn.textContent = '\u2713 Ujumbe umetumwa!';
-            btn.style.background = '#2a7d3f';
-            btn.disabled = true;
-            contactForm.reset();
-            setTimeout(function() {
-                btn.textContent = originalText;
-                btn.style.background = '';
-                btn.disabled = false;
-            }, 3000);
+  // --- Scroll-triggered Animations (IntersectionObserver) ---
+  const animateElements = document.querySelectorAll('.animate-on-scroll');
+  if (animateElements.length > 0 && 'IntersectionObserver' in window) {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            observer.unobserve(entry.target);
+          }
         });
-    }
+      },
+      { threshold: 0.1, rootMargin: '0px 0px -50px 0px' }
+    );
+    animateElements.forEach((el) => observer.observe(el));
+  } else {
+    // Fallback: show all immediately
+    animateElements.forEach((el) => el.classList.add('is-visible'));
+  }
 
-    // ── Service Worker Registration ──
-    if ('serviceWorker' in navigator) {
-        window.addEventListener('load', function() {
-            navigator.serviceWorker.register('sw.js').catch(function() {});
+  // --- Animated Counter ---
+  function animateCounter(element, target, duration) {
+    const start = 0;
+    const startTime = performance.now();
+    const suffix = element.dataset.suffix || '';
+    const prefix = element.dataset.prefix || '';
+
+    function update(currentTime) {
+      const elapsed = currentTime - startTime;
+      const progress = Math.min(elapsed / duration, 1);
+      // Ease out cubic
+      const eased = 1 - Math.pow(1 - progress, 3);
+      const current = Math.floor(start + (target - start) * eased);
+      element.textContent = prefix + current.toLocaleString() + suffix;
+      if (progress < 1) {
+        requestAnimationFrame(update);
+      }
+    }
+    requestAnimationFrame(update);
+  }
+
+  const counters = document.querySelectorAll('[data-count]');
+  if (counters.length > 0 && 'IntersectionObserver' in window) {
+    const counterObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const el = entry.target;
+            const target = parseInt(el.dataset.count, 10);
+            const duration = parseInt(el.dataset.duration || '2000', 10);
+            animateCounter(el, target, duration);
+            counterObserver.unobserve(el);
+          }
         });
-    }
+      },
+      { threshold: 0.5 }
+    );
+    counters.forEach((el) => counterObserver.observe(el));
+  }
 
-    console.log('Angavu Intelligence \u2014 Website v2.0 loaded.');
+  // --- FAQ Accordion ---
+  document.querySelectorAll('.faq-question').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const item = btn.closest('.faq-item');
+      const isOpen = item.classList.contains('open');
+      // Close all others
+      document.querySelectorAll('.faq-item.open').forEach((openItem) => {
+        if (openItem !== item) openItem.classList.remove('open');
+      });
+      item.classList.toggle('open', !isOpen);
+    });
+  });
+
+  // --- Language Toggle ---
+  const langToggle = document.querySelector('.lang-toggle');
+  if (langToggle) {
+    let currentLang = 'en';
+    langToggle.addEventListener('click', (e) => {
+      e.preventDefault();
+      currentLang = currentLang === 'en' ? 'sw' : 'en';
+      document.querySelectorAll('[data-en]').forEach((el) => {
+        const text = el.dataset[currentLang];
+        if (text) el.textContent = text;
+      });
+      langToggle.textContent = currentLang === 'en' ? 'Kiswahili' : 'English';
+    });
+  }
+
+  // --- WhatsApp Share ---
+  window.shareWhatsApp = function (text) {
+    const url = encodeURIComponent(window.location.href);
+    const msg = encodeURIComponent(text || document.title);
+    window.open(`https://wa.me/?text=${msg}%20${url}`, '_blank');
+  };
+
+  // --- Smooth Scroll for anchor links ---
+  document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+    anchor.addEventListener('click', function (e) {
+      const target = document.querySelector(this.getAttribute('href'));
+      if (target) {
+        e.preventDefault();
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
+  });
+
+  // --- Copy Code Block ---
+  document.querySelectorAll('.code-block').forEach((block) => {
+    const wrapper = document.createElement('div');
+    wrapper.style.position = 'relative';
+    block.parentNode.insertBefore(wrapper, block);
+    wrapper.appendChild(block);
+
+    const btn = document.createElement('button');
+    btn.className = 'copy-btn';
+    btn.innerHTML = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>';
+    btn.style.cssText = 'position:absolute;top:0.75rem;right:0.75rem;background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2);border-radius:6px;padding:0.375rem;color:#94a3b8;cursor:pointer;transition:all 150ms;z-index:2;';
+    btn.addEventListener('mouseenter', () => { btn.style.background = 'rgba(255,255,255,0.2)'; btn.style.color = '#fff'; });
+    btn.addEventListener('mouseleave', () => { btn.style.background = 'rgba(255,255,255,0.1)'; btn.style.color = '#94a3b8'; });
+    btn.addEventListener('click', async () => {
+      try {
+        await navigator.clipboard.writeText(block.textContent);
+        btn.innerHTML = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>';
+        setTimeout(() => {
+          btn.innerHTML = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>';
+        }, 2000);
+      } catch (err) {
+        console.error('Copy failed', err);
+      }
+    });
+    wrapper.appendChild(btn);
+  });
+
+  // --- Parallax on hero orbs ---
+  const orbs = document.querySelectorAll('.orb');
+  if (orbs.length > 0) {
+    window.addEventListener('mousemove', (e) => {
+      const x = (e.clientX / window.innerWidth - 0.5) * 2;
+      const y = (e.clientY / window.innerHeight - 0.5) * 2;
+      orbs.forEach((orb, i) => {
+        const speed = (i + 1) * 15;
+        orb.style.transform = `translate(${x * speed}px, ${y * speed}px)`;
+      });
+    }, { passive: true });
+  }
+
+  // --- Stagger animation helper ---
+  window.staggerChildren = function (parentSelector, childSelector, delay) {
+    document.querySelectorAll(parentSelector).forEach((parent) => {
+      const children = parent.querySelectorAll(childSelector);
+      children.forEach((child, i) => {
+        child.style.animationDelay = `${i * (delay || 100)}ms`;
+      });
+    });
+  };
+
 })();

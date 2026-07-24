@@ -2,9 +2,9 @@
 
 # 🌍 Angavu Intelligence
 
-### Revenue Intelligence for Africa's Informal Economy
+### AI-Powered CFO for Informal Workers
 
-**Transforming how Africa understands, measures, and grows its $1.2 trillion informal economy through AI-powered intelligence.**
+**Msaidizi is your CFO — tracks revenue, expenses, profit, cash flow.** Free CFO for 600 million informal workers. Transforming how Africa understands, measures, and grows its $1.2 trillion informal economy through AI-powered financial intelligence.
 
 [![Website](https://img.shields.io/badge/🌐_Website-ovalentine964.github.io%2Fangavu--intelligence-blue)](https://ovalentine964.github.io/angavu-intelligence/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
@@ -25,12 +25,15 @@ Africa's informal economy accounts for **~85% of employment** and **~40% of GDP*
 
 ## 💡 The Solution
 
-Angavu Intelligence is a **superagent-powered platform** that bridges the gap between Africa's informal economy and the formal financial system. Through voice-first, offline-first AI agents running on budget smartphones, we:
+Angavu Intelligence is a **superagent-powered platform** that delivers a **free CFO to 600 million informal workers**. Through voice-first, offline-first AI agents running on budget smartphones, Msaidizi acts as your Chief Financial Officer:
 
-- 📊 **Generate economic intelligence** from ground-level transaction data
-- 🏦 **Build credit identities** for the unbanked
-- 🗺️ **Map trade routes** and distribution networks
-- 📈 **Provide real-time market insights** to businesses and governments
+- 📊 **CFO Daily Briefings** — morning financial reports from ground-level transaction data
+- 💰 **Cash Flow Forecasting** — CFO-grade predictions for working capital
+- 🏦 **Credit Building** — CFO credit management for the unbanked
+- 📈 **Financial Planning** — CFO savings advice and growth strategies
+- 🗺️ **Market Intelligence** — trade routes and distribution insights
+
+> Not just tracking — it's **financial intelligence**. Every informal worker deserves a CFO.
 
 ## 🏗️ Platform Architecture
 
@@ -41,14 +44,14 @@ Angavu Intelligence is a **superagent-powered platform** that bridges the gap be
 │                                                                  │
 │  ┌──────────────┐     ┌──────────────┐     ┌──────────────┐     │
 │  │  Msaidizi    │     │  Intelligence│     │   Website    │     │
-│  │  Mobile App  │────▶│  Backend     │────▶│   & Docs     │     │
+│  │  CFO App     │────▶│  Backend     │────▶│   & Docs     │     │
 │  │  (Android)   │     │  (Rust)      │     │  (Static)    │     │
 │  └──────────────┘     └──────────────┘     └──────────────┘     │
 │         │                    │                     │             │
 │         ▼                    ▼                     ▼             │
 │  ┌──────────────┐     ┌──────────────┐     ┌──────────────┐     │
 │  │  On-Device   │     │  15 Revenue  │     │  Public      │     │
-│  │  AI Agent    │     │  Intelligence│     │  Presence    │     │
+│  │  CFO Agent   │     │  Intelligence│     │  Presence    │     │
 │  │  Qwen 0.8B   │     │  Engines     │     │  & API Docs  │     │
 │  └──────────────┘     └──────────────┘     └──────────────┘     │
 │                                                                  │
@@ -62,8 +65,8 @@ Angavu Intelligence is a **superagent-powered platform** that bridges the gap be
 
 | Repository | Description | Tech Stack |
 |------------|-------------|------------|
-| [**msaidizi-app**](https://github.com/ovalentine964/msaidizi-app) | On-device AI business assistant for Android | Kotlin, Qwen 0.8B, Whisper, Piper |
-| [**angavu-intelligence-backend**](https://github.com/ovalentine964/angavu-intelligence-backend) | Revenue intelligence API platform | Rust (Axum), PostgreSQL, Redis, ClickHouse |
+| [**msaidizi-app**](https://github.com/ovalentine964/msaidizi-app) | AI-Powered CFO for informal workers (Android) | Kotlin, Qwen 0.8B, Whisper, Piper |
+| [**angavu-intelligence-backend**](https://github.com/ovalentine964/angavu-intelligence-backend) | CFO backend — 15 revenue intelligence engines | Rust (Axum), PostgreSQL, Redis, ClickHouse |
 | [**angavu-intelligence**](https://github.com/ovalentine964/angavu-intelligence) | Website, documentation & public presence | HTML, CSS, JavaScript |
 
 ## 🎨 Website Pages
@@ -162,6 +165,6 @@ This project is licensed under the [MIT License](LICENSE).
 
 **Built with ❤️ for Africa's informal economy**
 
-*Every mama mboga deserves a business intelligence platform.*
+*Every mama mboga deserves a CFO.*
 
 </div>

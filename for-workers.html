@@ -7,106 +7,235 @@
     <meta name="description" content="Free AI business assistant for informal workers. Track your business by voice, build credit, grow your income.">
     <meta property="og:title" content="For Workers — Msaidizi by Angavu Intelligence">
     <meta property="og:description" content="Free AI business assistant for informal workers. Track your business by voice, build credit, grow your income.">
-    <meta property="og:image" content="https://ovalentine964.github.io/angavu-intelligence/assets/og-image.png">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://ovalentine964.github.io/angavu-intelligence/for-workers.html">
-    <meta property="og:site_name" content="Angavu Intelligence">
+    <meta property="og:url" content="https://angavu.com/for-workers.html">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="For Workers — Msaidizi by Angavu Intelligence">
-    <meta name="twitter:description" content="Free AI business assistant for informal workers.">
-    <link rel="canonical" href="https://ovalentine964.github.io/angavu-intelligence/for-workers.html">
-    <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
-    <link rel="stylesheet" href="style.min.css">
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "Organization",
-        "name": "Angavu Intelligence",
-        "url": "https://ovalentine964.github.io/angavu-intelligence/",
-        "description": "Economic intelligence for Africa's informal economy",
-        "address": {"@type": "PostalAddress", "addressLocality": "Migori", "addressCountry": "KE"},
-        "contactPoint": {"@type": "ContactPoint", "email": "hello@angavuintelligence.com", "contactType": "customer service"}
-    }
-    </script>
+    <link rel="canonical" href="https://angavu.com/for-workers.html">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header class="nav">
-        <div class="nav-logo">
-            <img src="assets/eye-of-africa.svg" alt="Angavu Intelligence" width="40" height="40">
-            <a href="index.html">Angavu Intelligence</a>
-        </div>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <!-- NAVIGATION -->
+    <nav class="nav" role="navigation" aria-label="Main navigation">
+        <a href="index.html" class="nav-logo">
+            <svg width="32" height="32" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="20" cy="20" r="18" stroke="#E8A838" stroke-width="2.5"/>
+                <circle cx="20" cy="20" r="8" fill="#E8A838"/>
+                <path d="M20 2 C20 2 32 12 32 20 C32 28 20 38 20 38" stroke="#E8A838" stroke-width="1.5" fill="none"/>
+                <path d="M20 2 C20 2 8 12 8 20 C8 28 20 38 20 38" stroke="#E8A838" stroke-width="1.5" fill="none"/>
+            </svg>
+            <span>Angavu Intelligence</span>
+        </a>
         <div class="nav-links">
-            <a href="for-businesses.html">Businesses</a>
-            <a href="for-government.html">Government</a>
-            <a href="download.html" class="btn-primary btn-sm">Download</a>
-            <a href="#" class="lang-toggle" id="langToggle" data-sw="English" data-en="Kiswahili">Kiswahili</a>
+            <a href="for-workers.html" style="color:var(--navy-700);font-weight:600;">For Workers</a>
+            <a href="for-businesses.html">For Businesses</a>
+            <a href="for-government.html">For Government</a>
+            <a href="technology.html">Technology</a>
+            <a href="vision.html">Vision</a>
+            <a href="api.html">API</a>
+            <a href="download.html" class="nav-cta">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                Download
+            </a>
         </div>
-    </header>
+        <button class="mobile-menu-btn" aria-label="Toggle menu" aria-expanded="false">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        </button>
+    </nav>
+    <div class="mobile-menu">
+        <a href="for-workers.html">For Workers</a>
+        <a href="for-businesses.html">For Businesses</a>
+        <a href="for-government.html">For Government</a>
+        <a href="technology.html">Technology</a>
+        <a href="vision.html">Vision</a>
+        <a href="api.html">API</a>
+        <a href="download.html">Download</a>
+    </div>
 
-    <main class="page-content">
-        <section class="page-hero">
-            <h1 data-en="For Workers" data-sw="Kwa Wafanyakazi">For Workers</h1>
-            <p data-en="Your business deserves a CFO. Now you have one — for free." data-sw="Biashara yako inastahili CPA. Sasa una mmoja — kwa bure.">Your business deserves a CFO. Now you have one — for free.</p>
-        </section>
-
-        <section class="worker-types">
-            <h2 data-en="Built for You" data-sw="Imejengwa kwa Ajili Yako">Built for You</h2>
-            <div class="worker-grid">
-                <div class="worker-card"><h3>🥬 Mama Mboga</h3><p>Vegetable vendor — track sales, reduce spoilage, know your profit</p></div>
-                <div class="worker-card"><h3>🏍️ Boda Boda</h3><p>Motorcycle taxi — track rides, fuel costs, daily earnings</p></div>
-                <div class="worker-card"><h3>🏪 Dukawallah</h3><p>Shop owner — inventory, customer credit, restock alerts</p></div>
-                <div class="worker-card"><h3>🍳 Mama Lishe</h3><p>Food vendor — recipe costing, daily profit, demand prediction</p></div>
-                <div class="worker-card"><h3>🔧 Fundi</h3><p>Repair technician — job logging, parts costing, income tracking</p></div>
-                <div class="worker-card"><h3>💇 Salon/Barber</h3><p>Beauty services — customer tracking, service pricing, daily earnings</p></div>
-                <div class="worker-card"><h3>👨‍🌾 Mkulima</h3><p>Farmer — seasonal planning, harvest tracking, market prices</p></div>
-                <div class="worker-card"><h3>🏗️ Mjengo</h3><p>Construction worker — days worked, daily wage, savings goals</p></div>
+    <main id="main-content" style="padding-top:4rem;">
+        <!-- PAGE HERO -->
+        <section class="section section-dark" style="padding:5rem 2rem 3rem;text-align:center;">
+            <div class="animate-on-scroll is-visible">
+                <span class="overline">For Workers</span>
+                <h1 style="font-size:clamp(2rem,5vw,3.5rem);font-weight:800;color:var(--white);letter-spacing:-0.03em;">Your Business Deserves a CFO</h1>
+                <p style="font-size:1.25rem;color:var(--navy-300);max-width:600px;margin:1rem auto 0;">Now you have one — for free. Msaidizi is your voice-powered AI business assistant.</p>
             </div>
         </section>
 
-        <section class="features-detail">
-            <h2 data-en="What Your Msaidizi Does" data-sw="Msaidizi Wako Anafanya Nini">What Your Msaidizi Does</h2>
-            <div class="feature-list">
-                <div class="feature">
-                    <h3>🎤 Records Transactions by Voice</h3>
-                    <p>Just say "Nimeuza nyanya kilo 5, elfu moja" and your Msaidizi records it. No typing, no forms, no apps to navigate.</p>
+        <!-- WORKER TYPES -->
+        <section class="section section-gray">
+            <div class="section-header animate-on-scroll">
+                <span class="overline">Built for You</span>
+                <h2>Every Informal Worker</h2>
+                <p>From mama mbogas to fundis, Msaidizi understands your business.</p>
+            </div>
+            <div class="card-grid card-grid-4" style="max-width:1000px;">
+                <div class="card animate-on-scroll delay-1" style="text-align:center;">
+                    <div style="font-size:2rem;margin-bottom:0.75rem;">🥬</div>
+                    <h3>Mama Mboga</h3>
+                    <p>Vegetable vendor — track sales, reduce spoilage, know your profit</p>
                 </div>
-                <div class="feature">
-                    <h3>📊 Daily Business Briefings</h3>
+                <div class="card animate-on-scroll delay-1" style="text-align:center;">
+                    <div style="font-size:2rem;margin-bottom:0.75rem;">🏍️</div>
+                    <h3>Boda Boda</h3>
+                    <p>Motorcycle taxi — track rides, fuel costs, daily earnings</p>
+                </div>
+                <div class="card animate-on-scroll delay-2" style="text-align:center;">
+                    <div style="font-size:2rem;margin-bottom:0.75rem;">🏪</div>
+                    <h3>Dukawallah</h3>
+                    <p>Shop owner — inventory, customer credit, restock alerts</p>
+                </div>
+                <div class="card animate-on-scroll delay-2" style="text-align:center;">
+                    <div style="font-size:2rem;margin-bottom:0.75rem;">🍳</div>
+                    <h3>Mama Lishe</h3>
+                    <p>Food vendor — recipe costing, daily profit, demand prediction</p>
+                </div>
+                <div class="card animate-on-scroll delay-3" style="text-align:center;">
+                    <div style="font-size:2rem;margin-bottom:0.75rem;">🔧</div>
+                    <h3>Fundi</h3>
+                    <p>Repair technician — job logging, parts costing, income tracking</p>
+                </div>
+                <div class="card animate-on-scroll delay-3" style="text-align:center;">
+                    <div style="font-size:2rem;margin-bottom:0.75rem;">💇</div>
+                    <h3>Salon / Barber</h3>
+                    <p>Beauty services — customer tracking, service pricing, daily earnings</p>
+                </div>
+                <div class="card animate-on-scroll delay-4" style="text-align:center;">
+                    <div style="font-size:2rem;margin-bottom:0.75rem;">👨‍🌾</div>
+                    <h3>Mkulima</h3>
+                    <p>Farmer — seasonal planning, harvest tracking, market prices</p>
+                </div>
+                <div class="card animate-on-scroll delay-4" style="text-align:center;">
+                    <div style="font-size:2rem;margin-bottom:0.75rem;">🏗️</div>
+                    <h3>Mjengo</h3>
+                    <p>Construction worker — days worked, daily wage, savings goals</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- FEATURES -->
+        <section class="section">
+            <div class="section-header animate-on-scroll">
+                <span class="overline">Features</span>
+                <h2>What Your Msaidizi Does</h2>
+                <p>A full CFO in your pocket, powered by voice.</p>
+            </div>
+            <div class="card-grid card-grid-3" style="max-width:1000px;">
+                <div class="card animate-on-scroll delay-1">
+                    <div class="card-icon card-icon-gold">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 1a3 3 0 00-3 3v8a3 3 0 006 0V4a3 3 0 00-3-3z"/><path d="M19 10v2a7 7 0 01-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/><line x1="8" y1="23" x2="16" y2="23"/></svg>
+                    </div>
+                    <h3>Records by Voice</h3>
+                    <p>Just say "Nimeuza nyanya kilo 5, elfu moja" and your Msaidizi records it. No typing, no forms.</p>
+                </div>
+                <div class="card animate-on-scroll delay-2">
+                    <div class="card-icon card-icon-gold">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 002 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/></svg>
+                    </div>
+                    <h3>Daily Briefings</h3>
                     <p>Every morning, hear how your business did yesterday — revenue, expenses, profit. Know if you're making money.</p>
                 </div>
-                <div class="feature">
-                    <h3>💰 Cash Flow Predictions</h3>
-                    <p>Your Msaidizi learns your patterns and warns you before tight weeks. "Next Tuesday you may need extra cash for restocking."</p>
+                <div class="card animate-on-scroll delay-3">
+                    <div class="card-icon card-icon-gold">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>
+                    </div>
+                    <h3>Cash Flow Predictions</h3>
+                    <p>Your Msaidizi learns your patterns and warns you before tight weeks. "Next Tuesday you may need extra cash."</p>
                 </div>
-                <div class="feature">
-                    <h3>🏦 Credit Builder (Alama Score)</h3>
-                    <p>Build credit history from your actual business data. No phone metadata, no invasive tracking — just your real business.</p>
+                <div class="card animate-on-scroll delay-1">
+                    <div class="card-icon card-icon-gold">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
+                    </div>
+                    <h3>Credit Builder (Alama Score)</h3>
+                    <p>Build credit history from your actual business data. No phone metadata, no invasive tracking.</p>
                 </div>
-                <div class="feature">
-                    <h3>📱 WhatsApp Reports</h3>
+                <div class="card animate-on-scroll delay-2">
+                    <div class="card-icon card-icon-gold">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+                    </div>
+                    <h3>WhatsApp Reports</h3>
                     <p>Get your business reports via WhatsApp — daily, weekly, or monthly. Share with family or business partners.</p>
                 </div>
-                <div class="feature">
-                    <h3>🎮 Gamification</h3>
-                    <p>Earn points, unlock badges, build streaks. Learn financial literacy through play. Compete with peers.</p>
+                <div class="card animate-on-scroll delay-3">
+                    <div class="card-icon card-icon-gold">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                    </div>
+                    <h3>Gamification</h3>
+                    <p>Earn points, unlock badges, build streaks. Learn financial literacy through play.</p>
                 </div>
             </div>
         </section>
 
-        <section class="cta">
-            <h2 data-en="Download Msaidizi — Free Forever" data-sw="Pakua Msaidizi — Bure Milele">Download Msaidizi — Free Forever</h2>
-            <a href="download.html" class="btn-primary btn-download">Download APK</a>
-            <p data-en="No registration. No fees. Just your voice and your business." data-sw="Hakuna usajili. Hakuna ada. Sauti yako na biashara yako tu.">No registration. No fees. Just your voice and your business.</p>
-            <div class="download-whatsapp" style="margin-top:1rem">
-                <a href="https://wa.me/?text=Pakua%20Msaidizi%20-%20Msaidizi%20wako%20wa%20biashara%20kwa%20AI!%20Sauti%20kwanza.%20Bure%20milele.%20https://ovalentine964.github.io/angavu-intelligence/download.html" target="_blank" rel="noopener">📱 Share via WhatsApp</a>
+        <!-- CTA -->
+        <section class="section section-dark" style="text-align:center;">
+            <div class="animate-on-scroll is-visible" style="max-width:600px;margin:0 auto;">
+                <h2 style="font-size:clamp(1.5rem,3vw,2.25rem);font-weight:800;color:var(--white);">Download Msaidizi — Free Forever</h2>
+                <p style="margin-top:1rem;font-size:1.125rem;color:var(--navy-300);">No registration. No fees. Just your voice and your business.</p>
+                <div style="margin-top:2rem;display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;">
+                    <a href="download.html" class="btn-primary">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                        Download APK
+                    </a>
+                    <a href="https://wa.me/?text=Pakua%20Msaidizi%20-%20Msaidizi%20wako%20wa%20biashara%20kwa%20AI!%20Sauti%20kwanza.%20Bure%20milele.%20https://angavu.com/download.html" target="_blank" rel="noopener" class="btn-secondary" style="border-color:rgba(37,211,102,0.5);color:#25D366;">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                        Share via WhatsApp
+                    </a>
+                </div>
             </div>
         </section>
     </main>
 
+    <!-- FOOTER -->
     <footer class="footer">
-        <p>© 2025 Angavu Intelligence Ltd. — Migori, Kenya</p>
-        <nav><a href="index.html">Home</a> <a href="privacy-policy.html">Privacy</a></nav>
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <a href="index.html" class="nav-logo" style="color:var(--white);">
+                    <svg width="32" height="32" viewBox="0 0 40 40" fill="none"><circle cx="20" cy="20" r="18" stroke="#E8A838" stroke-width="2.5"/><circle cx="20" cy="20" r="8" fill="#E8A838"/><path d="M20 2 C20 2 32 12 32 20 C32 28 20 38 20 38" stroke="#E8A838" stroke-width="1.5" fill="none"/><path d="M20 2 C20 2 8 12 8 20 C8 28 20 38 20 38" stroke="#E8A838" stroke-width="1.5" fill="none"/></svg>
+                    <span>Angavu Intelligence</span>
+                </a>
+                <p>Africa's CFO — free AI-powered business intelligence for 600 million informal workers.</p>
+            </div>
+            <div>
+                <h4>Product</h4>
+                <ul class="footer-links">
+                    <li><a href="for-workers.html">For Workers</a></li>
+                    <li><a href="for-businesses.html">For Businesses</a></li>
+                    <li><a href="for-government.html">For Government</a></li>
+                    <li><a href="api.html">API</a></li>
+                    <li><a href="download.html">Download</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4>Company</h4>
+                <ul class="footer-links">
+                    <li><a href="vision.html">Vision</a></li>
+                    <li><a href="technology.html">Technology</a></li>
+                    <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4>Connect</h4>
+                <ul class="footer-links">
+                    <li><a href="https://twitter.com/angavu" target="_blank" rel="noopener">Twitter / X</a></li>
+                    <li><a href="https://github.com/ovalentine964/angavu-intelligence" target="_blank" rel="noopener">GitHub</a></li>
+                    <li><a href="mailto:hello@angavu.com">Email Us</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <span>© 2024 Angavu Intelligence. All rights reserved.</span>
+            <div class="footer-social">
+                <a href="https://twitter.com/angavu" target="_blank" rel="noopener" aria-label="Twitter">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                </a>
+                <a href="https://github.com/ovalentine964/angavu-intelligence" target="_blank" rel="noopener" aria-label="GitHub">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                </a>
+            </div>
+        </div>
     </footer>
-    <script src="script.min.js" defer></script>
+
+    <script src="script.js"></script>
 </body>
 </html>

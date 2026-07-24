@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://ovalentine964.github.io/angavu-intelligence/sitemap.xml

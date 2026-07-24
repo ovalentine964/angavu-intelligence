@@ -1279,3 +1279,31 @@ img {
     position: relative;
     z-index: 1;
 }
+
+/* ── Product Status Badges ── */
+.status-badge {
+    display: inline-block;
+    padding: 0.25rem 0.75rem;
+    border-radius: var(--radius-full);
+    font-size: 0.75rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.status-badge.live {
+    background: rgba(16, 185, 129, 0.15);
+    color: #059669;
+    border: 1px solid rgba(16, 185, 129, 0.3);
+}
+
+.status-badge.pilot {
+    background: rgba(232, 168, 56, 0.15);
+    color: #D97706;
+    border: 1px solid rgba(232, 168, 56, 0.3);
+}
+
+.status-badge.coming {
+    background: rgba(107, 114, 128, 0.1);
+    color: #6B7280;
+    border: 1px solid rgba(107, 114, 128, 0.2);
+}

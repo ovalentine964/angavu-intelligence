@@ -1,40 +1,71 @@
-# 🌐 Angavu Intelligence — Africa's Economic Nervous System
+# Angavu Intelligence
 
-> **Download Msaidizi CFO app.** B2B intelligence products. Government policy tools.
+### Africa's Economic Nervous System
 
-**[angavu-intelligence.github.io](https://ovalentine964.github.io/angavu-intelligence/)**
+**Angavu Intelligence Ltd.** builds the data infrastructure for Africa's informal economy — the $1.5 trillion market that employs 85% of the continent's workforce but remains invisible to traditional financial systems.
 
----
-
-## What This Is
-
-The **public website** for Angavu Intelligence Ltd. — the distribution hub for:
-
-1. **Msaidizi CFO App** — Free download for informal workers
-2. **Soko Pulse** — FMCG demand intelligence ($2K-$12K/month)
-3. **Alama Score** — Credit scoring for the unbanked ($0.05-$0.50/query)
-4. **Angavu Pulse** — Government economic intelligence
+🔗 **[Live Website](https://ovalentine964.github.io/angavu-intelligence/)** · 📱 **[Download Msaidizi CFO](https://ovalentine964.github.io/angavu-intelligence/download.html)**
 
 ---
 
-## Pages
+## Products
 
-| Page | Audience | Purpose |
-|------|----------|---------|
-| [index.html](index.html) | Everyone | Landing page with download CTA |
-| [download.html](download.html) | Workers | APK download + QR + WhatsApp share |
-| [for-workers.html](for-workers.html) | Workers | CFO capabilities showcase |
-| [for-businesses.html](for-businesses.html) | B2B | Intelligence products |
-| [for-government.html](for-government.html) | B2G | Policy intelligence tools |
-| [technology.html](technology.html) | Tech | Superagent architecture |
-| [vision.html](vision.html) | Everyone | Company story |
-| [api.html](api.html) | Developers | API documentation |
-| [privacy-policy.html](privacy-policy.html) | Everyone | Privacy by architecture |
+| Product | Audience | Description |
+|---------|----------|-------------|
+| **Msaidizi CFO** | Informal workers | Free Android app — speak your sales in Sheng/Swahili, get profit tracking, inventory alerts, and credit scoring |
+| **Soko Pulse** | FMCG companies | Real-time demand intelligence from informal retail channels ($2K–$12K/month) |
+| **Alama Score** | Lenders & fintechs | Credit scoring for the unbanked using transaction behaviour ($0.05–$0.50/query) |
+| **Angavu Pulse** | Government | Economic intelligence dashboards for policy decisions |
 
 ---
 
-## Company
+## Tech Stack
 
-**Angavu Intelligence Ltd.** — Migori, Kenya
+- **Frontend:** HTML5, CSS3, Vanilla JavaScript
+- **Architecture:** Progressive Web App (PWA) with offline support
+- **Design System:** Custom CSS tokens, mobile-first responsive layout
+- **Hosting:** GitHub Pages
+- **No frameworks, no build step** — fast, accessible, zero dependencies
+
+---
+
+## Repository Structure
+
+```
+├── index.html              # Landing page
+├── download.html           # APK download + QR code
+├── for-workers.html        # Msaidizi CFO showcase
+├── msaidizi.html           # Msaidizi product deep-dive
+├── about.html              # Company & team
+├── technology.html         # Superagent architecture
+├── vision.html             # Company story & mission
+├── testimonials.html       # User stories
+├── api.html                # Developer API docs
+├── privacy-policy.html     # Privacy by architecture
+├── style.css               # Main stylesheet
+├── design-tokens.css       # Design system tokens
+├── script.js               # Application logic
+├── manifest.json           # PWA manifest
+├── sw.js                   # Service worker
+├── assets/                 # Logos, icons, images
+└── docs/                   # Internal research & architecture docs
+```
+
+---
+
+## Mission
+
+We believe every market trader, mama mboga, and boda-boda driver deserves the same financial visibility as a Fortune 500 CFO. Angavu Intelligence is building the nervous system to make that real.
+
+**From Migori, Kenya to every informal market on earth.**
+
+---
+
+## Contact
+
 - 📧 hello@angavuintelligence.com
-- 🌐 [Website](https://ovalentine964.github.io/angavu-intelligence/)
+- 📍 Migori, Kenya
+
+---
+
+© 2026 Angavu Intelligence Ltd. All rights reserved.

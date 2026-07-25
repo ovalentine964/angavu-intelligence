@@ -11,8 +11,7 @@ var SHELL_ASSETS = [
     '/angavu-intelligence/index.html',
     '/angavu-intelligence/download.html',
     '/angavu-intelligence/for-workers.html',
-    '/angavu-intelligence/for-businesses.html',
-    '/angavu-intelligence/for-government.html',
+
     '/angavu-intelligence/technology.html',
     '/angavu-intelligence/vision.html',
     '/angavu-intelligence/api.html',

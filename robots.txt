@@ -1,4 +1,9 @@
 User-agent: *
 Allow: /
+Disallow: /for-investors.html
+Disallow: /for-businesses.html
+Disallow: /for-government.html
+Disallow: /api.html
+Disallow: /docs/
 
 Sitemap: https://ovalentine964.github.io/angavu-intelligence/sitemap.xml

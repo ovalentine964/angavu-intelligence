@@ -34,7 +34,7 @@
   --gray-300: #d1d5db;
   --gray-200: #e5e7eb;
   --gray-100: #f3f4f6;
-  --gray-50: #FAF5EB;  /* Warm sand — not cold gray */
+  --gray-50: #FFF8F0;  /* Warm African cream */
 
   --white: #ffffff;
   --black: #000000;
@@ -56,8 +56,8 @@
   --radius-2xl: 1.5rem;
   --radius-full: 9999px;
 
-  --bg-light: #FAF5EB;
-  --bg-card-light: #FFFFFF;
+  --bg-light: #FFF8F0;  /* Warm cream background */
+  --bg-card-light: #FFFAF5;  /* Slightly warmer card background */
   --african-orange: #E8853D;
   --orange-light: #F09B5C;
   --gold: var(--gold-500);

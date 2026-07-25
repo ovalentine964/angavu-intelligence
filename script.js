@@ -209,7 +209,7 @@
   'use strict';
 
   var tickerData = [
-    // Category A: Commodity Prices
+    // Commodity Prices — useful for workers
     { emoji: '🍅', name: 'Tomatoes', location: 'Nairobi', price: 'KES 120', change: 5.2, source: 'Gikomba Market', unit: '1 kg' },
     { emoji: '🌽', name: 'Maize flour', location: 'Migori', price: 'KES 165', change: -1.8, source: 'Migori Central', unit: '2 kg' },
     { emoji: '🫒', name: 'Cooking oil', location: 'Lagos', price: '₦2,800', change: 3.1, source: 'Oshodi Market', unit: '1 L' },
@@ -222,19 +222,9 @@
     { emoji: '🥛', name: 'Milk', location: 'Kisumu', price: 'KES 60', change: -0.5, source: 'Kisumu Market', unit: '500ml' },
     { emoji: '🥩', name: 'Beef', location: 'Nairobi', price: 'KES 650', change: 2.3, source: 'City Market', unit: '1 kg' },
     { emoji: '🥔', name: 'Irish potatoes', location: 'Nakuru', price: 'KES 80', change: -3.1, source: 'Nakuru Town', unit: '1 kg' },
-
-    // Category B: Transaction / Volume
-    { emoji: '📱', name: 'M-Pesa Transactions', location: 'Kenya', price: '48.2M', change: 12.0, source: 'Today' },
-    { emoji: '👥', name: 'Msaidizi Users', location: 'Active', price: '12,847', change: 8.3, source: 'This Hour' },
-    { emoji: '💰', name: 'Avg. Daily Revenue', location: 'Nairobi workers', price: 'KES 1,450', change: 2.1, source: 'Msaidizi Data' },
-    { emoji: '📊', name: 'Transactions Tracked', location: 'Today', price: '2.3M', change: 15.7, source: 'All Markets' },
-    { emoji: '🆕', name: 'New Workers', location: 'This Week', price: '8,421', change: 22.4, source: 'Onboarded' },
-
-    // Category C: Macro Pulse (some featured)
-    { emoji: '📈', name: 'Kenya Informal GDP', location: '', price: 'KES 3.2T', change: 0.8, source: '56% of GDP', featured: true },
-    { emoji: '🌍', name: 'Africa Informal Employment', location: '', price: '85.7%', change: 0.1, source: 'ILO Estimate', featured: true },
-    { emoji: '📊', name: 'Alama Score (Avg)', location: 'Informal workers', price: '342', change: 5.0, source: 'Credit readiness', featured: true },
-    { emoji: '🔄', name: 'EAC Trade Index', location: 'Cross-border', price: '118.4', change: 2.3, source: 'Regional trade' }
+    { emoji: '⛽', name: 'Fuel (Petrol)', location: 'Nairobi', price: 'KES 177', change: 0.8, source: 'EPRA', unit: '1 L' },
+    { emoji: '🧼', name: 'Detergent', location: 'Nairobi', price: 'KES 120', change: 1.0, source: 'Eastlands', unit: '500g' },
+    { emoji: '📱', name: 'M-Pesa Rates', location: 'Kenya', price: 'KES 23/100', change: 0, source: 'Safaricom', unit: 'Send' }
   ];
 
   function buildTickerItem(item) {

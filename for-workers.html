@@ -11,16 +11,22 @@
     <meta property="og:url" content="https://angavu.com/for-workers.html">
     <meta name="twitter:card" content="summary_large_image">
     <link rel="canonical" href="https://angavu.com/for-workers.html">
+    <meta name="theme-color" content="#1B4965">
+    <link rel="manifest" href="manifest.json">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <nav class="nav">
         <div class="nav-logo"><img src="assets/logo-icon.png" alt="Angavu Intelligence" width="40" height="40"><a href="index.html">Angavu Intelligence</a></div>
+        <button class="mobile-menu-btn" aria-label="Toggle menu" aria-expanded="false">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        </button>
         <div class="nav-links">
             <a href="msaidizi.html">Msaidizi CFO</a>
             <a href="for-workers.html">For Workers</a>
             <a href="for-businesses.html">Businesses</a>
             <a href="for-government.html">Government</a>
+            <a href="for-investors.html">Investors</a>
             <a href="technology.html">How It Works</a>
             <a href="testimonials.html">Testimonials</a>
             <a href="about.html">About</a>
@@ -32,23 +38,37 @@
 
     <!-- NAVIGATION -->
     
-    <div class="mobile-menu">
+    <div class="mobile-menu dark">
+        <a href="msaidizi.html">Msaidizi CFO</a>
         <a href="for-workers.html">For Workers</a>
         <a href="for-businesses.html">For Businesses</a>
         <a href="for-government.html">For Government</a>
+        <a href="for-investors.html">For Investors</a>
         <a href="technology.html">Technology</a>
-        <a href="vision.html">Vision</a>
-        <a href="api.html">API</a>
+        <a href="about.html">About</a>
         <a href="download.html">Download</a>
     </div>
 
-    <main id="main-content" style="padding-top:4rem;">
+    <!-- LIVE MARKET TICKER -->
+    <div class="market-ticker" role="marquee" aria-label="Live market prices from African informal economies">
+        <div class="ticker-label">
+            <span class="ticker-live-dot" aria-hidden="true"></span>
+            <span class="ticker-live-text">LIVE</span>
+        </div>
+        <div class="ticker-viewport">
+            <div class="ticker-track"></div>
+        </div>
+    </div>
+
+    <main id="main-content" style="padding-top:0;">
         <!-- PAGE HERO -->
         <section class="section section-dark" style="padding:5rem 2rem 3rem;text-align:center;">
             <div class="animate-on-scroll is-visible">
                 <span class="overline">For Workers</span>
-                <h1 style="font-size:clamp(2rem,5vw,3.5rem);font-weight:800;color:var(--white);letter-spacing:-0.03em;">Your Business Deserves a CFO</h1>
+                <h1 style="font-size:clamp(2rem,5vw,3.5rem);font-weight:800;color:var(--white);letter-spacing:-0.03em;">Speak Your Sales. Msaidizi Tracks Your Profit.</h1>
                 <p style="font-size:1.25rem;color:var(--navy-300);max-width:600px;margin:1rem auto 0;">Now you have one — for free. Msaidizi is your voice-powered AI business assistant.</p>
+                <p style="font-size:0.9rem;color:var(--navy-400);font-style:italic;margin-top:0.5rem;">Zungumza mauzo yako. Msaidizi anafuatilia faida yako. Sasa una CFO wako — bure.</p>
+                <div style="display:inline-block;padding:0.375rem 1rem;background:rgba(76,175,80,0.15);color:#81C784;border-radius:var(--radius-full);font-size:0.875rem;font-weight:600;margin-top:1rem;border:1px solid rgba(76,175,80,0.3);">🟢 Early Access — Join Our First 1,000 Workers</div>
             </div>
         </section>
 
@@ -161,10 +181,11 @@
             <div class="animate-on-scroll is-visible" style="max-width:600px;margin:0 auto;">
                 <h2 style="font-size:clamp(1.5rem,3vw,2.25rem);font-weight:800;color:var(--white);">Download Msaidizi — Free Forever</h2>
                 <p style="margin-top:1rem;font-size:1.125rem;color:var(--navy-300);">No registration. No fees. Just your voice and your business.</p>
+                <p style="font-size:0.9rem;color:var(--navy-400);font-style:italic;margin-top:0.5rem;">Hakuna usajili. Hakuna ada. Sauti yako na biashara yako tu.</p>
                 <div style="margin-top:2rem;display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;">
-                    <a href="download.html" class="btn-primary">
+                    <a href="download.html" class="btn-primary" style="background:var(--gold-500);color:var(--navy-900);">
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-                        Download APK
+                        Download Msaidizi — Free →
                     </a>
                     <a href="https://wa.me/?text=Pakua%20Msaidizi%20-%20Msaidizi%20wako%20wa%20biashara%20kwa%20AI!%20Sauti%20kwanza.%20Bure%20milele.%20https://angavu.com/download.html" target="_blank" rel="noopener" class="btn-secondary" style="border-color:rgba(37,211,102,0.5);color:#25D366;">
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>

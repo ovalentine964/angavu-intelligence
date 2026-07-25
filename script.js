@@ -203,3 +203,121 @@
   };
 
 })();
+
+// ====== LIVE MARKET TICKER ======
+(function () {
+  'use strict';
+
+  var tickerData = [
+    // Category A: Commodity Prices
+    { emoji: '🍅', name: 'Tomatoes', location: 'Nairobi', price: 'KES 120', change: 5.2, source: 'Gikomba Market', unit: '1 kg' },
+    { emoji: '🌽', name: 'Maize flour', location: 'Migori', price: 'KES 165', change: -1.8, source: 'Migori Central', unit: '2 kg' },
+    { emoji: '🫒', name: 'Cooking oil', location: 'Lagos', price: '₦2,800', change: 3.1, source: 'Oshodi Market', unit: '1 L' },
+    { emoji: '🥬', name: 'Sukuma wiki', location: 'Nairobi', price: 'KES 30', change: 0, source: 'Wakulima Market', unit: '1 bunch' },
+    { emoji: '🪵', name: 'Charcoal', location: 'Kampala', price: 'UGX 35,000', change: 8.4, source: 'Nakasero Market', unit: '4 kg bag' },
+    { emoji: '🐟', name: 'Tilapia', location: 'Dar es Salaam', price: 'TZS 12,000', change: -2.0, source: 'Kariakoo Market', unit: '1 kg' },
+    { emoji: '🍚', name: 'Rice', location: 'Accra', price: 'GH₵ 18.50', change: 1.2, source: 'Makola Market', unit: '1 kg' },
+    { emoji: '🧅', name: 'Onions', location: 'Addis Ababa', price: 'ETB 85', change: 4.5, source: 'Merkato', unit: '1 kg' },
+    { emoji: '🍞', name: 'Bread', location: 'Nairobi', price: 'KES 65', change: 1.5, source: 'Eastlands', unit: '400g loaf' },
+    { emoji: '🥛', name: 'Milk', location: 'Kisumu', price: 'KES 60', change: -0.5, source: 'Kisumu Market', unit: '500ml' },
+    { emoji: '🥩', name: 'Beef', location: 'Nairobi', price: 'KES 650', change: 2.3, source: 'City Market', unit: '1 kg' },
+    { emoji: '🥔', name: 'Irish potatoes', location: 'Nakuru', price: 'KES 80', change: -3.1, source: 'Nakuru Town', unit: '1 kg' },
+
+    // Category B: Transaction / Volume
+    { emoji: '📱', name: 'M-Pesa Transactions', location: 'Kenya', price: '48.2M', change: 12.0, source: 'Today' },
+    { emoji: '👥', name: 'Msaidizi Users', location: 'Active', price: '12,847', change: 8.3, source: 'This Hour' },
+    { emoji: '💰', name: 'Avg. Daily Revenue', location: 'Nairobi workers', price: 'KES 1,450', change: 2.1, source: 'Msaidizi Data' },
+    { emoji: '📊', name: 'Transactions Tracked', location: 'Today', price: '2.3M', change: 15.7, source: 'All Markets' },
+    { emoji: '🆕', name: 'New Workers', location: 'This Week', price: '8,421', change: 22.4, source: 'Onboarded' },
+
+    // Category C: Macro Pulse (some featured)
+    { emoji: '📈', name: 'Kenya Informal GDP', location: '', price: 'KES 3.2T', change: 0.8, source: '56% of GDP', featured: true },
+    { emoji: '🌍', name: 'Africa Informal Employment', location: '', price: '85.7%', change: 0.1, source: 'ILO Estimate', featured: true },
+    { emoji: '📊', name: 'Alama Score (Avg)', location: 'Informal workers', price: '342', change: 5.0, source: 'Credit readiness', featured: true },
+    { emoji: '🔄', name: 'EAC Trade Index', location: 'Cross-border', price: '118.4', change: 2.3, source: 'Regional trade' }
+  ];
+
+  function buildTickerItem(item) {
+    var div = document.createElement('div');
+    div.className = 'ticker-item' + (item.featured ? ' ticker-featured' : '');
+
+    var dir = item.change > 0 ? 'up' : item.change < 0 ? 'down' : 'flat';
+    var arrow = dir === 'up' ? '▲' : dir === 'down' ? '▼' : '—';
+
+    var html = '<span class="ticker-commodity">' + item.emoji + ' ' + item.name;
+    if (item.location) html += ' · ' + item.location;
+    html += '</span>';
+    html += '<span class="ticker-price">' + item.price + '</span>';
+
+    if (item.featured) {
+      var points = [];
+      for (var i = 0; i < 5; i++) {
+        var x = i * 15;
+        var y = 14 - Math.random() * 12;
+        points.push(x + ',' + y.toFixed(1));
+      }
+      html += '<svg class="ticker-sparkline" viewBox="0 0 60 16" width="60" height="16">' +
+        '<polyline points="' + points.join(' ') + '" fill="none" stroke="var(--gold-400)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>' +
+        '</svg>';
+    }
+
+    html += '<span class="ticker-change ticker-' + dir + '">' + arrow + ' ' + Math.abs(item.change) + '%</span>';
+    if (item.source) html += '<span class="ticker-source">' + item.source + '</span>';
+
+    div.innerHTML = html;
+    return div;
+  }
+
+  function buildDivider() {
+    var d = document.createElement('div');
+    d.className = 'ticker-divider';
+    d.setAttribute('aria-hidden', 'true');
+    return d;
+  }
+
+  function initTicker() {
+    var track = document.querySelector('.ticker-track');
+    if (!track) return;
+
+    // Shuffle data
+    var shuffled = tickerData.slice().sort(function () { return Math.random() - 0.5; });
+
+    // Clear existing content
+    track.innerHTML = '';
+
+    // Build items x2 for seamless loop
+    var fragment = document.createDocumentFragment();
+    for (var copy = 0; copy < 2; copy++) {
+      for (var i = 0; i < shuffled.length; i++) {
+        fragment.appendChild(buildTickerItem(shuffled[i]));
+        if (i < shuffled.length - 1) fragment.appendChild(buildDivider());
+      }
+    }
+    track.appendChild(fragment);
+
+    // Simulate live price updates every 8-15 seconds
+    setInterval(function () {
+      var items = track.querySelectorAll('.ticker-item');
+      var randomItem = items[Math.floor(Math.random() * items.length)];
+      randomItem.classList.add('flash');
+      setTimeout(function () { randomItem.classList.remove('flash'); }, 800);
+
+      // Visual feedback: scale price briefly
+      if (Math.random() > 0.5) {
+        var priceEl = randomItem.querySelector('.ticker-price');
+        if (priceEl) {
+          priceEl.style.transition = 'transform 200ms';
+          priceEl.style.transform = 'scale(1.05)';
+          setTimeout(function () { priceEl.style.transform = 'scale(1)'; }, 200);
+        }
+      }
+    }, 8000 + Math.random() * 7000);
+  }
+
+  // Run after DOM ready
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initTicker);
+  } else {
+    initTicker();
+  }
+})();

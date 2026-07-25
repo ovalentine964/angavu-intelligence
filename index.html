@@ -3,25 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Angavu Intelligence — Making the Invisible Economy Visible</title>
-    <meta name="description" content="Angavu Intelligence builds AI-powered intelligence for 2 billion informal workers worldwide. Products: Msaidizi CFO, Soko Pulse, Alama Score, Angavu Pulse.">
+    <title>Angavu Intelligence — Speak Your Sales. Msaidizi Tracks Your Profit.</title>
+    <meta name="description" content="Free AI-powered CFO for informal workers. Speak your sales, Msaidizi tracks your profit. Voice-first, offline-first, in your language.">
     <meta name="keywords" content="Angavu Intelligence, informal economy, AI, Africa, Msaidizi, Soko Pulse, Alama Score, fintech, economic intelligence">
-    <meta property="og:title" content="Angavu Intelligence — Making the Invisible Economy Visible">
-    <meta property="og:description" content="We build AI-powered intelligence for 2 billion informal workers worldwide.">
+    <meta property="og:title" content="Angavu Intelligence — Speak Your Sales. Msaidizi Tracks Your Profit.">
+    <meta property="og:description" content="Free AI-powered CFO for informal workers. Voice-first, offline-first, in your language.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://angavu.com/">
     <meta name="twitter:card" content="summary_large_image">
     <link rel="canonical" href="https://angavu.com/">
+    <meta name="theme-color" content="#1B4965">
+    <link rel="manifest" href="manifest.json">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <nav class="nav">
         <div class="nav-logo"><img src="assets/logo-icon.png" alt="Angavu Intelligence" width="40" height="40"><a href="index.html">Angavu Intelligence</a></div>
+        <button class="mobile-menu-btn" aria-label="Toggle menu" aria-expanded="false">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        </button>
         <div class="nav-links">
             <a href="msaidizi.html">Msaidizi CFO</a>
             <a href="for-workers.html">For Workers</a>
             <a href="for-businesses.html">Businesses</a>
             <a href="for-government.html">Government</a>
+            <a href="for-investors.html">Investors</a>
             <a href="technology.html">How It Works</a>
             <a href="testimonials.html">Testimonials</a>
             <a href="about.html">About</a>
@@ -32,15 +38,29 @@
     <a href="#main-content" class="skip-link">Skip to main content</a>
 
     <!-- ====== NAVIGATION ====== -->
-    
+
     <div class="mobile-menu dark">
         <a href="msaidizi.html">Msaidizi CFO</a>
-        <a href="for-businesses.html">For Businesses</a>
-        <a href="for-government.html">For Government</a>
+        <a href="for-workers.html">For Workers</a>
+        <a href="for-businesses.html">Businesses</a>
+        <a href="for-government.html">Government</a>
+        <a href="for-investors.html">Investors</a>
+        <a href="technology.html">How It Works</a>
         <a href="about.html">About</a>
-        <a href="vision.html">Vision</a>
-        <a href="technology.html">Technology</a>
         <a href="download.html">Download</a>
+    </div>
+
+    <!-- ====== LIVE MARKET TICKER ====== -->
+    <div class="market-ticker" role="marquee" aria-label="Live market prices from African informal economies">
+        <div class="ticker-label">
+            <span class="ticker-live-dot" aria-hidden="true"></span>
+            <span class="ticker-live-text">LIVE</span>
+        </div>
+        <div class="ticker-viewport">
+            <div class="ticker-track">
+                <!-- Items populated by JavaScript for seamless loop -->
+            </div>
+        </div>
     </div>
 
     <!-- ====== HERO — COMPANY LEVEL ====== -->
@@ -52,39 +72,40 @@
         <div class="hero-content">
             <div class="hero-badge">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-                AI-Powered Economic Intelligence
+                Free AI CFO for Every Worker
             </div>
 
-            <h1>Making the<br><span class="highlight">Invisible Economy</span> Visible</h1>
-            <div style="display:inline-block;padding:0.375rem 1rem;background:rgba(232,133,61,0.15);color:var(--african-orange);border-radius:var(--radius-full);font-size:0.875rem;font-weight:600;margin-bottom:1rem;border:1px solid rgba(232,133,61,0.3);">🟢 Msaidizi v0.1.0 — Available Now</div>
+            <h1>Speak Your Sales.<br><span class="highlight">Msaidizi</span> Tracks Your Profit.</h1>
+            <p style="font-size:1rem;color:var(--navy-400);margin-bottom:0.5rem;font-style:italic;">Zungumza mauzo yako. Msaidizi anafuatilia faida yako.</p>
+            <div style="display:inline-block;padding:0.375rem 1rem;background:rgba(232,133,61,0.15);color:var(--african-orange);border-radius:var(--radius-full);font-size:0.875rem;font-weight:600;margin-bottom:1rem;border:1px solid rgba(232,133,61,0.3);">🟢 Early Access — Join Our First 1,000 Workers</div>
 
             <p class="hero-subtitle">
-                We build AI-powered intelligence for 2 billion informal workers worldwide. From mama mbogas to national economies — turning invisible economic activity into actionable data.
+                A free AI-powered CFO that listens when you speak. Tracks your sales, expenses, and profit — in your language, even offline. Built for mama mbogas, boda boda riders, dukawallahs, and every informal worker.
             </p>
 
             <div class="hero-stats">
                 <div class="stat">
                     <span class="stat-number">2B+</span>
-                    <span class="stat-label">Informal Workers Worldwide</span>
+                    <span class="stat-label">Workers to Serve</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number">Free</span>
+                    <span class="stat-label">For Every Worker</span>
                 </div>
                 <div class="stat">
                     <span class="stat-number">15+</span>
-                    <span class="stat-label">Revenue Products</span>
-                </div>
-                <div class="stat">
-                    <span class="stat-number">54</span>
-                    <span class="stat-label">African Countries</span>
+                    <span class="stat-label">African Languages</span>
                 </div>
             </div>
 
             <div class="hero-ctas">
-                <a href="#products" class="btn-primary">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v16"/></svg>
-                    Explore Our Products
-                </a>
-                <a href="download.html" class="btn-secondary">
+                <a href="download.html" class="btn-primary">
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-                    Download Msaidizi
+                    Download Msaidizi — It's Free
+                </a>
+                <a href="for-workers.html" class="btn-secondary">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4-4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                    See How It Helps You
                 </a>
             </div>
         </div>
@@ -93,9 +114,10 @@
     <!-- ====== MISSION STATEMENT ====== -->
     <section class="section">
         <div class="section-header animate-on-scroll">
-            <span class="overline">Our Mission</span>
-            <h2>Economic Intelligence for the World's Largest Workforce</h2>
-            <p>83% of Africa's workforce — 600 million people — operate in the informal economy with no records, no data visibility, and no access to financial services. Angavu Intelligence is changing that.</p>
+            <span class="overline">Our Mission · Dhima Yetu</span>
+            <h2>Your Business Deserves Intelligence</h2>
+            <p>83% of Africa's workforce — 600 million people — operate in the informal economy with no records, no data, and no access to financial services. Msaidizi changes that — starting with you.</p>
+            <p style="font-size:0.9rem;color:var(--gray-400);font-style:italic;">Biashara yako inastahili ujasusi. Msaidizi unabadilisha hilo.</p>
         </div>
 
         <div class="card-grid card-grid-3" style="max-width:1000px;">
@@ -123,85 +145,215 @@
         </div>
     </section>
 
-    <!-- ====== THREE PRODUCTS ====== -->
+    <!-- ====== ALL 17 PRODUCTS ====== -->
     <section class="section section-dark" id="products">
         <div class="section-header animate-on-scroll">
-            <span class="overline">Products</span>
-            <h2>One Platform, Three Markets</h2>
-            <p>Angavu Intelligence builds products for every stakeholder in the informal economy — workers, businesses, and governments.</p>
+            <span class="overline">Products · Bidhaa</span>
+            <h2>Built for You — Free Forever</h2>
+            <p>Msaidizi is free for workers. Businesses and governments pay — so you never have to.</p>
+            <p style="font-size:0.9rem;color:var(--navy-400);font-style:italic;">Msaidizi ni bure kwa wafanyakazi. Biashara na serikali zinalipa — ili usilipe kamwe.</p>
         </div>
 
-        <div class="card-grid card-grid-3">
-            <!-- Msaidizi CFO -->
-            <div class="card card-dark animate-on-scroll delay-1" style="text-align:center;">
-                <div style="width:4rem;height:4rem;margin:0 auto 1.25rem;background:rgba(232,168,56,0.15);border-radius:50%;display:flex;align-items:center;justify-content:center;">
-                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--gold-400)" stroke-width="2"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4-4v2"/><circle cx="12" cy="7" r="4"/></svg>
-                </div>
-                <h3 style="color:var(--white);">Msaidizi CFO</h3>
-                <p style="color:var(--navy-300);">Free AI-powered Chief Financial Officer for every informal worker. Voice-first, offline-first, works in 15+ African languages.</p>
-                <div style="margin-top:1rem;">
-                    <span class="badge badge-green">Free for Workers</span>
-                </div>
-                <a href="msaidizi.html" style="display:inline-block;margin-top:1.25rem;color:var(--gold-400);font-weight:600;font-size:0.875rem;text-decoration:none;">
-                    Learn more →
-                </a>
+        <!-- FOR WORKERS -->
+        <div style="max-width:1200px;margin:0 auto 3rem;">
+            <div class="animate-on-scroll" style="text-align:center;margin-bottom:2rem;">
+                <span style="display:inline-block;padding:0.375rem 1rem;background:rgba(76,175,80,0.15);color:#81C784;border-radius:var(--radius-full);font-size:0.875rem;font-weight:600;border:1px solid rgba(76,175,80,0.3);">👤 For Workers</span>
             </div>
+            <div class="card-grid card-grid-1" style="max-width:480px;margin:0 auto;">
+                <!-- Msaidizi CFO -->
+                <div class="card card-dark animate-on-scroll delay-1" style="text-align:center;">
+                    <div style="width:4rem;height:4rem;margin:0 auto 1.25rem;background:rgba(76,175,80,0.15);border-radius:50%;display:flex;align-items:center;justify-content:center;">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#81C784" stroke-width="2"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4-4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                    </div>
+                    <h3 style="color:var(--white);">Msaidizi CFO</h3>
+                    <p style="color:var(--navy-300);">Your voice-powered AI business assistant. Speak your sales, track your profit, grow your business — free, forever.</p>
+                    <p style="font-size:0.75rem;color:var(--navy-400);font-style:italic;margin-top:0.25rem;">Msaidizi wako wa biashara kwa sauti. Zungumza mauzo, fuatilia faida.</p>
+                    <div style="margin-top:1rem;">
+                        <span class="badge badge-green">Free for Every Worker</span>
+                    </div>
+                    <a href="msaidizi.html" style="display:inline-block;margin-top:1.25rem;color:var(--gold-400);font-weight:600;font-size:0.875rem;text-decoration:none;">See what it does →</a>
+                </div>
+            </div>
+        </div>
 
-            <!-- Soko Pulse / Alama Score -->
-            <div class="card card-dark animate-on-scroll delay-2" style="text-align:center;">
-                <div style="width:4rem;height:4rem;margin:0 auto 1.25rem;background:rgba(232,168,56,0.15);border-radius:50%;display:flex;align-items:center;justify-content:center;">
-                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--gold-400)" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v16"/></svg>
-                </div>
-                <h3 style="color:var(--white);">Soko Pulse &amp; Alama Score</h3>
-                <p style="color:var(--navy-300);">Real-time market intelligence and credit scoring for businesses. FMCG demand forecasting, distribution insights, and unbanked credit readiness.</p>
-                <div style="margin-top:1rem;">
-                    <span class="badge badge-gold">B2B Intelligence</span>
-                </div>
-                <a href="for-businesses.html" style="display:inline-block;margin-top:1.25rem;color:var(--gold-400);font-weight:600;font-size:0.875rem;text-decoration:none;">
-                    Learn more →
-                </a>
+        <!-- FOR BUSINESSES -->
+        <div style="max-width:1200px;margin:0 auto 3rem;">
+            <div class="animate-on-scroll" style="text-align:center;margin-bottom:2rem;">
+                <span style="display:inline-block;padding:0.375rem 1rem;background:rgba(232,168,56,0.15);color:var(--gold-400);border-radius:var(--radius-full);font-size:0.875rem;font-weight:600;border:1px solid rgba(232,168,56,0.3);">🏢 For Businesses — 8 Products</span>
             </div>
+            <div class="card-grid card-grid-4">
+                <!-- Soko Pulse -->
+                <div class="card card-dark animate-on-scroll delay-1" style="text-align:center;">
+                    <div style="width:3.5rem;height:3.5rem;margin:0 auto 1rem;background:rgba(232,168,56,0.15);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.5rem;">📊</div>
+                    <h3 style="color:var(--white);font-size:1rem;">Soko Pulse</h3>
+                    <p style="color:var(--navy-300);font-size:0.875rem;">FMCG demand forecasting from real informal market data. Know what's selling, where, and when.</p>
+                    <div style="margin-top:0.75rem;"><span class="badge badge-gold">In Pilot</span></div>
+                    <a href="for-businesses.html" style="display:inline-block;margin-top:1rem;color:var(--gold-400);font-weight:600;font-size:0.8125rem;text-decoration:none;">Join as Pilot Partner →</a>
+                </div>
+                <!-- Alama Score -->
+                <div class="card card-dark animate-on-scroll delay-1" style="text-align:center;">
+                    <div style="width:3.5rem;height:3.5rem;margin:0 auto 1rem;background:rgba(232,168,56,0.15);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.5rem;">🏦</div>
+                    <h3 style="color:var(--white);font-size:1rem;">Alama Score</h3>
+                    <p style="color:var(--navy-300);font-size:0.875rem;">Credit readiness scoring for the unbanked. 300–850 score from actual business transaction data.</p>
+                    <div style="margin-top:0.75rem;"><span class="badge badge-gold">In Pilot</span></div>
+                    <a href="for-businesses.html" style="display:inline-block;margin-top:1rem;color:var(--gold-400);font-weight:600;font-size:0.8125rem;text-decoration:none;">Join as Pilot Partner →</a>
+                </div>
+                <!-- Distribution Intelligence -->
+                <div class="card card-dark animate-on-scroll delay-2" style="text-align:center;">
+                    <div style="width:3.5rem;height:3.5rem;margin:0 auto 1rem;background:rgba(232,168,56,0.15);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.5rem;">🗺️</div>
+                    <h3 style="color:var(--white);font-size:1rem;">Distribution Intel</h3>
+                    <p style="color:var(--navy-300);font-size:0.875rem;">Route optimization with real market demand data. Find underserved markets and distribution gaps.</p>
+                    <div style="margin-top:0.75rem;"><span class="badge badge-navy">Coming Soon</span></div>
+                    <a href="for-businesses.html" style="display:inline-block;margin-top:1rem;color:var(--gold-400);font-weight:600;font-size:0.8125rem;text-decoration:none;">Join as Pilot Partner →</a>
+                </div>
+                <!-- FMCG Intelligence -->
+                <div class="card card-dark animate-on-scroll delay-2" style="text-align:center;">
+                    <div style="width:3.5rem;height:3.5rem;margin:0 auto 1rem;background:rgba(232,168,56,0.15);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.5rem;">📈</div>
+                    <h3 style="color:var(--white);font-size:1rem;">FMCG Intel</h3>
+                    <p style="color:var(--navy-300);font-size:0.875rem;">Track everyday goods activity in informal markets. Competitor analysis, pricing trends, demand signals.</p>
+                    <div style="margin-top:0.75rem;"><span class="badge badge-navy">Coming Soon</span></div>
+                    <a href="for-businesses.html" style="display:inline-block;margin-top:1rem;color:var(--gold-400);font-weight:600;font-size:0.8125rem;text-decoration:none;">Join as Pilot Partner →</a>
+                </div>
+                <!-- Insurance Risk -->
+                <div class="card card-dark animate-on-scroll delay-3" style="text-align:center;">
+                    <div style="width:3.5rem;height:3.5rem;margin:0 auto 1rem;background:rgba(232,168,56,0.15);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.5rem;">🛡️</div>
+                    <h3 style="color:var(--white);font-size:1rem;">Insurance Risk</h3>
+                    <p style="color:var(--navy-300);font-size:0.875rem;">Risk assessment for informal workers. Data-driven underwriting for microinsurance products.</p>
+                    <div style="margin-top:0.75rem;"><span class="badge badge-navy">Coming Soon</span></div>
+                    <a href="for-businesses.html" style="display:inline-block;margin-top:1rem;color:var(--gold-400);font-weight:600;font-size:0.8125rem;text-decoration:none;">Join as Pilot Partner →</a>
+                </div>
+                <!-- Market Entry -->
+                <div class="card card-dark animate-on-scroll delay-3" style="text-align:center;">
+                    <div style="width:3.5rem;height:3.5rem;margin:0 auto 1rem;background:rgba(232,168,56,0.15);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.5rem;">🚀</div>
+                    <h3 style="color:var(--white);font-size:1rem;">Market Entry</h3>
+                    <p style="color:var(--navy-300);font-size:0.875rem;">Market entry analysis for new products and regions. Demand validation before you invest.</p>
+                    <div style="margin-top:0.75rem;"><span class="badge badge-navy">Coming Soon</span></div>
+                    <a href="for-businesses.html" style="display:inline-block;margin-top:1rem;color:var(--gold-400);font-weight:600;font-size:0.8125rem;text-decoration:none;">Join as Pilot Partner →</a>
+                </div>
+                <!-- Supply Chain -->
+                <div class="card card-dark animate-on-scroll delay-4" style="text-align:center;">
+                    <div style="width:3.5rem;height:3.5rem;margin:0 auto 1rem;background:rgba(232,168,56,0.15);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.5rem;">🔗</div>
+                    <h3 style="color:var(--white);font-size:1rem;">Supply Chain</h3>
+                    <p style="color:var(--navy-300);font-size:0.875rem;">Supply chain intelligence. Track goods flow from manufacturer to informal retailer.</p>
+                    <div style="margin-top:0.75rem;"><span class="badge badge-navy">Coming Soon</span></div>
+                    <a href="for-businesses.html" style="display:inline-block;margin-top:1rem;color:var(--gold-400);font-weight:600;font-size:0.8125rem;text-decoration:none;">Join as Pilot Partner →</a>
+                </div>
+                <!-- Research Data -->
+                <div class="card card-dark animate-on-scroll delay-4" style="text-align:center;">
+                    <div style="width:3.5rem;height:3.5rem;margin:0 auto 1rem;background:rgba(232,168,56,0.15);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.5rem;">📚</div>
+                    <h3 style="color:var(--white);font-size:1rem;">Research Data</h3>
+                    <p style="color:var(--navy-300);font-size:0.875rem;">Anonymized research datasets for academic institutions and development organizations.</p>
+                    <div style="margin-top:0.75rem;"><span class="badge badge-navy">Coming Soon</span></div>
+                    <a href="for-businesses.html" style="display:inline-block;margin-top:1rem;color:var(--gold-400);font-weight:600;font-size:0.8125rem;text-decoration:none;">Join as Pilot Partner →</a>
+                </div>
+            </div>
+        </div>
 
-            <!-- Angavu Pulse -->
-            <div class="card card-dark animate-on-scroll delay-3" style="text-align:center;">
-                <div style="width:4rem;height:4rem;margin:0 auto 1.25rem;background:rgba(232,168,56,0.15);border-radius:50%;display:flex;align-items:center;justify-content:center;">
-                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--gold-400)" stroke-width="2"><path d="M3 21h18"/><path d="M5 21V7l8-4v18"/><path d="M19 21V11l-6-4"/></svg>
-                </div>
-                <h3 style="color:var(--white);">Angavu Pulse</h3>
-                <p style="color:var(--navy-300);">Policy intelligence for governments. Real-time informal sector visibility, GDP estimation, employment tracking, and tax base mapping.</p>
-                <div style="margin-top:1rem;">
-                    <span class="badge badge-navy">B2G Policy Intel</span>
-                </div>
-                <a href="for-government.html" style="display:inline-block;margin-top:1.25rem;color:var(--gold-400);font-weight:600;font-size:0.875rem;text-decoration:none;">
-                    Learn more →
-                </a>
+        <!-- FOR GOVERNMENT -->
+        <div style="max-width:1200px;margin:0 auto 2rem;">
+            <div class="animate-on-scroll" style="text-align:center;margin-bottom:2rem;">
+                <span style="display:inline-block;padding:0.375rem 1rem;background:rgba(100,149,237,0.15);color:#90CAF9;border-radius:var(--radius-full);font-size:0.875rem;font-weight:600;border:1px solid rgba(100,149,237,0.3);">🏛️ For Government — 8 Products</span>
             </div>
+            <div class="card-grid card-grid-4">
+                <!-- Angavu Pulse -->
+                <div class="card card-dark animate-on-scroll delay-1" style="text-align:center;">
+                    <div style="width:3.5rem;height:3.5rem;margin:0 auto 1rem;background:rgba(100,149,237,0.15);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.5rem;">📊</div>
+                    <h3 style="color:var(--white);font-size:1rem;">Angavu Pulse</h3>
+                    <p style="color:var(--navy-300);font-size:0.875rem;">Real-time informal sector activity index. See economic activity as it happens, not months later.</p>
+                    <div style="margin-top:0.75rem;"><span class="badge badge-navy">Coming Soon</span></div>
+                    <a href="for-government.html" style="display:inline-block;margin-top:1rem;color:var(--gold-400);font-weight:600;font-size:0.8125rem;text-decoration:none;">Join as Pilot Partner →</a>
+                </div>
+                <!-- GDP Estimator -->
+                <div class="card card-dark animate-on-scroll delay-1" style="text-align:center;">
+                    <div style="width:3.5rem;height:3.5rem;margin:0 auto 1rem;background:rgba(100,149,237,0.15);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.5rem;">💹</div>
+                    <h3 style="color:var(--white);font-size:1rem;">GDP Estimator</h3>
+                    <p style="color:var(--navy-300);font-size:0.875rem;">Real-time GDP estimation from informal economy data. Ground-truth economic indicators.</p>
+                    <div style="margin-top:0.75rem;"><span class="badge badge-navy">Coming Soon</span></div>
+                    <a href="for-government.html" style="display:inline-block;margin-top:1rem;color:var(--gold-400);font-weight:600;font-size:0.8125rem;text-decoration:none;">Join as Pilot Partner →</a>
+                </div>
+                <!-- Inflation Tracker -->
+                <div class="card card-dark animate-on-scroll delay-2" style="text-align:center;">
+                    <div style="width:3.5rem;height:3.5rem;margin:0 auto 1rem;background:rgba(100,149,237,0.15);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.5rem;">📉</div>
+                    <h3 style="color:var(--white);font-size:1rem;">Inflation Tracker</h3>
+                    <p style="color:var(--navy-300);font-size:0.875rem;">Real-time inflation monitoring from actual prices paid by informal workers.</p>
+                    <div style="margin-top:0.75rem;"><span class="badge badge-navy">Coming Soon</span></div>
+                    <a href="for-government.html" style="display:inline-block;margin-top:1rem;color:var(--gold-400);font-weight:600;font-size:0.8125rem;text-decoration:none;">Join as Pilot Partner →</a>
+                </div>
+                <!-- Employment Intel -->
+                <div class="card card-dark animate-on-scroll delay-2" style="text-align:center;">
+                    <div style="width:3.5rem;height:3.5rem;margin:0 auto 1rem;background:rgba(100,149,237,0.15);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.5rem;">💼</div>
+                    <h3 style="color:var(--white);font-size:1rem;">Employment Intel</h3>
+                    <p style="color:var(--navy-300);font-size:0.875rem;">Workforce analysis for the informal sector. Who's working, where, in what, earning how much.</p>
+                    <div style="margin-top:0.75rem;"><span class="badge badge-navy">Coming Soon</span></div>
+                    <a href="for-government.html" style="display:inline-block;margin-top:1rem;color:var(--gold-400);font-weight:600;font-size:0.8125rem;text-decoration:none;">Join as Pilot Partner →</a>
+                </div>
+                <!-- Tax Base Mapping -->
+                <div class="card card-dark animate-on-scroll delay-3" style="text-align:center;">
+                    <div style="width:3.5rem;height:3.5rem;margin:0 auto 1rem;background:rgba(100,149,237,0.15);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.5rem;">🗺️</div>
+                    <h3 style="color:var(--white);font-size:1rem;">Tax Base Mapping</h3>
+                    <p style="color:var(--navy-300);font-size:0.875rem;">Identify untaxed economic activity. Expand the tax base with data, not force.</p>
+                    <div style="margin-top:0.75rem;"><span class="badge badge-navy">Coming Soon</span></div>
+                    <a href="for-government.html" style="display:inline-block;margin-top:1rem;color:var(--gold-400);font-weight:600;font-size:0.8125rem;text-decoration:none;">Join as Pilot Partner →</a>
+                </div>
+                <!-- SDG Tracker -->
+                <div class="card card-dark animate-on-scroll delay-3" style="text-align:center;">
+                    <div style="width:3.5rem;height:3.5rem;margin:0 auto 1rem;background:rgba(100,149,237,0.15);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.5rem;">🌍</div>
+                    <h3 style="color:var(--white);font-size:1rem;">SDG Tracker</h3>
+                    <p style="color:var(--navy-300);font-size:0.875rem;">Sustainable Development Goals tracking from real economic data.</p>
+                    <div style="margin-top:0.75rem;"><span class="badge badge-navy">Coming Soon</span></div>
+                    <a href="for-government.html" style="display:inline-block;margin-top:1rem;color:var(--gold-400);font-weight:600;font-size:0.8125rem;text-decoration:none;">Join as Pilot Partner →</a>
+                </div>
+                <!-- Gender Intel -->
+                <div class="card card-dark animate-on-scroll delay-4" style="text-align:center;">
+                    <div style="width:3.5rem;height:3.5rem;margin:0 auto 1rem;background:rgba(100,149,237,0.15);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.5rem;">🚻</div>
+                    <h3 style="color:var(--white);font-size:1rem;">Gender Intel</h3>
+                    <p style="color:var(--navy-300);font-size:0.875rem;">Gender-disaggregated economic data. Women's economic participation in informal markets.</p>
+                    <div style="margin-top:0.75rem;"><span class="badge badge-navy">Coming Soon</span></div>
+                    <a href="for-government.html" style="display:inline-block;margin-top:1rem;color:var(--gold-400);font-weight:600;font-size:0.8125rem;text-decoration:none;">Join as Pilot Partner →</a>
+                </div>
+                <!-- Health Metrics -->
+                <div class="card card-dark animate-on-scroll delay-4" style="text-align:center;">
+                    <div style="width:3.5rem;height:3.5rem;margin:0 auto 1rem;background:rgba(100,149,237,0.15);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.5rem;">🏥</div>
+                    <h3 style="color:var(--white);font-size:1rem;">Health Metrics</h3>
+                    <p style="color:var(--navy-300);font-size:0.875rem;">Worker health economics. Insurance eligibility, health risk scores, workforce wellness data.</p>
+                    <div style="margin-top:0.75rem;"><span class="badge badge-navy">Coming Soon</span></div>
+                    <a href="for-government.html" style="display:inline-block;margin-top:1rem;color:var(--gold-400);font-weight:600;font-size:0.8125rem;text-decoration:none;">Join as Pilot Partner →</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- VIEW ALL PRODUCTS LINK -->
+        <div class="animate-on-scroll" style="text-align:center;margin-top:2rem;">
+            <a href="products.html" class="btn-primary" style="background:var(--gold-500);color:var(--navy-900);font-weight:700;">
+                View All 17 Products →
+            </a>
+            <p style="margin-top:0.75rem;font-size:0.875rem;color:var(--navy-300);">Explore the full product catalog with pricing, status, and details.</p>
         </div>
     </section>
 
     <!-- ====== HOW IT CREATES VALUE ====== -->
     <section class="section section-gray">
         <div class="section-header animate-on-scroll">
-            <span class="overline">The Flywheel</span>
-            <h2>How Angavu Creates Value</h2>
-            <p>Each product strengthens the others — creating a self-reinforcing intelligence platform.</p>
+            <span class="overline">How Msaidizi Helps You · Jinsi Msaidizi Anavyokusaidia</span>
+            <h2>Your Business, Understood</h2>
+            <p>Three steps from spoken words to real business intelligence.</p>
         </div>
 
         <div class="steps animate-on-scroll">
             <div class="step">
                 <div class="step-number">1</div>
-                <h3>Workers Generate Data</h3>
-                <p>Millions of informal workers use Msaidizi to run their businesses — generating real economic data for the first time.</p>
+                <h3>Speak Your Sales</h3>
+                <p>Just talk to Msaidizi in your language. "Nimeuza nyanya kilo 5, elfu moja" — and it's recorded. No typing, no forms.</p>
             </div>
             <div class="step">
                 <div class="step-number">2</div>
-                <h3>Intelligence Emerges</h3>
-                <p>Aggregated, anonymized data becomes market intelligence (Soko Pulse), credit scores (Alama Score), and policy insights (Angavu Pulse).</p>
+                <h3>Know Your Profit</h3>
+                <p>Msaidizi tracks your sales, expenses, and profit automatically. Every morning, hear how your business did yesterday.</p>
             </div>
             <div class="step">
                 <div class="step-number">3</div>
-                <h3>Revenue Funds Growth</h3>
-                <p>B2B and B2G revenue funds free worker tools — creating a sustainable loop that scales to 2 billion workers.</p>
+                <h3>Grow Your Business</h3>
+                <p>Cash flow predictions, credit building, and smart alerts help you make better decisions. Your business grows — and you stay in control.</p>
             </div>
         </div>
     </section>
@@ -209,27 +361,27 @@
     <!-- ====== COMPANY STATS ====== -->
     <section class="section section-dark">
         <div class="section-header animate-on-scroll">
-            <span class="overline">Scale</span>
-            <h2>The Opportunity</h2>
-            <p>We're building for the largest economic segment on the planet.</p>
+            <span class="overline">Scale · Ukubwa</span>
+            <h2>Built for You — and Millions Like You</h2>
+            <p>Msaidizi is free because businesses and governments pay for the intelligence your data creates.</p>
         </div>
 
         <div class="stats-bar animate-on-scroll">
             <div class="stat-item">
                 <div class="stat-number">2B+</div>
-                <div class="stat-label">Informal Workers Globally</div>
+                <div class="stat-label">Workers Worldwide</div>
             </div>
             <div class="stat-item">
                 <div class="stat-number">83%</div>
                 <div class="stat-label">Of Africa's Workforce</div>
             </div>
             <div class="stat-item">
-                <div class="stat-number">15+</div>
-                <div class="stat-label">Revenue Products</div>
+                <div class="stat-number">Free</div>
+                <div class="stat-label">For Every Worker</div>
             </div>
             <div class="stat-item">
-                <div class="stat-number">$46B</div>
-                <div class="stat-label">Annual Value at Stake</div>
+                <div class="stat-number">15+</div>
+                <div class="stat-label">Languages Supported</div>
             </div>
         </div>
     </section>
@@ -238,20 +390,21 @@
     <section class="section" style="text-align:center;">
         <div class="animate-on-scroll" style="max-width:700px;margin:0 auto;">
             <h2 style="font-size:clamp(1.75rem,4vw,2.5rem);font-weight:800;color:var(--navy-900);letter-spacing:-0.02em;">
-                Built in Africa. Built for the World.
+                Join Our First 1,000 Workers
             </h2>
+            <p style="font-size:1rem;color:var(--gray-400);font-style:italic;margin-top:0.5rem;">Junge na wafanyakazi elfu moja wa kwanza.</p>
             <p style="margin-top:1rem;font-size:1.125rem;color:var(--gray-500);">
-                From Migori, Kenya to every informal market on earth. Angavu Intelligence is building the economic nervous system for 2 billion workers.
+                Msaidizi is free, forever. Speak your sales, track your profit, grow your business. From Migori, Kenya to every informal market on earth.
             </p>
             <div style="margin-top:2.5rem;display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;">
-                <a href="msaidizi.html" class="btn-primary" style="background:var(--gold-500);color:var(--navy-900);">
-                    Meet Msaidizi →
+                <a href="download.html" class="btn-primary" style="background:var(--gold-500);color:var(--navy-900);">
+                    Download Msaidizi — Free →
                 </a>
-                <a href="for-businesses.html" class="btn-secondary" style="border-color:var(--navy-300);color:var(--navy-700);">
-                    For Businesses →
+                <a href="for-workers.html" class="btn-secondary" style="border-color:var(--navy-300);color:var(--navy-700);">
+                    For Workers →
                 </a>
-                <a href="for-government.html" class="btn-secondary" style="border-color:var(--navy-300);color:var(--navy-700);">
-                    For Government →
+                <a href="for-investors.html" class="btn-secondary" style="border-color:var(--navy-300);color:var(--navy-700);">
+                    For Investors →
                 </a>
             </div>
         </div>
@@ -265,15 +418,15 @@
                     <svg width="32" height="32" viewBox="0 0 40 40" fill="none"><circle cx="20" cy="20" r="18" stroke="#E8A838" stroke-width="2.5"/><circle cx="20" cy="20" r="8" fill="#E8A838"/><path d="M20 2 C20 2 32 12 32 20 C32 28 20 38 20 38" stroke="#E8A838" stroke-width="1.5" fill="none"/><path d="M20 2 C20 2 8 12 8 20 C8 28 20 38 20 38" stroke="#E8A838" stroke-width="1.5" fill="none"/></svg>
                     <span>Angavu Intelligence</span>
                 </a>
-                <p>Making the invisible economy visible. AI-powered intelligence for 2 billion informal workers worldwide.</p>
+                <p>Free AI-powered CFO for every informal worker. Speak your sales, track your profit, grow your business.</p>
             </div>
             <div>
                 <h4>Products</h4>
                 <ul class="footer-links">
-                    <li><a href="msaidizi.html">Msaidizi CFO (Workers)</a></li>
+                    <li><a href="msaidizi.html">Msaidizi CFO (Free)</a></li>
                     <li><a href="for-businesses.html">For Businesses</a></li>
                     <li><a href="for-government.html">For Government</a></li>
-                    <li><a href="api.html">API</a></li>
+                    <li><a href="for-investors.html">For Investors</a></li>
                     <li><a href="download.html">Download</a></li>
                 </ul>
             </div>

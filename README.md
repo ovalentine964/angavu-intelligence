@@ -1,8 +1,19 @@
-# Angavu Intelligence
+<p align="center">
+  <img src=".github/banner.svg" alt="Angavu Intelligence — Africa's Economic Nervous System" width="100%">
+</p>
 
-### Africa's Economic Nervous System
+<p align="center">
+  <img src="https://img.shields.io/badge/HTML5-E34F26?style=flat-square&logo=html5&logoColor=white" alt="HTML5">
+  <img src="https://img.shields.io/badge/CSS3-1572B6?style=flat-square&logo=css3&logoColor=white" alt="CSS3">
+  <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&logo=javascript&logoColor=black" alt="JavaScript">
+  <img src="https://img.shields.io/badge/PWA-5A0FC8?style=flat-square" alt="PWA">
+  <img src="https://img.shields.io/badge/License-SSPL--1.0-blue?style=flat-square" alt="License">
+</p>
 
-**Angavu Intelligence Ltd.** builds the data infrastructure for Africa's informal economy — the $1.5 trillion market that employs 85% of the continent's workforce but remains invisible to traditional financial systems.
+<p align="center">
+  <strong>Angavu Intelligence Ltd.</strong> — Africa's Economic Nervous System<br>
+  Data infrastructure for the $1.5 trillion informal economy that employs 85% of Africa's workforce.
+</p>
 
 🔗 **[Live Website](https://ovalentine964.github.io/angavu-intelligence/)** · 📱 **[Download Msaidizi CFO](https://ovalentine964.github.io/angavu-intelligence/download.html)**
 

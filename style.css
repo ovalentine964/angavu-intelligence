@@ -303,14 +303,21 @@ nav, header, section, footer, .hero, .section, .footer, .nav, .mobile-menu, .sid
   height: 2rem;
 }
 
-/* Nav Links (center) — Desktop only */
+/* Nav Links (center) — Always visible, horizontal tabs */
 .nav-center {
-  display: none;
+  display: flex;
   align-items: center;
   gap: 0.25rem;
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  max-width: calc(100vw - 14rem);
+}
+.nav-center::-webkit-scrollbar {
+  display: none;
 }
 
 .nav-center a {
@@ -322,6 +329,8 @@ nav, header, section, footer, .hero, .section, .footer, .nav, .mobile-menu, .sid
   position: relative;
   padding: 0.5rem 1rem;
   border-radius: var(--radius-full);
+  white-space: nowrap;
+  flex-shrink: 0;
 }
 
 .nav-center a:hover {
@@ -352,9 +361,9 @@ nav, header, section, footer, .hero, .section, .footer, .nav, .mobile-menu, .sid
   width: 60%;
 }
 
-/* Nav CTA (right) — Desktop only */
+/* Nav CTA (right) — Always visible */
 .nav-right {
-  display: none;
+  display: flex;
   align-items: center;
   gap: 1rem;
   flex-shrink: 0;
@@ -384,9 +393,9 @@ nav, header, section, footer, .hero, .section, .footer, .nav, .mobile-menu, .sid
   display: none !important;
 }
 
-/* Hamburger Button (Mobile) */
+/* Hamburger Button — Hidden (direct tabs instead) */
 .mobile-menu-btn {
-  display: flex;
+  display: none;
   align-items: center;
   justify-content: center;
   background: none;
@@ -1337,9 +1346,7 @@ nav, header, section, footer, .hero, .section, .footer, .nav, .mobile-menu, .sid
 
 /* Desktop (1024px+) — Split nav appears */
 @media (min-width: 1024px) {
-  .nav-center { display: flex; }
-  .nav-right { display: flex; }
-  .mobile-menu-btn { display: none; }
+  .nav-center { max-width: none; }
 
   .hero-content { padding: 8rem 2rem 4rem; }
   .hero-stats { gap: 3rem; }

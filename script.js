@@ -310,4 +310,66 @@
   } else {
     initTicker();
   }
+
+  // ── Angavu Watermark Injection ──
+  (function injectWatermark() {
+    var wm = document.createElement('div');
+    wm.className = 'angavu-watermark';
+    wm.setAttribute('aria-hidden', 'true');
+    wm.setAttribute('role', 'presentation');
+    wm.innerHTML = '<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">'
+      + '<defs><linearGradient id="wmIris" x1="0%" y1="0%" x2="100%" y2="100%">'
+      + '<stop offset="0%" stop-color="#E8A838"/><stop offset="100%" stop-color="#E8853D"/>'
+      + '</linearGradient></defs>'
+      + '<path d="M 18 50 Q 50 18 82 50" fill="none" stroke="#1B4965" stroke-width="3.5" stroke-linecap="round"/>'
+      + '<path d="M 18 50 Q 50 82 82 50" fill="none" stroke="#1B4965" stroke-width="3.5" stroke-linecap="round"/>'
+      + '<circle cx="50" cy="50" r="17" fill="none" stroke="#1B4965" stroke-width="1.2" opacity="0.4"/>'
+      + '<circle cx="50" cy="50" r="13" fill="url(#wmIris)"/>'
+      + '<circle cx="46" cy="46" r="4" fill="#F5D78E" opacity="0.6"/>'
+      + '<line x1="8" y1="50" x2="30" y2="50" stroke="#E8A838" stroke-width="2" stroke-linecap="round" opacity="0.7"/>'
+      + '<line x1="70" y1="50" x2="92" y2="50" stroke="#E8A838" stroke-width="2" stroke-linecap="round" opacity="0.7"/>'
+      + '<circle cx="8" cy="50" r="3.5" fill="#E8A838"/>'
+      + '<circle cx="8" cy="50" r="5.5" fill="none" stroke="#E8A838" stroke-width="0.8" opacity="0.4"/>'
+      + '<circle cx="92" cy="50" r="3.5" fill="#E8A838"/>'
+      + '<circle cx="92" cy="50" r="5.5" fill="none" stroke="#E8A838" stroke-width="0.8" opacity="0.4"/>'
+      + '<circle cx="22" cy="50" r="1.5" fill="#E8853D" opacity="0.5"/>'
+      + '<circle cx="78" cy="50" r="1.5" fill="#E8853D" opacity="0.5"/>'
+      + '</svg>';
+    document.body.appendChild(wm);
+  })();
+
+  // ── Hero Banner Particle System ──
+  (function initHeroParticles() {
+    var canvas = document.querySelector('.angavu-hero-banner .hero-bg-canvas');
+    if (!canvas) return;
+
+    // Create data-flow particles
+    var particleCount = window.innerWidth < 768 ? 15 : 30;
+    for (var i = 0; i < particleCount; i++) {
+      var p = document.createElement('div');
+      p.className = 'data-particle';
+      p.style.left = Math.random() * 100 + '%';
+      p.style.bottom = '-10px';
+      p.style.animationDuration = (6 + Math.random() * 8) + 's';
+      p.style.animationDelay = (Math.random() * 10) + 's';
+      var size = 2 + Math.random() * 4;
+      p.style.width = size + 'px';
+      p.style.height = size + 'px';
+      p.style.opacity = 0.2 + Math.random() * 0.4;
+      canvas.appendChild(p);
+    }
+
+    // Create network connection lines
+    var lineCount = window.innerWidth < 768 ? 3 : 6;
+    for (var j = 0; j < lineCount; j++) {
+      var line = document.createElement('div');
+      line.className = 'network-line';
+      line.style.top = (15 + Math.random() * 70) + '%';
+      line.style.left = '0';
+      line.style.width = (30 + Math.random() * 40) + '%';
+      line.style.animationDuration = (6 + Math.random() * 6) + 's';
+      line.style.animationDelay = (Math.random() * 8) + 's';
+      canvas.appendChild(line);
+    }
+  })();
 })();

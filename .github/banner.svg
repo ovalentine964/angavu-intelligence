@@ -1,0 +1,145 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 640" width="1280" height="640">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FAFBFC"/>
+      <stop offset="50%" stop-color="#F0F4F8"/>
+      <stop offset="100%" stop-color="#E8EEF4"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#004E64"/>
+      <stop offset="100%" stop-color="#1B4965"/>
+    </linearGradient>
+    <linearGradient id="goldAccent" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#E8A838"/>
+      <stop offset="100%" stop-color="#FF6B35"/>
+    </linearGradient>
+    <linearGradient id="africaGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1B4965" stop-opacity="0.06"/>
+      <stop offset="100%" stop-color="#004E64" stop-opacity="0.03"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1280" height="640" fill="url(#bg)"/>
+
+  <!-- Subtle dot pattern -->
+  <g opacity="0.08">
+    <pattern id="dots" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
+      <circle cx="10" cy="10" r="0.8" fill="#1B4965"/>
+    </pattern>
+    <rect width="1280" height="640" fill="url(#dots)"/>
+  </g>
+
+  <!-- Africa outline (simplified, center-right) -->
+  <g transform="translate(780, 120)" opacity="0.08" fill="#1B4965" stroke="#1B4965" stroke-width="1">
+    <path d="M120,0 C130,5 140,15 145,30 C150,45 155,55 158,70 C160,80 155,90 150,100 C145,110 148,120 152,130 C155,140 160,150 158,165 C155,180 148,195 140,210 C135,220 128,235 120,250 C115,260 110,270 105,280 C100,290 95,300 88,310 C82,318 75,325 68,330 C60,335 55,340 50,348 C45,355 42,360 38,365 C34,370 28,375 22,378 C18,380 14,382 10,383 C8,383 6,382 5,380 C4,378 5,375 8,372 C12,368 18,362 22,355 C28,345 32,335 35,325 C38,315 40,305 42,295 C44,285 45,275 44,265 C43,255 40,245 38,235 C35,225 32,215 30,205 C28,195 28,185 30,175 C32,165 35,155 38,145 C42,135 48,125 52,115 C58,105 62,95 65,85 C68,75 68,65 65,55 C62,45 58,38 55,30 C52,22 50,15 52,8 C54,2 60,0 70,0 C80,0 90,2 100,5 C108,8 115,12 120,0 Z"/>
+  </g>
+
+  <!-- Data points on Africa -->
+  <g opacity="0.25">
+    <!-- Nairobi -->
+    <circle cx="920" cy="350" r="5" fill="#FF6B35" opacity="0.8"/>
+    <circle cx="920" cy="350" r="12" fill="none" stroke="#FF6B35" stroke-width="1" opacity="0.3"/>
+    <circle cx="920" cy="350" r="20" fill="none" stroke="#FF6B35" stroke-width="0.5" opacity="0.15"/>
+    <text x="940" y="355" font-family="'Segoe UI', Arial, sans-serif" font-size="10" fill="#004E64" font-weight="600">Nairobi</text>
+
+    <!-- Lagos -->
+    <circle cx="830" cy="330" r="4" fill="#E8A838" opacity="0.8"/>
+    <circle cx="830" cy="330" r="10" fill="none" stroke="#E8A838" stroke-width="1" opacity="0.3"/>
+    <text x="810" y="320" font-family="'Segoe UI', Arial, sans-serif" font-size="10" fill="#004E64" font-weight="600">Lagos</text>
+
+    <!-- Johannesburg -->
+    <circle cx="900" cy="480" r="4" fill="#E8A838" opacity="0.8"/>
+    <circle cx="900" cy="480" r="10" fill="none" stroke="#E8A838" stroke-width="1" opacity="0.3"/>
+    <text x="920" y="485" font-family="'Segoe UI', Arial, sans-serif" font-size="10" fill="#004E64" font-weight="600">Johannesburg</text>
+
+    <!-- Cairo -->
+    <circle cx="920" cy="200" r="4" fill="#1B4965" opacity="0.8"/>
+    <circle cx="920" cy="200" r="10" fill="none" stroke="#1B4965" stroke-width="1" opacity="0.3"/>
+    <text x="940" y="205" font-family="'Segoe UI', Arial, sans-serif" font-size="10" fill="#004E64" font-weight="600">Cairo</text>
+
+    <!-- Accra -->
+    <circle cx="810" cy="360" r="3" fill="#FF6B35" opacity="0.6"/>
+    <circle cx="810" cy="360" r="8" fill="none" stroke="#FF6B35" stroke-width="0.5" opacity="0.3"/>
+
+    <!-- Dar es Salaam -->
+    <circle cx="940" cy="410" r="3" fill="#E8A838" opacity="0.6"/>
+    <circle cx="940" cy="410" r="8" fill="none" stroke="#E8A838" stroke-width="0.5" opacity="0.3"/>
+
+    <!-- Connection lines between cities -->
+    <line x1="920" y1="350" x2="830" y2="330" stroke="#E8A838" stroke-width="0.5" stroke-dasharray="3,3" opacity="0.3"/>
+    <line x1="920" y1="350" x2="900" y2="480" stroke="#E8A838" stroke-width="0.5" stroke-dasharray="3,3" opacity="0.3"/>
+    <line x1="920" y1="350" x2="920" y2="200" stroke="#1B4965" stroke-width="0.5" stroke-dasharray="3,3" opacity="0.3"/>
+    <line x1="830" y1="330" x2="810" y2="360" stroke="#FF6B35" stroke-width="0.5" stroke-dasharray="3,3" opacity="0.3"/>
+    <line x1="920" y1="350" x2="940" y2="410" stroke="#E8A838" stroke-width="0.5" stroke-dasharray="3,3" opacity="0.3"/>
+  </g>
+
+  <!-- Angavu Eye Logo (centered, top) -->
+  <g transform="translate(640, 90)">
+    <!-- Outer arcs -->
+    <path d="M-50,0 A50,50 0 0,1 0,-50" fill="none" stroke="#1B4965" stroke-width="3.5" opacity="0.8"/>
+    <path d="M50,0 A50,50 0 0,1 0,50" fill="none" stroke="#1B4965" stroke-width="3.5" opacity="0.8"/>
+    <path d="M-44,0 A44,44 0 0,1 0,-44" fill="none" stroke="#1B4965" stroke-width="2" opacity="0.4"/>
+    <path d="M44,0 A44,44 0 0,1 0,44" fill="none" stroke="#1B4965" stroke-width="2" opacity="0.4"/>
+    <!-- Iris -->
+    <circle cx="0" cy="0" r="22" fill="none" stroke="#E8A838" stroke-width="3"/>
+    <circle cx="0" cy="0" r="15" fill="#E8A838" opacity="0.2"/>
+    <!-- Pupil -->
+    <circle cx="0" cy="0" r="8" fill="#1B4965"/>
+    <circle cx="0" cy="0" r="4" fill="#0A1628"/>
+    <!-- Iris detail -->
+    <line x1="0" y1="-15" x2="0" y2="-8" stroke="#E8A838" stroke-width="1.2" opacity="0.5"/>
+    <line x1="15" y1="0" x2="8" y2="0" stroke="#E8A838" stroke-width="1.2" opacity="0.5"/>
+    <line x1="0" y1="15" x2="0" y2="8" stroke="#E8A838" stroke-width="1.2" opacity="0.5"/>
+    <line x1="-15" y1="0" x2="-8" y2="0" stroke="#E8A838" stroke-width="1.2" opacity="0.5"/>
+    <!-- Network nodes -->
+    <circle cx="38" cy="-38" r="2.5" fill="#E8A838" opacity="0.5"/>
+    <circle cx="-38" cy="38" r="2.5" fill="#E8A838" opacity="0.5"/>
+    <circle cx="42" cy="15" r="2" fill="#1B4965" opacity="0.4"/>
+    <circle cx="-42" cy="-15" r="2" fill="#1B4965" opacity="0.4"/>
+    <circle cx="20" cy="-45" r="1.5" fill="#FF6B35" opacity="0.4"/>
+    <circle cx="-20" cy="45" r="1.5" fill="#FF6B35" opacity="0.4"/>
+  </g>
+
+  <!-- Main content -->
+  <g transform="translate(80, 0)">
+    <rect x="0" y="175" width="60" height="3" fill="url(#accent)" rx="1.5"/>
+
+    <!-- Title -->
+    <text x="520" y="230" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="58" font-weight="800" fill="#0A1628" letter-spacing="-1" text-anchor="middle">Angavu Intelligence</text>
+
+    <!-- Subtitle -->
+    <text x="520" y="275" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="20" fill="#004E64" font-weight="400" text-anchor="middle" letter-spacing="0.5">Download Msaidizi CFO App · B2B &amp; Government Intelligence</text>
+
+    <!-- Tagline -->
+    <text x="520" y="310" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="15" fill="#1B4965" opacity="0.5" text-anchor="middle" letter-spacing="1.5">Africa's Economic Nervous System</text>
+
+    <!-- Divider -->
+    <line x1="320" y1="330" x2="720" y2="330" stroke="#1B4965" stroke-width="0.5" opacity="0.15"/>
+
+    <!-- CTA-style badges -->
+    <g transform="translate(220, 355)">
+      <!-- Website badge -->
+      <g>
+        <rect width="130" height="34" rx="17" fill="#004E64"/>
+        <text x="65" y="22" font-family="'Segoe UI', Arial, sans-serif" font-size="12" fill="#FFFFFF" text-anchor="middle" font-weight="600">🌐 Visit Website</text>
+      </g>
+      <!-- App badge -->
+      <g transform="translate(145, 0)">
+        <rect width="160" height="34" rx="17" fill="#FF6B35"/>
+        <text x="80" y="22" font-family="'Segoe UI', Arial, sans-serif" font-size="12" fill="#FFFFFF" text-anchor="middle" font-weight="600">📱 Download App</text>
+      </g>
+      <!-- API badge -->
+      <g transform="translate(320, 0)">
+        <rect width="130" height="34" rx="17" fill="#1B4965" opacity="0.1" stroke="#1B4965" stroke-width="1"/>
+        <text x="65" y="22" font-family="'Segoe UI', Arial, sans-serif" font-size="12" fill="#1B4965" text-anchor="middle" font-weight="600">⚡ API Docs</text>
+      </g>
+    </g>
+  </g>
+
+  <!-- Bottom accent bar -->
+  <rect x="0" y="632" width="1280" height="8" fill="url(#accent)" opacity="0.8"/>
+
+  <!-- Bottom brand -->
+  <text x="640" y="618" font-family="'Segoe UI', Arial, sans-serif" font-size="10" fill="#1B4965" opacity="0.3" text-anchor="middle" letter-spacing="2">ANGAVU INTELLIGENCE LTD</text>
+</svg>

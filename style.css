@@ -1306,10 +1306,10 @@ nav, header, section, footer, .hero, .section, .footer, .nav, .mobile-menu, .sid
    RESPONSIVE — Mobile-first
    ================================================================ */
 
-/* Base mobile: nav-center and nav-right hidden, hamburger visible */
-.nav-center { display: none; }
-.nav-right { display: none; }
-.mobile-menu-btn { display: flex; }
+/* Base mobile: nav tabs always visible horizontally */
+.nav-center { display: flex; }
+.nav-right { display: flex; }
+.mobile-menu-btn { display: none; }
 
 /* Base mobile: hero compact */
 .hero-content { padding: 6rem 1.5rem 3rem; }

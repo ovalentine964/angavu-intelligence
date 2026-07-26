@@ -12,10 +12,29 @@
 
 | Product | Audience | Description |
 |---------|----------|-------------|
-| **Msaidizi CFO** | Informal workers | Free Android app — speak your sales in Sheng/Swahili, get profit tracking, inventory alerts, and credit scoring |
+| **Msaidizi CFO** | Informal workers | Free Android app — 52+ AI tools, voice-first in 14 languages, graph-aware superagent with council orchestration |
 | **Soko Pulse** | FMCG companies | Real-time demand intelligence from informal retail channels ($2K–$12K/month) |
 | **Alama Score** | Lenders & fintechs | Credit scoring for the unbanked using transaction behaviour ($0.05–$0.50/query) |
 | **Angavu Pulse** | Government | Economic intelligence dashboards for policy decisions |
+
+---
+
+## Latest: 18 Research Council Implementations
+
+All 18 research/implementation councils have completed, delivering:
+
+- **Graph Engineering** — Tool dependency graph, knowledge graph, workflow DAG
+- **Loop Engineering** — OODA loop, self-correction, circuit breakers, drift detection
+- **Council Engineering** — 6 councils (Finance, Inventory, Market, Growth, Agriculture, Extractive), agent spawning, event bus
+- **Alama Score Calibration** — 8 worker-type feature extractors with seasonality adjustment
+- **Health Metrics** — Occupation-hazard matrices for 10 worker types, insurance eligibility engine
+- **Service Price Discovery** — Transport, construction, beauty, repair pricing intelligence
+- **Harvest & Produce Tracking** — Farmers, fishermen, miners with yield prediction
+- **Job & Customer Marketplace** — Fundis, househelps, entertainers matching
+- **Voice-First UI** — 14 Compose screens, always-on voice, Swahili-first
+- **Onboarding & Localization** — 240 Swahili prompts, 14 language support
+- **Accessibility & Low-Literacy Design** — Icon-first, voice-everywhere, high contrast
+- **Design System** — Custom colors, typography, cards, charts, navigation
 
 ---
 
@@ -69,3 +88,7 @@ We believe every market trader, mama mboga, and boda-boda driver deserves the sa
 ---
 
 © 2026 Angavu Intelligence Ltd. All rights reserved.
+
+---
+
+*Built by 18 research councils. Powered by Africa's informal economy.*

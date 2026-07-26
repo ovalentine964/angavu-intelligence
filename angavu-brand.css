@@ -1,0 +1,279 @@
+/* ============================================
+   ANGAVU INTELLIGENCE — Brand Watermark System
+   v1.0 — Live watermark, header/footer, hero
+   ============================================ */
+
+/* ── SVG Logo Component ── */
+.angavu-logo-svg {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.angavu-logo-svg .iris-core {
+  transition: filter 0.3s ease;
+}
+
+.angavu-logo-svg:hover .iris-core {
+  filter: brightness(1.3);
+}
+
+/* ── Logo Pulse Animation ── */
+@keyframes angavu-iris-pulse {
+  0%, 100% {
+    filter: brightness(1) drop-shadow(0 0 0px rgba(232, 168, 56, 0));
+  }
+  50% {
+    filter: brightness(1.15) drop-shadow(0 0 6px rgba(232, 168, 56, 0.3));
+  }
+}
+
+@keyframes angavu-glow-ring {
+  0%, 100% {
+    opacity: 0.3;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.6;
+    transform: scale(1.08);
+  }
+}
+
+/* ── Live Watermark ── */
+.angavu-watermark {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 5;
+  pointer-events: none;
+  opacity: 0.16;
+  width: 80px;
+  height: 80px;
+  animation: angavu-watermark-pulse 5s ease-in-out infinite;
+  will-change: opacity;
+  /* Accessibility: hidden from screen readers */
+  aria-hidden: true;
+}
+
+.angavu-watermark svg {
+  width: 100%;
+  height: 100%;
+  filter: drop-shadow(0 2px 8px rgba(232, 168, 56, 0.15));
+}
+
+@keyframes angavu-watermark-pulse {
+  0%, 100% {
+    opacity: 0.16;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.22;
+    transform: scale(1.04);
+  }
+}
+
+/* Watermark responsive */
+@media (max-width: 768px) {
+  .angavu-watermark {
+    width: 50px;
+    height: 50px;
+    bottom: 12px;
+    right: 12px;
+  }
+}
+
+@media (min-width: 1400px) {
+  .angavu-watermark {
+    width: 100px;
+    height: 100px;
+    bottom: 32px;
+    right: 32px;
+  }
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .angavu-watermark {
+    animation: none;
+    opacity: 0.15;
+  }
+  .angavu-logo-svg .iris-core,
+  .angavu-logo-svg {
+    animation: none !important;
+  }
+}
+
+/* ── Brand Header (enhanced nav-logo) ── */
+.angavu-brand-header .nav-logo {
+  gap: 0.625rem;
+}
+
+.angavu-brand-header .nav-logo .angavu-logo-svg {
+  width: 2rem;
+  height: 2rem;
+  animation: angavu-iris-pulse 4s ease-in-out infinite;
+}
+
+.angavu-brand-header .nav-logo-text {
+  font-weight: 700;
+  font-size: 1.125rem;
+  color: var(--navy-700, #1B4965);
+  letter-spacing: -0.01em;
+}
+
+/* ── Brand Footer ── */
+.angavu-brand-footer .footer-brand .angavu-logo-svg {
+  width: 2.25rem;
+  height: 2.25rem;
+  margin-bottom: 0.5rem;
+}
+
+.angavu-brand-footer .footer-brand-name {
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 0.25rem;
+}
+
+.angavu-brand-footer .footer-brand-tagline {
+  font-size: 0.8125rem;
+  color: var(--navy-300, #8AA3B5);
+  font-style: italic;
+  margin-top: 0.5rem;
+}
+
+.angavu-brand-footer .footer-copyright {
+  font-size: 0.75rem;
+  color: var(--navy-400, #6B8A9E);
+  margin-top: 0.75rem;
+}
+
+/* ── Hero Brand Banner (Homepage) ── */
+.angavu-hero-banner {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(135deg, #0F2D42 0%, #1B4965 40%, #2A6F99 100%);
+  padding: 6rem 2rem 5rem;
+  min-height: 480px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.angavu-hero-banner .hero-bg-canvas {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+}
+
+/* Animated data-flow particles */
+.angavu-hero-banner .data-particle {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: rgba(232, 168, 56, 0.4);
+  animation: angavu-particle-float linear infinite;
+  will-change: transform, opacity;
+}
+
+@keyframes angavu-particle-float {
+  0% {
+    transform: translateY(0) translateX(0) scale(1);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.6;
+  }
+  90% {
+    opacity: 0.6;
+  }
+  100% {
+    transform: translateY(-400px) translateX(40px) scale(0.3);
+    opacity: 0;
+  }
+}
+
+/* Network connection lines */
+.angavu-hero-banner .network-line {
+  position: absolute;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(232, 168, 56, 0.15), transparent);
+  animation: angavu-line-sweep 8s ease-in-out infinite;
+  will-change: transform, opacity;
+}
+
+@keyframes angavu-line-sweep {
+  0%, 100% {
+    opacity: 0;
+    transform: translateX(-100%);
+  }
+  30%, 70% {
+    opacity: 1;
+  }
+  50% {
+    transform: translateX(100%);
+  }
+}
+
+.angavu-hero-banner .hero-content {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  max-width: 800px;
+}
+
+.angavu-hero-banner .hero-logo {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+
+.angavu-hero-banner .hero-logo .angavu-logo-svg {
+  width: 96px;
+  height: 96px;
+  animation: angavu-iris-pulse 3s ease-in-out infinite;
+}
+
+.angavu-hero-banner .hero-logo .angavu-logo-svg .outer-glow {
+  animation: angavu-glow-ring 3s ease-in-out infinite;
+}
+
+.angavu-hero-banner h1 {
+  font-family: var(--font-display, 'Playfair Display', Georgia, serif);
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 800;
+  color: #fff;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+  margin-bottom: 1rem;
+}
+
+.angavu-hero-banner h1 .highlight {
+  background: linear-gradient(135deg, #E8A838, #E8853D);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.angavu-hero-banner .hero-tagline {
+  font-size: clamp(1rem, 2.5vw, 1.375rem);
+  color: var(--navy-200, #B8CCD8);
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+
+.angavu-hero-banner .hero-tagline-em {
+  font-style: italic;
+  color: var(--navy-300, #8AA3B5);
+  font-size: 0.95em;
+  display: block;
+  margin-top: 0.5rem;
+}
+
+/* ── Print: hide watermark ── */
+@media print {
+  .angavu-watermark {
+    display: none !important;
+  }
+}

@@ -1,0 +1,589 @@
+/* ============================================
+   ANGAVU WARM THEME — Worker-Facing Pages
+   Friendly, accessible, marketplace feel
+   Orange #FF6B35 · Teal #004E64 · Cream #FFF8F0
+   ============================================ */
+
+/* --- Warm Theme Variables --- */
+[data-theme="warm"] {
+  /* Backgrounds */
+  --bg-body: #FFF8F0;
+  --bg-card: #FFFFFF;
+  --bg-card-alt: #FFF5EB;
+  --bg-section-alt: #FFF2E5;
+  --bg-dark: #0A1628;
+
+  /* Text */
+  --text-body: #1A1A2E;
+  --text-muted: #4A4A5A;
+  --text-dim: #6B6B7B;
+  --text-inverse: #F0F0F0;
+
+  /* Borders */
+  --border-card: rgba(0, 0, 0, 0.08);
+  --border-subtle: rgba(0, 0, 0, 0.06);
+
+  /* Brand */
+  --gold-500: #E8A838;
+  --gold-400: #F0C060;
+  --african-orange: #FF6B35;
+  --orange-light: #FF8C5A;
+
+  /* Shadows — lighter for light theme */
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.08);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.08);
+  --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.1);
+  --shadow-xl: 0 16px 48px rgba(0, 0, 0, 0.12);
+  --shadow-gold: 0 4px 20px rgba(232, 168, 56, 0.2);
+}
+
+/* --- Navigation — Warm variant --- */
+[data-theme="warm"] .nav {
+  background: rgba(255, 248, 240, 0.92);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+}
+
+[data-theme="warm"] .nav.scrolled {
+  background: rgba(255, 248, 240, 0.97);
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.08);
+  border-bottom-color: rgba(232, 168, 56, 0.15);
+}
+
+[data-theme="warm"] .nav-logo a,
+[data-theme="warm"] .nav-logo {
+  color: #1A1A2E !important;
+}
+
+[data-theme="warm"] .nav-center a {
+  color: #4A4A5A;
+}
+
+[data-theme="warm"] .nav-center a:hover {
+  color: #1A1A2E;
+  background: rgba(255, 107, 53, 0.08);
+}
+
+[data-theme="warm"] .nav-center a.active {
+  color: #FF6B35;
+  background: rgba(255, 107, 53, 0.1);
+}
+
+[data-theme="warm"] .nav-center a::after {
+  background: #FF6B35;
+}
+
+[data-theme="warm"] .nav-cta {
+  background: #FF6B35 !important;
+  color: #FFFFFF !important;
+}
+
+[data-theme="warm"] .nav-cta:hover {
+  background: #FF8C5A !important;
+  box-shadow: 0 4px 14px rgba(255, 107, 53, 0.3);
+}
+
+/* --- Body text readability --- */
+[data-theme="warm"] body {
+  color: #1A1A2E;
+  background: #FFF8F0;
+  font-size: 18px;
+}
+
+/* --- Hero — Warm gradient --- */
+[data-theme="warm"] .hero,
+[data-theme="warm"] .angavu-hero-banner {
+  background: linear-gradient(135deg, #FFF8F0 0%, #FFF2E5 40%, #FFECD8 100%) !important;
+  min-height: auto;
+}
+
+[data-theme="warm"] .hero-content h1 {
+  color: #1A1A2E;
+  text-shadow: none;
+}
+
+[data-theme="warm"] .hero-content h1 .highlight {
+  background: linear-gradient(135deg, #FF6B35, #E8A838);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+[data-theme="warm"] .hero-subtitle {
+  color: #4A4A5A;
+}
+
+[data-theme="warm"] .hero-badge {
+  background: rgba(255, 107, 53, 0.1);
+  border-color: rgba(255, 107, 53, 0.25);
+  color: #FF6B35;
+}
+
+[data-theme="warm"] .hero-stats .stat-number {
+  color: #FF6B35;
+  text-shadow: none;
+}
+
+[data-theme="warm"] .hero-stats .stat-label {
+  color: #4A4A5A;
+}
+
+[data-theme="warm"] .hero-note {
+  color: #6B6B7B;
+}
+
+/* Warm hero — remove orbs/dark overlays */
+[data-theme="warm"] .orb { display: none; }
+[data-theme="warm"] .hero-bg-canvas { display: none; }
+[data-theme="warm"] .gradient-animated {
+  animation: none;
+  background: linear-gradient(135deg, #FFF8F0 0%, #FFF2E5 40%, #FFECD8 100%);
+}
+
+/* Warm hero logo glow */
+[data-theme="warm"] .angavu-hero-banner .hero-logo .angavu-logo-svg .outer-glow {
+  stroke: rgba(255, 107, 53, 0.15);
+}
+
+/* --- Buttons — Warm --- */
+[data-theme="warm"] .btn-primary {
+  background: #FF6B35;
+  color: #FFFFFF;
+  box-shadow: 0 4px 14px rgba(255, 107, 53, 0.3);
+  font-size: 1.125rem;
+}
+
+[data-theme="warm"] .btn-primary:hover {
+  background: #FF8C5A;
+  box-shadow: 0 6px 20px rgba(255, 107, 53, 0.4);
+}
+
+[data-theme="warm"] .btn-secondary {
+  color: #1A1A2E;
+  border-color: rgba(26, 26, 46, 0.2);
+}
+
+[data-theme="warm"] .btn-secondary:hover {
+  background: rgba(255, 107, 53, 0.06);
+  border-color: rgba(255, 107, 53, 0.3);
+}
+
+/* --- Sections --- */
+[data-theme="warm"] .section {
+  background: #FFF8F0;
+}
+
+[data-theme="warm"] .section-dark,
+[data-theme="warm"] .section-gray {
+  background: #FFF2E5;
+}
+
+[data-theme="warm"] .section-header h2 {
+  color: #1A1A2E;
+  text-shadow: none;
+}
+
+[data-theme="warm"] .section-header p {
+  color: #4A4A5A;
+}
+
+[data-theme="warm"] .section-header .overline {
+  color: #FF6B35;
+}
+
+/* --- Cards — Warm white --- */
+[data-theme="warm"] .card,
+[data-theme="warm"] .card-dark {
+  background: #FFFFFF;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+[data-theme="warm"] .card:hover,
+[data-theme="warm"] .card-dark:hover {
+  background: #FFFFFF;
+  border-color: rgba(255, 107, 53, 0.2);
+  box-shadow: 0 8px 24px rgba(255, 107, 53, 0.1), 0 0 0 1px rgba(255, 107, 53, 0.1);
+  transform: translateY(-4px);
+}
+
+[data-theme="warm"] .card h3,
+[data-theme="warm"] .card-dark h3 {
+  color: #1A1A2E;
+}
+
+[data-theme="warm"] .card p,
+[data-theme="warm"] .card-dark p {
+  color: #4A4A5A;
+}
+
+/* Card icons */
+[data-theme="warm"] .card-icon-gold {
+  background: rgba(255, 107, 53, 0.1);
+  color: #FF6B35;
+}
+
+[data-theme="warm"] .card-icon-navy {
+  background: rgba(0, 78, 100, 0.1);
+  color: #004E64;
+}
+
+/* --- Stats --- */
+[data-theme="warm"] .stat-number,
+[data-theme="warm"] .stats-bar .stat-item .stat-number {
+  color: #FF6B35;
+  text-shadow: none;
+}
+
+[data-theme="warm"] .stat-label,
+[data-theme="warm"] .stats-bar .stat-item .stat-label {
+  color: #4A4A5A;
+}
+
+/* --- Steps --- */
+[data-theme="warm"] .step-number {
+  background: #FF6B35;
+  color: #FFFFFF;
+  box-shadow: 0 0 20px rgba(255, 107, 53, 0.2);
+}
+
+[data-theme="warm"] .step h3 {
+  color: #1A1A2E;
+}
+
+[data-theme="warm"] .step p {
+  color: #4A4A5A;
+}
+
+/* --- Testimonials --- */
+[data-theme="warm"] .testimonial {
+  background: #FFFFFF;
+  border-color: rgba(0, 0, 0, 0.06);
+}
+
+[data-theme="warm"] .testimonial::before {
+  color: rgba(255, 107, 53, 0.15);
+}
+
+[data-theme="warm"] .testimonial-text {
+  color: #4A4A5A;
+}
+
+[data-theme="warm"] .testimonial-name {
+  color: #1A1A2E;
+}
+
+[data-theme="warm"] .testimonial-role {
+  color: #6B6B7B;
+}
+
+[data-theme="warm"] .testimonial-avatar {
+  background: rgba(255, 107, 53, 0.1);
+  color: #FF6B35;
+}
+
+/* --- Pricing --- */
+[data-theme="warm"] .pricing-card {
+  background: #FFFFFF;
+  border-color: rgba(0, 0, 0, 0.06);
+}
+
+[data-theme="warm"] .pricing-card.featured {
+  border-color: #FF6B35;
+  box-shadow: var(--shadow-xl), 0 0 0 1px #FF6B35, 0 4px 20px rgba(255, 107, 53, 0.15);
+}
+
+[data-theme="warm"] .pricing-card.featured::before {
+  background: #FF6B35;
+  color: #FFFFFF;
+}
+
+[data-theme="warm"] .pricing-tier {
+  color: #FF6B35;
+}
+
+[data-theme="warm"] .pricing-price {
+  color: #1A1A2E;
+}
+
+[data-theme="warm"] .pricing-price span {
+  color: #4A4A5A;
+}
+
+[data-theme="warm"] .pricing-features li {
+  color: #4A4A5A;
+}
+
+[data-theme="warm"] .pricing-features li svg {
+  color: #FF6B35;
+}
+
+/* --- Badges --- */
+[data-theme="warm"] .badge-gold {
+  background: rgba(255, 107, 53, 0.1);
+  color: #FF6B35;
+  border-color: rgba(255, 107, 53, 0.25);
+}
+
+[data-theme="warm"] .badge-navy {
+  background: rgba(0, 78, 100, 0.1);
+  color: #004E64;
+  border-color: rgba(0, 78, 100, 0.2);
+}
+
+[data-theme="warm"] .badge-green {
+  background: rgba(46, 139, 87, 0.1);
+  color: #2E8B57;
+  border-color: rgba(46, 139, 87, 0.25);
+}
+
+/* --- Status badges --- */
+[data-theme="warm"] .status-badge.live {
+  background: rgba(46, 139, 87, 0.1);
+  color: #2E8B57;
+  border-color: rgba(46, 139, 87, 0.25);
+}
+
+[data-theme="warm"] .status-badge.pilot {
+  background: rgba(255, 107, 53, 0.1);
+  color: #FF6B35;
+  border-color: rgba(255, 107, 53, 0.25);
+}
+
+/* --- Timeline --- */
+[data-theme="warm"] .timeline::before {
+  background: rgba(0, 0, 0, 0.1);
+}
+
+[data-theme="warm"] .timeline-item::before {
+  background: #FF6B35;
+  border-color: #FFF8F0;
+  box-shadow: 0 0 0 2px #FF6B35;
+}
+
+[data-theme="warm"] .timeline-year {
+  color: #FF6B35;
+}
+
+[data-theme="warm"] .timeline-title {
+  color: #1A1A2E;
+}
+
+[data-theme="warm"] .timeline-desc {
+  color: #4A4A5A;
+}
+
+/* --- FAQ --- */
+[data-theme="warm"] .faq-item {
+  border-bottom-color: rgba(0, 0, 0, 0.08);
+}
+
+[data-theme="warm"] .faq-question {
+  color: #1A1A2E;
+}
+
+[data-theme="warm"] .faq-question svg {
+  color: #6B6B7B;
+}
+
+[data-theme="warm"] .faq-answer p {
+  color: #4A4A5A;
+}
+
+/* --- Footer — Keep dark for contrast --- */
+[data-theme="warm"] .footer {
+  background: #0A1628;
+  color: #A0AEC0;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+[data-theme="warm"] .footer h4 {
+  color: #F0F0F0;
+}
+
+[data-theme="warm"] .footer-links a {
+  color: #A0AEC0;
+}
+
+[data-theme="warm"] .footer-links a:hover {
+  color: #FF6B35;
+}
+
+[data-theme="warm"] .footer-bottom {
+  border-top-color: rgba(255, 255, 255, 0.06);
+  color: #718096;
+}
+
+[data-theme="warm"] .footer-social a {
+  color: #718096;
+}
+
+[data-theme="warm"] .footer-social a:hover {
+  color: #FF6B35;
+}
+
+/* --- Market Ticker — Warm variant --- */
+[data-theme="warm"] .market-ticker {
+  background: #FFF2E5;
+  border-top: 1px solid rgba(255, 107, 53, 0.15);
+  border-bottom: 1px solid rgba(255, 107, 53, 0.1);
+}
+
+[data-theme="warm"] .ticker-label {
+  background: linear-gradient(to right, #FFF2E5 70%, transparent);
+}
+
+[data-theme="warm"] .ticker-live-text {
+  color: #FF6B35;
+}
+
+[data-theme="warm"] .ticker-commodity {
+  color: #004E64;
+}
+
+[data-theme="warm"] .ticker-price {
+  color: #1A1A2E;
+}
+
+[data-theme="warm"] .ticker-source {
+  color: #6B6B7B;
+}
+
+[data-theme="warm"] .ticker-divider {
+  background: rgba(0, 0, 0, 0.08);
+}
+
+[data-theme="warm"] .ticker-featured {
+  background: rgba(255, 107, 53, 0.06);
+  border-color: rgba(255, 107, 53, 0.15);
+}
+
+/* --- Gold line --- */
+[data-theme="warm"] hr.gold-line {
+  background: linear-gradient(90deg, transparent, #FF6B35, transparent);
+}
+
+/* --- Selection --- */
+[data-theme="warm"] ::selection {
+  background: rgba(255, 107, 53, 0.2);
+  color: #1A1A2E;
+}
+
+/* --- Focus --- */
+[data-theme="warm"] :focus-visible {
+  outline-color: #FF6B35;
+}
+
+/* --- Watermark — lighter --- */
+[data-theme="warm"] body::before {
+  opacity: 0.03;
+}
+
+[data-theme="warm"] .angavu-watermark {
+  opacity: 0.08;
+}
+
+/* --- Skip link --- */
+[data-theme="warm"] .skip-link {
+  background: #FF6B35;
+  color: #FFFFFF;
+}
+
+/* --- Code blocks stay dark --- */
+[data-theme="warm"] .code-block {
+  background: #1A1A2E;
+  border-color: rgba(0, 0, 0, 0.1);
+  color: #e2e8f0;
+}
+
+/* --- API table — warm --- */
+[data-theme="warm"] .api-table th {
+  background: #FFF2E5;
+  color: #1A1A2E;
+  border-bottom-color: rgba(0, 0, 0, 0.1);
+}
+
+[data-theme="warm"] .api-table td {
+  border-bottom-color: rgba(0, 0, 0, 0.04);
+  color: #4A4A5A;
+}
+
+[data-theme="warm"] .api-table code {
+  background: rgba(255, 107, 53, 0.08);
+  color: #FF6B35;
+}
+
+/* --- Swahili italic text --- */
+[data-theme="warm"] [style*="font-style:italic"],
+[data-theme="warm"] .hero-tagline-em {
+  color: #6B6B7B !important;
+}
+
+/* --- Large text overrides for readability --- */
+[data-theme="warm"] .hero-content h1 {
+  font-size: clamp(2.5rem, 6vw, 4rem);
+  line-height: 1.1;
+}
+
+[data-theme="warm"] .section-header h2 {
+  font-size: clamp(1.75rem, 4vw, 2.75rem);
+}
+
+[data-theme="warm"] .card h3 {
+  font-size: 1.25rem;
+}
+
+[data-theme="warm"] .card p {
+  font-size: 1rem;
+  line-height: 1.7;
+}
+
+/* --- Warm-specific CTA highlight box --- */
+[data-theme="warm"] [style*="background:rgba(232,133,61,0.1)"],
+[data-theme="warm"] [style*="background: rgba(232, 133, 61, 0.1)"] {
+  background: rgba(255, 107, 53, 0.1) !important;
+  color: #FF6B35 !important;
+  border-color: rgba(255, 107, 53, 0.2) !important;
+}
+
+/* --- Warm overrides for inline dark styles --- */
+[data-theme="warm"] [style*="color:var(--navy-900)"],
+[data-theme="warm"] [style*="color: var(--navy-900)"] {
+  color: #1A1A2E !important;
+}
+
+[data-theme="warm"] [style*="color:var(--gray-"],
+[data-theme="warm"] [style*="color: var(--gray-"] {
+  color: #4A4A5A !important;
+}
+
+[data-theme="warm"] h3[style*="color:var(--navy-900)"] {
+  color: #1A1A2E !important;
+}
+
+/* --- Responsive adjustments for warm theme --- */
+@media (max-width: 768px) {
+  [data-theme="warm"] body {
+    font-size: 16px;
+  }
+
+  [data-theme="warm"] .hero-content {
+    padding: 6rem 1.5rem 3rem;
+  }
+}
+
+/* --- Reduced motion --- */
+@media (prefers-reduced-motion: reduce) {
+  [data-theme="warm"] .gradient-animated {
+    animation: none;
+  }
+}
+
+/* --- Print --- */
+@media print {
+  [data-theme="warm"] body {
+    background: #fff;
+    color: #000;
+  }
+}

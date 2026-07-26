@@ -15,32 +15,110 @@
     <meta name="theme-color" content="#1B4965">
     <link rel="manifest" href="manifest.json">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="angavu-brand.css">
 </head>
 <body>
     <nav class="nav">
-        <div class="nav-logo"><img src="assets/logo-icon.png" alt="Angavu Intelligence" width="40" height="40"><a href="index.html">Angavu Intelligence</a></div>
-        <button class="mobile-menu-btn" aria-label="Toggle menu" aria-expanded="false">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
-        </button>
-        <div class="nav-links">
+        <div class="nav-logo angavu-brand-header">
+            <svg class="angavu-logo-svg" viewBox="0 0 100 100" width="40" height="40" aria-hidden="true">
+                      <defs><linearGradient id="navIris" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#E8A838"/><stop offset="100%" stop-color="#E8853D"/></linearGradient></defs>
+                      <path d="M 18 50 Q 50 18 82 50" fill="none" stroke="#5a9aba" stroke-width="3.5" stroke-linecap="round"/>
+                      <path d="M 18 50 Q 50 82 82 50" fill="none" stroke="#5a9aba" stroke-width="3.5" stroke-linecap="round"/>
+                      <circle cx="50" cy="50" r="17" fill="none" stroke="#5a9aba" stroke-width="1.2" opacity="0.4"/>
+                      <circle class="iris-core" cx="50" cy="50" r="13" fill="url(#navIris)"/>
+                      <circle cx="46" cy="46" r="4" fill="#F5D78E" opacity="0.6"/>
+                      <line x1="8" y1="50" x2="30" y2="50" stroke="#E8A838" stroke-width="2" stroke-linecap="round" opacity="0.7"/>
+                      <line x1="70" y1="50" x2="92" y2="50" stroke="#E8A838" stroke-width="2" stroke-linecap="round" opacity="0.7"/>
+                      <circle cx="8" cy="50" r="3.5" fill="#E8A838"/><circle cx="8" cy="50" r="5.5" fill="none" stroke="#E8A838" stroke-width="0.8" opacity="0.4"/>
+                      <circle cx="92" cy="50" r="3.5" fill="#E8A838"/><circle cx="92" cy="50" r="5.5" fill="none" stroke="#E8A838" stroke-width="0.8" opacity="0.4"/>
+                      <circle cx="22" cy="50" r="1.5" fill="#E8853D" opacity="0.5"/>
+                      <circle cx="78" cy="50" r="1.5" fill="#E8853D" opacity="0.5"/>
+                    </svg>
+            <a href="index.html">Angavu Intelligence</a>
+        </div>
+        <div class="nav-center">
             <a href="msaidizi.html">Msaidizi CFO</a>
             <a href="for-workers.html">For Workers</a>
+            <a href="technology.html">Technology</a>
             <a href="about.html">About</a>
-            <a href="download.html" class="btn-primary btn-sm">Download</a>
         </div>
+        <div class="nav-right">
+            <a href="download.html" class="nav-cta">Download</a>
+        </div>
+        <button class="mobile-menu-btn" aria-label="Toggle menu" aria-expanded="false" onclick="toggleSidebar()">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        </button>
     </nav>
     
     <a href="#main-content" class="skip-link">Skip to main content</a>
 
     <!-- ====== NAVIGATION ====== -->
     
-    <div class="mobile-menu dark">
-        <a href="msaidizi.html">Msaidizi CFO</a>
-        <a href="for-workers.html">For Workers</a>
-        
-        <a href="download.html">Download</a>
-    </div>
+        <!-- Sidebar Overlay -->
+    <div class="sidebar-overlay" id="sidebarOverlay" onclick="toggleSidebar()"></div>
 
+    <!-- Mobile Sidebar -->
+    <aside class="mobile-sidebar" id="mobileSidebar" aria-label="Navigation menu">
+        <div class="sidebar-header">
+            <div class="nav-logo angavu-brand-header">
+                <svg class="angavu-logo-svg" viewBox="0 0 100 100" width="40" height="40" aria-hidden="true">
+                      <defs><linearGradient id="navIris" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#E8A838"/><stop offset="100%" stop-color="#E8853D"/></linearGradient></defs>
+                      <path d="M 18 50 Q 50 18 82 50" fill="none" stroke="#5a9aba" stroke-width="3.5" stroke-linecap="round"/>
+                      <path d="M 18 50 Q 50 82 82 50" fill="none" stroke="#5a9aba" stroke-width="3.5" stroke-linecap="round"/>
+                      <circle cx="50" cy="50" r="17" fill="none" stroke="#5a9aba" stroke-width="1.2" opacity="0.4"/>
+                      <circle class="iris-core" cx="50" cy="50" r="13" fill="url(#navIris)"/>
+                      <circle cx="46" cy="46" r="4" fill="#F5D78E" opacity="0.6"/>
+                      <line x1="8" y1="50" x2="30" y2="50" stroke="#E8A838" stroke-width="2" stroke-linecap="round" opacity="0.7"/>
+                      <line x1="70" y1="50" x2="92" y2="50" stroke="#E8A838" stroke-width="2" stroke-linecap="round" opacity="0.7"/>
+                      <circle cx="8" cy="50" r="3.5" fill="#E8A838"/><circle cx="8" cy="50" r="5.5" fill="none" stroke="#E8A838" stroke-width="0.8" opacity="0.4"/>
+                      <circle cx="92" cy="50" r="3.5" fill="#E8A838"/><circle cx="92" cy="50" r="5.5" fill="none" stroke="#E8A838" stroke-width="0.8" opacity="0.4"/>
+                      <circle cx="22" cy="50" r="1.5" fill="#E8853D" opacity="0.5"/>
+                      <circle cx="78" cy="50" r="1.5" fill="#E8853D" opacity="0.5"/>
+                    </svg>
+                <a href="index.html">Angavu</a>
+            </div>
+            <button class="sidebar-close" aria-label="Close menu" onclick="toggleSidebar()">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+            </button>
+        </div>
+        <nav class="sidebar-nav">
+                <a href="index.html">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+                    Home
+                </a>
+                <a href="msaidizi.html">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 1a3 3 0 00-3 3v8a3 3 0 006 0V4a3 3 0 00-3-3z"/><path d="M19 10v2a7 7 0 01-14 0v-2"/></svg>
+                    Msaidizi CFO
+                </a>
+                <a href="for-workers.html">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4-4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+                    For Workers
+                </a>
+                <a href="technology.html">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+                    Technology
+                </a>
+                <a href="about.html">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+                    About
+                </a>
+                <a href="testimonials.html">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+                    Testimonials
+                </a>
+                <a href="vision.html">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+                    Vision
+                </a>
+                <a href="download.html">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                    Download
+                </a>
+        </nav>
+        <div class="sidebar-footer">
+            <a href="download.html" class="nav-cta">Download Msaidizi</a>
+        </div>
+    </aside>
     <!-- ====== HERO ====== -->
     <header class="hero gradient-animated" id="main-content">
         <div class="orb orb-gold" style="width:500px;height:500px;top:-100px;right:-150px;"></div>
@@ -264,15 +342,28 @@
     </section>
 
     <!-- ====== FOOTER ====== -->
-    <footer class="footer">
+    <footer class="footer angavu-brand-footer">
         <div class="footer-grid">
             <div class="footer-brand">
                 <a href="index.html" class="nav-logo" style="color:var(--white);">
-                    <svg width="32" height="32" viewBox="0 0 40 40" fill="none"><circle cx="20" cy="20" r="18" stroke="#E8A838" stroke-width="2.5"/><circle cx="20" cy="20" r="8" fill="#E8A838"/><path d="M20 2 C20 2 32 12 32 20 C32 28 20 38 20 38" stroke="#E8A838" stroke-width="1.5" fill="none"/><path d="M20 2 C20 2 8 12 8 20 C8 28 20 38 20 38" stroke="#E8A838" stroke-width="1.5" fill="none"/></svg>
-                    <span>Angavu Intelligence</span>
+                    <svg class="angavu-logo-svg" viewBox="0 0 100 100" width="36" height="36" aria-hidden="true">
+                    <defs><linearGradient id="ftIris" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#E8A838"/><stop offset="100%" stop-color="#E8853D"/></linearGradient></defs>
+                    <path d="M 18 50 Q 50 18 82 50" fill="none" stroke="#5a9aba" stroke-width="3.5" stroke-linecap="round"/>
+                    <path d="M 18 50 Q 50 82 82 50" fill="none" stroke="#5a9aba" stroke-width="3.5" stroke-linecap="round"/>
+                    <circle cx="50" cy="50" r="17" fill="none" stroke="#5a9aba" stroke-width="1.2" opacity="0.4"/>
+                    <circle cx="50" cy="50" r="13" fill="url(#ftIris)"/>
+                    <circle cx="46" cy="46" r="4" fill="#F5D78E" opacity="0.6"/>
+                    <line x1="8" y1="50" x2="30" y2="50" stroke="#E8A838" stroke-width="2" stroke-linecap="round" opacity="0.7"/>
+                    <line x1="70" y1="50" x2="92" y2="50" stroke="#E8A838" stroke-width="2" stroke-linecap="round" opacity="0.7"/>
+                    <circle cx="8" cy="50" r="3.5" fill="#E8A838"/><circle cx="8" cy="50" r="5.5" fill="none" stroke="#E8A838" stroke-width="0.8" opacity="0.4"/>
+                    <circle cx="92" cy="50" r="3.5" fill="#E8A838"/><circle cx="92" cy="50" r="5.5" fill="none" stroke="#E8A838" stroke-width="0.8" opacity="0.4"/>
+                    <circle cx="22" cy="50" r="1.5" fill="#E8853D" opacity="0.5"/>
+                    <circle cx="78" cy="50" r="1.5" fill="#E8853D" opacity="0.5"/>
+                  </svg>
+                    <span class="footer-brand-name">Angavu Intelligence</span>
                 </a>
-                <p>Free AI-powered CFO for every informal worker. Speak your sales, track your profit, grow your business.</p>
-                <p style="margin-top:0.5rem;font-size:0.75rem;color:var(--gray-500);">By Angavu Intelligence Ltd.</p>
+                <p class="footer-brand-tagline">Africa's Economic Nervous System — making the invisible economy visible through AI-powered intelligence.</p>
+                <p class="footer-copyright">© 2026 Angavu Intelligence Ltd. All rights reserved.</p>
             </div>
             <div>
                 <h4>Product</h4>
@@ -280,12 +371,15 @@
                     <li><a href="msaidizi.html">Msaidizi CFO</a></li>
                     <li><a href="for-workers.html">For Workers</a></li>
                     <li><a href="download.html">Download</a></li>
+                    <li><a href="technology.html">Technology</a></li>
                 </ul>
             </div>
             <div>
                 <h4>Company</h4>
                 <ul class="footer-links">
                     <li><a href="about.html">About</a></li>
+                    <li><a href="vision.html">Vision</a></li>
+                    <li><a href="testimonials.html">Testimonials</a></li>
                     <li><a href="privacy-policy.html">Privacy Policy</a></li>
                 </ul>
             </div>
@@ -295,6 +389,7 @@
                     <li><a href="https://twitter.com/angavu" target="_blank" rel="noopener">Twitter / X</a></li>
                     <li><a href="https://github.com/ovalentine964/angavu-intelligence" target="_blank" rel="noopener">GitHub</a></li>
                     <li><a href="mailto:hello@angavuintelligence.com">Email Us</a></li>
+                    <li><a href="api.html">API</a></li>
                 </ul>
             </div>
         </div>

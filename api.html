@@ -1,17 +1,42 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="sw" data-theme="warm">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>API — Angavu Intelligence</title>
-    <meta name="theme-color" content="#1B4965">
+    <meta name="description" content="Msaidizi API — programu za kufikia data ya biashara na uchumi.">
+    <meta property="og:title" content="API — Angavu Intelligence">
+    <meta property="og:description" content="Msaidizi API for business and economic data.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://angavu.com/api.html">
+    <meta property="og:image" content="https://angavu.com/assets/og-image.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://angavu.com/assets/og-image.png">
+    <link rel="canonical" href="https://angavu.com/api.html">
+    <link rel="alternate" hreflang="sw" href="https://angavu.com/api.html">
+    <link rel="alternate" hreflang="en" href="https://angavu.com/api.html">
+    <link rel="alternate" hreflang="x-default" href="https://angavu.com/api.html">
+    <meta name="theme-color" content="#FFF8F0">
     <link rel="manifest" href="manifest.json">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="angavu-brand.css">
+    <link rel="stylesheet" href="warm-theme.css">
     <script defer data-domain="angavu.com" src="https://plausible.io/js/script.tagged-events.js"></script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "name": "API — Angavu Intelligence",
+        "url": "https://angavu.com/api.html",
+        "description": "Msaidizi API documentation.",
+        "inLanguage": "en",
+        "isPartOf": {"@type": "WebSite", "name": "Msaidizi", "url": "https://angavu.com"}
+    }
+    </script>
 </head>
 <body>
-    <nav class="nav">
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    <nav class="nav" aria-label="Main navigation">
         <div class="nav-logo angavu-brand-header">
             <svg class="angavu-logo-svg" viewBox="0 0 100 100" width="40" height="40" aria-hidden="true">
                       <defs><linearGradient id="navIris" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#E8A838"/><stop offset="100%" stop-color="#E8853D"/></linearGradient></defs>
@@ -39,7 +64,7 @@
             <a href="download.html" class="nav-cta">Download</a>
         </div>
     </nav>
-    <main class="page-content">
+    <main class="page-content" id="main-content">
         <section class="page-hero"><h1>API</h1><p>Access Angavu Intelligence programmatically</p></section>
         <section class="api-docs">
             <h2>Endpoints</h2>
@@ -116,6 +141,6 @@
         </div>
     </footer>
 
-    <script src="script.js"></script>
+    <script src="script.js" defer></script>
 </body>
 </html>

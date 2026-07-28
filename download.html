@@ -284,5 +284,36 @@
     </footer>
 
     <script src="script.js" defer></script>
+    <!-- Plausible Analytics: Track download clicks and referrals -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Track APK download clicks
+            var dlBtn = document.getElementById('download-btn');
+            if (dlBtn) {
+                dlBtn.addEventListener('click', function() {
+                    if (window.plausible) {
+                        plausible('Download', {props: {type: 'apk', source: 'direct'}});
+                    }
+                });
+            }
+
+            // Track WhatsApp share clicks
+            var waLinks = document.querySelectorAll('a[href*="wa.me"]');
+            waLinks.forEach(function(link) {
+                link.addEventListener('click', function() {
+                    if (window.plausible) {
+                        plausible('Share', {props: {platform: 'whatsapp'}});
+                    }
+                });
+            });
+
+            // Track referral source from URL params
+            var params = new URLSearchParams(window.location.search);
+            var ref = params.get('ref') || params.get('utm_source') || document.referrer;
+            if (ref && window.plausible) {
+                plausible('Referral', {props: {source: ref.substring(0, 100)}});
+            }
+        });
+    </script>
 </body>
 </html>

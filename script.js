@@ -269,8 +269,8 @@
     var track = document.querySelector('.ticker-track');
     if (!track) return;
 
-    // Shuffle data
-    var shuffled = tickerData.slice().sort(function () { return Math.random() - 0.5; });
+    // Use data in fixed order (no shuffle — these are reference prices, not live)
+    var items = tickerData;
 
     // Clear existing content
     track.innerHTML = '';
@@ -278,30 +278,12 @@
     // Build items x2 for seamless loop
     var fragment = document.createDocumentFragment();
     for (var copy = 0; copy < 2; copy++) {
-      for (var i = 0; i < shuffled.length; i++) {
-        fragment.appendChild(buildTickerItem(shuffled[i]));
-        if (i < shuffled.length - 1) fragment.appendChild(buildDivider());
+      for (var i = 0; i < items.length; i++) {
+        fragment.appendChild(buildTickerItem(items[i]));
+        if (i < items.length - 1) fragment.appendChild(buildDivider());
       }
     }
     track.appendChild(fragment);
-
-    // Simulate live price updates every 8-15 seconds
-    setInterval(function () {
-      var items = track.querySelectorAll('.ticker-item');
-      var randomItem = items[Math.floor(Math.random() * items.length)];
-      randomItem.classList.add('flash');
-      setTimeout(function () { randomItem.classList.remove('flash'); }, 800);
-
-      // Visual feedback: scale price briefly
-      if (Math.random() > 0.5) {
-        var priceEl = randomItem.querySelector('.ticker-price');
-        if (priceEl) {
-          priceEl.style.transition = 'transform 200ms';
-          priceEl.style.transform = 'scale(1.05)';
-          setTimeout(function () { priceEl.style.transform = 'scale(1)'; }, 200);
-        }
-      }
-    }, 8000 + Math.random() * 7000);
   }
 
   // Run after DOM ready

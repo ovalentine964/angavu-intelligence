@@ -1,25 +1,25 @@
 /**
- * Msaidizi Service Worker v2.0
+ * Msaidizi Service Worker v2.1
  * Cache-first with 24h TTL for app shell
  * Network-first for dynamic content
  * Optimized for 2G/3G connections
+ * Uses relative paths for custom domain compatibility
  */
 var CACHE_NAME = 'angavu-v2';
 var CACHE_TTL_MS = 24 * 60 * 60 * 1000; // 24 hours
 var SHELL_ASSETS = [
-    '/angavu-intelligence/',
-    '/angavu-intelligence/index.html',
-    '/angavu-intelligence/download.html',
-    '/angavu-intelligence/for-workers.html',
-
-    '/angavu-intelligence/technology.html',
-    '/angavu-intelligence/vision.html',
-    '/angavu-intelligence/api.html',
-    '/angavu-intelligence/privacy-policy.html',
-    '/angavu-intelligence/style.css',
-    '/angavu-intelligence/script.js',
-    '/angavu-intelligence/design-tokens.css',
-    '/angavu-intelligence/manifest.json'
+    './',
+    './index.html',
+    './download.html',
+    './for-workers.html',
+    './technology.html',
+    './vision.html',
+    './api.html',
+    './privacy-policy.html',
+    './style.css',
+    './script.js',
+    './design-tokens.css',
+    './manifest.json'
 ];
 
 function putWithTimestamp(cache, request, response) {
@@ -88,7 +88,7 @@ self.addEventListener('fetch', function(e) {
             }).catch(function() {
                 if (cached) return cached;
                 if (e.request.mode === 'navigate') {
-                    return caches.match('/angavu-intelligence/index.html');
+                    return caches.match('./index.html');
                 }
             });
         })

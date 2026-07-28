@@ -2,4 +2,4 @@ User-agent: *
 Allow: /
 Disallow: /docs/
 
-Sitemap: https://ovalentine964.github.io/angavu-intelligence/sitemap.xml
+Sitemap: https://angavu.com/sitemap.xml

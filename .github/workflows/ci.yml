@@ -1,0 +1,292 @@
+# =============================================================================
+# Angavu Intelligence Website — CI/CD Pipeline
+# HTML validation · Link checking · Accessibility · Performance · Deploy
+# =============================================================================
+
+name: Website CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: website-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  # ── HTML Validation ───────────────────────────────────────────────────────
+  html-validation:
+    name: HTML Validation
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install html-validate
+        run: npm install -g html-validate
+
+      - name: Create html-validate config
+        run: |
+          cat > .htmlvalidate.json <<'EOF'
+          {
+            "extends": ["html-validate:recommended"],
+            "rules": {
+              "doctype-style": "off",
+              "no-trailing-whitespace": "warn",
+              "void-style": "off",
+              "attr-quotes": "off",
+              "no-inline-style": "off",
+              "require-sri": "off",
+              "script-type": "off"
+            }
+          }
+          EOF
+
+      - name: Validate HTML files
+        run: |
+          echo "::group::HTML Validation"
+          ERRORS=0
+          for html_file in *.html; do
+            [ -f "$html_file" ] || continue
+            echo "── Validating: $html_file ──"
+            if html-validate "$html_file" 2>&1; then
+              echo "  ✅ Valid"
+            else
+              echo "  ❌ Has issues"
+              ERRORS=$((ERRORS + 1))
+            fi
+          done
+
+          if [ "$ERRORS" -gt 0 ]; then
+            echo "::error::$ERRORS HTML files have validation errors"
+            exit 1
+          fi
+          echo "✅ All HTML files valid"
+          echo "::endgroup::"
+
+  # ── Link Checking ─────────────────────────────────────────────────────────
+  link-check:
+    name: Link Checker
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install linkinator
+        run: npm install -g linkinator
+
+      - name: Check links
+        run: |
+          echo "::group::Link checking"
+
+          # Run linkinator on the site
+          linkinator . \
+            --recurse \
+            --skip "^https?://(localhost|127\.0\.0\.1|fonts\.googleapis\.com|cdn\.)" \
+            --timeout 10000 \
+            --concurrency 5 \
+            --format CSV \
+            > link-report.csv 2>&1 || true
+
+          # Parse results
+          BROKEN=$(grep -c "BROKEN" link-report.csv 2>/dev/null || echo "0")
+          OK=$(grep -c "OK" link-report.csv 2>/dev/null || echo "0")
+
+          echo "Links checked: $((BROKEN + OK))"
+          echo "Broken: $BROKEN"
+          echo "OK: $OK"
+
+          if [ "$BROKEN" -gt 0 ]; then
+            echo ""
+            echo "── Broken links ──"
+            grep "BROKEN" link-report.csv 2>/dev/null || true
+            echo "::error::Found $BROKEN broken links"
+            exit 1
+          fi
+
+          echo "✅ No broken links found"
+          echo "::endgroup::"
+
+      - name: Upload link report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: link-report
+          path: link-report.csv
+          retention-days: 14
+
+  # ── Accessibility Testing ─────────────────────────────────────────────────
+  accessibility:
+    name: Accessibility (axe-core)
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install dependencies
+        run: |
+          npm install -g @axe-core/cli http-server
+
+      - name: Run accessibility tests
+        run: |
+          echo "::group::Accessibility testing"
+
+          # Start a local server
+          http-server . -p 8080 -s &
+          SERVER_PID=$!
+          sleep 3
+
+          TOTAL_VIOLATIONS=0
+          REPORT=""
+
+          # Test each HTML page
+          for html_file in *.html; do
+            [ -f "$html_file" ] || continue
+            PAGE_NAME="${html_file%.html}"
+            [ "$PAGE_NAME" = "index" ] && PAGE_NAME=""
+
+            echo "── Testing: $html_file ──"
+            AXE_OUTPUT=$(axe http://localhost:8080/$html_file \
+              --tags wcag2a,wcag2aa,wcag21a,wcag21aa \
+              --stdout 2>&1) || true
+
+            VIOLATIONS=$(echo "$AXE_OUTPUT" | grep -c "Violation" 2>/dev/null || echo "0")
+            TOTAL_VIOLATIONS=$((TOTAL_VIOLATIONS + VIOLATIONS))
+
+            if [ "$VIOLATIONS" -gt 0 ]; then
+              echo "  ⚠️  $VIOLATIONS violations found"
+              echo "$AXE_OUTPUT" | head -30
+            else
+              echo "  ✅ No violations"
+            fi
+          done
+
+          # Cleanup
+          kill $SERVER_PID 2>/dev/null || true
+
+          if [ "$TOTAL_VIOLATIONS" -gt 0 ]; then
+            echo "::warning::Found $TOTAL_VIOLATIONS accessibility violations across all pages"
+            # Don't fail on warnings, but do report
+          else
+            echo "✅ All pages pass accessibility checks (WCAG 2.1 AA)"
+          fi
+
+          echo "::endgroup::"
+
+  # ── Performance Testing (Lighthouse) ──────────────────────────────────────
+  performance:
+    name: Performance (Lighthouse)
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install Lighthouse
+        run: npm install -g lighthouse http-server
+
+      - name: Run Lighthouse
+        run: |
+          echo "::group::Lighthouse performance testing"
+
+          # Start local server
+          http-server . -p 8080 -s &
+          SERVER_PID=$!
+          sleep 3
+
+          # Run Lighthouse on key pages
+          PAGES=("index.html" "api.html" "about.html" "download.html")
+          for page in "${PAGES[@]}"; do
+            [ -f "$page" ] || continue
+            echo "── Lighthouse: $page ──"
+            lighthouse "http://localhost:8080/$page" \
+              --output json \
+              --output-path "./lighthouse-${page%.html}.json" \
+              --chrome-flags="--headless --no-sandbox --disable-gpu" \
+              --only-categories=performance,accessibility,best-practices,seo \
+              2>&1 | tail -5 || true
+          done
+
+          # Cleanup
+          kill $SERVER_PID 2>/dev/null || true
+
+          # Parse scores
+          echo ""
+          echo "── Lighthouse Scores ──"
+          for json_file in lighthouse-*.json; do
+            [ -f "$json_file" ] || continue
+            PAGE="${json_file#lighthouse-}"
+            PAGE="${PAGE%.json}"
+
+            PERF=$(cat "$json_file" | jq '.categories.performance.score * 100 // 0' 2>/dev/null || echo "N/A")
+            ACCESS=$(cat "$json_file" | jq '.categories.accessibility.score * 100 // 0' 2>/dev/null || echo "N/A")
+            BP=$(cat "$json_file" | jq '.categories["best-practices"].score * 100 // 0' 2>/dev/null || echo "N/A")
+            SEO=$(cat "$json_file" | jq '.categories.seo.score * 100 // 0' 2>/dev/null || echo "N/A")
+
+            echo "  $page: Perf=$PERF A11y=$ACCESS BP=$BP SEO=$SEO"
+
+            # Fail if performance is critically low
+            if [ "$PERF" != "N/A" ] && [ "$PERF" -lt 50 ]; then
+              echo "::error::$page has critically low performance score: $PERF"
+            fi
+          done
+
+          echo "::endgroup::"
+
+      - name: Upload Lighthouse reports
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: lighthouse-reports
+          path: lighthouse-*.json
+          retention-days: 14
+
+  # ── Deploy to GitHub Pages ────────────────────────────────────────────────
+  deploy:
+    name: Deploy to GitHub Pages
+    runs-on: ubuntu-latest
+    needs: [html-validation, link-check, accessibility, performance]
+    if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: '.'
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

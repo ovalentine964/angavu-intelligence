@@ -1,14 +1,14 @@
 {
   "latestVersion": 1,
-  "latestVersionName": "1.0.0-alpha1",
+  "latestVersionName": "0.1.0",
   "minSupportedVersion": 1,
-  "downloadUrl": "https://github.com/ovalentine964/msaidizi-app/releases/download/v1.0.0-alpha1/msaidizi-release.apk",
+  "downloadUrl": "https://github.com/ovalentine964/msaidizi-app/releases/download/v0.1.0/msaidizi-full-release.apk",
   "sha256": "",
-  "releaseNotes": "Initial release with on-device AI, voice input in 15+ languages, and business tracking.",
+  "releaseNotes": "Alpha release with on-device AI, voice input in 15+ languages, and business tracking.",
   "isCritical": false,
-  "playStoreUrl": "https://play.google.com/store/apps/details?id=com.msaidizi.app",
-  "fdroidUrl": "https://f-droid.org/packages/com.msaidizi.app/",
+  "playStoreUrl": "",
+  "fdroidUrl": "",
   "changelog": {
-    "1.0.0-alpha1": "Initial release: on-device Qwen 0.8B LLM, Whisper speech-to-text, Piper TTS, SQLCipher encryption, voice-first UI in Kiswahili and 15+ African languages."
+    "0.1.0": "Alpha release: on-device Qwen 0.8B LLM, Whisper speech-to-text, Piper TTS, SQLCipher encryption, voice-first UI in Kiswahili and 15+ African languages."
   }
 }

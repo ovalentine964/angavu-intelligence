@@ -7,7 +7,7 @@
   <img src="https://img.shields.io/badge/CSS3-1572B6?style=flat-square&logo=css3&logoColor=white" alt="CSS3">
   <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&logo=javascript&logoColor=black" alt="JavaScript">
   <img src="https://img.shields.io/badge/PWA-5A0FC8?style=flat-square" alt="PWA">
-  <img src="https://img.shields.io/badge/License-SSPL--1.0-blue?style=flat-square" alt="License">
+  <img src="https://img.shields.io/badge/License-MIT-blue?style=flat-square" alt="License">
 </p>
 
 <p align="center">
@@ -21,12 +21,12 @@
 
 ## Products
 
-| Product | Audience | Description |
-|---------|----------|-------------|
-| **Msaidizi CFO** | Informal workers | Free Android app — 52+ AI tools, voice-first in 14 languages, graph-aware superagent with council orchestration |
-| **Soko Pulse** | FMCG companies | Real-time demand intelligence from informal retail channels ($2K–$12K/month) |
-| **Alama Score** | Lenders & fintechs | Credit scoring for the unbanked using transaction behaviour ($0.05–$0.50/query) |
-| **Angavu Pulse** | Government | Economic intelligence dashboards for policy decisions |
+| Product | Audience | Status | Description |
+|---------|----------|--------|-------------|
+| **Msaidizi CFO** | Informal workers | ✅ Available — Free | Android app — AI CFO, voice-first in 15+ languages, offline-first |
+| **Economic Intelligence** | Enterprises, lenders, government | Contact us | Real-time demand intelligence, credit scoring, economic dashboards |
+
+> **Note:** Soko Pulse, Alama Score, and Angavu Pulse are enterprise modules available through our Economic Intelligence platform. [Contact us](mailto:hello@angavuintelligence.com) for access.
 
 ---
 

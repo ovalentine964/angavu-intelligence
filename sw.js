@@ -16,7 +16,13 @@ var SHELL_ASSETS = [
     './vision.html',
     './api.html',
     './privacy-policy.html',
+    './msaidizi.html',
+    './testimonials.html',
+    './about.html',
+    './404.html',
     './style.css',
+    './angavu-brand.css',
+    './warm-theme.css',
     './script.js',
     './design-tokens.css',
     './manifest.json'

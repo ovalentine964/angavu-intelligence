@@ -208,8 +208,14 @@
 (function () {
   'use strict';
 
+  // ════════════════════════════════════════════════════════════════
+  // DEMO DATA — NOT LIVE
+  // These are static reference prices for demonstration purposes only.
+  // They do NOT update in real time and should NOT be used for
+  // actual purchasing, trading, or financial decisions.
+  // ════════════════════════════════════════════════════════════════
   var tickerData = [
-    // Commodity Prices — useful for workers
+    // Commodity Prices — demo reference data only
     { emoji: '🍅', name: 'Tomatoes', location: 'Nairobi', price: 'KES 120', change: 5.2, source: 'Gikomba Market', unit: '1 kg' },
     { emoji: '🌽', name: 'Maize flour', location: 'Migori', price: 'KES 165', change: -1.8, source: 'Migori Central', unit: '2 kg' },
     { emoji: '🫒', name: 'Cooking oil', location: 'Lagos', price: '₦2,800', change: 3.1, source: 'Oshodi Market', unit: '1 L' },
@@ -269,7 +275,7 @@
     var track = document.querySelector('.ticker-track');
     if (!track) return;
 
-    // Use data in fixed order (no shuffle — these are reference prices, not live)
+    // Use data in fixed order (no shuffle — these are static demo prices, not live)
     var items = tickerData;
 
     // Clear existing content
@@ -284,6 +290,14 @@
       }
     }
     track.appendChild(fragment);
+
+    // Add visible disclaimer that this is demo data
+    var disclaimer = document.createElement('div');
+    disclaimer.className = 'ticker-disclaimer';
+    disclaimer.setAttribute('aria-label', 'Demo data only, not live prices');
+    disclaimer.style.cssText = 'display:inline-flex;align-items:center;gap:0.375rem;padding:0.25rem 0.75rem;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15);border-radius:999px;font-size:0.7rem;color:rgba(255,255,255,0.5);letter-spacing:0.05em;text-transform:uppercase;white-space:nowrap;';
+    disclaimer.textContent = '⚠ Demo data — not live prices';
+    track.appendChild(disclaimer);
   }
 
   // Run after DOM ready

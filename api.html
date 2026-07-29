@@ -8,14 +8,14 @@
     <meta property="og:title" content="API — Angavu Intelligence">
     <meta property="og:description" content="Msaidizi API for business and economic data.">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://angavu.com/api.html">
-    <meta property="og:image" content="https://angavu.com/assets/og-image.png">
+    <meta property="og:url" content="https://ovalentine964.github.io/angavu-intelligence/api.html">
+    <meta property="og:image" content="https://ovalentine964.github.io/angavu-intelligence/assets/og-image.png">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:image" content="https://angavu.com/assets/og-image.png">
-    <link rel="canonical" href="https://angavu.com/api.html">
-    <link rel="alternate" hreflang="sw" href="https://angavu.com/api.html">
-    <link rel="alternate" hreflang="en" href="https://angavu.com/api.html">
-    <link rel="alternate" hreflang="x-default" href="https://angavu.com/api.html">
+    <meta name="twitter:image" content="https://ovalentine964.github.io/angavu-intelligence/assets/og-image.png">
+    <link rel="canonical" href="https://ovalentine964.github.io/angavu-intelligence/api.html">
+    <link rel="alternate" hreflang="sw" href="https://ovalentine964.github.io/angavu-intelligence/api.html">
+    <link rel="alternate" hreflang="en" href="https://ovalentine964.github.io/angavu-intelligence/api.html">
+    <link rel="alternate" hreflang="x-default" href="https://ovalentine964.github.io/angavu-intelligence/api.html">
     <meta name="theme-color" content="#FFF8F0">
     <link rel="manifest" href="manifest.json">
     <link rel="stylesheet" href="style.css">
@@ -27,10 +27,10 @@
         "@context": "https://schema.org",
         "@type": "WebPage",
         "name": "API — Angavu Intelligence",
-        "url": "https://angavu.com/api.html",
+        "url": "https://ovalentine964.github.io/angavu-intelligence/api.html",
         "description": "Msaidizi API documentation.",
         "inLanguage": "en",
-        "isPartOf": {"@type": "WebSite", "name": "Msaidizi", "url": "https://angavu.com"}
+        "isPartOf": {"@type": "WebSite", "name": "Msaidizi", "url": "https://ovalentine964.github.io/angavu-intelligence"}
     }
     </script>
 </head>
@@ -65,14 +65,256 @@
         </div>
     </nav>
     <main class="page-content" id="main-content">
-        <section class="page-hero"><h1>API</h1><p>Access Angavu Intelligence programmatically</p></section>
-        <section class="api-docs">
-            <h2>Endpoints</h2>
-            <div class="api-endpoint"><h3>POST /api/v1/sync</h3><p>Sync transaction data from Msaidizi app</p></div>
-            <div class="api-endpoint"><h3>GET /api/v1/reports/{user_id}</h3><p>Get business intelligence reports</p></div>
-            <div class="api-endpoint"><h3>GET /api/v1/intelligence/{buyer_type}</h3><p>Access aggregated economic intelligence (FMCG, banks, government)</p></div>
-            <div class="api-endpoint"><h3>GET /api/v1/health</h3><p>Health check endpoint</p></div>
-            <p>Contact <a href="mailto:hello@angavuintelligence.com">hello@angavuintelligence.com</a> for API access.</p>
+        <section class="page-hero"><h1>API Documentation</h1><p>Access Angavu Intelligence data programmatically</p></section>
+
+        <!-- Authentication -->
+        <section class="section">
+            <div class="section-header">
+                <span class="overline">Authentication</span>
+                <h2>API Authentication</h2>
+                <p>All API requests require a Bearer token. Contact <a href="mailto:hello@angavuintelligence.com">hello@angavuintelligence.com</a> to request access.</p>
+            </div>
+            <div style="max-width:700px;margin:0 auto;">
+                <div class="card" style="padding:1.5rem;margin-bottom:1.5rem;">
+                    <h3>Requesting Access</h3>
+                    <p style="color:var(--gray-600);margin-top:0.5rem;">API access is available for enterprise partners. Include the following in your request:</p>
+                    <ul style="color:var(--gray-600);margin-top:0.75rem;line-height:1.8;padding-left:1.5rem;">
+                        <li>Company name and use case</li>
+                        <li>Expected request volume</li>
+                        <li>Data types needed</li>
+                    </ul>
+                </div>
+                <div class="card" style="padding:1.5rem;margin-bottom:1.5rem;">
+                    <h3>Using Your Token</h3>
+                    <pre class="code-block" style="background:var(--navy-900);color:var(--white);padding:1rem;border-radius:var(--radius-md);overflow-x:auto;font-size:0.875rem;margin-top:0.75rem;"><code>curl -X GET https://api.angavu.com/v1/reports/user_123 \
+  -H "Authorization: Bearer YOUR_API_TOKEN" \
+  -H "Content-Type: application/json"</code></pre>
+                </div>
+                <div class="card" style="padding:1.5rem;">
+                    <h3>Rate Limits</h3>
+                    <ul style="color:var(--gray-600);margin-top:0.75rem;line-height:1.8;padding-left:1.5rem;">
+                        <li><strong>Standard:</strong> 100 requests/minute</li>
+                        <li><strong>Enterprise:</strong> Custom limits available</li>
+                        <li>Rate limit headers: <code>X-RateLimit-Limit</code>, <code>X-RateLimit-Remaining</code>, <code>X-RateLimit-Reset</code></li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Endpoints -->
+        <section class="section section-gray">
+            <div class="section-header">
+                <span class="overline">Endpoints</span>
+                <h2>API Reference</h2>
+                <p>Base URL: <code>https://api.angavu.com/v1</code></p>
+            </div>
+
+            <!-- POST /sync -->
+            <div style="max-width:800px;margin:0 auto;">
+                <div class="card" style="padding:2rem;margin-bottom:2rem;">
+                    <div style="display:flex;align-items:center;gap:0.75rem;margin-bottom:1rem;">
+                        <span style="display:inline-block;padding:0.25rem 0.75rem;background:#1B4965;color:white;border-radius:var(--radius-full);font-size:0.8rem;font-weight:700;font-family:monospace;">POST</span>
+                        <code style="font-size:1.125rem;font-weight:700;">/api/v1/sync</code>
+                    </div>
+                    <p style="color:var(--gray-600);margin-bottom:1rem;">Sync transaction data from Msaidizi app. Used by the mobile app to upload anonymized business data.</p>
+                    <h4>Request Body</h4>
+                    <pre class="code-block" style="background:var(--navy-900);color:var(--white);padding:1rem;border-radius:var(--radius-md);overflow-x:auto;font-size:0.875rem;margin:0.75rem 0;"><code>{
+  "user_id": "usr_abc123",
+  "transactions": [
+    {
+      "type": "sale",
+      "amount": 1200,
+      "currency": "KES",
+      "category": "vegetables",
+      "timestamp": "2026-07-28T14:30:00Z"
+    }
+  ],
+  "sync_token": "sync_xyz789"
+}</code></pre>
+                    <h4>Response <code>200 OK</code></h4>
+                    <pre class="code-block" style="background:var(--navy-900);color:var(--white);padding:1rem;border-radius:var(--radius-md);overflow-x:auto;font-size:0.875rem;margin:0.75rem 0;"><code>{
+  "status": "synced",
+  "transactions_accepted": 1,
+  "new_sync_token": "sync_xyz790",
+  "insights": {
+    "daily_revenue": 4500,
+    "daily_expenses": 2800,
+    "profit": 1700
+  }
+}</code></pre>
+                </div>
+
+                <!-- GET /reports -->
+                <div class="card" style="padding:2rem;margin-bottom:2rem;">
+                    <div style="display:flex;align-items:center;gap:0.75rem;margin-bottom:1rem;">
+                        <span style="display:inline-block;padding:0.25rem 0.75rem;background:#2E7D32;color:white;border-radius:var(--radius-full);font-size:0.8rem;font-weight:700;font-family:monospace;">GET</span>
+                        <code style="font-size:1.125rem;font-weight:700;">/api/v1/reports/{user_id}</code>
+                    </div>
+                    <p style="color:var(--gray-600);margin-bottom:1rem;">Get business intelligence reports for a specific user. Returns aggregated financial data and AI-generated insights.</p>
+                    <h4>Path Parameters</h4>
+                    <ul style="color:var(--gray-600);margin:0.75rem 0;line-height:1.8;padding-left:1.5rem;">
+                        <li><code>user_id</code> (string, required) — The user identifier</li>
+                    </ul>
+                    <h4>Query Parameters</h4>
+                    <ul style="color:var(--gray-600);margin:0.75rem 0;line-height:1.8;padding-left:1.5rem;">
+                        <li><code>period</code> (string) — <code>daily</code> | <code>weekly</code> | <code>monthly</code> (default: <code>daily</code>)</li>
+                        <li><code>from</code> (string) — ISO 8601 date</li>
+                        <li><code>to</code> (string) — ISO 8601 date</li>
+                    </ul>
+                    <h4>Response <code>200 OK</code></h4>
+                    <pre class="code-block" style="background:var(--navy-900);color:var(--white);padding:1rem;border-radius:var(--radius-md);overflow-x:auto;font-size:0.875rem;margin:0.75rem 0;"><code>{
+  "user_id": "usr_abc123",
+  "period": "weekly",
+  "revenue": { "total": 31500, "trend": "+12%" },
+  "expenses": { "total": 19600, "trend": "-3%" },
+  "profit": { "total": 11900, "margin": "37.8%" },
+  "top_products": [
+    { "name": "Tomatoes", "revenue": 8400 },
+    { "name": "Onions", "revenue": 5200 }
+  ],
+  "ai_insights": [
+    "Your tomato sales increased 23% this week.",
+    "Consider buying onions in bulk — you sell 15kg/week."
+  ]
+}</code></pre>
+                </div>
+
+                <!-- GET /intelligence -->
+                <div class="card" style="padding:2rem;margin-bottom:2rem;">
+                    <div style="display:flex;align-items:center;gap:0.75rem;margin-bottom:1rem;">
+                        <span style="display:inline-block;padding:0.25rem 0.75rem;background:#2E7D32;color:white;border-radius:var(--radius-full);font-size:0.8rem;font-weight:700;font-family:monospace;">GET</span>
+                        <code style="font-size:1.125rem;font-weight:700;">/api/v1/intelligence/{buyer_type}</code>
+                    </div>
+                    <p style="color:var(--gray-600);margin-bottom:1rem;">Access aggregated economic intelligence data. Available for FMCG companies, lenders, and government agencies.</p>
+                    <h4>Path Parameters</h4>
+                    <ul style="color:var(--gray-600);margin:0.75rem 0;line-height:1.8;padding-left:1.5rem;">
+                        <li><code>buyer_type</code> (string, required) — <code>fmcg</code> | <code>lender</code> | <code>government</code></li>
+                    </ul>
+                    <h4>Query Parameters</h4>
+                    <ul style="color:var(--gray-600);margin:0.75rem 0;line-height:1.8;padding-left:1.5rem;">
+                        <li><code>region</code> (string) — Geographic region filter (e.g., <code>ke-nairobi</code>, <code>ng-lagos</code>)</li>
+                        <li><code>category</code> (string) — Product category filter</li>
+                        <li><code>granularity</code> (string) — <code>daily</code> | <code>weekly</code> | <code>monthly</code></li>
+                    </ul>
+                    <h4>Response <code>200 OK</code></h4>
+                    <pre class="code-block" style="background:var(--navy-900);color:var(--white);padding:1rem;border-radius:var(--radius-md);overflow-x:auto;font-size:0.875rem;margin:0.75rem 0;"><code>{
+  "buyer_type": "fmcg",
+  "region": "ke-nairobi",
+  "data_freshness": "2026-07-28T00:00:00Z",
+  "demand_signals": [
+    { "product": "Cooking Oil", "demand_index": 87, "trend": "+5%" },
+    { "product": "Rice", "demand_index": 72, "trend": "-2%" }
+  ],
+  "market_size_estimate": "KES 2.4B/month",
+  "worker_count": 45000,
+  "confidence": 0.85
+}</code></pre>
+                    <p style="color:var(--gray-500);font-size:0.875rem;margin-top:0.75rem;font-style:italic;">All data is aggregated and anonymized. No individual user data is exposed.</p>
+                </div>
+
+                <!-- GET /health -->
+                <div class="card" style="padding:2rem;margin-bottom:2rem;">
+                    <div style="display:flex;align-items:center;gap:0.75rem;margin-bottom:1rem;">
+                        <span style="display:inline-block;padding:0.25rem 0.75rem;background:#2E7D32;color:white;border-radius:var(--radius-full);font-size:0.8rem;font-weight:700;font-family:monospace;">GET</span>
+                        <code style="font-size:1.125rem;font-weight:700;">/api/v1/health</code>
+                    </div>
+                    <p style="color:var(--gray-600);margin-bottom:1rem;">Health check endpoint. No authentication required.</p>
+                    <h4>Response <code>200 OK</code></h4>
+                    <pre class="code-block" style="background:var(--navy-900);color:var(--white);padding:1rem;border-radius:var(--radius-md);overflow-x:auto;font-size:0.875rem;margin:0.75rem 0;"><code>{
+  "status": "healthy",
+  "version": "1.0.0",
+  "uptime_seconds": 86400
+}</code></pre>
+                </div>
+            </div>
+        </section>
+
+        <!-- Error Codes -->
+        <section class="section">
+            <div class="section-header">
+                <span class="overline">Errors</span>
+                <h2>Error Codes</h2>
+                <p>All errors follow a consistent JSON format.</p>
+            </div>
+            <div style="max-width:700px;margin:0 auto;">
+                <div class="card" style="padding:1.5rem;margin-bottom:1.5rem;">
+                    <h4>Error Response Format</h4>
+                    <pre class="code-block" style="background:var(--navy-900);color:var(--white);padding:1rem;border-radius:var(--radius-md);overflow-x:auto;font-size:0.875rem;margin-top:0.75rem;"><code>{
+  "error": {
+    "code": "RATE_LIMIT_EXCEEDED",
+    "message": "Too many requests. Try again in 60 seconds.",
+    "status": 429
+  }
+}</code></pre>
+                </div>
+                <div class="card" style="padding:1.5rem;">
+                    <h4>Common Error Codes</h4>
+                    <ul style="color:var(--gray-600);margin-top:0.75rem;line-height:2;padding-left:1.5rem;">
+                        <li><code>401 UNAUTHORIZED</code> — Missing or invalid API token</li>
+                        <li><code>403 FORBIDDEN</code> — Token valid but insufficient permissions</li>
+                        <li><code>404 NOT_FOUND</code> — Resource does not exist</li>
+                        <li><code>422 VALIDATION_ERROR</code> — Request body failed validation</li>
+                        <li><code>429 RATE_LIMIT_EXCEEDED</code> — Too many requests</li>
+                        <li><code>500 INTERNAL_ERROR</code> — Server error (contact support)</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- SDKs -->
+        <section class="section section-gray">
+            <div class="section-header">
+                <span class="overline">Code Examples</span>
+                <h2>Quick Start</h2>
+            </div>
+            <div style="max-width:700px;margin:0 auto;">
+                <div class="card" style="padding:1.5rem;margin-bottom:1.5rem;">
+                    <h4>Python</h4>
+                    <pre class="code-block" style="background:var(--navy-900);color:var(--white);padding:1rem;border-radius:var(--radius-md);overflow-x:auto;font-size:0.875rem;margin-top:0.75rem;"><code>import requests
+
+API_TOKEN = "your_token_here"
+BASE_URL = "https://api.angavu.com/v1"
+
+headers = {
+    "Authorization": f"Bearer {API_TOKEN}",
+    "Content-Type": "application/json"
+}
+
+# Get weekly report
+response = requests.get(
+    f"{BASE_URL}/reports/usr_abc123",
+    headers=headers,
+    params={"period": "weekly"}
+)
+print(response.json())</code></pre>
+                </div>
+                <div class="card" style="padding:1.5rem;">
+                    <h4>JavaScript / Node.js</h4>
+                    <pre class="code-block" style="background:var(--navy-900);color:var(--white);padding:1rem;border-radius:var(--radius-md);overflow-x:auto;font-size:0.875rem;margin-top:0.75rem;"><code>const API_TOKEN = 'your_token_here';
+const BASE_URL = 'https://api.angavu.com/v1';
+
+const response = await fetch(
+  `${BASE_URL}/reports/usr_abc123?period=weekly`,
+  {
+    headers: {
+      'Authorization': `Bearer ${API_TOKEN}`,
+      'Content-Type': 'application/json'
+    }
+  }
+);
+const data = await response.json();
+console.log(data);</code></pre>
+                </div>
+            </div>
+        </section>
+
+        <!-- Access CTA -->
+        <section class="section">
+            <div style="text-align:center;max-width:600px;margin:0 auto;">
+                <h2>Need API Access?</h2>
+                <p style="color:var(--gray-600);margin-top:0.75rem;">Contact us to get your API token and start integrating with Angavu Intelligence.</p>
+                <a href="mailto:hello@angavuintelligence.com" class="btn-primary" style="margin-top:1.5rem;">Contact for API Access →</a>
+            </div>
         </section>
     </main>
 

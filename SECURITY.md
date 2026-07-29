@@ -6,7 +6,7 @@ If you discover a security vulnerability in the Angavu Intelligence website, ple
 
 **DO NOT** open a public GitHub issue for security vulnerabilities.
 
-Please email: **[INSERT SECURITY EMAIL]**
+Please email: **hello@angavuintelligence.com**
 
 Include:
 1. **Description** — What the vulnerability is

@@ -94,6 +94,10 @@
                         <span style="padding:0.25rem 0.75rem;background:var(--gray-100);border-radius:var(--radius-full);font-size:0.8rem;">💾 ~500MB APK</span>
                         <span style="padding:0.25rem 0.75rem;background:var(--gray-100);border-radius:var(--radius-full);font-size:0.8rem;">🗣️ ARM64 + ARM32</span>
                     </div>
+                    <div style="margin-top:1rem;padding:0.75rem 1rem;background:var(--cream-100);border-radius:12px;display:inline-block;">
+                        <span style="font-weight:700;color:var(--navy-900);font-size:1.25rem;" id="dl-count">---</span>
+                        <span style="color:var(--gray-600);font-size:0.875rem;"> upakuaji</span>
+                    </div>
                 </div>
 
                 <div class="download-action" style="margin-top:2rem;">
@@ -338,6 +342,33 @@
                 plausible('Referral', {props: {source: ref.substring(0, 100)}});
             }
         });
+    </script>
+
+    <!-- Live Download Counter -->
+    <script>
+    (function() {
+        var repo = 'ovalentine964/msaidizi-app';
+        var countEl = document.getElementById('dl-count');
+        if (!countEl) return;
+        fetch('https://api.github.com/repos/' + repo + '/releases')
+            .then(function(r) { return r.json(); })
+            .then(function(releases) {
+                var total = 0;
+                if (Array.isArray(releases)) {
+                    releases.forEach(function(rel) {
+                        if (rel.assets) {
+                            rel.assets.forEach(function(a) {
+                                total += a.download_count || 0;
+                            });
+                        }
+                    });
+                }
+                countEl.textContent = total.toLocaleString();
+            })
+            .catch(function() {
+                countEl.textContent = '0';
+            });
+    })();
     </script>
 </body>
 </html>

@@ -72,22 +72,58 @@
 
         <section class="section">
             <div style="max-width:700px;margin:0 auto;text-align:center;">
+                <!-- Live Download Counter -->
+                <div class="card animate-on-scroll" style="padding:2rem;margin-bottom:2rem;">
+                    <div style="font-size:3rem;margin-bottom:0.5rem;">📊</div>
+                    <h2 style="font-size:1.5rem;font-weight:700;color:var(--navy-900);margin-bottom:1rem;">Idadi ya Upakuaji</h2>
+                    <div id="download-count" style="font-size:3rem;font-weight:800;color:var(--gold-500);margin-bottom:0.5rem;">---</div>
+                    <p style="color:var(--gray-600);font-size:0.95rem;">upakuaji wa Msaidizi</p>
+                    <p style="color:var(--gray-500);font-size:0.8rem;margin-top:0.5rem;">Inasasishwa moja kwa moja kutoka GitHub</p>
+                </div>
+
                 <div class="card animate-on-scroll" style="padding:3rem 2rem;">
                     <div style="font-size:3rem;margin-bottom:1rem;">🚀</div>
                     <h2 style="font-size:1.5rem;font-weight:700;color:var(--navy-900);margin-bottom:1rem;">Tafuta Majaribio ya Kwanza</h2>
                     <p style="font-size:1.125rem;color:var(--gray-600);line-height:1.8;margin-bottom:1.5rem;">
-                        Msaidizi bado iko katika hatua ya maendeleo. Hatuna watumiaji bado — lakini tunatafuta wafanyabiashara wa kwanza wa kujaribu.
+                        Msaidizi bado iko katika hatua ya maendeleo. Tunatafuta wafanyabiashara wa kwanza wa kujaribu.
                     </p>
                     <p style="font-size:1rem;color:var(--gray-600);line-height:1.8;margin-bottom:1.5rem;">
                         Kama wewe ni mama mboga, boda boda, dukawallah, au mfanyabiashara mwingine — pakua Msaidizi na utupe maoni yako. Sauti yako itasaidia kuboresha programu kwa wote.
                     </p>
                     <div style="background:var(--cream-100);border-radius:12px;padding:1.5rem;margin-bottom:1.5rem;">
-                        <p style="font-weight:600;color:var(--navy-900);margin-bottom:0.5rem;">Bado hatuna ukaguzi wa nyota tano.</p>
-                        <p style="color:var(--gray-600);font-size:0.95rem;">Lakini tutakapopata — itakuwa kutoka kwa watumiaji halisi, siyo maandishi ya soko.</p>
+                        <p style="font-weight:600;color:var(--navy-900);margin-bottom:0.5rem;">Ukaguzi wa nyota tano utakuja kutoka kwa watumiaji halisi.</p>
+                        <p style="color:var(--gray-600);font-size:0.95rem;">Siyo maandishi ya soko — ni hadithi za wafanyabiashara halisi.</p>
                     </div>
                 </div>
             </div>
         </section>
+
+        <!-- Live Stats Script -->
+        <script>
+        (function() {
+            var repo = 'ovalentine964/msaidizi-app';
+            var countEl = document.getElementById('download-count');
+            if (!countEl) return;
+            fetch('https://api.github.com/repos/' + repo + '/releases')
+                .then(function(r) { return r.json(); })
+                .then(function(releases) {
+                    var total = 0;
+                    if (Array.isArray(releases)) {
+                        releases.forEach(function(rel) {
+                            if (rel.assets) {
+                                rel.assets.forEach(function(a) {
+                                    total += a.download_count || 0;
+                                });
+                            }
+                        });
+                    }
+                    countEl.textContent = total.toLocaleString();
+                })
+                .catch(function() {
+                    countEl.textContent = '0';
+                });
+        })();
+        </script>
 
         <section class="section section-gray" style="text-align:center;">
             <div style="max-width:600px;margin:0 auto;">

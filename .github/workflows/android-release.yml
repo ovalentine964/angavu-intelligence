@@ -87,9 +87,17 @@ jobs:
       - name: Find APK
         id: find_apk
         run: |
-          APK_PATH=$(find android/app/build/outputs/apk/release -name "*.apk" | head -1)
+          echo "Looking for APK..."
+          find android/app/build/outputs -name "*.apk" 2>/dev/null || echo "No APKs in outputs"
+          find android/app/build -name "*.apk" 2>/dev/null || echo "No APKs in build"
+          APK_PATH=$(find android/app/build/outputs/apk/release -name "*.apk" 2>/dev/null | head -1)
+          if [ -z "$APK_PATH" ]; then
+            echo "::warning::APK not found in release dir, checking all outputs..."
+            APK_PATH=$(find android/app/build/outputs -name "*.apk" 2>/dev/null | head -1)
+          fi
           if [ -z "$APK_PATH" ]; then
             echo "::error::No APK found in build output"
+            ls -laR android/app/build/outputs/ 2>/dev/null || echo "outputs dir not found"
             exit 1
           fi
           echo "apk_path=$APK_PATH" >> $GITHUB_OUTPUT

@@ -7,6 +7,8 @@ name: Android Release
 on:
   push:
     branches: [main]
+    tags:
+      - 'v*'
     paths:
       - 'android/**'
       - '.github/workflows/android-release.yml'
@@ -54,25 +56,40 @@ jobs:
         working-directory: android
         run: gradle assembleRelease --stacktrace --no-daemon
 
-      - name: List build outputs
+      - name: Find APK
+        id: find_apk
         run: |
-          echo "=== Build outputs ==="
-          find android/app/build/outputs -type f 2>/dev/null || echo "No outputs"
-          echo "=== APK search ==="
-          find android/ -name "*.apk" 2>/dev/null || echo "No APKs found"
+          APK_PATH=$(find android/app/build/outputs -name "*.apk" | head -1)
+          echo "apk_path=$APK_PATH" >> $GITHUB_OUTPUT
+          VERSION=$(grep versionName android/app/build.gradle | sed 's/.*"\(.*\)".*/\1/')
+          echo "version=$VERSION" >> $GITHUB_OUTPUT
+          echo "✅ APK: $APK_PATH (v$VERSION)"
 
-      - name: Upload APK
+      - name: Upload APK artifact
         uses: actions/upload-artifact@v4
         with:
-          name: Msaidizi-CFO-APK
-          path: android/app/build/outputs/apk/**/*.apk
+          name: Msaidizi-CFO-v${{ steps.find_apk.outputs.version }}
+          path: ${{ steps.find_apk.outputs.apk_path }}
           retention-days: 90
 
-      - name: Release (on tag)
+      - name: Create GitHub Release
         if: startsWith(github.ref, 'refs/tags/v')
         uses: softprops/action-gh-release@v1
         with:
-          files: android/app/build/outputs/apk/release/*.apk
+          files: ${{ steps.find_apk.outputs.apk_path }}
           generate_release_notes: true
+          name: "Msaidizi CFO v${{ steps.find_apk.outputs.version }}"
+          body: |
+            ## Msaidizi CFO — Msaidizi wa Biashara ya AI
+            
+            ### Pakua
+            - Bonyeza `msaidizi-v${{ steps.find_apk.outputs.version }}.apk` hapo chini kupakua
+            - Sanikisha kwenye simu yako (Android 8.0+)
+            
+            ### Sifa
+            - 🎤 Sauti kwanza — Kiswahili, Sheng, lugha 15+
+            - 📱 Bila intaneti — inafanya kazi popote
+            - 📊 CFO wa AI — taarifa za kila siku
+            - 🔒 Faragha — data yako iko kwenye simu yako
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: *** secrets.GITHUB_TOKEN }}

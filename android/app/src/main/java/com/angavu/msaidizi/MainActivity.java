@@ -3,7 +3,6 @@ package com.angavu.msaidizi;
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Intent;
-import android.graphics.Bitmap;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.net.Uri;
@@ -17,24 +16,16 @@ import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.webkit.PermissionRequest;
 import android.widget.ProgressBar;
-import android.webkit.ConsoleMessage;
 
 /**
- * Msaidizi CFO — Main Activity
- * Wraps the Angavu Intelligence PWA in a WebView with:
- * - Full offline support (service worker)
- * - Voice/microphone access for voice-first features
- * - Hardware back button navigation
- * - Network status awareness
+ * Msaidizi CFO - Main Activity
+ * WebView wrapper for the Angavu Intelligence PWA
  */
 public class MainActivity extends Activity {
 
     private static final String PWA_URL = "https://ovalentine964.github.io/angavu-intelligence/";
-    private static final String OFFLINE_URL = "file:///android_asset/offline.html";
-
     private WebView webView;
     private ProgressBar progressBar;
-    private boolean isOffline = false;
 
     @Override
     @SuppressLint("SetJavaScriptEnabled")
@@ -45,67 +36,32 @@ public class MainActivity extends Activity {
         webView = findViewById(R.id.webview);
         progressBar = findViewById(R.id.progress_bar);
 
-        setupWebView();
-        loadApp();
-    }
-
-    @SuppressLint("SetJavaScriptEnabled")
-    private void setupWebView() {
         WebSettings settings = webView.getSettings();
         settings.setJavaScriptEnabled(true);
         settings.setDomStorageEnabled(true);
         settings.setDatabaseEnabled(true);
         settings.setCacheMode(WebSettings.LOAD_DEFAULT);
-        settings.setAllowFileAccess(true);
-        settings.setAllowContentAccess(true);
         settings.setMediaPlaybackRequiresUserGesture(false);
-        settings.setMixedContentHandling(WebSettings.MIXED_CONTENT_COMPATIBILITY_MODE);
-
-        // Enable zoom for accessibility
-        settings.setBuiltInZoomControls(true);
-        settings.setDisplayZoomControls(false);
-        settings.setSupportZoom(true);
-
-        // Viewport settings for mobile-optimized PWA
         settings.setUseWideViewPort(true);
         settings.setLoadWithOverviewMode(true);
+        settings.setBuiltInZoomControls(true);
+        settings.setDisplayZoomControls(false);
 
         webView.setWebViewClient(new WebViewClient() {
             @Override
             public boolean shouldOverrideUrlLoading(WebView view, WebResourceRequest request) {
                 Uri url = request.getUrl();
                 String host = url.getHost();
-
-                // Keep navigation inside the app for our domain
                 if (host != null && host.contains("ovalentine964.github.io")) {
-                    return false; // load in WebView
+                    return false;
                 }
-
-                // External links open in browser
-                Intent intent = new Intent(Intent.ACTION_VIEW, url);
-                startActivity(intent);
+                startActivity(new Intent(Intent.ACTION_VIEW, url));
                 return true;
             }
 
             @Override
-            public void onPageStarted(WebView view, String url, Bitmap favicon) {
-                super.onPageStarted(view, url, favicon);
-                progressBar.setVisibility(View.VISIBLE);
-            }
-
-            @Override
             public void onPageFinished(WebView view, String url) {
-                super.onPageFinished(view, url);
                 progressBar.setVisibility(View.GONE);
-            }
-
-            @Override
-            public void onReceivedError(WebView view, int errorCode, String description, String failingUrl) {
-                super.onReceivedError(view, errorCode, description, failingUrl);
-                if (!isNetworkAvailable()) {
-                    isOffline = true;
-                    webView.loadUrl(OFFLINE_URL);
-                }
             }
         });
 
@@ -120,27 +76,21 @@ public class MainActivity extends Activity {
 
             @Override
             public void onPermissionRequest(PermissionRequest request) {
-                // Grant microphone permission for voice features
                 runOnUiThread(() -> request.grant(request.getResources()));
             }
-
-            @Override
-            public boolean onConsoleMessage(ConsoleMessage consoleMessage) {
-                // Log to console in debug builds
-                if (BuildConfig.DEBUG) {
-                    android.util.Log.d("Msaidizi", consoleMessage.message());
-                }
-                return true;
-            }
         });
-    }
 
-    private void loadApp() {
         if (isNetworkAvailable()) {
             webView.loadUrl(PWA_URL);
         } else {
-            isOffline = true;
-            webView.loadUrl(OFFLINE_URL);
+            webView.loadData(
+                "<html><body style='background:#0d2b3e;color:#fff;font-family:sans-serif;text-align:center;padding:30% 20px'>" +
+                "<h1 style='color:#E8A838'>Hakuna Intaneti</h1>" +
+                "<p>Hakuna muunganisho. Tafadhali angalia muunganisho wako.</p>" +
+                "<button onclick='location.reload()' style='margin-top:20px;padding:12px 24px;background:#E8A838;color:#0d2b3e;border:none;border-radius:8px;font-weight:bold;font-size:16px'>Jaribu Tena</button>" +
+                "</body></html>",
+                "text/html", "UTF-8"
+            );
         }
     }
 
@@ -161,34 +111,20 @@ public class MainActivity extends Activity {
     }
 
     @Override
-    protected void onSaveInstanceState(Bundle outState) {
-        super.onSaveInstanceState(outState);
-        webView.saveState(outState);
-    }
-
-    @Override
-    protected void onRestoreInstanceState(Bundle savedInstanceState) {
-        super.onRestoreInstanceState(savedInstanceState);
-        webView.restoreState(savedInstanceState);
-    }
-
-    @Override
     protected void onResume() {
         super.onResume();
-        webView.onResume();
+        if (webView != null) webView.onResume();
     }
 
     @Override
     protected void onPause() {
         super.onPause();
-        webView.onPause();
+        if (webView != null) webView.onPause();
     }
 
     @Override
     protected void onDestroy() {
-        if (webView != null) {
-            webView.destroy();
-        }
+        if (webView != null) webView.destroy();
         super.onDestroy();
     }
 }

@@ -1,21 +1,4 @@
-// Top-level build file for Msaidizi CFO Android App
-buildscript {
-    repositories {
-        google()
-        mavenCentral()
-    }
-    dependencies {
-        classpath 'com.android.tools.build:gradle:8.2.2'
-    }
-}
-
-allprojects {
-    repositories {
-        google()
-        mavenCentral()
-    }
-}
-
-task clean(type: Delete) {
-    delete rootProject.buildDir
+// Top-level build file for Msaidizi CFO
+plugins {
+    id 'com.android.application' version '8.2.2' apply false
 }

@@ -38,56 +38,62 @@ jobs:
           distribution: 'temurin'
 
       - name: Setup Gradle
-        uses: gradle/actions/setup-gradle@v3
+        uses: gradle/actions/setup-gradle@v4
 
       - name: Decode keystore
         if: github.event_name != 'pull_request'
+        working-directory: android
         run: |
-          echo "${{ secrets.KEYSTORE_BASE64 }}" | base64 -d > android/app/release.keystore
-          echo "KEYSTORE_FILE=release.keystore" >> $GITHUB_ENV
+          if [ -n "${{ secrets.KEYSTORE_BASE64 }}" ]; then
+            echo "${{ secrets.KEYSTORE_BASE64 }}" | base64 -d > app/release.keystore
+            echo "HAS_KEYSTORE=true" >> $GITHUB_ENV
+            echo "✅ Keystore decoded"
+          else
+            echo "::warning::No KEYSTORE_BASE64 secret — building unsigned APK"
+            echo "HAS_KEYSTORE=false" >> $GITHUB_ENV
+          fi
 
       - name: Build Release APK
         working-directory: android
         run: |
-          if [ -n "${{ secrets.KEYSTORE_BASE64 }}" ]; then
-            echo "Building signed release APK..."
-            ./gradlew assembleRelease \
-              -PKEYSTORE_FILE=release.keystore \
+          if [ "$HAS_KEYSTORE" = "true" ]; then
+            echo "🔐 Building signed release APK..."
+            gradle assembleRelease \
+              -PKEYSTORE_FILE=app/release.keystore \
               -PKEYSTORE_PASSWORD="${{ secrets.KEYSTORE_PASSWORD }}" \
               -PKEY_ALIAS="${{ secrets.KEY_ALIAS }}" \
-              -PKEY_PASSWORD="${{ secrets.KEY_PASSWORD }}"
+              -PKEY_PASSWORD="${{ secrets.KEY_PASSWORD }}" \
+              --no-daemon --stacktrace
           else
-            echo "::warning::No signing keystore configured. Building unsigned release APK."
-            echo "To sign: add KEYSTORE_BASE64, KEYSTORE_PASSWORD, KEY_ALIAS, KEY_PASSWORD to repo secrets."
-            ./gradlew assembleRelease
+            echo "📦 Building unsigned release APK..."
+            gradle assembleRelease --no-daemon --stacktrace
           fi
 
-      - name: Build Debug APK (always available)
-        if: failure()
-        working-directory: android
-        run: ./gradlew assembleDebug
-
-      - name: Rename APK
+      - name: Find APK
+        id: find_apk
         run: |
-          cd android/app/build/outputs/apk/release
-          if [ -f app-release.apk ]; then
-            VERSION=$(grep versionName ../../../../../app/build.gradle | sed 's/.*"\(.*\)".*/\1/')
-            cp app-release.apk "Msaidizi-CFO-v${VERSION}.apk"
-            echo "APK_NAME=Msaidizi-CFO-v${VERSION}.apk" >> $GITHUB_ENV
+          APK_PATH=$(find android/app/build/outputs/apk/release -name "*.apk" | head -1)
+          if [ -z "$APK_PATH" ]; then
+            echo "::error::No APK found in build output"
+            exit 1
           fi
+          echo "apk_path=$APK_PATH" >> $GITHUB_OUTPUT
+          VERSION=$(grep versionName android/app/build.gradle | sed 's/.*"\(.*\)".*/\1/')
+          echo "version=$VERSION" >> $GITHUB_OUTPUT
+          echo "✅ Found APK: $APK_PATH (v$VERSION)"
 
       - name: Upload APK artifact
         uses: actions/upload-artifact@v4
         with:
-          name: Msaidizi-CFO-APK
-          path: android/app/build/outputs/apk/release/*.apk
+          name: Msaidizi-CFO-v${{ steps.find_apk.outputs.version }}
+          path: ${{ steps.find_apk.outputs.apk_path }}
           retention-days: 90
 
-      - name: Create GitHub Release (on tag)
+      - name: Create GitHub Release (on version tag)
         if: startsWith(github.ref, 'refs/tags/v')
         uses: softprops/action-gh-release@v1
         with:
-          files: android/app/build/outputs/apk/release/*.apk
+          files: ${{ steps.find_apk.outputs.apk_path }}
           generate_release_notes: true
           draft: false
           prerelease: false

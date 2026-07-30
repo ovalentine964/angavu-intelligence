@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="navy_900">#0d2b3e</color>
+    <color name="navy_800">#1B4965</color>
+    <color name="iris_primary">#E8A838</color>
+    <color name="iris_secondary">#E8853D</color>
+    <color name="white">#FFFFFF</color>
+    <color name="warm_bg">#FFF8F0</color>
+</resources>

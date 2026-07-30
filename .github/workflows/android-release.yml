@@ -62,6 +62,15 @@ jobs:
       - name: Build Release APK
         working-directory: android
         run: |
+          # Show environment for debugging
+          echo "ANDROID_HOME=$ANDROID_HOME"
+          echo "ANDROID_SDK_ROOT=$ANDROID_SDK_ROOT"
+          ls $ANDROID_HOME/platforms/ 2>/dev/null || echo "No platforms found"
+          ls $ANDROID_HOME/build-tools/ 2>/dev/null || echo "No build-tools found"
+          
+          # Install required SDK components
+          sdkmanager "platforms;android-34" "build-tools;34.0.0" 2>&1 | tail -5
+          
           if [ "$HAS_KEYSTORE" = "true" ]; then
             echo "🔐 Building signed release APK..."
             gradle assembleRelease \
@@ -69,10 +78,10 @@ jobs:
               -PKEYSTORE_PASSWORD="${{ secrets.KEYSTORE_PASSWORD }}" \
               -PKEY_ALIAS="${{ secrets.KEY_ALIAS }}" \
               -PKEY_PASSWORD="${{ secrets.KEY_PASSWORD }}" \
-              --no-daemon --stacktrace
+              --no-daemon --stacktrace --info 2>&1 | tail -100
           else
             echo "📦 Building unsigned release APK..."
-            gradle assembleRelease --no-daemon --stacktrace
+            gradle assembleRelease --no-daemon --stacktrace --info 2>&1 | tail -100
           fi
 
       - name: Find APK

@@ -2,6 +2,7 @@
 <html lang="sw" dir="ltr" data-theme="warm">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' https://plausible.io https://api.github.com 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self'; connect-src 'self' https://api.github.com https://angavu.com; frame-src 'none'; base-uri 'self'; form-action 'self'">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kuhusu — Msaidizi | Angavu Intelligence</title>
     <meta name="description" content="Angavu Intelligence — tunajenga msaidizi wa biashara kwa wafanyabiashara wote wa Afrika. Msaidizi ni bure, kwa sauti, na inafanya kazi bila intaneti.">
@@ -19,9 +20,77 @@
     <link rel="alternate" hreflang="x-default" href="https://ovalentine964.github.io/angavu-intelligence/about.html">
     <meta name="theme-color" content="#FFF8F0">
     <link rel="manifest" href="manifest.json">
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="angavu-brand.css">
-    <link rel="stylesheet" href="warm-theme.css">
+    <!-- Critical CSS inlined for fast first paint -->
+    <style>
+/* === CRITICAL CSS — Above-the-fold essentials === */
+/* Inlined in <head> for fast first paint. Full styles loaded deferred. */
+
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
+body{font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;font-size:16px;line-height:1.6;color:#1A1A2E;background:#FFF8F0;overflow-x:hidden}
+
+/* Skip Link */
+.skip-link{position:absolute;top:-100%;left:1rem;padding:.5rem 1rem;background:#FF6B35;color:#fff;border-radius:.5rem;z-index:9999;font-weight:600;text-decoration:none}
+.skip-link:focus{top:1rem}
+
+/* Nav */
+.nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:0 1rem;height:4rem;display:flex;align-items:center;gap:.5rem;backdrop-filter:blur(20px) saturate(180%);-webkit-backdrop-filter:blur(20px) saturate(180%);background:rgba(255,248,240,.92);border-bottom:1px solid rgba(0,0,0,.06)}
+.nav.scrolled{box-shadow:0 2px 20px rgba(0,0,0,.08);background:rgba(255,248,240,.97)}
+.nav-logo{display:flex;align-items:center;gap:.75rem;text-decoration:none;font-weight:700;font-size:1.125rem;color:#1A1A2E;flex-shrink:0}
+.nav-logo svg,.nav-logo img{width:2rem;height:2rem}
+.nav-center{display:flex;align-items:center;gap:.25rem;flex:1;justify-content:center;overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none;min-width:0}
+.nav-center::-webkit-scrollbar{display:none}
+.nav-center a{text-decoration:none;font-size:.8rem;font-weight:500;color:#4A4A5A;padding:.4rem .6rem;border-radius:9999px;white-space:nowrap;flex-shrink:0}
+.nav-center a:hover{color:#1A1A2E;background:rgba(255,107,53,.08)}
+.nav-center a.active,.nav-center a.nav-active{color:#FF6B35;background:rgba(255,107,53,.1)}
+.nav-right{display:flex;align-items:center;gap:.5rem;flex-shrink:0}
+.nav-cta{display:inline-flex;align-items:center;gap:.5rem;padding:.5rem 1.25rem;background:#FF6B35!important;color:#FFFFFF!important;border-radius:9999px;font-weight:600;font-size:.875rem;text-decoration:none}
+
+/* Hero */
+.hero{position:relative;min-height:100vh;display:flex;flex-direction:column;overflow:hidden;background:#FFF8F0}
+.angavu-hero-banner{position:relative;overflow:hidden;background:linear-gradient(135deg,#FFF8F0 0%,#FFF2E5 40%,#FFECD8 100%)!important;min-height:auto}
+.hero-content{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:8rem 2rem 4rem;position:relative;z-index:2}
+.hero-content h1{font-size:clamp(2.5rem,6vw,4rem);font-weight:800;letter-spacing:-.03em;line-height:1.1;color:#1A1A2E;max-width:900px}
+.hero-content h1 .highlight{background:linear-gradient(135deg,#FF6B35,#E8A838);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.hero-subtitle{font-size:clamp(1rem,2vw,1.375rem);color:#4A4A5A;max-width:640px;margin-top:1.5rem;line-height:1.7}
+.hero-badge{display:inline-flex;align-items:center;gap:.5rem;padding:.5rem 1rem;background:rgba(255,107,53,.1);border:1px solid rgba(255,107,53,.25);border-radius:9999px;color:#FF6B35;font-size:.875rem;font-weight:600;margin-bottom:2rem}
+.hero-stats{display:flex;gap:3rem;margin-top:3rem}
+.hero-stats .stat{text-align:center}
+.hero-stats .stat-number{display:block;font-size:2.5rem;font-weight:800;color:#FF6B35;letter-spacing:-.02em}
+.hero-stats .stat-label{display:block;font-size:.875rem;color:#4A4A5A;margin-top:.25rem;font-weight:500}
+.hero-ctas{display:flex;gap:1rem;margin-top:2.5rem;flex-wrap:wrap;justify-content:center}
+.btn-primary{display:inline-flex;align-items:center;gap:.625rem;padding:.875rem 2rem;background:#FF6B35;color:#fff;border-radius:9999px;font-weight:700;font-size:1.125rem;text-decoration:none;border:none;cursor:pointer;box-shadow:0 4px 14px rgba(255,107,53,.3)}
+.btn-secondary{display:inline-flex;align-items:center;gap:.625rem;padding:.875rem 2rem;background:transparent;color:#1A1A2E;border:1.5px solid rgba(26,26,46,.2);border-radius:9999px;font-weight:600;font-size:1rem;text-decoration:none;cursor:pointer}
+.hero-note{margin-top:1.5rem;font-size:.875rem;color:#6B6B7B}
+
+/* Responsive */
+@media(max-width:640px){
+  .hero-content{padding:6rem 1.5rem 3rem}
+  .hero-stats{flex-direction:column;gap:1rem}
+  .hero-stats .stat-number{font-size:1.75rem}
+  .hero-ctas{flex-direction:column;align-items:center}
+}
+@media(min-width:1024px){
+  .hero-content{padding:8rem 2rem 4rem}
+  .hero-stats{gap:3rem}
+  .hero-stats .stat-number{font-size:2.5rem}
+}
+
+/* Reduced motion */
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important;scroll-behavior:auto!important}
+}
+
+    </style>
+    <!-- Non-critical CSS deferred -->
+    <link rel="stylesheet" href="style.css" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="angavu-brand.css" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="warm-theme.css" media="print" onload="this.media='all'">
+    <noscript>
+        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="angavu-brand.css">
+        <link rel="stylesheet" href="warm-theme.css">
+    </noscript>
     <script defer data-domain="angavu.com" src="https://plausible.io/js/script.tagged-events.js"></script>
     <script type="application/ld+json">
     {

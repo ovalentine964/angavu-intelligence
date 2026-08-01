@@ -23,29 +23,34 @@
 
 | Product | Audience | Status | Description |
 |---------|----------|--------|-------------|
-| **Msaidizi CFO** | Informal workers | ✅ Available — Free | Android app — AI CFO, voice-first in 15+ languages, offline-first |
-| **Economic Intelligence** | Enterprises, lenders, government | Contact us | Real-time demand intelligence, credit scoring, economic dashboards |
+| **Msaidizi CFO** | Informal workers | ✅ v0.3.0 — Free | Android app — AI CFO, voice-first in 15+ languages, offline-first, streaming STT |
+| **Economic Intelligence** | Enterprises, lenders, government | v0.3.0 | Real-time demand intelligence, credit scoring, SHAP explainability, fairness testing |
 
 > **Note:** Soko Pulse, Alama Score, and Angavu Pulse are enterprise modules available through our Economic Intelligence platform. [Contact us](mailto:hello@angavuintelligence.com) for access.
 
 ---
 
-## Latest: 18 Research Council Implementations
+## Latest: 26+ Research & Implementation Councils
 
-All 18 research/implementation councils have completed, delivering:
+All 26+ research and implementation councils have completed, delivering:
 
-- **Graph Engineering** — Tool dependency graph, knowledge graph, workflow DAG
-- **Loop Engineering** — OODA loop, self-correction, circuit breakers, drift detection
-- **Council Engineering** — 6 councils (Finance, Inventory, Market, Growth, Agriculture, Extractive), agent spawning, event bus
+- **Graph Engineering** — Tool dependency graph, knowledge graph, workflow DAG, TransE embeddings, temporal edges
+- **Loop Engineering** — OODA loop with LLM-powered DECIDE phase, memory-augmented Reflexion, circuit breakers, drift detection
+- **Council Engineering** — 6 councils (Finance, Inventory, Market, Growth, Agriculture, Extractive), inter-council debate, event sourcing, agent spawning
+- **Streaming STT** — Real-time partial transcription (20ms chunks), Moonshine v2/Parakeet ready
+- **Context Window Upgrade** — 4096 default, 8192 for advice/report intents
+- **SHAP Explainability** — Shapley value computation for credit scores (EU AI Act compliance)
+- **Fairness Testing** — Demographic parity, equalized odds, predictive parity
+- **Privacy Budget (ε-DP)** — Laplace/Gaussian noise injection, k-anonymity enforcement, data retention policies
+- **Inequality Tracker** — Gini, Theil, Palma ratio computation
 - **Alama Score Calibration** — 8 worker-type feature extractors with seasonality adjustment
-- **Health Metrics** — Occupation-hazard matrices for 10 worker types, insurance eligibility engine
-- **Service Price Discovery** — Transport, construction, beauty, repair pricing intelligence
-- **Harvest & Produce Tracking** — Farmers, fishermen, miners with yield prediction
-- **Job & Customer Marketplace** — Fundis, househelps, entertainers matching
-- **Voice-First UI** — 14 Compose screens, always-on voice, Swahili-first
-- **Onboarding & Localization** — 240 Swahili prompts, 14 language support
+- **Debt Trap Detection** — Fuliza dependency, debt-to-income ratio monitoring
+- **Weighted Job Matching** — 5-factor scoring (skill, proximity, rating, availability, price_fit)
+- **Worker Types** — 14 types including Hawker and Entertainment
+- **Voice-First UI** — 14 Compose screens, always-on voice with streaming indicator, Swahili-first
+- **Battery Saver** — 3-mode battery management (OFF/LITE/FULL)
+- **OpenTelemetry** — 26 instrumented spans, structured JSON logging, CI/CD pipeline
 - **Accessibility & Low-Literacy Design** — Icon-first, voice-everywhere, high contrast
-- **Design System** — Custom colors, typography, cards, charts, navigation
 
 ---
 
@@ -102,4 +107,4 @@ We believe every market trader, mama mboga, and boda-boda driver deserves the sa
 
 ---
 
-*Built by 18 research councils. Powered by Africa's informal economy.*
+*Built by 26+ research & implementation councils. Powered by Africa's informal economy.*

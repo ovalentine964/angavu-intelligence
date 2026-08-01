@@ -19,12 +19,14 @@ var SHELL_ASSETS = [
     './msaidizi.html',
     './testimonials.html',
     './about.html',
+    './enterprise.html',
     './404.html',
     './style.css',
     './angavu-brand.css',
     './warm-theme.css',
     './script.js',
     './design-tokens.css',
+    './critical.css',
     './manifest.json'
 ];
 
@@ -94,7 +96,7 @@ self.addEventListener('fetch', function(e) {
             }).catch(function() {
                 if (cached) return cached;
                 if (e.request.mode === 'navigate') {
-                    return caches.match('./index.html');
+                    return caches.match('./404.html');
                 }
             });
         })

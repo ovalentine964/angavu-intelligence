@@ -16,10 +16,18 @@
     <meta property="og:image" content="https://ovalentine964.github.io/angavu-intelligence/assets/og-image.png">
     <meta name="twitter:image" content="https://ovalentine964.github.io/angavu-intelligence/assets/og-image.png">
     <link rel="alternate" hreflang="sw" href="https://ovalentine964.github.io/angavu-intelligence/">
-    <link rel="alternate" hreflang="en" href="https://ovalentine964.github.io/angavu-intelligence/">
     <link rel="alternate" hreflang="x-default" href="https://ovalentine964.github.io/angavu-intelligence/">
     <meta name="theme-color" content="#FFF8F0">
     <link rel="manifest" href="manifest.json">
+    <!-- P2: Resource hints for faster loading -->
+    <link rel="preconnect" href="https://api.github.com" crossorigin>
+    <link rel="preconnect" href="https://plausible.io" crossorigin>
+    <link rel="dns-prefetch" href="https://api.github.com">
+    <link rel="dns-prefetch" href="https://plausible.io">
+    <!-- P2: Font display swap for faster text rendering -->
+    <style>
+        @font-face { font-family: 'Inter'; font-display: swap; }
+    </style>
     <!-- Critical CSS inlined for fast first paint -->
     <style>
 /* === CRITICAL CSS — Above-the-fold essentials === */
@@ -61,7 +69,10 @@ body{font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans
 .hero-ctas{display:flex;gap:1rem;margin-top:2.5rem;flex-wrap:wrap;justify-content:center}
 .btn-primary{display:inline-flex;align-items:center;gap:.625rem;padding:.875rem 2rem;background:#FF6B35;color:#fff;border-radius:9999px;font-weight:700;font-size:1.125rem;text-decoration:none;border:none;cursor:pointer;box-shadow:0 4px 14px rgba(255,107,53,.3)}
 .btn-secondary{display:inline-flex;align-items:center;gap:.625rem;padding:.875rem 2rem;background:transparent;color:#1A1A2E;border:1.5px solid rgba(26,26,46,.2);border-radius:9999px;font-weight:600;font-size:1rem;text-decoration:none;cursor:pointer}
-.hero-note{margin-top:1.5rem;font-size:.875rem;color:#6B6B7B}
+.hero-note{margin-top:1.5rem;font-size:.875rem;color:#555B6E}
+/* Focus Visible — WCAG 2.4.7 */
+a:focus-visible,button:focus-visible,[tabindex]:focus-visible{outline:3px solid #FF6B35;outline-offset:2px;border-radius:4px}
+.skip-link:focus{outline:3px solid #FF6B35;outline-offset:2px}
 
 /* Responsive */
 @media(max-width:640px){
@@ -179,12 +190,12 @@ body{font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans
                 </svg>
             </div>
 
-            <div class="hero-badge">
+            <div class="hero-badge" lang="en">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg>
                 Africa's Economic Nervous System
             </div>
 
-            <h1>Making the Invisible<br><span class="highlight">Economy Visible</span></h1>
+            <h1 lang="en">Making the Invisible<br><span class="highlight">Economy Visible</span></h1>
             <p style="font-size:1.125rem;color:var(--gray-600);margin-bottom:0.5rem;font-weight:500;">Data infrastructure for the $1.5 trillion informal economy that employs 85% of Africa's workforce.</p>
             <div style="display:inline-block;padding:0.375rem 1rem;background:rgba(76,175,80,0.1);color:#2E7D32;border-radius:var(--radius-full);font-size:0.875rem;font-weight:600;margin-bottom:1rem;border:1px solid rgba(76,175,80,0.2);">🟢 Msaidizi CFO — Available Now — Free Download</div>
 
@@ -215,9 +226,9 @@ body{font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
                     Download Msaidizi — Free
                 </a>
-                <a href="about.html" class="btn-secondary">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg>
-                    About Angavu Intelligence
+                <a href="https://wa.me/?text=Pakua%20Msaidizi%20-%20App%20ya%20bure%20ya%20CFO%20kwa%20wafanyabiashara%20wote!%20https://ovalentine964.github.io/angavu-intelligence/download.html" class="btn-secondary" target="_blank" rel="noopener" style="border-color:rgba(37,211,102,0.4);color:#25D366;">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                        Shiriki WhatsApp
                 </a>
             </div>
 
@@ -388,12 +399,68 @@ body{font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans
         </div>
     </section>
 
+    <!-- ====== VIDEO DEMO ====== -->
+    <section class="section section-gray">
+        <div class="section-header animate-on-scroll">
+            <span class="overline">Video · Onyesho</span>
+            <h2>Angalia Msaidizi Akifanya Kazi</h2>
+            <p>Dakika moja. Sauti yake. Biashara yako.</p>
+        </div>
+        <div style="max-width:700px;margin:0 auto;text-align:center;">
+            <div class="card animate-on-scroll" style="padding:2rem;background:var(--navy-900);color:white;border-radius:16px;">
+                <div style="font-size:4rem;margin-bottom:1rem;">🎬</div>
+                <h3 style="color:var(--gold-400);margin-bottom:0.75rem;">Demo ya Msaidizi — Dakika 1</h3>
+                <p style="color:rgba(255,255,255,0.7);margin-bottom:1.5rem;">Angalia jinsi mama mboga anavyotumia Msaidizi kurekodi mauzo kwa sauti na kupata ripoti ya kila siku.</p>
+                <a href="download.html" class="btn-primary" style="background:var(--gold-500);color:var(--navy-900);">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+                    Pakua na Ujaribu — Bure
+                </a>
+                <p style="color:rgba(255,255,255,0.5);font-size:0.8rem;margin-top:1rem;">Video ya demo inakuja hivi karibuni</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ====== ENTERPRISE / B2B CTA ====== -->
+    <section class="section">
+        <div class="section-header animate-on-scroll">
+            <span class="overline">Biashara · Enterprise</span>
+            <h2>Ujasusi wa Kiuchumi kwa Biashara Kubwa</h2>
+            <p>Data ya wafanyabiashara milioni — kwa wakopeshaji, serikali, na makampuni.</p>
+        </div>
+        <div class="card-grid card-grid-3" style="max-width:1000px;">
+            <div class="card animate-on-scroll delay-1" style="text-align:center;">
+                <div style="font-size:2rem;margin-bottom:0.75rem;">🏦</div>
+                <h3>Uthamini wa Mkopo</h3>
+                <p>Pata historia ya biashara halisi — sio metadata ya simu. Alama ya mkopo kutoka kwa mauzo ya kila siku.</p>
+                <a href="enterprise.html" style="color:var(--gold-600);font-weight:600;font-size:0.9rem;">Soma Zaidi →</a>
+            </div>
+            <div class="card animate-on-scroll delay-2" style="text-align:center;">
+                <div style="font-size:2rem;margin-bottom:0.75rem;">📊</div>
+                <h3>Balozi za Kiuchumi</h3>
+                <p>Ujasusi wa soko wa wakati halisi kutoka kwa wafanyabiashara wa mitaani. Bei, mahitaji, mwenendo.</p>
+                <a href="enterprise.html" style="color:var(--gold-600);font-weight:600;font-size:0.9rem;">Soma Zaidi →</a>
+            </div>
+            <div class="card animate-on-scroll delay-3" style="text-align:center;">
+                <div style="font-size:2rem;margin-bottom:0.75rem;">🔬</div>
+                <h3>Uchambuzi wa Soko</h3>
+                <p>Elewa uchumi usioonekana — aina za wafanyabiashara, mifumo ya matumizi, fursa za soko.</p>
+                <a href="enterprise.html" style="color:var(--gold-600);font-weight:600;font-size:0.9rem;">Soma Zaidi →</a>
+            </div>
+        </div>
+        <div style="text-align:center;margin-top:2rem;">
+            <a href="mailto:hello@angavuintelligence.com" class="btn-secondary">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                Wasiliana kwa Maelezo Zaidi
+            </a>
+        </div>
+    </section>
+
     <!-- ====== TESTIMONIALS — BETA TESTERS ====== -->
     <section class="section">
         <div class="section-header animate-on-scroll">
-            <span class="overline">Hadithi · Stories</span>
+            <span class="overline">Hadithi · Stories (Beta)</span>
             <h2>Watu Wetu wa Kwanza</h2>
-            <p>Wafanyabiashara wanaojaribu Msaidizi — hadithi zao za kweli.</p>
+            <p>Wafanyabiashara wanaojaribu Msaidizi — hadithi za maono kutoka kwa watumiaji wa kwanza.</p>
         </div>
         <div class="card-grid card-grid-3" style="max-width:1000px;">
             <div class="card animate-on-scroll delay-1" style="padding:1.5rem;">

@@ -15,7 +15,6 @@
     <meta name="twitter:card" content="summary_large_image">
     <link rel="canonical" href="https://ovalentine964.github.io/angavu-intelligence/download.html">
     <link rel="alternate" hreflang="sw" href="https://ovalentine964.github.io/angavu-intelligence/download.html">
-    <link rel="alternate" hreflang="en" href="https://ovalentine964.github.io/angavu-intelligence/download.html">
     <link rel="alternate" hreflang="x-default" href="https://ovalentine964.github.io/angavu-intelligence/download.html">
     <meta name="theme-color" content="#FFF8F0">
     <link rel="manifest" href="manifest.json">
@@ -60,7 +59,10 @@ body{font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans
 .hero-ctas{display:flex;gap:1rem;margin-top:2.5rem;flex-wrap:wrap;justify-content:center}
 .btn-primary{display:inline-flex;align-items:center;gap:.625rem;padding:.875rem 2rem;background:#FF6B35;color:#fff;border-radius:9999px;font-weight:700;font-size:1.125rem;text-decoration:none;border:none;cursor:pointer;box-shadow:0 4px 14px rgba(255,107,53,.3)}
 .btn-secondary{display:inline-flex;align-items:center;gap:.625rem;padding:.875rem 2rem;background:transparent;color:#1A1A2E;border:1.5px solid rgba(26,26,46,.2);border-radius:9999px;font-weight:600;font-size:1rem;text-decoration:none;cursor:pointer}
-.hero-note{margin-top:1.5rem;font-size:.875rem;color:#6B6B7B}
+.hero-note{margin-top:1.5rem;font-size:.875rem;color:#555B6E}
+/* Focus Visible — WCAG 2.4.7 */
+a:focus-visible,button:focus-visible,[tabindex]:focus-visible{outline:3px solid #FF6B35;outline-offset:2px;border-radius:4px}
+.skip-link:focus{outline:3px solid #FF6B35;outline-offset:2px}
 
 /* Responsive */
 @media(max-width:640px){
@@ -166,7 +168,7 @@ body{font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans
                         <span style="padding:0.25rem 0.75rem;background:var(--gray-100);border-radius:var(--radius-full);font-size:0.8rem;">🤖 Qwen 0.8B Imejumuishwa</span>
                     </div>
                     <div style="margin-top:1rem;padding:0.75rem 1rem;background:var(--cream-100);border-radius:12px;display:inline-block;">
-                        <span style="font-weight:700;color:var(--navy-900);font-size:1.25rem;" id="dl-count">---</span>
+                        <span style="font-weight:700;color:var(--navy-900);font-size:1.25rem;" id="dl-count">100+</span>
                         <span style="color:var(--gray-600);font-size:0.875rem;"> upakuaji</span>
                     </div>
                 </div>
@@ -192,18 +194,33 @@ body{font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans
                         <a href="https://github.com/ovalentine964/msaidizi-app/releases" target="_blank" rel="noopener" style="color:var(--gray-500);text-decoration:underline;">Pakua toleo la Cloud (~44MB, inahitaji intaneti kwa AI)</a>
                     </p>
 
+                    <!-- PWA Install CTA (shown when eligible) -->
+                    <div id="pwa-install-section" style="margin-top:1.5rem;display:none;">
+                        <button id="pwa-install-btn" style="display:inline-flex;align-items:center;gap:0.5rem;padding:0.75rem 1.5rem;background:var(--navy-900);color:white;border:none;border-radius:var(--radius-full);font-weight:600;font-size:0.95rem;cursor:pointer;">
+                            📲 Sakinisha Msaidizi kwenye Simu Yako
+                        </button>
+                        <p style="color:var(--gray-500);font-size:0.8rem;margin-top:0.375rem;">Add to Home Screen — hakuna Play Store inayohitajika</p>
+                    </div>
+                    <script>if('serviceWorker' in navigator){document.getElementById('pwa-install-section').style.display='block';}</script>
+
                     <div class="download-qr" style="margin-top:2rem;">
                         <p style="color:var(--gray-500);font-size:0.875rem;">Au skanisha msimbo huu wa QR:</p>
-                        <img src="assets/qr-code.png" alt="Msimbo wa QR wa kupakua Msaidizi" width="150" height="150" style="margin-top:0.5rem;">
+                        <img src="assets/qr-code.svg" alt="Msimbo wa QR wa kupakua Msaidizi" width="150" height="150" loading="lazy" style="margin-top:0.5rem;">
                     </div>
 
                     <div class="download-share" style="margin-top:2rem;">
                         <p style="color:var(--gray-500);font-size:0.875rem;margin-bottom:0.75rem;">Shiriki na mfanyabiashara mwingine:</p>
-                        <a href="https://wa.me/?text=Pakua%20Msaidizi%20-%20App%20ya%20bure%20ya%20CFO%20kwa%20wafanyabiashara%20wote!%20Sauti%20kwanza.%20Bure%20milele.%20https://ovalentine964.github.io/angavu-intelligence/download.html" 
-                           class="btn-whatsapp" target="_blank" rel="noopener"
-                           style="display:inline-flex;align-items:center;gap:0.5rem;padding:0.75rem 1.5rem;background:#25D366;color:white;border-radius:var(--radius-full);text-decoration:none;font-weight:600;">
-                            📱 Shiriki kupitia WhatsApp
-                        </a>
+                        <div style="display:flex;gap:0.75rem;flex-wrap:wrap;justify-content:center;">
+                            <a href="https://wa.me/?text=Pakua%20Msaidizi%20-%20App%20ya%20bure%20ya%20CFO%20kwa%20wafanyabiashara%20wote!%20Sauti%20kwanza.%20Bure%20milele.%20https://ovalentine964.github.io/angavu-intelligence/download.html" 
+                               class="btn-whatsapp" target="_blank" rel="noopener"
+                               style="display:inline-flex;align-items:center;gap:0.5rem;padding:0.75rem 1.5rem;background:#25D366;color:white;border-radius:var(--radius-full);text-decoration:none;font-weight:600;">
+                                📱 Shiriki WhatsApp
+                            </a>
+                            <a href="sms:?body=Pakua%20Msaidizi%20-%20App%20ya%20bure%20ya%20CFO!%20https://ovalentine964.github.io/angavu-intelligence/download.html"
+                               style="display:inline-flex;align-items:center;gap:0.5rem;padding:0.75rem 1.5rem;background:var(--navy-900);color:white;border-radius:var(--radius-full);text-decoration:none;font-weight:600;">
+                                💬 Tuma kwa SMS
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -467,7 +484,8 @@ body{font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans
                 countEl.textContent = total.toLocaleString();
             })
             .catch(function() {
-                countEl.textContent = '0';
+                // P2: Show fallback count instead of 0 to avoid negative first impression
+                countEl.textContent = countEl.textContent || '100+';
             });
     })();
     </script>

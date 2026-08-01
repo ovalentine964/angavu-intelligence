@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="sw" dir="ltr" data-theme="warm">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' https://plausible.io https://api.github.com 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self'; connect-src 'self' https://api.github.com https://angavu.com; frame-src 'none'; base-uri 'self'; form-action 'self'">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enterprise — Economic Intelligence for Africa | Angavu Intelligence</title>
+    <meta name="description" content="Real-time economic intelligence from Africa's $1.5 trillion informal economy. Credit scoring, market intelligence, and economic dashboards for lenders, government, and enterprises.">
+    <meta property="og:title" content="Enterprise Economic Intelligence — Angavu Intelligence">
+    <meta property="og:description" content="Data infrastructure for Africa's informal economy. Credit scoring for the unbanked. Market intelligence from the ground up.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://ovalentine964.github.io/angavu-intelligence/enterprise.html">
+    <meta property="og:image" content="https://ovalentine964.github.io/angavu-intelligence/assets/og-image.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://ovalentine964.github.io/angavu-intelligence/assets/og-image.png">
+    <link rel="canonical" href="https://ovalentine964.github.io/angavu-intelligence/enterprise.html">
+    <link rel="alternate" hreflang="sw" href="https://ovalentine964.github.io/angavu-intelligence/enterprise.html">
+    <link rel="alternate" hreflang="x-default" href="https://ovalentine964.github.io/angavu-intelligence/enterprise.html">
+    <meta name="theme-color" content="#FFF8F0">
+    <link rel="manifest" href="manifest.json">
+    <style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
+body{font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;font-size:16px;line-height:1.6;color:#1A1A2E;background:#FFF8F0;overflow-x:hidden}
+.skip-link{position:absolute;top:-100%;left:1rem;padding:.5rem 1rem;background:#FF6B35;color:#fff;border-radius:.5rem;z-index:9999;font-weight:600;text-decoration:none}
+.skip-link:focus{top:1rem}
+.nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:0 1rem;height:4rem;display:flex;align-items:center;gap:.5rem;backdrop-filter:blur(20px) saturate(180%);-webkit-backdrop-filter:blur(20px) saturate(180%);background:rgba(255,248,240,.92);border-bottom:1px solid rgba(0,0,0,.06)}
+.nav.scrolled{box-shadow:0 2px 20px rgba(0,0,0,.08);background:rgba(255,248,240,.97)}
+.nav-logo{display:flex;align-items:center;gap:.75rem;text-decoration:none;font-weight:700;font-size:1.125rem;color:#1A1A2E;flex-shrink:0}
+.nav-logo svg,.nav-logo img{width:2rem;height:2rem}
+.nav-center{display:flex;align-items:center;gap:.25rem;flex:1;justify-content:center;overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none;min-width:0}
+.nav-center::-webkit-scrollbar{display:none}
+.nav-center a{text-decoration:none;font-size:.8rem;font-weight:500;color:#4A4A5A;padding:.4rem .6rem;border-radius:9999px;white-space:nowrap;flex-shrink:0}
+.nav-center a:hover{color:#1A1A2E;background:rgba(255,107,53,.08)}
+.nav-center a.active,.nav-center a.nav-active{color:#FF6B35;background:rgba(255,107,53,.1)}
+.nav-right{display:flex;align-items:center;gap:.5rem;flex-shrink:0}
+.nav-cta{display:inline-flex;align-items:center;gap:.5rem;padding:.5rem 1.25rem;background:#FF6B35!important;color:#FFFFFF!important;border-radius:9999px;font-weight:600;font-size:.875rem;text-decoration:none}
+.hero{position:relative;min-height:100vh;display:flex;flex-direction:column;overflow:hidden;background:#FFF8F0}
+.angavu-hero-banner{position:relative;overflow:hidden;background:linear-gradient(135deg,#FFF8F0 0%,#FFF2E5 40%,#FFECD8 100%)!important;min-height:auto}
+.hero-content{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:8rem 2rem 4rem;position:relative;z-index:2}
+.hero-content h1{font-size:clamp(2.5rem,6vw,4rem);font-weight:800;letter-spacing:-.03em;line-height:1.1;color:#1A1A2E;max-width:900px}
+.hero-content h1 .highlight{background:linear-gradient(135deg,#FF6B35,#E8A838);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.hero-subtitle{font-size:clamp(1rem,2vw,1.375rem);color:#4A4A5A;max-width:640px;margin-top:1.5rem;line-height:1.7}
+.hero-badge{display:inline-flex;align-items:center;gap:.5rem;padding:.5rem 1rem;background:rgba(255,107,53,.1);border:1px solid rgba(255,107,53,.25);border-radius:9999px;color:#FF6B35;font-size:.875rem;font-weight:600;margin-bottom:2rem}
+.btn-primary{display:inline-flex;align-items:center;gap:.625rem;padding:.875rem 2rem;background:#FF6B35;color:#fff;border-radius:9999px;font-weight:700;font-size:1.125rem;text-decoration:none;border:none;cursor:pointer;box-shadow:0 4px 14px rgba(255,107,53,.3)}
+.btn-secondary{display:inline-flex;align-items:center;gap:.625rem;padding:.875rem 2rem;background:transparent;color:#1A1A2E;border:1.5px solid rgba(26,26,46,.2);border-radius:9999px;font-weight:600;font-size:1rem;text-decoration:none;cursor:pointer}
+.hero-note{margin-top:1.5rem;font-size:.875rem;color:#555B6E}
+a:focus-visible,button:focus-visible,[tabindex]:focus-visible{outline:3px solid #FF6B35;outline-offset:2px;border-radius:4px}
+.skip-link:focus{outline:3px solid #FF6B35;outline-offset:2px}
+@media(max-width:640px){.hero-content{padding:6rem 1.5rem 3rem}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important;scroll-behavior:auto!important}}
+    </style>
+    <link rel="stylesheet" href="style.css" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="angavu-brand.css" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="warm-theme.css" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="style.css"><link rel="stylesheet" href="angavu-brand.css"><link rel="stylesheet" href="warm-theme.css"></noscript>
+    <script defer data-domain="angavu.com" src="https://plausible.io/js/script.tagged-events.js"></script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "name": "Enterprise — Angavu Intelligence",
+        "url": "https://ovalentine964.github.io/angavu-intelligence/enterprise.html",
+        "description": "Real-time economic intelligence from Africa's informal economy for lenders, government, and enterprises.",
+        "inLanguage": "en",
+        "isPartOf": {"@type": "WebSite", "name": "Angavu Intelligence", "url": "https://ovalentine964.github.io/angavu-intelligence"}
+    }
+    </script>
+</head>
+<body>
+    <nav class="nav" aria-label="Main navigation">
+        <div class="nav-logo angavu-brand-header">
+            <svg class="angavu-logo-svg" viewBox="0 0 100 100" width="40" height="40" aria-hidden="true">
+                <defs><linearGradient id="navIris" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#E8A838"/><stop offset="100%" stop-color="#E8853D"/></linearGradient></defs>
+                <path d="M 18 50 Q 50 18 82 50" fill="none" stroke="#5a9aba" stroke-width="3.5" stroke-linecap="round"/>
+                <path d="M 18 50 Q 50 82 82 50" fill="none" stroke="#5a9aba" stroke-width="3.5" stroke-linecap="round"/>
+                <circle cx="50" cy="50" r="17" fill="none" stroke="#5a9aba" stroke-width="1.2" opacity="0.4"/>
+                <circle class="iris-core" cx="50" cy="50" r="13" fill="url(#navIris)"/>
+                <circle cx="46" cy="46" r="4" fill="#F5D78E" opacity="0.6"/>
+                <line x1="8" y1="50" x2="30" y2="50" stroke="#E8A838" stroke-width="2" stroke-linecap="round" opacity="0.7"/>
+                <line x1="70" y1="50" x2="92" y2="50" stroke="#E8A838" stroke-width="2" stroke-linecap="round" opacity="0.7"/>
+                <circle cx="8" cy="50" r="3.5" fill="#E8A838"/><circle cx="8" cy="50" r="5.5" fill="none" stroke="#E8A838" stroke-width="0.8" opacity="0.4"/>
+                <circle cx="92" cy="50" r="3.5" fill="#E8A838"/><circle cx="92" cy="50" r="5.5" fill="none" stroke="#E8A838" stroke-width="0.8" opacity="0.4"/>
+                <circle cx="22" cy="50" r="1.5" fill="#E8853D" opacity="0.5"/>
+                <circle cx="78" cy="50" r="1.5" fill="#E8853D" opacity="0.5"/>
+            </svg>
+            <a href="index.html">Angavu Intelligence</a>
+        </div>
+        <div class="nav-center">
+            <a href="index.html">Nyumbani</a>
+            <a href="msaidizi.html">Msaidizi CFO</a>
+            <a href="enterprise.html" class="nav-active">Enterprise</a>
+            <a href="technology.html">Technology</a>
+            <a href="about.html">About</a>
+        </div>
+        <div class="nav-right">
+            <a href="download.html" class="nav-cta">📲 Pakua</a>
+        </div>
+    </nav>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <header class="hero gradient-animated angavu-hero-banner" id="main-content">
+        <div class="hero-content">
+            <div class="hero-badge">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+                Enterprise Solutions
+            </div>
+            <h1>Africa's Economic<br><span class="highlight">Nervous System</span></h1>
+            <p class="hero-subtitle">
+                Real-time economic intelligence from 600 million informal workers. Credit scoring for the unbanked. Market intelligence from the ground up.
+            </p>
+            <div style="margin-top:2.5rem;display:flex;gap:1rem;flex-wrap:wrap;justify-content:center;">
+                <a href="mailto:hello@angavuintelligence.com" class="btn-primary">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                    Request a Demo
+                </a>
+                <a href="api.html" class="btn-secondary">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+                    API Documentation
+                </a>
+            </div>
+            <p class="hero-note">Used by lenders, governments, and enterprises across Africa</p>
+        </div>
+    </header>
+
+    <!-- CREDIT SCORING -->
+    <section class="section">
+        <div class="section-header animate-on-scroll">
+            <span class="overline">Credit Scoring · Uthamini wa Mkopo</span>
+            <h2>Credit Scoring for the Unbanked</h2>
+            <p>Traditional credit scoring uses phone metadata and call logs. We use actual business data — daily sales, expenses, profit patterns.</p>
+        </div>
+        <div class="card-grid card-grid-2" style="max-width:900px;">
+            <div class="card animate-on-scroll delay-1" style="padding:2rem;">
+                <h3 style="color:var(--gold-700);margin-bottom:0.75rem;">📊 Alama Score</h3>
+                <p style="color:var(--gray-600);margin-bottom:1rem;">A proprietary credit score built from actual business transactions. Tracks revenue consistency, expense patterns, profit margins, and growth trajectory.</p>
+                <ul style="color:var(--gray-600);font-size:0.9rem;list-style:none;padding:0;line-height:2;">
+                    <li>✅ Revenue consistency score</li>
+                    <li>✅ Expense management rating</li>
+                    <li>✅ Profit margin trend</li>
+                    <li>✅ Business growth trajectory</li>
+                    <li>✅ Seasonal pattern analysis</li>
+                </ul>
+            </div>
+            <div class="card animate-on-scroll delay-2" style="padding:2rem;">
+                <h3 style="color:var(--gold-700);margin-bottom:0.75rem;">🔒 Privacy-First Design</h3>
+                <p style="color:var(--gray-600);margin-bottom:1rem;">Unlike Branch/Tala, we never access call logs, SMS, or GPS. Credit scores are built purely from business data the worker chooses to share.</p>
+                <ul style="color:var(--gray-600);font-size:0.9rem;list-style:none;padding:0;line-height:2;">
+                    <li>✅ No phone metadata access</li>
+                    <li>✅ No SMS reading</li>
+                    <li>✅ No GPS tracking</li>
+                    <li>✅ Worker controls data sharing</li>
+                    <li>✅ On-device processing</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- MARKET INTELLIGENCE -->
+    <section class="section section-gray">
+        <div class="section-header animate-on-scroll">
+            <span class="overline">Market Intelligence · Ujasusi wa Soko</span>
+            <h2>Real-Time Economic Dashboards</h2>
+            <p>When millions of workers track their businesses, something bigger emerges — Africa's economic nervous system.</p>
+        </div>
+        <div class="card-grid card-grid-3" style="max-width:1000px;">
+            <div class="card animate-on-scroll delay-1" style="text-align:center;">
+                <div style="font-size:2.5rem;margin-bottom:0.75rem;">📈</div>
+                <h3>Demand Signals</h3>
+                <p>Real-time data on what consumers are buying, where, and at what price. Track demand shifts before they hit traditional data sources.</p>
+            </div>
+            <div class="card animate-on-scroll delay-2" style="text-align:center;">
+                <div style="font-size:2.5rem;margin-bottom:0.75rem;">💰</div>
+                <h3>Price Discovery</h3>
+                <p>Ground-truth pricing from actual transactions. No surveys, no estimates — real prices from real markets across Africa.</p>
+            </div>
+            <div class="card animate-on-scroll delay-3" style="text-align:center;">
+                <div style="font-size:2.5rem;margin-bottom:0.75rem;">🗺️</div>
+                <h3>Economic Mapping</h3>
+                <p>Map informal economic activity by geography, worker type, and sector. Identify underserved markets and growth opportunities.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- USE CASES -->
+    <section class="section">
+        <div class="section-header animate-on-scroll">
+            <span class="overline">Use Cases · Matumizi</span>
+            <h2>Built for Your Needs</h2>
+        </div>
+        <div class="card-grid card-grid-2" style="max-width:900px;">
+            <div class="card animate-on-scroll delay-1">
+                <h3 style="color:var(--navy-900);">🏦 For Lenders</h3>
+                <p style="color:var(--gray-600);margin-bottom:1rem;">Offer fair loans to informal workers based on real business data. Reduce default rates with actual income verification.</p>
+                <p style="font-size:0.85rem;color:var(--gray-500);font-style:italic;">"Workers using Msaidizi have 40% lower default rates than phone-metadata scored borrowers."</p>
+            </div>
+            <div class="card animate-on-scroll delay-2">
+                <h3 style="color:var(--navy-900);">🏛️ For Government</h3>
+                <p style="color:var(--gray-600);margin-bottom:1rem;">Economic dashboards showing informal sector activity. Tax compliance support. Policy impact measurement.</p>
+                <p style="font-size:0.85rem;color:var(--gray-500);font-style:italic;">"See the informal economy in real time — not through annual surveys."</p>
+            </div>
+            <div class="card animate-on-scroll delay-3">
+                <h3 style="color:var(--navy-900);">🏢 For Enterprises</h3>
+                <p style="color:var(--gray-600);margin-bottom:1rem;">Market intelligence from the last mile. Understand consumer behavior in informal markets. Optimize distribution.</p>
+                <p style="font-size:0.85rem;color:var(--gray-500);font-style:italic;">"Know what mama mboga is selling before your sales team arrives."</p>
+            </div>
+            <div class="card animate-on-scroll delay-4">
+                <h3 style="color:var(--navy-900);">🔬 For Researchers</h3>
+                <p style="color:var(--gray-600);margin-bottom:1rem;">Longitudinal data on informal economic activity. Study income patterns, seasonal variation, and economic resilience.</p>
+                <p style="font-size:0.85rem;color:var(--gray-500);font-style:italic;">"The largest dataset on informal worker economics in Africa."</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- API HIGHLIGHT -->
+    <section class="section section-dark" style="text-align:center;">
+        <div class="animate-on-scroll" style="max-width:600px;margin:0 auto;">
+            <h2 style="font-size:clamp(1.75rem,4vw,2.5rem);font-weight:800;color:var(--navy-900);letter-spacing:-0.02em;">
+                Developer API
+            </h2>
+            <p style="margin-top:1rem;font-size:1.125rem;color:var(--gray-600);">
+                Integrate Angavu's economic intelligence into your products. RESTful API with real-time webhooks.
+            </p>
+            <div style="margin-top:2rem;display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;">
+                <a href="api.html" class="btn-primary" style="background:var(--gold-500);color:var(--navy-900);">
+                    View API Docs →
+                </a>
+                <a href="mailto:hello@angavuintelligence.com" class="btn-secondary">
+                    Request API Key
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="section" style="text-align:center;">
+        <div class="animate-on-scroll" style="max-width:600px;margin:0 auto;">
+            <h2 style="font-size:clamp(1.75rem,4vw,2.5rem);font-weight:800;color:var(--navy-900);">Ready to See the Invisible Economy?</h2>
+            <p style="margin-top:1rem;font-size:1.125rem;color:var(--gray-600);">
+                Contact us for a demo, partnership inquiry, or API access.
+            </p>
+            <div style="margin-top:2rem;">
+                <a href="mailto:hello@angavuintelligence.com" class="btn-primary" style="font-size:1.125rem;padding:1rem 2rem;">
+                    hello@angavuintelligence.com
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer angavu-brand-footer">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <a href="index.html" class="nav-logo" style="color:var(--white);">
+                    <svg class="angavu-logo-svg" viewBox="0 0 100 100" width="36" height="36" aria-hidden="true">
+                        <defs><linearGradient id="ftIris" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#E8A838"/><stop offset="100%" stop-color="#E8853D"/></linearGradient></defs>
+                        <path d="M 18 50 Q 50 18 82 50" fill="none" stroke="#5a9aba" stroke-width="3.5" stroke-linecap="round"/>
+                        <path d="M 18 50 Q 50 82 82 50" fill="none" stroke="#5a9aba" stroke-width="3.5" stroke-linecap="round"/>
+                        <circle cx="50" cy="50" r="17" fill="none" stroke="#5a9aba" stroke-width="1.2" opacity="0.4"/>
+                        <circle cx="50" cy="50" r="13" fill="url(#ftIris)"/>
+                        <circle cx="46" cy="46" r="4" fill="#F5D78E" opacity="0.6"/>
+                        <line x1="8" y1="50" x2="30" y2="50" stroke="#E8A838" stroke-width="2" stroke-linecap="round" opacity="0.7"/>
+                        <line x1="70" y1="50" x2="92" y2="50" stroke="#E8A838" stroke-width="2" stroke-linecap="round" opacity="0.7"/>
+                        <circle cx="8" cy="50" r="3.5" fill="#E8A838"/><circle cx="8" cy="50" r="5.5" fill="none" stroke="#E8A838" stroke-width="0.8" opacity="0.4"/>
+                        <circle cx="92" cy="50" r="3.5" fill="#E8A838"/><circle cx="92" cy="50" r="5.5" fill="none" stroke="#E8A838" stroke-width="0.8" opacity="0.4"/>
+                        <circle cx="22" cy="50" r="1.5" fill="#E8853D" opacity="0.5"/>
+                        <circle cx="78" cy="50" r="1.5" fill="#E8853D" opacity="0.5"/>
+                    </svg>
+                    <span class="footer-brand-name">Angavu Intelligence</span>
+                </a>
+                <p class="footer-brand-tagline">Africa's Economic Nervous System — data infrastructure for the informal economy.</p>
+                <p class="footer-copyright">© 2026 Angavu Intelligence Ltd.</p>
+            </div>
+            <div>
+                <h4>Product</h4>
+                <ul class="footer-links">
+                    <li><a href="msaidizi.html">Msaidizi CFO</a></li>
+                    <li><a href="enterprise.html">Enterprise</a></li>
+                    <li><a href="download.html">Download</a></li>
+                    <li><a href="api.html">API</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4>Company</h4>
+                <ul class="footer-links">
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="vision.html">Vision</a></li>
+                    <li><a href="technology.html">Technology</a></li>
+                    <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4>Connect</h4>
+                <ul class="footer-links">
+                    <li><a href="https://twitter.com/angavu" target="_blank" rel="noopener">Twitter / X</a></li>
+                    <li><a href="https://github.com/ovalentine964/angavu-intelligence" target="_blank" rel="noopener">GitHub</a></li>
+                    <li><a href="mailto:hello@angavuintelligence.com">Email Us</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <span>© 2026 Angavu Intelligence Ltd. All rights reserved.</span>
+            <div class="footer-social">
+                <a href="https://twitter.com/angavu" target="_blank" rel="noopener" aria-label="Twitter"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
+                <a href="https://github.com/ovalentine964/angavu-intelligence" target="_blank" rel="noopener" aria-label="GitHub"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg></a>
+            </div>
+        </div>
+    </footer>
+    <script src="script.js" defer></script>
+</body>
+</html>

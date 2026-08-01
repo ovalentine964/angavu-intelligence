@@ -5,6 +5,32 @@
 (function () {
   'use strict';
 
+  // --- PWA Install Prompt ---
+  var deferredPrompt = null;
+  window.addEventListener('beforeinstallprompt', function (e) {
+    e.preventDefault();
+    deferredPrompt = e;
+    // Show custom install CTA if present
+    var installBtn = document.getElementById('pwa-install-btn');
+    if (installBtn) {
+      installBtn.style.display = 'inline-flex';
+      installBtn.addEventListener('click', function () {
+        installBtn.style.display = 'none';
+        deferredPrompt.prompt();
+        deferredPrompt.userChoice.then(function (choiceResult) {
+          if (choiceResult.outcome === 'accepted' && window.plausible) {
+            plausible('PWAInstall', {props: {outcome: 'accepted'}});
+          }
+          deferredPrompt = null;
+        });
+      });
+    }
+  });
+  window.addEventListener('appinstalled', function () {
+    deferredPrompt = null;
+    if (window.plausible) plausible('PWAInstall', {props: {outcome: 'installed'}});
+  });
+
   // --- Navigation Scroll Effect ---
   const nav = document.querySelector('.nav');
   if (nav) {
@@ -368,4 +394,53 @@
       canvas.appendChild(line);
     }
   })();
+
+  // ── P2: A/B Testing Framework ──
+  // Lightweight client-side A/B testing with Plausible event tracking.
+  // Usage: abTest('cta-copy', ['Pakua Bure', 'Pakua APK', 'Anza Sasa'])
+  // Returns the selected variant and tracks it.
+  window.abTest = function(testName, variants) {
+    // Deterministic assignment based on visitor ID (stored in localStorage)
+    var visitorId = localStorage.getItem('angavu-vid');
+    if (!visitorId) {
+      visitorId = Math.random().toString(36).substring(2, 10);
+      localStorage.setItem('angavu-vid', visitorId);
+    }
+    // Simple hash to pick variant
+    var hash = 0;
+    for (var i = 0; i < testName.length; i++) {
+      hash = ((hash << 5) - hash) + testName.charCodeAt(i);
+      hash |= 0;
+    }
+    var idx = Math.abs(hash + visitorId.charCodeAt(0)) % variants.length;
+    var variant = variants[idx];
+
+    // Track the assignment
+    if (window.plausible) {
+      plausible('ABTest', {props: {test: testName, variant: variant}});
+    }
+    return variant;
+  };
+
+  // ── P2: Analytics Dashboard Helper ──
+  // Exposes a simple function to view page analytics in console.
+  // Usage: angavuAnalytics() in browser console.
+  window.angavuAnalytics = function() {
+    console.table({
+      'Page': location.pathname,
+      'Visitor ID': localStorage.getItem('angavu-vid') || 'anonymous',
+      'Session Start': sessionStorage.getItem('angavu-session-start') || 'unknown',
+      'PWA Installed': window.matchMedia('(display: standalone)').matches ? 'Yes' : 'No',
+      'Online': navigator.onLine ? 'Yes' : 'No',
+      'Language': navigator.language,
+      'Screen': screen.width + 'x' + screen.height,
+      'Viewport': window.innerWidth + 'x' + window.innerHeight,
+      'Connection': (navigator.connection || {}).effectiveType || 'unknown'
+    });
+  };
+
+  // Track session start
+  if (!sessionStorage.getItem('angavu-session-start')) {
+    sessionStorage.setItem('angavu-session-start', new Date().toISOString());
+  }
 })();

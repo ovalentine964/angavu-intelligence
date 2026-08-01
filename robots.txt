@@ -1,5 +1,18 @@
+# Angavu Intelligence — Robots.txt
+# https://angavu.com
+
 User-agent: *
 Allow: /
+Disallow: /api/
+Disallow: /admin/
+Disallow: /.well-known/
 Disallow: /docs/
+Disallow: /research/
+Disallow: /android/
+Disallow: /node_modules/
 
+# Sitemap
 Sitemap: https://angavu.com/sitemap.xml
+
+# Crawl-delay (be polite to our GitHub Pages hosting)
+Crawl-delay: 1

@@ -252,7 +252,7 @@ jobs:
             echo "  $page: Perf=$PERF A11y=$ACCESS BP=$BP SEO=$SEO"
 
             # Fail if performance is critically low
-            if [ "$PERF" != "N/A" ] && [ "$PERF" -lt 50 ]; then
+            if [ "$PERF" != "N/A" ] && [ "$PERF" -lt 80 ]; then
               echo "::error::$page has critically low performance score: $PERF"
             fi
           done

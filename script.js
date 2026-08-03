@@ -444,3 +444,16 @@
     sessionStorage.setItem('angavu-session-start', new Date().toISOString());
   }
 })();
+
+// Register Service Worker for offline support
+if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+        navigator.serviceWorker.register('sw.js')
+            .then(reg => {
+                console.log('Service Worker registered:', reg.scope);
+                // Check for updates periodically
+                setInterval(() => reg.update(), 60 * 60 * 1000);
+            })
+            .catch(err => console.error('Service Worker registration failed:', err));
+    });
+}
